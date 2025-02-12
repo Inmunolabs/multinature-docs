@@ -15,3 +15,5 @@
 3. [FRONTEND](./3.%20FRONTEND/README.md)
 
 4. [Negocio](./4.%20Negocio/README.md)
+   1. [Redacción de tareas y generación de CSV](./4.%20Negocio/RedaccionDeTareas.md)
+   
