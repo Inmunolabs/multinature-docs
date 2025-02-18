@@ -5,7 +5,7 @@
 ## Contenido
 
 1. [Definición del proyecto](1.%20Definicion%20del%20proyecto/README.md)
-   1. [¿Qué somos?, ¿A quién atendemos?, Prioridades y Objetivos](1.%201er%20Reunion%20-%20feb-06-2025/nosotros/nosotros.md)
+   1. [¿Qué somos?, ¿A quién atendemos?, Prioridades y Objetivos](./1.%20Definicion%20del%20proyecto/nosotros/nosotros.md)
    2. [Requerimientos de Software](https://docs.google.com/document/d/1RmOMpKeZ9XW2bLhkbv60YhoURoQoVh6NG7p35GC2HfY/edit?tab=t.0#heading=h.ch0ua7wmgt2e)
    3. [Pizarrones (Fotografías)](https://drive.google.com/drive/folders/1xzSU2FvYMJ0FUUQ61IK06SSVKvtlDxv4?hl=es)
    4. [Plan de dieta por Lorena Mendizabal](https://drive.google.com/drive/folders/1xo10DQko5NIA4IcDTyH213Qk4CWEk86f?hl=es)
