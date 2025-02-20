@@ -11,6 +11,8 @@
    4. [Plan de dieta por Lorena Mendizabal](https://drive.google.com/drive/folders/1xo10DQko5NIA4IcDTyH213Qk4CWEk86f?hl=es)
    5. [Asesorías David](https://drive.google.com/drive/folders/1XLMn-3zAtnoJp-h9YuRxb90oBlFK3Xw3?hl=es)
       1. [Excel fórmulas dietocálculo](https://docs.google.com/spreadsheets/d/1s78fjfSze-kaOj6Tkxzc-PolM9R1wRvm/edit?gid=622333526#gid=622333526). Se recomienda descargar el archivo y trabajarlo desde Excel, alguna información podría no reflejarse igual desde Google Sheets
+   6. [Epicas e Historias de Usuario](./1.%20Definicion%20del%20proyecto/epics&UserStories.png)
+      
   
 2. [BACKEND](./2.%20BACKEND/README.md)
    1. Users
