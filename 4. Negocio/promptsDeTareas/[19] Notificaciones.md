@@ -1,12 +1,14 @@
 # [19] Notificaciones
 
 - [19003] Diseñar el envio de notificaciones haciendo uso de patrones de diseño
+
   Contexto: El sistema enviará notificaciones por correo, por whatsapp y también lo hara mediante un CRUD de notificaciones, diseñar una funcionalidad para permitir que las notificaciones se puedan enviar por estos tres medios, considerando la posibilidad de que algunas notificaciones podrían ser enviadas solo por uno de los tres medios mencionados.
   De momento toda la funcionalidad del Whatsapp no esta desarrollada ni definida pero tomarlo en cuenta para este diseño, además cabe mencionar que en un futuro se podrían implementar nuevos métodos de comunicación como mensajes SMS o alguna red social como Instagram o Facebook
   Tags: back
   Assignee: Samuel Reveles
 
 - [19006] Notificar al usuario y/o al especialista sobre una actualización o cancelación de cita
+
   Contexto: El usuario y el especialista deben ser notificados cada que se actualice o se cancele una cita.
   Tomar en cuenta los siguientes únicos y posibles tres escenarios:
 
@@ -18,6 +20,7 @@
     Assignee: Samuel Reveles
 
 - [19006] Notificar al usuario y/o al especialista sobre el agendamiento de una nueva cita
+
   Contexto: Cuando el usuario y/o el especialista agenden una nueva cita cada uno debe ser notificado, en dicha notificación se debe aclarar que se espera la confirmación de la cita y esta acción deberá de generar dos posibles escenarios:
 
   - Si el especialista tiene configurado el cobro de anticipo de confirmación de cita (campo `charge_advance_payment` de la nueva tabla `specialist_settings` en `true`) se deberá generar una orden de pago de la confirmación de la cita para que el usuario efectue el pago de la misma.
@@ -29,6 +32,7 @@
     Assignee: Samuel Reveles
 
 - [19007] Notificar al usuario y/o al especialista sobre la confirmación de una nueva cita
+
   Contexto: Cuando el usuario y/o el especialista confirmen la asistencia a una nueva cita cada uno debe ser notificado.
   Tomar en cuenta los siguientes escenarios:
 
