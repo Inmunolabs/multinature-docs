@@ -9,3 +9,5 @@
 5. [Asesorías David](https://drive.google.com/drive/folders/1XLMn-3zAtnoJp-h9YuRxb90oBlFK3Xw3?hl=es)
    1. [Excel fórmulas dietocálculo](https://docs.google.com/spreadsheets/d/1s78fjfSze-kaOj6Tkxzc-PolM9R1wRvm/edit?gid=622333526#gid=622333526). Se recomienda descargar el archivo y trabajarlo desde Excel, alguna información podría no reflejarse igual desde Google Sheets
 6. [Epicas e Historias de Usuario](./epics&UserStories.png)
+7. Citas
+   1. [Creación de citas](./creacionDeCitas.md)
