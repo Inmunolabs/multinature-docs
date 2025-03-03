@@ -72,5 +72,25 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
   Assignee: Erick Robles
 
-- [0300?] Crear endpoint para que paciente confirme una cita
-  // TODO
+Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:
+
+- ✅ [03009] Generar una orden de pago para Cobro de confirmación de la cita
+
+  Contexto: Al agendar una cita si el especialista citado tiene configurado el cobro de anticipo de confirmación de cita (campo `charge_advance_payment` de la nueva tabla `specialist_settings` mayor a 0) generar una orden de pago para confirmar la cita del usuario a partir de los parametros de la cita y el valor del campo `charge_advance_payment`.
+  Tags: back
+  Assignee: Samuel Reveles
+
+- ✅ [03010] Crear webhook del pago de la confirmación de la cita
+
+  Contexto: Una vez que el usaurio efectue el pago de la confirmación de la cita se deberá notificar al usuario y al especialista la confirmación de la misma ([19007] Notificar al usuario y al especialista sobre la confirmación de una nueva cita). El objetivo de la tarear es crear el webhook que permitirá operar esta lógica.
+  Tags: back
+  Assignee: Samuel Reveles
+
+- ✅ [03011] Crear endpoint para confirmación de cita
+
+  Contexto: Al agendar una cita si el especialista citado no tiene configurado el cobro de anticipo de confirmación de cita (campo `charge_advance_payment` de la nueva tabla `specialist_settings` igual o menor a 0), el usuario citado o el especialista (depende quien creo la cita) deberá poder confirmar su cita. El objetivo de esta tarea es crear el endpoint `GET {{bookingsHost}}/bookings/confirm/:id` en el bookings-api para permitir esa confirmación. El endpoint deberá contar con valiaciónes de relaciones entre los dos citados, de que la constante `charge_advance_payment` de la tabla `specialist_settings` sea igual o menor a 0, etc.
+  Después de esto se deberá notificar la confirmación de cita al usuario y al especialista ([19007] Notificar al usuario y al especialista sobre la confirmación de una nueva cita).
+  Tags: back
+  Assignee: Samuel Reveles
+
+- [03012] Guardar la orden de pago de confirmación de cita en la base de datos
