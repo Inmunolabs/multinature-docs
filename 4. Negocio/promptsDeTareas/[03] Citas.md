@@ -93,4 +93,8 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
   Assignee: Samuel Reveles
 
-- [03012] Guardar la orden de pago de confirmación de cita en la base de datos
+- ✅ [03012] Confirmación de cita para especialistas 
+  
+  Contexto: Cuando un usuario agende una cita, el especialista la confirma seleccionando el lugar de la cita. La lógica deberá quedar en el endpoint `PATCH /bookings/:id`. Tomar en cuenta validaciones como que los domicilios tengan la bandera `isClinic` en `true` y que las direcciones sean direcciones del especialista
+  Tags: back
+  Assignee: Erick Robles
