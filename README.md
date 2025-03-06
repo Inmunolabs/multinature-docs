@@ -32,3 +32,4 @@
       2. [[03] Citas](./4.%20Negocio/promptsDeTareas/[03]%20Citas.md)
       3. [[17.1] ConfiguracionesDeEspecialistas](./4.%20Negocio/promptsDeTareas/[17.1]%20ConfiguracionesDeEspecialistas.md)
       4. [[19] Notificaciones](./4.%20Negocio/promptsDeTareas/[19]%20Notificaciones.md)
+   4. [Red de usuarios de Prueba](4.%20Negocio/redDeUsuariosDePrueba.png)

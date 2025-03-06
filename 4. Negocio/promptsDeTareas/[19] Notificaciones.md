@@ -1,6 +1,5 @@
 # [19] Notificaciones
 
-
 Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:
 
 - ✅ [19003] Diseñar el envio de notificaciones haciendo uso de patrones de diseño

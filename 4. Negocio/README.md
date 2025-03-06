@@ -9,6 +9,7 @@
    2. [[03] Citas](./promptsDeTareas/[03]%20Citas.md)
    3. [[17.1] ConfiguracionesDeEspecialistas](./promptsDeTareas/[17.1]%20ConfiguracionesDeEspecialistas.md)
    4. [[19] Notificaciones](./promptsDeTareas/[19]%20Notificaciones.md)
+4. [Red de usuarios de Prueba](./redDeUsuariosDePrueba.png)
 
 ## Nomenclatura
 
