@@ -7,9 +7,13 @@
 3. [Prompts de tareas](./promptsDeTareas/)
    1. [[02] Direcciones](./promptsDeTareas/[02]%20Direcciones.md)
    2. [[03] Citas](./promptsDeTareas/[03]%20Citas.md)
-   3. [[17.1] ConfiguracionesDeEspecialistas](./promptsDeTareas/[17.1]%20ConfiguracionesDeEspecialistas.md)
-   4. [[19] Notificaciones](./promptsDeTareas/[19]%20Notificaciones.md)
+   3. [[07] Pedidos](./promptsDeTareas/[07]%20Pedidos.md)
+   4. [[11] Users](./promptsDeTareas/[11]%20Users.md)
+   5. [[17.1] ConfiguracionesDeEspecialistas](./promptsDeTareas/[17.1]%20ConfiguracionesDeEspecialistas.md)
+   6. [[19] Notificaciones](./promptsDeTareas/[19]%20Notificaciones.md)
+   7. [[26] BUGS](./promptsDeTareas/[26]%20BUGS.md)
 4. [Red de usuarios de Prueba](./redDeUsuariosDePrueba.png)
+5. [Servicios](./servicios.png)
 
 ## Nomenclatura
 
