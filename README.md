@@ -30,7 +30,7 @@
 
 4. [Negocio](./4.%20Negocio/README.md)
    1. [Información Landing page - v1.0.pptx](https://docs.google.com/presentation/d/1RVrquVY3e3JVPRQHY2QF3gE5zH37i3OD/edit?usp=drive_web&ouid=115463368008145921571&rtpof=true)
-   2. [Prompt para redacción de tareas y generación de CSV](./4.%20Negocio/RedaccionDeTareas.md)
+   2. [Prompt para redacción de tareas y generación de CSV](./4.%20Negocio/promptRedaccionDeTareas.md)
    3. [Prompts de tareas](./4.%20Negocio/promptsDeTareas/)
       1. [[02] Direcciones](./4.%20Negocio/promptsDeTareas/[02]%20Direcciones.md)
       2. [[03] Citas](./4.%20Negocio/promptsDeTareas/[03]%20Citas.md)

@@ -1,42 +1,43 @@
-Aquí tienes un **prompt optimizado** para pedirme instrucciones en **Mermaid** para Excalidraw cuando necesites generar diagramas de flujo:
+# Instrucciones para generar diagramas en Excalidraw
+
+## ¿Cómo usar el prompt?
+
+Iniciar un **chat nuevo** en [ChatGPT](https://chatgpt.com/) (o IA de su preferencia), copiar el **prompt** y agrégar la lógica específica del flujo que se desea. completo para que la IA entienda exactamente cómo debe trabajar.
 
 ---
 
-**Prompt para solicitar diagramas de flujo en Mermaid para Excalidraw:**
+## Prompt para solicitar diagramas de flujo en Mermaid para Excalidraw:
 
-> Necesito generar un diagrama de flujo en **Mermaid** para Excalidraw.  
->  
-> ### Reglas del flujo:  
-> (Aquí describes la lógica del flujo con condiciones, decisiones y acciones).  
->  
-> **Formato:**  
-> - Usa **Mermaid** compatible con Excalidraw.  
-> - Las decisiones (`if`) deben estar en nodos de tipo `{ }`.  
-> - Las acciones (`procesos`) deben estar en nodos `[ ]`.  
-> - El inicio y fin deben estar claramente definidos.  
-> - Conexiones con `-- Sí -->` y `-- No -->` para decisiones.  
-> - Organiza el diagrama para que sea **claro y estructurado**.  
->  
-> **Extras:**  
-> - Si el diagrama es muy grande, agrupa condiciones cuando sea posible.  
-> - Indicarme si hay optimizaciones en la estructura.  
->  
-> **Ejemplo de salida esperada:**  
-> ```mermaid  
-> flowchart TD  
->   A[Inicio] --> B{¿Condición?}  
->   B -- Sí --> C[Acción 1]  
->   B -- No --> D[Acción 2]  
->   C --> E[Fin]  
->   D --> E  
+> Necesito un diagrama de flujo en **Mermaid** optimizado para Excalidraw.
+>
+> **Requisitos:**
+>
+> - **Formato compacto**: Reducir el tamaño del diagrama sin perder claridad.
+> - **Colores**: Las **acciones deben ser verdes**.
+> - **Estructura eficiente**:
+>   - Decisiones con `{ }` (rombos).
+>   - Acciones con `[ ]` y **color verde** usando `style`.
+>   - Inicio y fin bien definidos.
+>   - Evitar repeticiones innecesarias.
+>
+> **Ejemplo de salida esperada:**
+>
+> ```mermaid
+> flowchart TD
+>   A[Inicio] --> B{¿Condición?}
+>   B -- Sí --> C[Acción 1]
+>   B -- No --> D[Acción 2]
+>   C --> E[Fin]
+>   D --> E
+>
+>   style C fill:#90EE90,stroke:#008000
+>   style D fill:#90EE90,stroke:#008000
 > ```
->  
-> **Si hay detalles que crees que se pueden mejorar en la lógica, avísame antes de generarlo.**  
-
----
-
-🔹 **¿Cómo usarlo?**  
-1. Copia este prompt y agrégale la lógica específica del flujo que quieres.  
-2. Pásamelo en el chat y te generaré el código **Mermaid** listo para Excalidraw.  
-
-Si quieres más personalización o ajustes en el formato, dime y lo optimizo más. 🚀
+>
+> **Optimización extra:**
+>
+> - Agrupar condiciones cuando sea posible para reducir nodos.
+> - Maximizar el flujo de lectura vertical o izquierda a derecha.
+> - Usar conexiones **directas y claras** sin ramificaciones excesivas.
+>
+> **Si crees que se puede optimizar más, dímelo antes de generarlo.**
