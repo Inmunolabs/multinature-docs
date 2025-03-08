@@ -29,8 +29,8 @@
    1. [Template (Materio)](https://drive.google.com/drive/folders/1s18xBtu_Lr_UXC78rAHNnpBERNfTjTBR)
 
 4. [Negocio](./4.%20Negocio/README.md)
-   1. [Redacción de tareas y generación de CSV](./4.%20Negocio/RedaccionDeTareas.md)
-   2. [Información Landing page - v1.0.pptx](https://docs.google.com/presentation/d/1RVrquVY3e3JVPRQHY2QF3gE5zH37i3OD/edit?usp=drive_web&ouid=115463368008145921571&rtpof=true)
+   1. [Información Landing page - v1.0.pptx](https://docs.google.com/presentation/d/1RVrquVY3e3JVPRQHY2QF3gE5zH37i3OD/edit?usp=drive_web&ouid=115463368008145921571&rtpof=true)
+   2. [Prompt para redacción de tareas y generación de CSV](./4.%20Negocio/RedaccionDeTareas.md)
    3. [Prompts de tareas](./4.%20Negocio/promptsDeTareas/)
       1. [[02] Direcciones](./4.%20Negocio/promptsDeTareas/[02]%20Direcciones.md)
       2. [[03] Citas](./4.%20Negocio/promptsDeTareas/[03]%20Citas.md)
@@ -39,4 +39,5 @@
       5. [[17.1] ConfiguracionesDeEspecialistas](./4.%20Negocio/promptsDeTareas/[17.1]%20ConfiguracionesDeEspecialistas.md)
       6. [[19] Notificaciones](./4.%20Negocio/promptsDeTareas/[19]%20Notificaciones.md)
       7. [[26] BUGS](./4.%20Negocio/promptsDeTareas/[26]%20BUGS.md)
-   4. [Red de usuarios de Prueba](./4.%20Negocio/redDeUsuariosDePrueba.png)
+   4. [Prompt para instrucciones de diagramas de Excalidraw](./4.%20Negocio/propmtDiagramasDeExcalidraw.md)
+   5. [Red de usuarios de Prueba](./4.%20Negocio/redDeUsuariosDePrueba.png)
