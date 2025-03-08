@@ -13,7 +13,6 @@
    6. [[19] Notificaciones](./promptsDeTareas/[19]%20Notificaciones.md)
    7. [[26] BUGS](./promptsDeTareas/[26]%20BUGS.md)
 4. [Red de usuarios de Prueba](./redDeUsuariosDePrueba.png)
-5. [Servicios](./servicios.png)
 
 ## Nomenclatura
 

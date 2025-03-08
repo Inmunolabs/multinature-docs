@@ -1,4 +1,4 @@
-# 1er Reunión - feb-06-2025
+# Definición del proyecto
 
 ## Contenido
 
@@ -10,5 +10,6 @@
    1. [Excel fórmulas dietocálculo](https://docs.google.com/spreadsheets/d/1s78fjfSze-kaOj6Tkxzc-PolM9R1wRvm/edit?gid=622333526#gid=622333526).
       (_Se recomienda descargar el archivo y trabajarlo desde Excel, alguna información podría no reflejarse igual desde Google Sheets_)
 6. [Epicas e Historias de Usuario](./epics&UserStories.png)
-7. Citas
-   1. [Creación de citas](./creacionDeCitas.md)
+7. [Citas](./citas.md)
+   1. [Agendar cita](./agendarCita.png)
+8. [Servicios de especialistas (service_payments)](./servicios.png)
