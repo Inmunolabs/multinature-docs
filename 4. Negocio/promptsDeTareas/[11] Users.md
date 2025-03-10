@@ -94,9 +94,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 ---
 
-Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:
-
-- [11015] Agregar los especialistas y las especialidades del usuario a la respuesta del login.
+- ✅ [11015] Agregar los especialistas y las especialidades del usuario a la respuesta del login.
 
   Contexto: Actualmente el `content` la respuesta del login tiene una estructura como esta:
 
@@ -110,7 +108,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   }
   ```
 
-  Para completar esta tarea es necesario agregar los siguientes dos campos al campo `user` del content de la repuesta:
+  Para completar esta tarea es necesario agregar los siguientes las siguientes dos propiedades al objeto `user` del content de la repuesta:
 
   1. `user.specialists`. Agregar los especialistas que tiene asignados el usuario en un arreglo donde cada objeto del arreglo tenga el siguiente formato:
 
@@ -134,8 +132,18 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   }
   ```
 
-  Revisar el prompt de esta tarea en la [documentación](https://github.com/Inmunolabs/multinature-docs/blob/master/4.%20Negocio/promptsDeTareas/%5B11%5D%20Users.md) para ver los objetos sugeridos
-  Relacionado con la tarea: [11006] Crear vista para presentar el catálogo de especialistas
+  Revisar el prompt de esta tarea en la [documentación](https://github.com/Inmunolabs/multinature-docs/blob/master/4.%20Negocio/promptsDeTareas/%5B11%5D%20Users.md) para ver los objetos sugeridos ya que en la tarea de Clickup no suelen aparecer estas sugerencias.
+  En relación con la tarea: [11006] Crear vista para presentar el catálogo de especialistas
 
   Tags: back
   Assignee: Erick Robles
+
+- ✅ [11016] Maquetado de Home de Clientes
+
+  Tags: front
+  Assignee: Diego Martin Ponce
+
+- ✅ [11017] Desarrollar el Home de Clientes
+
+  Tags: front
+  Assignee: Diego Martin Ponce

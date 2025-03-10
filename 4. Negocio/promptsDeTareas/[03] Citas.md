@@ -98,3 +98,8 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Contexto: Cuando un usuario agende una cita, el especialista la confirma seleccionando el lugar de la cita. La lógica deberá quedar en el endpoint `PATCH /bookings/:id`. Tomar en cuenta validaciones como que los domicilios tengan la bandera `isClinic` en `true` y que las direcciones sean direcciones del especialista
   Tags: back
   Assignee: Erick Robles
+
+- [03013] Crear endpoint para liquidar el pago de una cita
+
+  Tags: back
+  Assignee: Erick Robles

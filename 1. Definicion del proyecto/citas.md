@@ -9,11 +9,11 @@ Un usuario o un especialista pueden agendarse una cita entre si. (**El token det
 
 ### Flujo
 
-1. El usuario necesita pertenecer a la lista de pacientes/clientes del especialista
-2. El usuario necesita tener disponibilidad de horario en la fecha (`date`) y hora (`starDate` & `endDate`) de la nueva cita
-3. El especialista necesita tener disponibilidad de horario en la fecha (`date`) y hora (`starDate` & `endDate`) de la nueva cita
-4. La fecha de la cita debe ser después del día en curso. Formato de fecha (`isISO8601()`)
-5. La hora de finalización (`endDate`) de la cita debe ser mayor a la hora de inicio de la cita (`starDate`)
+1. La fecha de la cita debe ser después del día en curso. Formato de fecha (`isISO8601()`)
+2. La hora de finalización (`endDate`) de la cita debe ser mayor a la hora de inicio de la cita (`starDate`)
+3. El usuario necesita pertenecer a la lista de pacientes/clientes del especialista
+4. El especialista necesita tener disponibilidad de horario en la fecha (`date`) y hora (`starDate` & `endDate`) de la nueva cita
+5. El usuario necesita tener disponibilidad de horario en la fecha (`date`) y hora (`starDate` & `endDate`) de la nueva cita
 6. Si la cita será fisica, la dirección (`addressId`) debe pertenecer al especialista
 7. La dirección de la cita debe ser la dirección de un consultorio del especialista (`address.isClinic === true`)
 8. Si el especialista tiene `chargePerConsultation > 0` se debe generar un servicio (orden de pago para el cliente (`service_payments`)) por la cantidad que el especialista tenga configurada
