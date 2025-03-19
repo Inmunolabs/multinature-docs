@@ -2,16 +2,34 @@
 
 Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:
 
+- ✅ [11003] Modificar el manejo de la red usuarios aprovechando los beneficios de MySQL
+
+  Contexto: El funcionamiento actual de las redes de usuario esta diseñado para funcionar con DynamoDB (NoSQL), aprovechando la base de datos de Multinature (MySQL) podemos readaptar y refactorizar todas las funcionalidades de las redes de usuario para hacer más mantenibles estos funcionamientos
+
+- ✅ [11004] Crear constante para los Niveles de red de usuarios
+
+- ✅ [11005] Desarrollar el Dashboard General de administradores
+
+  Contexto: debe ser similar al de Inmuno, y agregar también la información de cuantos especialistas existen en el sistema y que especialidades tienen, así como el número general de usuarios con especialistas asignados y el número especifico por especialidad. Revisar que otra información del sistema puede ser importante medir y considerar agregarla
+
+---
+
+Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:F
+
 - ✅ [11006] Crear vista para presentar el catálogo de especialistas
 
   Contexto: La lista de especialistas se debe consultar desde el endpoint `GET {{usersHost}}/users/specialists`.
   El acceso a esta lista debe ser desde un botón en algún apartado de "Mis Especialistas"
+
   Tags: front
+
   Assignee: Diego Martin Ponce
 
 - ✅ [11007] Permitir asignar especialista, desasignar o actualizar especialista asignado
   Cobtexto: La nueva asignación o actualización debe ser desde la vista de la tarea [11006]. Se permiten múltiples especialistas por usuario, es decir, un usuario podría tener más de un Nutriólogo asignado
+
   Tags: front
+
   Assignee: Diego Martin Ponce
 
 - ✅ [11008] Crear endpoint para enviar lista de especialistas
@@ -29,13 +47,17 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Donde cada propiedad del arreglo de `content` es el name de cada especialidad de nuestra tabla `specialities` de nuestra base de datos. (`SELECT * FROM specialities;`)
   Los especialistas se deben order alfabéticamente por su `firstName`
   El endpoint debe contener un páginado y por default se deben enviar los primeros 20 especialistas de cada especialidad
+
   Tags: back
+
   Assignee: Erick Robles
 
 - ✅ [11009] Crear endpoint para asignar un nuevo especialista
 
   Contexto: El endpoint `POST {{usersHost}}/users/specialists/{{specialistId}}` debe crearse desde el users-api y debe encargarse de asignar a un especialista, creando la relación "usuario - especialista" en la base de datos (Tabla `users_specialists`)
+
   Tags: back
+
   Assignee: Erick Robles
 
 ---
@@ -46,14 +68,18 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Contexto: El endpoint `PUT {{usersHost}}/users/specialists/{{oldSpecialistId}}/to/{{newSpecialistId}}` debe crearse desde el users-api y debe encargarse de eliminar la relación del viejo especialista y asignar al nuevo especialista.
   Eliminando y creando las relaciones "usuario - especialista" en la base de datos (Tabla `users_specialists`)
+
   Tags: back
+
   Assignee: Erick Robles
 
 - ✅ [11011] Crear endpoint para desasignar a un especialista
 
   Contexto: El endpoint `DELETE {{usersHost}}/users/specialists/{{specialistId}}` debe crearse desde el users-api y debe encargarse de eliminar la relación del especialista asignado.
   Eliminar la relación "usuario - especialista" en la base de datos (Tabla `users_specialists`)
+
   Tags: back
+
   Assignee: Erick Robles
 
 ---
@@ -63,13 +89,17 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 - ✅ [11012] Crear endpoint para que un especialista de de alta a un usuario
 
   Contexto: De momento esta funcionalidad solo incluye la creación de un nuevo usuario
+
   Tags: back
+
   Assignee: Samuel Reveles
 
 - ✅ [11013] Revisar todos los endpoints del users-api
 
   Contexto: Asegurarse de que todos los endpoints del users-api funcionan. Si se encuentran errores agregarlos en los mensajes de esta tarea taggeando a @Miguel y corregirlos desde la rama con nombre de esta tarea
+
   Tags: back
+
   Assignee: Samuel Reveles
 
 - ✅ [11014] Crear red de usuarios de prueba desde ambiente de desarrollo
@@ -90,6 +120,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   ```
 
   Tags: back
+
   Assignee: Erick Robles
 
 ---
@@ -136,14 +167,17 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   En relación con la tarea: [11006] Crear vista para presentar el catálogo de especialistas
 
   Tags: back
+
   Assignee: Erick Robles
 
 - ✅ [11016] Maquetado de Home de Clientes
 
   Tags: front
+
   Assignee: Diego Martin Ponce
 
 - ✅ [11017] Desarrollar el Home de Clientes
 
   Tags: front
+
   Assignee: Diego Martin Ponce

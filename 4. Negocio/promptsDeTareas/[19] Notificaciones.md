@@ -2,11 +2,37 @@
 
 Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:
 
+- ✅ [19001] Actualizar y mejorar las plantillas de correos del orders-api
+
+- ✅ [19002] Actualizar y mejorar las plantillas de correos del users-api
+
+---
+
+Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:
+
 - ✅ [19003] Diseñar el envio de notificaciones haciendo uso de patrones de diseño
 
   Contexto: El sistema enviará notificaciones por correo, por whatsapp y también lo hara mediante un CRUD de notificaciones, diseñar una funcionalidad para permitir que las notificaciones se puedan enviar por estos tres medios, considerando la posibilidad de que algunas notificaciones podrían ser enviadas solo por uno de los tres medios mencionados.
   De momento toda la funcionalidad del Whatsapp no esta desarrollada ni definida pero tomarlo en cuenta para este diseño, además cabe mencionar que en un futuro se podrían implementar nuevos métodos de comunicación como mensajes SMS o alguna red social como Instagram o Facebook
+
   Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [19004] Crear la Notificación N2.1 para Especialistas. "Tienes un nuevo paciente"
+
+  Contexto: El fin de la notificaión es informar al Especialista que un nuevo usuario se agrego a su lista de pacientes, ya sea porque el mismo especialista lo registro o el paciente se autoasigno
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [19005] Crear el template de correos de la Notificación N2.1
+
+  Contexto: Crear el template de correos utilizando la imagen del sistema (paleta de colores, logos, etc.). El fin del correo es notificar al Especialista que un nuevo usuario se agrego a su lista de pacientes, agregar textos alusivos al fin del correo
+
+  Tags: back
+
   Assignee: Samuel Reveles
 
 - ✅ [19006] Notificar al usuario y al especialista sobre una actualización o cancelación de cita
@@ -20,6 +46,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   - En caso de que el usuario cancele una cita notificar al especialista
 
   Tags: back
+
   Assignee: Samuel Reveles
 
 - ✅ [19007] Notificar al usuario y/o al especialista sobre el agendamiento de una nueva cita
@@ -35,6 +62,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   - En caso de que el usuario agende una cita notificar al especialista
 
   Tags: back
+
   Assignee: Samuel Reveles
 
 - ✅ [19008] Notificar al usuario y al especialista sobre la confirmación de una nueva cita
@@ -47,4 +75,5 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   - En caso de que el usuario sea quien agende la cita al especialista, éste es quien deberá confirmar la misma tomando en cuenta los dos anteriores escenearios, donde el usuario es quien paga o no la confirmación de la cita. En este caso es el especialista quien debe confirmar si se llevará a cabo o no la cita
 
   Tags: back
+
   Assignee: Samuel Reveles
