@@ -1,6 +1,6 @@
 # [03] Citas
 
-Ayudame con las siguientes nuevas tareas por favor
+Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:
 
 - ✅ [03001] Validar que no se pueda crear bookings antes de la fecha actual
 
@@ -9,10 +9,6 @@ Ayudame con las siguientes nuevas tareas por favor
 - ✅ [03003] Validar la perspectiva del usuario o especialista que crea la cita
 
   _Tarea creada por Erick_
-
----
-
-Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:
 
 - ✅ [03004] Completar el agendamiento de citas, de especialista a usuario y de usuario a especialista
 
@@ -94,10 +90,6 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
----
-
-Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:
-
 - ✅ [03009] Generar una orden de pago para Cobro de confirmación de la cita
 
   Contexto: Al agendar una cita si el especialista citado tiene configurado el cobro de anticipo de confirmación de cita (campo `charge_advance_payment` de la nueva tabla `specialist_settings` mayor a 0) generar una orden de pago para confirmar la cita del usuario a partir de los parametros de la cita y el valor del campo `charge_advance_payment`.
@@ -131,8 +123,57 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
-- [03013] Crear endpoint para liquidar el pago de una cita
+- ✅ [03013] Crear endpoint para liquidar el pago de una cita
 
   Tags: back
 
-  Assignee: Erick Robles
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- [03014] Actualizar el agendamiento de las citas
+
+  Contexto: Un usuario y un especialista deben ser capaces de agendarse citas respectivamente. **Revisar los detalles de esta tarea en la [documentación](https://github.com/Inmunolabs/multinature-docs/blob/master/4.%20Negocio/promptsDeTareas/%5B03%5D%20Citas.md)**
+
+  - Cuando un **usuario** agenda una cita debe poder agregar:
+
+    1. Al especialista (desde un select de sus especialistas asignados, si solo tiene un especialista por default seleccionarlo)
+    2. La especialidad (desde un select de las especialidades asignadas de sus especialistaas asignados, si solo se tiene una especialidad por default seleccionarla)
+    3. La fecha (mayor o igual al día en curso)
+    4. La hora de inicio (el horario al igual que la fecha dependen de la disponibilidad del especialista, pero de momento no considerarlo en el alcance de esta tarea)
+
+  - Cuando un **especialista** agenda una cita debe poder agregar:
+    1. Al usuario (desde un select de sus usuarios asignados, si se agenda la cita desde el perfil del paciente o si solo tiene un paciente por default este debe ser seleccionado)
+    2. La especialidad (desde un select de sus especialidades asignadas, si solo se tiene una especialidad por default seleccionarla)
+    3. La fecha (mayor o igual al día en curso)
+    4. La hora de inicio (el horario al igual que la fecha dependen de la disponibilidad del especialista, pero de momento no considerarlo en el alcance de esta tarea)
+    5. La hora de fin (en un futuro se plantea que este campo pueda ser por default desde configuraciones del especialista, de momento "preseleccionar" la hora de fin sumando una hora a la hora de inicio, pero que el especialista siempre tenga la opción de modificarla)
+    6. La dirección donde se antenderá la cita (select con las direcciones que el especialista tiene como `isClinic` en `true`, si el especialista solo tiene una dirección con esta condición, seleccionarla por defecto)
+    7. Agregar la url de la videollamada (Validar que sea una liga https) (campo opcional)
+    8. Notas de la cita (campo en blanco para agregar cualquier texto) (campo opcional)
+
+  La intención es que los formularios sean muy parecidos a la creación de "Eventos" de _Google Calendar_
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce
+
+- [03015] Desarrollar opción y formularios para la actualización y cancelación de una citas
+
+  Contexto: Un usuario y un especialista deben ser capaces de actualizar y cancelar citas respectivamente. **Revisar los detalles de esta tarea en la [documentación](https://github.com/Inmunolabs/multinature-docs/blob/master/4.%20Negocio/promptsDeTareas/%5B03%5D%20Citas.md)**.
+
+  Alinearse a las indicaciones de la tarea [03014]
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce
+
+- [03016] Desarrollar el funcionamiento de agendamiento de citas
+
+  Contexto: Apoyarse de las indicaciones de Samuel, si hay dudas revisarlas con el. El flujo es cambiante dependiendo de las configuraciones del especialista, si cobra anticipo o no y si cobra consulta o no; dependiendo de esto se generará un pago para la cita (y de ser necesario un complemento de ese pago). Considerar también que un especialista cuando confirme una cita debe seleccionar la dirección y tener la opción de actualizarla, modificando el horario, las notas y la url de videollamada. **Revisar los detalles de esta tarea en la [documentación](https://github.com/Inmunolabs/multinature-docs/blob/master/4.%20Negocio/promptsDeTareas/%5B03%5D%20Citas.md)**.
+
+  Alinearse a las indicaciones de la tarea [03014]
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce

@@ -40,7 +40,7 @@
       5. [[09] Productos](./4.%20Negocio/promptsDeTareas/[09]%20Productos.md)
       6. [[11] Users](./4.%20Negocio/promptsDeTareas/[11]%20Users.md)
       7. [[14] Gestión del Proyecto & Administración](./4.%20Negocio/promptsDeTareas/[14]%20Gestion%20del%20Proyecto%20&%20Administracion.md)
-      8. [[17.1] ConfiguracionesDeEspecialistas](./4.%20Negocio/promptsDeTareas/[17.1]%20ConfiguracionesDeEspecialistas.md)
+      8. [[17.1] Configuraciones de Especialistas](./4.%20Negocio/promptsDeTareas/[17.1]%20ConfiguracionesDeEspecialistas.md)
       9. [[19] Notificaciones](./4.%20Negocio/promptsDeTareas/[19]%20Notificaciones.md)
       10. [[20] Otros](./4.%20Negocio/promptsDeTareas/[20]%20Otros.md)
       11. [[24] Formularios de Altas de Pacientes](./4.%20Negocio/promptsDeTareas/[24]%20Formularios%20de%20Altas%20de%20Pacientes.md)

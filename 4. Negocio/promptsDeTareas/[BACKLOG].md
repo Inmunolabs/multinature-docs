@@ -31,3 +31,31 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: negocio
 
   Assignee: Miguel Angel Valdés García
+
+- [007] Eliminar el endpoint {{userHost}}/specialists/config/:id
+
+  Contexto: Endpoint creado en la tarea [[17007] Crear endpoint para la obtención de las configuraciones de especialista](https://app.clickup.com/t/868cwep57), ya no será utilizado ya que esa información se obtiene desde el login de cada usuario
+
+  Tags: back
+
+- [008] Cambiar todo lo referente a specialities/speciality por specialties/specialty
+
+  Contexto: La palabra correcta en inglés es **"specialty"**. La forma **"speciality"** también existe, pero es más común en el inglés británico. En inglés americano, **"specialty"** es la forma estándar.
+
+  Considerar todos los cambios de la base de datos (`SPECIALITIES_TABLE specialities`) y del backend.
+
+  Tags: back
+
+- [009] Actualizar los nombres de las columnas de las tablas de la base de datos 
+  
+  Contexto: Utilizar snake_case en lugar de camelCase y reemplazar created_at y updated_at en lugar de created y updated
+
+  Tags: back
+
+- [010] Crear un Bitwarden para todas las credenciales de Inmunolabs
+
+  Contexto: Crear un Bitwarden para todas las credenciales de Inmunolabs, agregar credenciales de las cuentas de Google (Gmail), GitHub, Vercel, ClickUp, Mercado Pago, Openpay, Neubox, etc.
+
+  Tags: negocio
+
+  Assignee: Miguel Angel Valdés García

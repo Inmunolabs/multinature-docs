@@ -1,7 +1,6 @@
 # [02] Direcciones
 
-- Hola chat, Tienes claras tus intrucciones? En que formato redactarías la descripción de las tareas?
-- Ayudame con las siguientes nuevas tareas por favor
+Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:
 
 - ✅ [20001] Modificar el emails-layer para que sea independiente de cualquier proyecto
 
@@ -10,8 +9,6 @@
   Las opciones para llegar al objetivo pueden ser varias, pero yo sugiero que la layer se mantenga y que cada api sea la que determine la configuración para el envio de correos, que determine los remitentes y los receptores, así como el Asunto y el cuerpo de los correos. Los cuerpos de los correos deberían ser plantillas y el contenido debería ser dinámico dependiendo de los parametros configurados
 
 - ✅ [20002] Cambiar los nombres de las tablas en MySQL. Utilizar snake_case en lugar de camelCase
-
----
 
 - ✅ [02003] Reemplazar el campo "colony" por "neighborhood" en todo lo relacionado al manejo de direcciones
 
@@ -28,3 +25,11 @@
   Tags: back
 
   Assignee: Erick Robles
+
+- [02005] Actualizar la administración de las direcciones
+
+  Contexto: Agregar el id de la dirección y la url de videollamada y cambiar el reason por el id de la especialidad isClinic
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce
