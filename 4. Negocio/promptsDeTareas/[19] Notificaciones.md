@@ -6,10 +6,6 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [19002] Actualizar y mejorar las plantillas de correos del users-api
 
----
-
-Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:
-
 - ✅ [19003] Diseñar el envio de notificaciones haciendo uso de patrones de diseño
 
   Contexto: El sistema enviará notificaciones por correo, por whatsapp y también lo hara mediante un CRUD de notificaciones, diseñar una funcionalidad para permitir que las notificaciones se puedan enviar por estos tres medios, considerando la posibilidad de que algunas notificaciones podrían ser enviadas solo por uno de los tres medios mencionados.

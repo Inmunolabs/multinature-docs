@@ -9,7 +9,7 @@
 
   Considerar actualizar la ruta de donde se obtienen los templates [MultiNature/2. Backend/spreadsheetsTemplates/v1.0](https://drive.google.com/drive/folders/1k8ewAPPuL3iLdtA_D-K657mLd6s_fZ8F?hl=es) y la ruta en donde se generarían las copias por pacientes, esta nueva ruta debería estar dentro del mismo Drive
 
-- [14004] Inicializar el diagrama de las epicas e historias de usuario del sistema
+- ✅ [14004] Inicializar el diagrama de las epicas e historias de usuario del sistema
 
   Contexto: Crear un diagrama en excalidraw para mejorar el seguimiento del desarrollo del proyecto. El diagrama debe contener las epicas, las historias de usuario y notas importantes determinadas hasta el momento, debe ser generado a partir de los acuerdos obtenidos en las reuniones de definición
 
@@ -29,30 +29,28 @@
 
   Contexto: Utilizar [excalidraw](https://excalidraw.com/) para generar el diagrama
 
-- [14009] Agregar a la documentación las credenciales de los sistemas que se involucran con Multi
+- ✅ [14009] Agregar a la documentación las credenciales de los sistemas que se involucran con Multi
 
   Contexto:
 
-  1. [JOPAKA](https://jopaka.onrender.com/#/jopaka) es el sistema desarrollado por Samuel y su equipo de tecnologo. Los diferentes perfiles que el nos ayudo a crear son:
+  1. [JOPAKA](https://jopaka.onrender.com/#/jopaka) es el sistema desarrollado por Samuel y su equipo de tecnologo. Samuel nos pidio discreción para modificar datos lo menos posible ya que utiliza el proyecto para algunas presentaciones. Los diferentes perfiles que el nos ayudo a crear son:
 
      - admin -> mvaldes988@gmail.com
      - nutriólogo -> inmunosalud.mx@gmail.com
      - paciente -> pedidos.inmunosalud.mx@gmail.com
-
-  Samuel nos pidio discreción para modificar datos lo menos posible ya que utiliza el proyecto para algunas presentaciones
 
   2. [Avena](https://avena.io/) sistema que diseña planes de nutrición de la forma más rápida y práctica
 
      - anderson.nutra@gmail.com -> Anderson123
      - mvaldes988@gmail.com -> VQksAS9b3.28xFe
 
-  **Revisar los detalles de esta tarea en la [documentación](https://github.com/Inmunolabs/multinature-docs/blob/master/4.%20Negocio/promptsDeTareas)**.
+  **Revisar los detalles de esta tarea en la [documentación](https://github.com/Inmunolabs/multinature-docs/blob/master/4.%20Negocio/promptsDeTareas/%5B14%5D%20Gestion%20del%20Proyecto%20&%20Administracion.md)**.
 
   Tags: negocio
 
   Assignee: Miguel Angel Valdés García
 
-- [14010] Revisar las tareas pendientes de review
+- ✅ [14010] Revisar las tareas pendientes de review
 
   Contexto: Tareas:
 
@@ -68,7 +66,7 @@
 
   Assignee: Miguel Angel Valdés García
 
-- [14011] Bloquear las ramas de develop de todo el proyecto
+- ✅ [14011] Bloquear las ramas de develop de todo el proyecto
 
   Tags: negocio
 

@@ -131,7 +131,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- [03014] Actualizar el agendamiento de las citas
+- ✅ [03014] Actualizar el funcionamiento de agendamiento de las citas
 
   Contexto: Un usuario y un especialista deben ser capaces de agendarse citas respectivamente. **Revisar los detalles de esta tarea en la [documentación](https://github.com/Inmunolabs/multinature-docs/blob/master/4.%20Negocio/promptsDeTareas/%5B03%5D%20Citas.md)**
 
@@ -158,7 +158,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Diego Martin Ponce
 
-- [03015] Desarrollar opción y formularios para la actualización y cancelación de una citas
+- ✅ [03015] Desarrollar opción y formularios para la actualización y cancelación de una citas
 
   Contexto: Un usuario y un especialista deben ser capaces de actualizar y cancelar citas respectivamente. **Revisar los detalles de esta tarea en la [documentación](https://github.com/Inmunolabs/multinature-docs/blob/master/4.%20Negocio/promptsDeTareas/%5B03%5D%20Citas.md)**.
 
@@ -168,7 +168,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Diego Martin Ponce
 
-- [03016] Desarrollar el funcionamiento de agendamiento de citas
+- ✅ [03016] Desarrollar el funcionamiento de confirmación de citas
 
   Contexto: Apoyarse de las indicaciones de Samuel, si hay dudas revisarlas con el. El flujo es cambiante dependiendo de las configuraciones del especialista, si cobra anticipo o no y si cobra consulta o no; dependiendo de esto se generará un pago para la cita (y de ser necesario un complemento de ese pago). Considerar también que un especialista cuando confirme una cita debe seleccionar la dirección y tener la opción de actualizarla, modificando el horario, las notas y la url de videollamada. **Revisar los detalles de esta tarea en la [documentación](https://github.com/Inmunolabs/multinature-docs/blob/master/4.%20Negocio/promptsDeTareas/%5B03%5D%20Citas.md)**.
 

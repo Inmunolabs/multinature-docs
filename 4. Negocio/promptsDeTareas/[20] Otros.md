@@ -2,15 +2,15 @@
 
 Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:
 
-- ✅ [20004] Maquetado de vista de constantes del sistema (configuraciones del sistema)
+- ✅ [20004] Implementación de constantes del sistema (configuraciones del sistema)
 
-  Contexto: Esta vista incluye los campos de la respuesta del endpoint `GET {{usersHost}}/api/config`
+  Contexto: Implementar las constantes del sistema, asegurando que los campos reflejen la respuesta del endpoint GET {{usersHost}}/api/config.
 
   Tags: front
 
   Assignee: Diego Martin Ponce
 
-- [20005] Refactorización del Frontend
+- ✅ [20005] Refactorización del Frontend
 
   Contexto: Modularizar todo el código; refactorizar los services (llamadas a apis) y el redux toolkit de los diferentes modulos y organizar los archivos y folders para facilitar el trabajo.
 
@@ -35,7 +35,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Diego Martin Ponce
 
-- [20006] Ignorar en Git los cambios en el meta.seq de todo el api-collection
+- ✅ [20006] Ignorar en Git los cambios en el meta.seq de todo el api-collection
 
   Contexto: Investigar como igonorar cambios especificos en campos de un JSON en archivos .bru y aplicarlos a toda el api-collection
 

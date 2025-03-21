@@ -26,9 +26,10 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
-- [02005] Actualizar la administración de las direcciones
+- ✅ [02005] Actualizar las direcciones para indicar si la dirección corresponde a una clínica
 
-  Contexto: Agregar el id de la dirección y la url de videollamada y cambiar el reason por el id de la especialidad isClinic
+  Contexto: Agregar el check que pemita a los especialistas determinar que su domicilio es de una clinica `isClinic`
+  Aprovechar la tarea para eliminar lo relacionado al viejo campo eliminado `isTaxAddress` (o algo así se llamaba)
 
   Tags: front
 

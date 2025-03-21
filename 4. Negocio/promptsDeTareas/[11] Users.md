@@ -12,10 +12,6 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Contexto: debe ser similar al de Inmuno, y agregar también la información de cuantos especialistas existen en el sistema y que especialidades tienen, así como el número general de usuarios con especialistas asignados y el número especifico por especialidad. Revisar que otra información del sistema puede ser importante medir y considerar agregarla
 
----
-
-Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:F
-
 - ✅ [11006] Crear vista para presentar el catálogo de especialistas
 
   Contexto: La lista de especialistas se debe consultar desde el endpoint `GET {{usersHost}}/users/specialists`.
@@ -25,7 +21,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Diego Martin Ponce
 
-- ✅ [11007] Permitir asignar especialista, desasignar o actualizar especialista asignado
+- ✅ [11007] Permitir asignar o desasignar especialista
   Cobtexto: La nueva asignación o actualización debe ser desde la vista de la tarea [11006]. Se permiten múltiples especialistas por usuario, es decir, un usuario podría tener más de un Nutriólogo asignado
 
   Tags: front
@@ -60,10 +56,6 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
----
-
-Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:
-
 - ✅ [11010] Crear endpoint para reemplazar a un especialista
 
   Contexto: El endpoint `PUT {{usersHost}}/users/specialists/{{oldSpecialistId}}/to/{{newSpecialistId}}` debe crearse desde el users-api y debe encargarse de eliminar la relación del viejo especialista y asignar al nuevo especialista.
@@ -81,10 +73,6 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Erick Robles
-
----
-
-Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:
 
 - ✅ [11012] Crear endpoint para que un especialista de de alta a un usuario
 
@@ -122,8 +110,6 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Erick Robles
-
----
 
 - ✅ [11015] Agregar los especialistas y las especialidades del usuario a la respuesta del login.
 
