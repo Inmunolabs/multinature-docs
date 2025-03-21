@@ -1,4 +1,4 @@
-# [14] Gestion del Proyecto & Administracion
+# [14] Gestión del Proyecto & Administración
 
 - Hola chat, Tienes claras tus intrucciones? En que formato redactarías la descripción de las tareas y como me las entregarías?
 - Ayudame a generar el archivo CSV descargable con las siguientes nuevas tareas por favor
