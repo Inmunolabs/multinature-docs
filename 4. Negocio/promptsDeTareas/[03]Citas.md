@@ -177,3 +177,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: front
 
   Assignee: Diego Martin Ponce
+
+- ✅ [03017] Agregar pago domiciliado de los especialistas (mensualidad (`monthlyCharge`))
+
+  _Tarea creada por Samuel_

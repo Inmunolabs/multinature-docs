@@ -12,7 +12,7 @@
    5. [[09] Productos](./promptsDeTareas/[09]Productos.md)
    6. [[11] Users](./promptsDeTareas/[11]Users.md)
    7. [[14] Gestión del Proyecto & Administración](./promptsDeTareas/[14]GestionDelProyecto&Administracion.md)
-   8. [[17.1] Configuraciones de Especialistas](./promptsDeTareas/[17.1]ConfiguracionesDeEspecialistas.md)
+   8. [[17] Especialistas](./promptsDeTareas/[17]Especialistas.md)
    9. [[19] Notificaciones](./promptsDeTareas/[19]Notificaciones.md)
    10. [[20] Otros](./promptsDeTareas/[20]Otros.md)
    11. [[24] Formularios de Altas de Pacientes](./promptsDeTareas/[24]FormulariosDeAltasDePacientes.md)
