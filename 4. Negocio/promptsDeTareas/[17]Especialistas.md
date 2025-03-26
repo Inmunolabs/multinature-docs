@@ -2,6 +2,27 @@
 
 Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pasé antes:
 
+- ✅ [17001] Actualizar el Home de Especialistas
+
+  Contexto: El home de especialistas debe contener:
+
+  1. Lista con dos columnas, el nombre de usuarios y su teléfono (que sea un botón que llame automáticamente al paciente). Considerar agregar algún otro dato que ayude al especialista a identificar al paciente. Cada fila (cada usuario) debe redirigir a los detalles de ese usuario
+  2. Citas, con un botón para seleccionar las citas del día o las citas de la semana (esta configuración debe ser respetada para cada especialista, es decir, cada que inicie sesión esta configuración debe aparecer seleccionada por defecto). Cada cita debe mostrar toda su información (lugar de la cita: hora; paciente; notas; si hay liga de videollamada; agregarla), además el botón para llamar al paciente y para actualizar/cancelar la cita
+  3. Botón de Alta de cliente
+  4. Si se agrega el carrusel de "Nuevos Productos" (por solicitud de Andrés) este debería estar en la parte superior de la página y cada producto debe tener los "Call to action": "recomendar a paciente", "ver más" y "agregar al carrito"
+
+- ✅ [17002] Actualizar la relación entre los usuarios y sus especialistas y los usuarios y sus especialidades
+
+  Contexto: Utilizar las tablas (previamente creadas) de `specialities` y `users_specialities`
+
+  Entender cómo funciona la relación entre las tablas `specialities` y `users_specialities`, entender cómo con la nueva estructura de la base de datos se debería modificar el código para readaptar las funciones que relacionen a un usuario y sus especialidades
+  Si las actualizaciones requieren modificar el api de orders esperar ahí, pero si modificar el resto de apis y layers.
+  Revisar que users_specialities tiene el userId y que sea un Foreign Key apuntando a la tabla users y a su columna `id`
+
+- ✅ [17003] Ajustar los permisos a las vistas a partir de los nuevos perfiles (Nueva relación de especialidades)
+  
+- ✅ [17004] Modificar la ubicación de los templates de dietas y rutinas de Google Sheets
+
 - ✅ [17005] Crear la tabla de configuraciones de especialista
 
   Contexto:
@@ -318,4 +339,80 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Miguel Angel Valdés García
 
-- [1702?] Solicitud de datos fiscales y cuentas bancarias
+- ✅ [17023] Desarrollar la lógica para administración de horarios de los especialistas
+
+  Contexto: Desarrollar la funcionalidad para agregar los horarios de los especialistas con el fin de poder obtener su disponibilidad.
+
+  Esta tarea incluye el desarrollo de los endpoints POST y PATCH para que un especialist pueda agregar los horarios de una semana de trabajo (de lunes a domingo en bloques default por hora)
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [17024] Crear endpoint para obtener la disponibilidad de horarios de un especialista
+
+  Contexto: Considerar el horario de cada especialista y las citas que tenga creadas, el frontend solo debe recibir los espacios disponibles, el endpoint debe tener un formato útil para el cliente (negociarlo con frontend) así como un páginado y/o filtrado de dicha información.
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [17025] Agregar funcionalidad para la administración de horarios de los especialistas
+
+  Contexto: Desarrollar la funcionalidad para permitir que un especialista pueda agregar y actualizar sus horarios de trabajo con el fin de más adelante poder obtener su disponibilidad.
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce
+
+- ✅ [17026] Agregar la disponibilidad de horarios de un especialista al agendamiento de citas
+
+  Contexto: Consumir el endpoint creado en la tarea [17024] para obtener la disponibilidad de horario de un especialista y en el calendario para seleccionar los horarios durante el agendamiento o actualización de una cita bloquear los espacios no disponibles del especialista. Considerar el páginado y/o filtrado del endpoint.
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce
+
+- ✅ [17027] Crear un endpoint para que un especialista pueda tranferir a uno de sus pacientes a otro especialista.
+
+  Contexto: Yo como especialista quiero poder tranferir a uno de mis pacientes a otro especialista.
+
+  Este endpoint requerirá de tres propiedades en el `body` de la `request` para poder completarse, el `id del nuevo especialista` que atenderá al paciente, el `id del usuario` (identificador del paciente) y el `id de la especialidad`
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [17028] Agregar funcionalidad para que un especialista pueda tranferir a uno de sus pacientes a otro especialista.
+
+  Contexto: Yo como especialista quiero poder tranferir a uno de mis pacientes a otro especialista.
+
+  Consumir el endpoint de la tarea [17026]. Este endpoint requerirá de tres propiedades en el `body` de la `request` para poder completarse, el `id del nuevo especialista` que atenderá al paciente, el `id del usuario` (identificador del paciente) y el `id de la especialidad`
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce
+
+- ✅ [17029] Habilitar acciones cruzadas entre especialistas que comparten pacientes
+
+  Contexto: Implementar un sistema de permisos o acciones compartidas. Específicamente: Si dos especialistas (A y B) comparten un paciente, entonces el especialista A debería poder realizar también las acciones que normalmente solo B podría hacer con ese paciente.
+
+  Cada tipo de especialista (nutricional, entrenamiento, etc.) tiene distintos permisos, y si comparten un paciente, se busca extender el alcance de acciones entre ellos.
+
+  En resumen: Extender permisos entre especialistas que comparten un paciente
+
+  Considerar modificar la lógica de permisos
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [17030] Agregar indicadores visuales para pacientes compartidos entre especialistas
+
+  Contexto: Yo como especialista quiero saber cuando estoy trabajando con un pacientes compartido con otro especialista; quiero saber si lo compartí yo (siendo yo el "Especialista Base") o si lo compartieron conmigo (siendo yo el "Especialista Secundario").
+
+  También quiero saber que cosas asigno el otro especialista a nuestro paciente compartido
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce

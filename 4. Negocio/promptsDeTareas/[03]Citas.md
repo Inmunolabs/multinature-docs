@@ -56,6 +56,10 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
+- ✅ [03005] Actualizar el bookings-api para implementar la nueva lógica de perfiles y especialidades
+
+  Contexto: Trabajar desde el PR https://github.com/Inmunolabs/multinature-bookings-api/pull/3/files revisar como se implemento esta actualización en el api y corregirla para implementar correctamente la nueva lógica de perfiles y especialidades
+
 - ✅ [03006] Agregar el id de la dirección y la url de videollamada y cambiar el reason por el id de la especialidad
 
   Contexto: Modificar la tabla de la base de datos, y el bookings-api, ojo en los endpoints `POST {{bookingsHost}}/bookings` y `PATCH /bookings/:id`

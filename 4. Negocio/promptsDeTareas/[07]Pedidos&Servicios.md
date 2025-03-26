@@ -6,6 +6,19 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Contexto: Modificar todos los funcionamientos y flujos para que el sistema siga trabajando de manera correcta con la nueva tabla de consumos, considerar relacionar la tabla de ordenes, productos y usuarios. Considerar la creación del trigger
 
+- ✅ [07004] Actualizar el orders-api para implementar la nueva lógica de perfiles y especialidades
+
+  Contexto: Revisar toda el api, ya que por ejemplo el archivo _src/classes/OrderTemplate.js_ utiliza código como este:
+
+  ```
+    const partners = [
+      usersConstants.FIRST_LEVEL_USER_PROFILES.partnerWithSpecialist,
+      usersConstants.FIRST_LEVEL_USER_PROFILES.partnerWithSpecialist,
+    ];
+  ```
+
+  FIRST_LEVEL_USER_PROFILES ya no debería ser utilizadoF
+
 - ✅ [07005] Analizar nueva lógica para generar cobros por servicios
 
   Contexto: Revisar cual es nuestra mejor opción para generar cobros por los diferentes servicios que brindaremos, tener muy en cuenta la lógica los cobros de los pedidos.

@@ -9,3 +9,11 @@
   Tags: front
 
   Assignee: Diego Martin Ponce
+
+- ✅ [01017] Implementar la funcionalidad de "Datos fiscales" como se hizo en INMUNO
+
+  Contexto: Actualizar el funcionamiento de "Datos fiscales" a como actualmente se tiene desarrollado en INMUNO
+  
+  Tags: back
+
+  Assignee: Samuel Reveles

@@ -42,3 +42,9 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: negocio
 
   Assignee: Miguel Angel Valdés García
+
+- ✅ [20007] Investigación de mercado para encontrar API de alimentos, ingredientes y calorias
+
+  Tags: back
+
+  Assignee: Antoine Ganem

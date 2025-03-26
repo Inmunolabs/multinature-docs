@@ -46,8 +46,8 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Tags: back
 
-- ✅ [009] Actualizar los nombres de las columnas de las tablas de la base de datos 
-  
+- ✅ [009] Actualizar los nombres de las columnas de las tablas de la base de datos
+
   Contexto: Utilizar snake_case en lugar de camelCase y reemplazar created_at y updated_at en lugar de created y updated
 
   Tags: back
@@ -59,3 +59,25 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: negocio
 
   Assignee: Miguel Angel Valdés García
+
+- ✅ [011] Mejorar el manejo de la sesión de usuario
+
+  Contexto: Modificar el endpoint de `get-data-user` para que solo refresque el token, en lugar de solo enviar la información del usuario (como hace actualmente)
+
+  Tags: back
+
+- ✅ [012] Mejorar el manejo de la sesión de usuario
+
+  Contexto: La información del usuaria obtenida en el login se almacenará en el navegador.
+
+  Tags: front
+
+- ✅ [013] Mejorar el método `listUsers` del `users-api` para disminuir las consultas que se hacen a la base de datos
+
+  Contexto: Mejorar el flujo del método `listUsers` para por lo menmos evitar tener que hacer dos consultas por usuario en `userToDashboardDTO`
+
+  Tags: back
+
+- [014] Implementar Linter para tener manejo de errores en tiempo de escritura.
+
+  Tags: back

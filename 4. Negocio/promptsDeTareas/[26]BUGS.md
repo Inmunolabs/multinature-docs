@@ -18,3 +18,15 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Samuel Reveles
+
+- ✅ [26003] Reparar el endpoint para crear pacientes, dejo de existir
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García
+
+- ✅ [26004] Ajustar la respuesta de inicio de sesión no valido por falta de confirmación de correo
+
+  Contexto: Ajustar la respuesta de inicio de sesión no valido por falta de confirmación de correo. Agregar un mensaje como `"Tu cuenta no ha sido verificada. Por favor, completa la verificación con el código que enviamos a tu correo, si no cuentas con el código intenta solicitando uno nuevo."` y con un codigo de error `428`
+
+  Tags: back

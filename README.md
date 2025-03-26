@@ -2,6 +2,8 @@
 
 **La multimedia se encuentra en el [Google Drive](https://drive.google.com/drive/folders/1cwJvfCM1wVJkn_u9QfFUjZUTU_ccIsdU?hl=es)**
 
+**Las tareas se encuentran creadas en el [Tablero de ClickUp](https://app.clickup.com/9011834369/v/o/5-90115276863-28?pr=90113420950)**
+
 ## Contenido
 
 1. [Definición del proyecto](1.%20Definicion%20del%20proyecto/README.md)
@@ -36,15 +38,18 @@
       1. [[01] Actualización por Inmuno](./4.%20Negocio/promptsDeTareas/[01]ActualizacionPorInmuno.md)
       2. [[02] Direcciones](./4.%20Negocio/promptsDeTareas/[02]Direcciones.md)
       3. [[03] Citas](./4.%20Negocio/promptsDeTareas/[03]Citas.md)
-      4. [[07] Pedidos y Servicios](./4.%20Negocio/promptsDeTareas/[07]Pedidos&Servicios.md)
-      5. [[09] Productos](./4.%20Negocio/promptsDeTareas/[09]Productos.md)
-      6. [[11] Users](./4.%20Negocio/promptsDeTareas/[11]Users.md)
-      7. [[14] Gestión del Proyecto & Administración](./4.%20Negocio/promptsDeTareas/[14]GestionDelProyecto&Administracion.md)
-      8. [[17] Especialistas](./4.%20Negocio/promptsDeTareas/[17]Especialistas.md)
-      9. [[19] Notificaciones](./4.%20Negocio/promptsDeTareas/[19]Notificaciones.md)
-      10. [[20] Otros](./4.%20Negocio/promptsDeTareas/[20]Otros.md)
-      11. [[24] Formularios de Altas de Pacientes](./4.%20Negocio/promptsDeTareas/[24]FormulariosDeAltasDePacientes.md)
-      12. [[26] BUGS](./4.%20Negocio/promptsDeTareas/[26]BUGS.md)
-      13. [[BACKLOG]](./4.%20Negocio/promptsDeTareas/[BACKLOG].md)
+      4. [[04] Carrito & Sugerencias](./4.%20Negocio/promptsDeTareas/[04]Carrito&Sugerencias.md)
+      5. [[07] Pedidos y Servicios](./4.%20Negocio/promptsDeTareas/[07]Pedidos&Servicios.md)
+      6. [[09] Productos](./4.%20Negocio/promptsDeTareas/[09]Productos.md)
+      7. [[11] Users](./4.%20Negocio/promptsDeTareas/[11]Users.md)
+      8. [[14] Gestión del Proyecto & Administración](./4.%20Negocio/promptsDeTareas/[14]GestionDelProyecto&Administracion.md)
+      9. [[17] Especialistas](./4.%20Negocio/promptsDeTareas/[17]Especialistas.md)
+      10. [[18] Landing & Página de Socios](./4.%20Negocio/promptsDeTareas/[18]Landing&PaginaDeSocios.md)
+      11. [[19] Notificaciones](./4.%20Negocio/promptsDeTareas/[19]Notificaciones.md)
+      12. [[20] Otros](./4.%20Negocio/promptsDeTareas/[20]Otros.md)
+      13. [[24] Formularios de Altas de Pacientes](./4.%20Negocio/promptsDeTareas/[24]FormulariosDeAltasDePacientes.md)
+      14. [[26] BUGS](./4.%20Negocio/promptsDeTareas/[26]BUGS.md)
+      15. [[27] API de alimentos](./4.%20Negocio/promptsDeTareas/[27]APIDeAlimentos.md)
+      16. [[BACKLOG]](./4.%20Negocio/promptsDeTareas/[BACKLOG].md)
    4. [Prompt para instrucciones de diagramas de Excalidraw](./4.%20Negocio/propmtDiagramasDeExcalidraw.md)
    5. [Red de usuarios de Prueba](./4.%20Negocio/redDeUsuariosDePrueba.png)
