@@ -71,3 +71,9 @@
   Tags: negocio
 
   Assignee: Miguel Angel Valdés García
+
+- [14012] Diseñar y planear los Formularios de Altas de Pacientes
+
+  Tags: negocio
+
+  Assignee: Miguel Angel Valdés García

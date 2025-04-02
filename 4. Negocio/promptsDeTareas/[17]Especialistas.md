@@ -20,7 +20,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Revisar que users_specialities tiene el userId y que sea un Foreign Key apuntando a la tabla users y a su columna `id`
 
 - ✅ [17003] Ajustar los permisos a las vistas a partir de los nuevos perfiles (Nueva relación de especialidades)
-  
+
 - ✅ [17004] Modificar la ubicación de los templates de dietas y rutinas de Google Sheets
 
 - ✅ [17005] Crear la tabla de configuraciones de especialista
@@ -91,14 +91,14 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Contexto: El **Flujo para actualizar a un usuario como especialista** conlleva varios puntos que se pueden dividir seis pasos:
 
-  1. **Seleccionar especialidades** (Entrenador y/o Nutricionista). Seleccionador con las especialidades que se cuentan en el sistema. (backend pendiente) (El desarrollo de la funcionalidad se hara en una nueva tarea)
-  2. **Cargar Constancia de Conocimiento** (Cédula, Certificados, etc.). (Opcional) (backend pendiente) (El desarrollo de la funcionalidad se hara en una nueva tarea)
+  1. **Seleccionar especialidades** (Entrenador y/o Nutricionista). Seleccionador con las especialidades que se cuentan en el sistema. (El desarrollo de la funcionalidad se hara en una nueva tarea)
+  2. **Cargar Constancia de Conocimiento** (Cédula, Certificados, etc.). (Opcional) (El desarrollo de la funcionalidad se hara en una nueva tarea)
   3. **Formulario de Alta de Pacientes**. (Opcional) (backend pendiente) (El desarrollo de la funcionalidad se hara en una nueva tarea)
   4. **Formulario de Configuraciones del especialista**.
-  5. Subir **Material de apoyo**. La intención de este punto es permitir al especialista subir archivos como fotografías, documentes como pdf, word, etc. (Opcional) (backend pendiente) (El desarrollo de la funcionalidad se hara en una nueva tarea)
+  5. Subir **Material de apoyo**. La intención de este punto es permitir al especialista subir archivos como fotografías, documentes como pdf, word, etc. (Opcional) (El desarrollo de la funcionalidad se hara en una nueva tarea)
   6. **Solicitud de datos fiscales y cuentas bancarias**. (Opcional) (backend pendiente)
 
-  - Esta tarea se compone de dos puntos:
+  **Esta tarea se compone de dos puntos:**
 
   1. La creación visual del flujo de seis pasos, tal como el flujo similar de registro de usuarios en Inmuno, donde cada paso es una nueva pestaña. Para este caso los pasos que son opcionales deberán contener un botón de "Omitir" para brincarse el paso.
   2. Y el desarrollo funcional de los pasos 4 y 6.
@@ -416,3 +416,10 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: front
 
   Assignee: Diego Martin Ponce
+
+	
+- [17031] Crear vista para graficar evolución de conceptos clí­nicos graficables por paciente 
+
+  Contexto: Diseñar y mostrar una gráfica de evolución por concepto clí­nico (ej. peso, cintura) con base en los valores registrados en citas pasadas.
+
+  Tags: front

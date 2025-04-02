@@ -30,3 +30,13 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Contexto: Ajustar la respuesta de inicio de sesión no valido por falta de confirmación de correo. Agregar un mensaje como `"Tu cuenta no ha sido verificada. Por favor, completa la verificación con el código que enviamos a tu correo, si no cuentas con el código intenta solicitando uno nuevo."` y con un codigo de error `428`
 
   Tags: back
+
+  Assignee: Miguel Angel Valdés García
+
+- [26005] Errores al crear y verficar cuentas de usuarios
+
+  Contexto: No se envía el código de verificación en el correo y el token que se envia en la respuesta de la `Verficación de cuenta` esta malformado
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García

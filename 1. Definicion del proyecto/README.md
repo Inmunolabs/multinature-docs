@@ -12,4 +12,6 @@
 6. [Epicas e Historias de Usuario](./epics&UserStories.png)
 7. [Citas](./citas.md)
    1. [Agendar cita](./agendarCita.png)
-8. [Servicios de especialistas (service_payments)](./servicios.png)
+8. Especialistas
+   1. [Servicios de especialistas (service_payments)](./servicios.png)
+   2. [Formularios para alta de pacientes](./formulariosAltaPacientes.md)
