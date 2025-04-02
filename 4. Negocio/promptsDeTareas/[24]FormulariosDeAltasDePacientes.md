@@ -64,7 +64,7 @@ Task Name Description Priority Status tags
 
   Contexto: Implementar lógica para permitir la edición directa de formularios clí­nicos solo dentro de los primeros 7 días desde su creación.
 
-  En relación con la tarea [24009]
+  En relación con la tarea [24010]
 
   Tags: back
 
@@ -82,7 +82,7 @@ Task Name Description Priority Status tags
 
   Contexto: Agregar lógica backend para clonar formularios clí­nicos cuando han pasado más de 7 días y crear una nueva instancia editable.
 
-  En relación con la tarea [24007]
+  En relación con la tarea [24008]
 
   Tags: back
 

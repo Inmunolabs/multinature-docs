@@ -130,7 +130,7 @@ booking_id VARCHAR(36) NOT NULL, -- si no existe una cita agendada, al momento d
 form_template_id VARCHAR(36) NOT NULL, -- guarda la relación con el template original
 user_id VARCHAR(36) NOT NULL, -- guarda la relación con el paciente
 specialist_id VARCHAR(36) NOT NULL, -- guarda la relación con el especialista
-is_active BOOLEAN DEFAULT TRUE, -- indica si el formulario se encuentra vigente (false si se edito despues de 7 dias, lo indica que pasa para el historico y las gráficas)
+is_active BOOLEAN DEFAULT TRUE, -- indica si el formulario se encuentra vigente (false si se edito despues de 7 dias, indicando que pasa a ser útil para el historico y las gráficas)
 updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (booking_id) REFERENCES bookings(id)
