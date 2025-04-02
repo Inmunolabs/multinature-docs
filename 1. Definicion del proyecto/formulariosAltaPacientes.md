@@ -100,6 +100,8 @@ id VARCHAR(36) PRIMARY KEY,
 name VARCHAR(100),
 description TEXT,
 specialist_id VARCHAR(36), -- null si es un template general del sistema
+specialty_id VARCHAR(36),
+FOREIGN KEY (specialty_id) REFERENCES specialties(id)
 updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 ```

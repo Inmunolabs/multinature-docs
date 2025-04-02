@@ -78,6 +78,6 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Tags: back
 
-- [014] Implementar Linter para tener manejo de errores en tiempo de escritura.
+- ✅ [014] Implementar Linter para tener manejo de errores en tiempo de escritura.
 
   Tags: back

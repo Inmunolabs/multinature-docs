@@ -33,7 +33,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Miguel Angel Valdés García
 
-- [26005] Errores al crear y verficar cuentas de usuarios
+- ✅ [26005] Errores al crear y verficar cuentas de usuarios
 
   Contexto: No se envía el código de verificación en el correo y el token que se envia en la respuesta de la `Verficación de cuenta` esta malformado
 

@@ -417,8 +417,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Diego Martin Ponce
 
-	
-- [17031] Crear vista para graficar evolución de conceptos clí­nicos graficables por paciente 
+- ✅ [17031] Crear vista para graficar evolución de conceptos clí­nicos graficables por paciente
 
   Contexto: Diseñar y mostrar una gráfica de evolución por concepto clí­nico (ej. peso, cintura) con base en los valores registrados en citas pasadas.
 
