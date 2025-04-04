@@ -40,3 +40,9 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Miguel Angel Valdés García
+
+- [26006] Asegurarse que se generen los consumos de usuarios
+
+  Contexto: Asegurarse que al completar el pago de una compra se registren los consumos del usuario
+
+  Tags: back

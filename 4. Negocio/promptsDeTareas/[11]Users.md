@@ -167,3 +167,27 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: front
 
   Assignee: Diego Martin Ponce
+
+- ✅ [11018] Compartir especialistas de recomendador al crear cuenta
+
+  Contexto: Al crear una nueva cuenta, se debe preguntar al nuevo usuario si desea compartir los mismos especialistas que la persona que lo recomendo. Esto no ocurre al crear paciente, solo ocurre cuando un usuario se registra por si mismo. Para esto se debe integrar el campo `specialists` durante el registro del usuario (endpoint `POST {{userHost}}/users/`). El nuevo campo `specialists` debe ser un arreglo de objetos con las propiedades `id ` y `specialtyId`.
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+- ✅ [11019] Compartir especialistas de recomendador al crear cuenta
+
+  Contexto: Al crear una nueva cuenta, se debe preguntar al nuevo usuario si desea compartir los mismos especialistas que la persona que lo recomendo. Esto no ocurre al crear paciente, solo ocurre cuando un usuario se registra por si mismo. Para esto se debe integrar un checkbox durante el registro del usuario y de ser seleccionado se debe agregar el id del o los especialistas en el body de la solicitud del endpoint `POST {{userHost}}/users/`
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce
+
+- [11020] Crear un endpoint para obtener la información del día del usuario, sus platillos, rutina y citas
+
+  Contexto: Crear un endpoint para obtener la información del día del usuario, la dieta de hoy, su rutina para hoy y sus citas de hoy. Endpoint `GET /dashboard/:id/daily` (el path param `:id` representa el user id).
+
+  Esta tarea debe incluir la funcionalidad del endpoint `GET {{dietsHost}}/diets/today/:id` y si aún existe dicho endpoint eliminarlo ([015])
+
+  Tags: back

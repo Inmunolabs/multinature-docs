@@ -78,6 +78,40 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Tags: back
 
-- ✅ [014] Implementar Linter para tener manejo de errores en tiempo de escritura.
+- ✅ [014] Implementar Linter para tener manejo de errores en tiempo de escritura
 
   Tags: back
+
+- ✅ [015] Eliminar los endpoints en desuso del routines-api y del diets-api
+
+  Contexto: Antes de eliminar los endpoints asegurarse con frontend que de verdad no esten en uso.
+
+  Los endpoints a eliminar son: `GET /routines/user/:id`, `GET /routines/specialist/:id`, `GET /diets/user/:id`, `GET /diets/specialist/:id`, `GET /diets/today/:id` (No eliminar este último endpoint hasta no completar la tarea [11020])
+
+  Tags: back
+
+- ✅ [016] Crear un API para administrar los archivos de los usuarios
+
+  Contexto: Esta nueva api (tal vez `user-files-api`) debería absorver los siguientes endpoints del `users-api`: `GET /specialists/certificates/:id`, `GET /specialists/support-material/:id`, `GET /specialists/s3-upload`, `POST /specialists/certificates/`, `POST /specialists/support-material/`, `DELETE /specialists/certificates/:id`, `DELETE /specialists/support-material/:id`.
+
+  Actualizar también el `api-collection`
+
+  Tags: back
+
+- [017] Crear un nuevo endpoint para devolver la información del usuario además del token
+
+  Contexto: Actualmente el endpoint de login (`POST /users/login`) devuelve información del usuario además del token. Esta tarea busca refactorizar dicha lógica para que el login solo retorne el token y el perfil del usuario, y se cree un nuevo endpoint `GET users/me` que devuelva la información completa del usuario autenticado.
+
+  Renombrar también el endpoint del login, de `POST /users/login` a `POST /auth/login`
+
+  Tags: back
+
+- [018] Actualizar las rutas de los endpoints refactorizados
+
+  Contexto: Debido a la creación de la nueva api que busca liberar el `users-api` cambiar el host o base de los siguientes endpoints del `users-api`: `GET /specialists/certificates/:id`, `GET /specialists/support-material/:id`, `GET /specialists/s3-upload`, `POST /specialists/certificates/`, `POST /specialists/support-material/`, `DELETE /specialists/certificates/:id`, `DELETE /specialists/support-material/:id`. (Tarea [016](https://app.clickup.com/t/868dcy1pq))
+
+  Considerar también los cambios de la tarea [017], que consiste en la actualización del endpoint `POST /users/login` y la creación del endpoit `GET users/me`
+
+  Revisar con Backend cuál es el nuevo host y confirmar los diferentes endpoints
+
+  Tags: front
