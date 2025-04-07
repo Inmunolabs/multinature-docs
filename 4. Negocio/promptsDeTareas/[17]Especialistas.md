@@ -423,7 +423,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Tags: front
 
-- [17032] Crear vista para mostrar la lista de pacientes de un especialista
+- ✅ [17032] Crear vista para mostrar la lista de pacientes de un especialista
 
   Contexto: Esta vista debe ser una lista con datos básicos de los pacientes. El endpoint a consultar es el `GET {{userHost}}/specialists/:specialistId/patients`.
 

@@ -11,7 +11,7 @@ Task Name Description Priority Status tags
   Tags: back
 
   Assignee: Samuel Reveles
-  
+
 - ✅ [24002] Crear la nueva API para completar el flujo de Formularios de Altas de Pacientes
 
   Contexto: crear la nueva API para soportar los templates de formularios, conceptos, formularios llenados y sus valores capturados.
@@ -70,7 +70,7 @@ Task Name Description Priority Status tags
 
   Assignee: Samuel Reveles
 
-- ✅ [24009] Agregar opción en frontend para editar formularios clí­nicos recientes
+- ✅ [24009] Agregar opción en frontend para editar formularios clí­nicos
 
   Contexto: Permitir que el especialista edite los formularios clí­nicos llenados recientemente si están dentro del periodo permitido de edición.
 
@@ -91,6 +91,50 @@ Task Name Description Priority Status tags
 - ✅ [24011] Mostrar listado de formularios clí­nicos por cita en el frontend
 
   Contexto: Diseñar la vista que muestre el historial de formularios llenados en cada cita del paciente con la opción de ver detalles.
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce
+
+- ✅ [24012] Crear CRUD para preguntas personalizadas del template del especialista
+
+  _Tarea creada por Samuel_
+
+- ✅ [24013] Agregar endpoint para listar los formularios que se llenaron de un pacienteF
+
+  _Tarea creada por Samuel_
+
+- ✅ [24014] Agregar una bandera a los templates para identificarlos como una "Valoración inicial"
+
+  Contexto: Agregar una bandera a los formularios clí­nicos para indicar que el formulario es una "Valoración inicial" esto para complementar el registro o alta de un nuevo paciente. El especialista puede tener más de un template para "Valoraciones iniciales"
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [24015] Desarrollar el flujo para dar de Alta a un paciente
+
+  Contexto: Este flujo de alta de paciente consiste en dos formularios uno para para llenar los datos de registro de un paciente (ENDPOINT: `POST {{userHost}}/specialists/patient`) y el otro para llenar el formulario de "Valoración inicial" esto para complementar el registro de un nuevo paciente.
+
+  El formulario de valoración inicial no tiene una estructura bien definida ya que cada especialista puede crear su propio formulario, por este motivo, este segundo paso del alta de pacientes debe ser dinámico
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce
+
+- ✅ [24016] Crear endpoint para enviar los puntos gráficables de cada usuario por especialista
+
+  Contexto: Crear endpoint para enviar el detalle de los puntos gráficables de los conceptos de los formularios, este endpoint debe tener los query params de starDate y endDate para limitar el espacio de tiempo de las gráficas por default se mostrará desde hoy hasta un año atras.
+
+  Tags: back
+
+  Assignee:
+
+- ✅ [24017] Consultar el endpoint de detalles de los puntos gráficables para presentarlo al usuario
+
+  Contexto: Presentar al usuario el detalle de los puntos gráficables desde el modal de cada tabla. El endpoint responderá con los puntos de todas las gráficas, administrar esta respuesta para hacer una sola consulta al servidor independientemente del número de gráficas en las que se quiera ver el detalle de los conceptos de los formularios.
+
+  El endpoint a consultar debe tener los query params de starDate y endDate para limitar el espacio de tiempo de las gráficas por default se mostrará desde hoy hasta un año atras.
 
   Tags: front
 

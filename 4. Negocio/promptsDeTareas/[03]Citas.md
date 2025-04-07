@@ -162,7 +162,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Diego Martin Ponce
 
-- ✅ [03015] Desarrollar opción y formularios para la actualización y cancelación de una citas
+- ✅ [03015] Desarrollar opción y formularios para la actualización y cancelación de una cita
 
   Contexto: Un usuario y un especialista deben ser capaces de actualizar y cancelar citas respectivamente. **Revisar los detalles de esta tarea en la [documentación](https://github.com/Inmunolabs/multinature-docs/blob/master/4.%20Negocio/promptsDeTareas/%5B03%5D%20Citas.md)**.
 

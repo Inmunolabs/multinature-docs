@@ -46,3 +46,11 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Contexto: Asegurarse que al completar el pago de una compra se registren los consumos del usuario
 
   Tags: back
+
+- [26007] Error al intentar acceder al detalle de un producto desde el [home de un cliente](https://www.multinaturecompany.com/home/F)
+
+  Contexto: folio: "5a4be020-e6dd-48e4-a2ff-d18af000a13f"
+
+  path: `GET /products/2e17cfde-136c-481f-bd33-9e4b16ab5d91`
+
+  Tags: back
