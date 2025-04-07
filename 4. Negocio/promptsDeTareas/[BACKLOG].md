@@ -98,7 +98,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Tags: back
 
-- [017] Crear un nuevo endpoint para devolver la información del usuario además del token
+- ✅ [017] Crear un nuevo endpoint para devolver la información del usuario además del token
 
   Contexto: Actualmente el endpoint de login (`POST /users/login`) devuelve información del usuario además del token. Esta tarea busca refactorizar dicha lógica para que el login solo retorne el token y el perfil del usuario, y se cree un nuevo endpoint `GET users/me` que devuelva la información completa del usuario autenticado.
 
@@ -106,7 +106,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Tags: back
 
-- [018] Actualizar las rutas de los endpoints refactorizados
+- ✅ [018] Actualizar las rutas de los endpoints refactorizados
 
   Contexto: Debido a la creación de la nueva api que busca liberar el `users-api` cambiar el host o base de los siguientes endpoints del `users-api`: `GET /specialists/certificates/:id`, `GET /specialists/support-material/:id`, `GET /specialists/s3-upload`, `POST /specialists/certificates/`, `POST /specialists/support-material/`, `DELETE /specialists/certificates/:id`, `DELETE /specialists/support-material/:id`. (Tarea [016](https://app.clickup.com/t/868dcy1pq))
 

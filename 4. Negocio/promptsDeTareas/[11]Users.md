@@ -184,7 +184,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Diego Martin Ponce
 
-- ✅ [11020] Crear un endpoint para obtener la información del día del usuario, sus platillos, rutina y citas
+- ✅ [11020] Crear un endpoint para obtener la información del día del usuario, sus citas, platillos, rutinas y gráficas (Dashboard de usuarios)
 
   Contexto: Crear un endpoint para obtener la información del día del usuario, la dieta de hoy, su rutina para hoy, sus citas de hoy y las gráficas de su progreso. Endpoint `GET /users/:id/dashboard/daily` (el path param `:id` representa el user id).
 

@@ -41,16 +41,24 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Miguel Angel Valdés García
 
-- [26006] Asegurarse que se generen los consumos de usuarios
+- ✅ [26006] Asegurarse que se generen los consumos de usuarios
 
   Contexto: Asegurarse que al completar el pago de una compra se registren los consumos del usuario
 
   Tags: back
 
-- [26007] Error al intentar acceder al detalle de un producto desde el [home de un cliente](https://www.multinaturecompany.com/home/F)
+- ✅ [26007] Error al intentar acceder al detalle de un producto desde el [home de un cliente](https://www.multinaturecompany.com/home/F)
 
   Contexto: folio: "5a4be020-e6dd-48e4-a2ff-d18af000a13f"
 
   path: `GET /products/2e17cfde-136c-481f-bd33-9e4b16ab5d91`
 
   Tags: back
+
+- ✅ [26008] Eliminar el endpoint POST {{userHost}}/specialists/config/:id. El PATCH debería ser suficiente
+
+  Contexto: El `PATCH {{userHost}}/specialists/config/:id` debería ser suficiente incluso para crear las configuraciones, a ojos del cliente todo especialista tiene configuraciones, a ojos del servidor el especialista que no tiene configuraciones utiliza las de default y eso nos basta para justificar porque solo debería existir el endpoint `PATCH`. Validar que el PATCH funcione como un `upsert` y renombrar todo lo referente. Eliminar todo lo de `create` validaciones, servicios, rutas, etc. y renombrar lo de `update` por `upsert`. Si no queda claro revisar como referencia la cart-api, para las recomendaciones o el carrito en si
+
+  Tags: back
+
+  Assignee: Samuel Reveles

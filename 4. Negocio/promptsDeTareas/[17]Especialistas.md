@@ -417,18 +417,8 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Diego Martin Ponce
 
-- ✅ [17031] Crear vista para graficar evolución de conceptos clí­nicos graficables por paciente
+- ✅ [17031] Actualizar vista para graficar evolución de conceptos clí­nicos graficables por paciente
 
   Contexto: Diseñar y mostrar una gráfica de evolución por concepto clí­nico (ej. peso, cintura) con base en los valores registrados en citas pasadas.
 
   Tags: front
-
-- ✅ [17032] Crear vista para mostrar la lista de pacientes de un especialista
-
-  Contexto: Esta vista debe ser una lista con datos básicos de los pacientes. El endpoint a consultar es el `GET {{userHost}}/specialists/:specialistId/patients`.
-
-  Cada fila o tarjeta con la información de los pacientes debe redireccionar a una vista con toda la información y plan del paciente. Esta tarea no incluye el desarrollo de esa vista o dashboard
-
-  Tags: front
-
-  Assignee: Diego Martin Ponce

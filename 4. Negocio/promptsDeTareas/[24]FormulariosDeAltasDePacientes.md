@@ -121,21 +121,3 @@ Task Name Description Priority Status tags
   Tags: front
 
   Assignee: Diego Martin Ponce
-
-- ✅ [24016] Crear endpoint para enviar los puntos gráficables de cada usuario por especialista
-
-  Contexto: Crear endpoint para enviar el detalle de los puntos gráficables de los conceptos de los formularios, este endpoint debe tener los query params de starDate y endDate para limitar el espacio de tiempo de las gráficas por default se mostrará desde hoy hasta un año atras.
-
-  Tags: back
-
-  Assignee:
-
-- ✅ [24017] Consultar el endpoint de detalles de los puntos gráficables para presentarlo al usuario
-
-  Contexto: Presentar al usuario el detalle de los puntos gráficables desde el modal de cada tabla. El endpoint responderá con los puntos de todas las gráficas, administrar esta respuesta para hacer una sola consulta al servidor independientemente del número de gráficas en las que se quiera ver el detalle de los conceptos de los formularios.
-
-  El endpoint a consultar debe tener los query params de starDate y endDate para limitar el espacio de tiempo de las gráficas por default se mostrará desde hoy hasta un año atras.
-
-  Tags: front
-
-  Assignee: Diego Martin Ponce
