@@ -62,3 +62,11 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Samuel Reveles
+
+- ✅ [26009] Error al reingresar a la página, solicitud de inicio de sesión incorrecta
+
+  Contexto: Al reingresar a la página después de un tiempo de haber cerrado la pestaña se solicita inicar sesión de nuevo, pero no muestra el formulario de login y tampoco indica con que cuenta se inicio sesión, si no se ha cerrado la sesión o no se ha vencido el token, entonces que al reingresar a la página, no se solicite un reinicio de sesión
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce

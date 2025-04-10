@@ -191,3 +191,77 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Esta tarea debe incluir la funcionalidad del endpoint `GET {{dietsHost}}/diets/today/:id` y si aún existe dicho endpoint eliminarlo ([015])
 
   Tags: back
+
+- ✅ [11021] Crear tabla `user_action_replacements` para registrar acciones de reemplazo de ejercicios y alimentos diarios de los usuarios
+
+  Contexto:
+  **Nombre de la Tabla**: `user_action_replacements`
+  **Nombres de las Columnas**:
+
+  ```
+    id VARCHAR(36) PRIMARY KEY,
+    user_id VARCHAR(36) NOT NULL,
+    date DATETIME NOT NULL, -- fecha y hora del evento
+    type ENUM('meal', 'exercise') NOT NULL, -- tipo de acción
+    reference_id INT NOT NULL, -- ID de diet_meals o routine_exercises
+    replacement_text TEXT, -- texto libre en caso de reemplazo
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+  ```
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+- ✅ [11022] Crear endpoint para registrar "Reemplazo" en ejercicios o alimentos en `user_action_replacements`
+
+  Contexto: Validar si ya existe una acción previa del usuario para evitar duplicados
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+- ✅ [11023] Crear endpoint para actualizar "reemplazo" existente en `user_action_replacements`
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+- ✅ [11024] Reemplazar los alimentos de una dieta por los respectivos reemplazos
+
+  Contexto: En el endpoint `GET {{dietsHost}}/diets/user/{{userId}}` reemplazar los `meals` que tengan un "equivalente" en `user_action_replacements` (referenciado con el campo `reference_id`)
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+- ✅ [11025] Reemplazar los ejercicios de una rutina por los respectivos reemplazos
+
+  Contexto: En el endpoint `GET {{routinesHost}}/routines/user/{{userId}}` reemplazar los `exercises` que tengan un "equivalente" en `user_action_replacements` (referenciado con el campo `reference_id`)
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+- ✅ [11026] Agregar botones de acción "Hecho" y "Hice otra cosa" en cada ítem de dieta o rutina diaria
+
+  Contexto: Cuando el usuario seleccione "Hice otra cosa" se deberá generar un `user_action_replacement` que representa el reemplazo de un ejercicio o alimento diario. Mostrar mensajes de éxito/error al guardar acción del usuario
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce
+
+- ✅ [11027] Permitir edición de acciones de reemplazo ya registradas
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce
+
+- ✅ [11028] Resaltar en el calendario de actividades las acciones que fueron reemplazadas
+
+  Contexto: Con algún color diferente, resaltar en el calendario de actividades las acciones que fueron reemplazadas por el usuario. Este calendario lo verán el paciente y el especialista
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce

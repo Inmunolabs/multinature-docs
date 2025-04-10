@@ -422,3 +422,11 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Contexto: Diseñar y mostrar una gráfica de evolución por concepto clí­nico (ej. peso, cintura) con base en los valores registrados en citas pasadas.
 
   Tags: front
+
+- ✅ [17032] Crear vista de Configuración de especialidad (panel del especialista)
+
+  Contexto: Diseñar y desarrollar una vista que permita a los especialistas administrar sus recursos, es decir, sus configuraciones como el cobro de citas, anticipos, mensualidad, etc; sus certificados; su material de apoyo; sus formularios; los domicilios de sus consultorios y sus especialidades.
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce

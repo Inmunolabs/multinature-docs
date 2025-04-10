@@ -46,9 +46,9 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Tags: back
 
-- ✅ [009] Actualizar los nombres de las columnas de las tablas de la base de datos
+- ✅ [009] Actualizar los nombres de las columnas de las tablas y agregar ON UPDATE a las tablas de la base de datos
 
-  Contexto: Utilizar snake_case en lugar de camelCase y reemplazar created_at y updated_at en lugar de created y updated
+  Contexto: Utilizar snake_case en lugar de camelCase; reemplazar created_at y updated_at en lugar de created y updated y agregar ON UPDATE CURRENT_TIMESTAMP a todas las tablas para automatizar la actualización de la columna updated_at de la base de datos.
 
   Tags: back
 

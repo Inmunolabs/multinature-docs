@@ -52,7 +52,7 @@ Task Name Description Priority Status tags
 
   Assignee: Samuel Reveles
 
-- ✅ [24007] Crear formulario en la vista de cita para que el especialista capture datos clí­nicos
+- ✅ [24007] Crear formulario en la vista de cita o del paciente para que el especialista capture los datos de la cita
 
   Contexto: Agregar en la vista de detalles de cita una sección donde el especialista pueda seleccionar un template y llenar los datos clí­nicos correspondientes.
 
@@ -100,7 +100,7 @@ Task Name Description Priority Status tags
 
   _Tarea creada por Samuel_
 
-- ✅ [24013] Agregar endpoint para listar los formularios que se llenaron de un pacienteF
+- ✅ [24013] Agregar endpoint para listar los formularios que se llenaron de un paciente
 
   _Tarea creada por Samuel_
 
