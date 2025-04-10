@@ -84,9 +84,11 @@ Un **template de formulario** es simplemente:
 
 ```sql
 id VARCHAR(36) PRIMARY KEY,
+specialistId VARCHAR(36),
 name VARCHAR(100) NOT NULL,
-default_unit VARCHAR(20),
-description TEXT
+defaultUnit VARCHAR(20),
+description TEXT,
+FOREIGN KEY (specialistId) REFERENCES users(id)
 ```
 
 ---
@@ -97,25 +99,26 @@ description TEXT
 
 ```sql
 id VARCHAR(36) PRIMARY KEY,
+specialtyId VARCHAR(36),
+specialistId VARCHAR(36), -- null en caso de que sea un template general del sistema
 name VARCHAR(100),
 description TEXT,
-specialist_id VARCHAR(36), -- null si es un template general del sistema
-specialty_id VARCHAR(36),
-FOREIGN KEY (specialty_id) REFERENCES specialties(id)
-updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+updated DATETIME DEFAULT CURRENT_TIMESTAMP,
+created DATETIME DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (specialistId) REFERENCES users(id)
 ```
 
-#### `form_template_concepts`
+#### `form_template_units`
 
 ```sql
 id VARCHAR(36) PRIMARY KEY,
-form_template_id VARCHAR(36) NOT NULL,
-concept_id VARCHAR(36), -- puede ser null si es personalizado
-custom_name VARCHAR(100), -- si es concepto personalizado
+formTemplateId VARCHAR(36) NOT NULL,
+conceptId VARCHAR(36) NOT NULL, -- puede ser null si es personalizado
+customName VARCHAR(100), -- si es concepto personalizado
 unit VARCHAR(20),
-is_graphable BOOLEAN DEFAULT FALSE,
-FOREIGN KEY (form_template_id) REFERENCES form_templates(id)
+isGraphable BOOLEAN DEFAULT FALSE,
+FOREIGN KEY (formTemplateId) REFERENCES form_templates(id) ON DELETE CASCADE,
+FOREIGN KEY (conceptId) REFERENCES concepts(id)
 ```
 
 ---
@@ -126,30 +129,29 @@ FOREIGN KEY (form_template_id) REFERENCES form_templates(id)
 
 ```sql
 id VARCHAR(36) PRIMARY KEY,
-booking_id VARCHAR(36) NOT NULL, -- si no existe una cita agendada, al momento de crear el formulario se crea una cita
-form_template_id VARCHAR(36) NOT NULL, -- guarda la relación con el template original
-user_id VARCHAR(36) NOT NULL, -- guarda la relación con el paciente
-specialist_id VARCHAR(36) NOT NULL, -- guarda la relación con el especialista
-is_active BOOLEAN DEFAULT TRUE, -- indica si el formulario se encuentra vigente (false si se edito despues de 7 dias, indicando que pasa a ser útil para el historico y las gráficas)
-updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-FOREIGN KEY (booking_id) REFERENCES bookings(id)
-FOREIGN KEY (form_template_id) REFERENCES form_templates(id)
-FOREIGN KEY (user_id) REFERENCES users(id)
-FOREIGN KEY (specialist_id) REFERENCES users(id)
+bookingId VARCHAR(36) NOT NULL, -- si no existe una cita agendada, al momento de crear el formulario se crea una cita
+formTemplateId VARCHAR(36) NOT NULL, -- guarda la relación con el template original
+userId VARCHAR(36) NOT NULL, -- guarda la relación con el paciente
+specialistId VARCHAR(36) NOT NULL, -- guarda la relación con el especialista
+updated DATETIME DEFAULT CURRENT_TIMESTAMP,
+created DATETIME DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (bookingId) REFERENCES bookings(id),
+FOREIGN KEY (formTemplateId) REFERENCES form_templates(id),
+FOREIGN KEY (userId) REFERENCES users(id),
+FOREIGN KEY (specialistId) REFERENCES users(id)
 ```
 
 #### `filled_form_values`
 
 ```sql
 id VARCHAR(36) PRIMARY KEY,
-filled_form_id VARCHAR(36) NOT NULL,
-concept_name VARCHAR(100), -- copia del nombre, sea base o personalizado
-value DECIMAL(10, 2),
+filledFormId VARCHAR(36) NOT NULL,
+conceptName VARCHAR(100), -- copia del nombre, sea base o personalizado
+value TEXT,
 unit VARCHAR(20),
 observation TEXT,
-is_graphable BOOLEAN DEFAULT FALSE,
-FOREIGN KEY (filled_form_id) REFERENCES filled_forms(id)
+isGraphable BOOLEAN DEFAULT FALSE,
+FOREIGN KEY (filledFormId) REFERENCES filled_forms(id)
 ```
 
 ---
