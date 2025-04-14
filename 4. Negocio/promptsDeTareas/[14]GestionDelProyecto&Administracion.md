@@ -77,3 +77,15 @@
   Tags: negocio
 
   Assignee: Miguel Angel Valdés García
+
+- [14013] Diseñar y planear los "Reemplazos" de alimentos y ejercicios diarios de los usuarios 
+
+  Tags: negocio
+
+  Assignee: Miguel Angel Valdés García
+  
+- [14014] Diseñar y planear Dietocalculos
+
+  Tags: negocio
+
+  Assignee: Miguel Angel Valdés García
