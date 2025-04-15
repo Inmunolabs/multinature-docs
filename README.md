@@ -60,3 +60,5 @@
       21. [[BACKLOG]](./4.%20Negocio/promptsDeTareas/[BACKLOG].md)
    4. [Prompt para instrucciones de diagramas de Excalidraw](./4.%20Negocio/propmtDiagramasDeExcalidraw.md)
    5. [Red de usuarios de Prueba](./4.%20Negocio/redDeUsuariosDePrueba.png)
+   6. [Cotizaciones de API de alimentos](https://docs.google.com/spreadsheets/d/1JeiPtQWeF2uLBE1RfwcXrMesc1mnqNiC7EC6lY87YIg/edit?gid=1883683087#gid=1883683087)
+

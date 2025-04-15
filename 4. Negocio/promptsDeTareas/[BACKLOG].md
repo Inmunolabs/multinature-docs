@@ -115,3 +115,11 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Revisar con Backend cuál es el nuevo host y confirmar los diferentes endpoints
 
   Tags: front
+
+- ✅ [019] Crear vista para CRUD de conceptos (solo admins)
+
+  Contexto: Crear vista para el manejo del CRUD de los conceptos de los templates de formularios
+
+  Considerar si el DELETE también debe de quedar visible para los especialistas, ya que es posible que alguien ponga una pregunta que no sabía que tenía registrada y ahora le aparezca doble o que alguien apenas esté aprendiendo a usar la plataforma y no se haya dado cuenta que había preguntas por defecto o cosas por el estilo.
+
+  Tags: front

@@ -393,7 +393,17 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Diego Martin Ponce
 
-- ✅ [17029] Habilitar acciones cruzadas entre especialistas que comparten pacientes
+- ✅ [17029] Agregar indicadores visuales para pacientes compartidos entre especialistas
+
+  Contexto: Yo como especialista quiero saber cuando estoy trabajando con un pacientes compartido con otro especialista; quiero saber si lo compartí yo (siendo yo el "Especialista Base") o si lo compartieron conmigo (siendo yo el "Especialista Secundario").
+
+  También quiero saber que cosas asigno el otro especialista a nuestro paciente compartido
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce
+
+- ✅ [17030] Habilitar acciones cruzadas entre especialistas que comparten pacientes
 
   Contexto: Implementar un sistema de permisos o acciones compartidas. Específicamente: Si dos especialistas (A y B) comparten un paciente, entonces el especialista A debería poder realizar también las acciones que normalmente solo B podría hacer con ese paciente.
 
@@ -406,16 +416,6 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Samuel Reveles
-
-- ✅ [17030] Agregar indicadores visuales para pacientes compartidos entre especialistas
-
-  Contexto: Yo como especialista quiero saber cuando estoy trabajando con un pacientes compartido con otro especialista; quiero saber si lo compartí yo (siendo yo el "Especialista Base") o si lo compartieron conmigo (siendo yo el "Especialista Secundario").
-
-  También quiero saber que cosas asigno el otro especialista a nuestro paciente compartido
-
-  Tags: front
-
-  Assignee: Diego Martin Ponce
 
 - ✅ [17031] Actualizar vista para graficar evolución de conceptos clí­nicos graficables por paciente
 

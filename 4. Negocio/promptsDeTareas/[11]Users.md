@@ -265,3 +265,11 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: front
 
   Assignee: Diego Martin Ponce
+
+- ✅ [11029] Hacer el campo de gender como obligatorio
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_

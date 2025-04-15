@@ -48,3 +48,11 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Antoine Ganem
+
+- ✅ [20008] Agregar las unidades de los conceptos al endpoint `GET {{userHost}}/api/config`
+
+  Contexto: Agregar un arreglo con las unidades posibles que pueden tener los conceptos, como kilogramos, centrimetros, etc.
+
+  Tags: back
+
+  Assignee: Samuel Reveles

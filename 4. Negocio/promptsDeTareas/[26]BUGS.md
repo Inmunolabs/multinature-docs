@@ -71,13 +71,13 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Diego Martin Ponce
 
-- [26010] La tabla users_specialies no tiene llaves foraneas
+- ✅ [26010] La tabla users_specialies no tiene llaves foraneas
 
   Contexto: Agregar las FKs para la tabla de users y la specialties
 
   Tags: back
 
-- [26011] Renombrar la tabla de `form_template_units` a `form_template_concepts`
+- ✅ [26011] Renombrar la tabla de `form_template_units` a `form_template_concepts`
 
   Contexto: Considerar modificar también el código
 
@@ -85,7 +85,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Samuel Reveles
 
-- [26012] Error 500 al editar la tax information de un usuario, implementar un Upsert en lugar de un create/update
+- ✅ [26012] Error 500 al editar la tax information de un usuario, implementar un Upsert en lugar de un create/update
 
   Contexto: Eliminar el endpoint: `POST {{userHost}}/users/tax-info/:userId` y actualizar el endpoint: `PATCH {{userHost}}/users/tax-info/:id` para que funcione como un upsert
 

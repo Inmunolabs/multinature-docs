@@ -122,7 +122,7 @@ Task Name Description Priority Status tags
 
   Assignee: Diego Martin Ponce
 
-- [24016] Agregar campo `is_mandatory` a los `form_template_concepts`
+- ✅ [24016] Agregar campo `is_mandatory` a los `form_template_concepts`
 
   Contexto: Agregar bandera `is_mandatory` a los `form_template_concepts` (antes `form_template_units`) para que se indique si el campo es obligatorio de llenar en el formulario; esto con el fin de forzar los campos necesarios para el llenado de las formulas de los dietocalculos
 
@@ -130,10 +130,18 @@ Task Name Description Priority Status tags
 
   Assignee: Samuel Reveles
 
-- [24017] Crear formularios de "Valoración inicial (Multinature)" y "Dietocalculos (Multinature)"
+- ✅ [24017] Crear formularios de "Valoración inicial (Multinature)" y "Dietocalculos (Multinature)"
 
   Contexto: Crear los formularios con sus respectivos campos obligatorios
-  
+
   Tags: negocio
 
   Assignee: Miguel Angel Valdés García
+
+- ✅ [24018] Actualizar el funcionamiento de los `form_template_concepts` y los `concepts` para que sea afín al frontend
+
+  Contexto: Realizar los ajustes acordados durante la videollamada del 15 de abril. La intención que desde el `POST {{formHost}}/forms/template` se creen también los `concepts`
+
+  Tags: back
+
+  Assignee: Samuel Reveles
