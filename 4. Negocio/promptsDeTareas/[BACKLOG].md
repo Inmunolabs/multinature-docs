@@ -123,3 +123,19 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Considerar si el DELETE también debe de quedar visible para los especialistas, ya que es posible que alguien ponga una pregunta que no sabía que tenía registrada y ahora le aparezca doble o que alguien apenas esté aprendiendo a usar la plataforma y no se haya dado cuenta que había preguntas por defecto o cosas por el estilo.
 
   Tags: front
+
+- ✅ [020] Evaluar la posibilidad de eliminar los endpoints `GET {{dietsHost}}/diets/user/{{userId}}` y `GET {{routinesHost}}/routines/user/{{userId}}`
+
+  Contexto: Revisar con frontend si los endpoints `GET {{dietsHost}}/diets/user/{{userId}}` y `GET {{routinesHost}}/routines/user/{{userId}}` son o serán utilizados en algún apartado del sistema, si no se utilizarán eliminiarlos junto con todo lo que tenga que ver con ellos, validaciones, constanstes, MW, servicios, rutas, etc.
+
+  Nota: Recordar a Miguel que si no se eliminan estos endpoints deberá crear las respectivas tareas para actualizar estos endpoints a como se especifican en las tareas 11024 y 11025
+
+  Tags: back
+
+- ✅ [021] Cambiar la ruta `{{userHost}}/users/today/:id` por `{{userHost}}/users/:id/summary/today`
+
+  Tags: back
+
+- ✅ [022] Cambiar la ruta `{{userHost}}/users/today/:id` por `{{userHost}}/users/:id/summary/today`
+
+  Tags: front

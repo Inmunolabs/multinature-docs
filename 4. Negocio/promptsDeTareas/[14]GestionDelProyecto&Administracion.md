@@ -78,13 +78,35 @@
 
   Assignee: Miguel Angel Valdés García
 
-- ✅ [14013] Diseñar y planear los "Reemplazos" de alimentos y ejercicios diarios de los usuarios 
+- ✅ [14013] Diseñar y planear los "Reemplazos" de alimentos y ejercicios diarios de los usuarios
 
   Tags: negocio
 
   Assignee: Miguel Angel Valdés García
-  
+
 - ✅ [14014] Diseñar y planear Dietocalculos
+
+  Tags: negocio
+
+  Assignee: Miguel Angel Valdés García
+
+- ✅ [14015] Investigar Nutrimind para agregar funcionalidades y formularios a Multinature
+
+  Contexto: Investigar [Nutrimind](https://www.nutrimind.net/page/software_de_nutricion_videos) para agregar funcionalidades y formularios a Multinature.
+
+  Especial cuidado en:
+
+  - Reportes de pagos de pacientes,
+  - fotos de pacientes,
+  - formularios de:
+    - historia de vida,
+    - historia clínica (etiquetas de pacientes),
+    - hábitos tóxicos,
+    - datos clínicos y síntomas específicos,
+    - signos vitales,
+    - registro de resultados de laboratorio (química sanguinea, lípidos, biometría hemática, orina, etc),
+    - actividad fisica
+  - opción de subir archivos PDF para complementar el expediente del paciente
 
   Tags: negocio
 

@@ -52,9 +52,9 @@ Task Name Description Priority Status tags
 
   Assignee: Samuel Reveles
 
-- ✅ [24007] Crear formulario en la vista de cita o del paciente para que el especialista capture los datos de la cita
+- ✅ [24007] Implementar panel de atención de cita (consulta de paciente) para especialistas en nutrición
 
-  Contexto: Agregar en la vista de detalles de cita una sección donde el especialista pueda seleccionar un template y llenar los datos clí­nicos correspondientes.
+  Contexto: Agregar en la vista de consulta un formulario para que el especialista seleccione uno o más de los templates de formularios y capture los datos correspondientes del paciente. Esta vista debe ser accesible por el especialista desde el perfil del usuario o desde la cita asignada.
 
   Tags: front
 
@@ -72,7 +72,7 @@ Task Name Description Priority Status tags
 
 - ✅ [24009] Agregar opción en frontend para editar formularios clí­nicos
 
-  Contexto: Permitir que el especialista edite los formularios clí­nicos llenados recientemente si están dentro del periodo permitido de edición.
+  Contexto: Permitir que el especialista edite los formularios clí­nicos llenados recientemente si están dentro del periodo permitido de edición (7 días).
 
   Tags: front
 
@@ -88,7 +88,7 @@ Task Name Description Priority Status tags
 
   Assignee: Samuel Reveles
 
-- ✅ [24011] Mostrar listado de formularios clí­nicos por cita en el frontend
+- ✅ [24011] Diseñar y desarrollar vista para mostrar el historico de formularios llenados en citas del paciente
 
   Contexto: Diseñar la vista que muestre el historial de formularios llenados en cada cita del paciente con la opción de ver detalles.
 
@@ -124,7 +124,7 @@ Task Name Description Priority Status tags
 
 - ✅ [24016] Agregar campo `is_mandatory` a los `form_template_concepts`
 
-  Contexto: Agregar bandera `is_mandatory` a los `form_template_concepts` (antes `form_template_units`) para que se indique si el campo es obligatorio de llenar en el formulario; esto con el fin de forzar los campos necesarios para el llenado de las formulas de los dietocalculos
+  Contexto: Agregar bandera `is_mandatory` a los `form_template_concepts` (antes `form_template_units`) para que se indique si el campo es obligatorio de llenar en el formulario; esto con el fin de forzar los campos necesarios para el llenado de las fórmulas de los dietocalculos
 
   Tags: back
 

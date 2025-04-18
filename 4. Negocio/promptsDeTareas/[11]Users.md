@@ -222,23 +222,23 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
-- ✅ [11023] Crear endpoint para actualizar "reemplazo" existente en `user_action_replacements`
+- ✅ [11023] Crear endpoint para actualizar "Reemplazo" existente en `user_action_replacements`
 
   Tags: back
 
   Assignee: Erick Robles
 
-- ✅ [11024] Reemplazar los alimentos de una dieta por los respectivos reemplazos
+- ✅ [11024] Crear endpoint para obtener el resumen de actividades de un usuario
 
-  Contexto: En el endpoint `GET {{dietsHost}}/diets/user/{{userId}}` reemplazar los `meals` que tengan un "equivalente" en `user_action_replacements` (referenciado con el campo `reference_id`)
+  Contexto: Crear el endpoint `GET {{usersHost}}/users/:id/summary` en el `users-api`, este endpoint deberá recibir los query params `startDate` y `endDate` para filtrar los resultados entre esas fechas. De momento el endpoint deberá responder con los alimentos y reemplazos que se encuentren dentro del periodo de tiempo solicitado. Si no se reciben los query params que filtran entre fechas por defecto se deberá tomar `startDate` como el primer día del mes actual y `endDate` como el último día del mes actual.
 
   Tags: back
 
   Assignee: Erick Robles
 
-- ✅ [11025] Reemplazar los ejercicios de una rutina por los respectivos reemplazos
+- ✅ [11025] Agregar los ejercicios de una rutina y sus respectivos reemplazos al endpoint `GET {{usersHost}}/users/:id/summary`
 
-  Contexto: En el endpoint `GET {{routinesHost}}/routines/user/{{userId}}` reemplazar los `exercises` que tengan un "equivalente" en `user_action_replacements` (referenciado con el campo `reference_id`)
+  Contexto: Los ejercicios y sus reemplazos deberán alinearse al periodo de tiempo de los query params `startDate` y `endDate`
 
   Tags: back
 
@@ -273,3 +273,9 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Assignee: Samuel Reveles
 
   _Tarea creada por Samuel_
+
+- [11030] Rediseñar los endpoints de calendario y detalle de actividades de usuario
+
+  Tags: back, front
+
+  Assignee: Miguel Angel Valdés García

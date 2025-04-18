@@ -27,3 +27,15 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Samuel Reveles
+
+- ✅ [07006] Centralizar templates de correos por proyecto en buckets S3 dedicados
+
+  Tags: back
+
+- ✅ [07007] Controlar el envío del correo de Orden de compra hasta confirmar el pago
+
+  Tags: back
+
+- ✅ [07008] Mostrar leyenda de falta de pago en correo de Confirmación de compra
+
+  Tags: back
