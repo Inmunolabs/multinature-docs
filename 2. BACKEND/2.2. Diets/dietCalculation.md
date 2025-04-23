@@ -36,6 +36,11 @@
 ## 📤 Respuesta
 
 La respuesta incluye los resultados del cálculo energético total y los resultados individuales de cada fórmula utilizada.
+- `GET`: Suma del gasto energético total.
+- `ETACalories`: Calorías que aporta el Efecto Térmico de los Alimentos (ETA).
+- `AFCalories`: Calorías que aporta la actividad física (AF).
+- `averageCalories`: Promedio de calorías según las fórmulas que se hayan solicitado.
+- `formulaResults`: Arreglo con la fórmula y resultado de cada fórmula solicitada por el especialista, para el caso de AGA se regresa un mínimo y máximo.
 
 ### Respuesta Exitosa
 ```json
