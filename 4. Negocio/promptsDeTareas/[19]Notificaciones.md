@@ -74,10 +74,18 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Samuel Reveles
 
-- [19009] Crear una tabla en la base de datos para el manejo de las notificaciones
+- ✅ [19009] Crear una tabla en la base de datos para el manejo de las notificaciones
 
   Contexto: La tabla deberá tener la siguiente información: id, id del usuario, fecha en que fue creada, un título, el mensaje y un estatus (para identificar si la notificación ya fue leída)
 
-- [19010] Crear api para el manejo de las notificaciones
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [19010] Crear api para el manejo de las notificaciones
 
   Contexto: El objetivo de esta api es informar al usuario, mediante una vista en el frontend sobre sus notificaciones. En dicha vista el usuario podrá marcar como leídas las notificaciones (de una por una o cierta cantidad seleccionada) y es la única acción que el usuario puede hacer. Esto se traduce a dos endpoints, uno para listar las notificaciones por usuario y otro para marcarlas como leídas.
+
+  Tags: back
+
+  Assignee: Samuel Reveles

@@ -268,7 +268,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
-- [11028] Rediseñar los endpoints de calendario y detalle de actividades de usuario
+- ✅ [11028] Rediseñar los endpoints de calendario y detalle de actividades de usuario
 
   Tags: back, front
 
@@ -304,6 +304,10 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Diego Martin Ponce
 
-- [11033] Agregar el query param `day` y su funcionalidad al endpoint `GET {{usersHost}}/users/:id/summary`
+- ✅ [11033] Agregar el query param `day` y su funcionalidad al endpoint `GET {{usersHost}}/users/:id/summary`
 
-  Contexto: esta funcionalidad busca que el endpoint responda con los alimentos y sus reemplazos; los ejercicios y sus reemplazos y las citas del usuario solicitado para el día solicitado. Se debe validar que el día sea un día valido. Se deben revisar los snapshoot correspondientes, la información vigente y los reemplazos para responder con la información solicitada
+  Contexto: Esta funcionalidad busca que el endpoint responda con los alimentos y sus reemplazos; los ejercicios y sus reemplazos y las citas del usuario solicitado para el día solicitado. Se debe garantizar que el día recibido sea un día valido. Se deben revisar los snapshoot correspondientes, la información vigente y los reemplazos para responder con la información solicitada.
+
+  Tags: back
+
+  Assignee: Erick Robles

@@ -10,7 +10,13 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- [12017] Adaptar commissions-api al despliegue automático
+- ✅ [12017] Adaptar commissions-api al despliegue automático
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [12018] Adaptar notifications-api al despliegue automático
 
   Tags: back
 

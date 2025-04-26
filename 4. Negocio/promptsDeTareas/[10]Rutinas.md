@@ -16,7 +16,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Samuel Reveles
 
-- [10002] Refactorizar estructura de routines_snapshots y actualizar su uso en el sistema
+- ✅ [10002] Refactorizar estructura de routines_snapshots y actualizar su uso en el sistema
 
   Contexto: Agregar las siguientes columnas a la tabla de `routines_snapshots`
 

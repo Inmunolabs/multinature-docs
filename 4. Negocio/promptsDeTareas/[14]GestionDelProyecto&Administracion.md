@@ -112,7 +112,7 @@
 
   Assignee: Miguel Angel Valdés García
 
-- [14016] Estimar tiempos para finalizar el proyecto
+- ✅ [14016] Estimar tiempos para finalizar el proyecto
 
   Contexto: Estimar y presentar tiempos para finalizar el proyecto. Revisar la opción de crear algún Diagrama de Gantt
 
