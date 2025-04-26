@@ -185,3 +185,18 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 - ✅ [03017] Agregar pago domiciliado de los especialistas (mensualidad (`monthlyCharge`))
 
   _Tarea creada por Samuel_
+
+- [03018] Validar que obligatoriamente haya un domicilio o una liga de videollamada al agendar/actualizar una citar
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- [03019] Integrar nuestras citas a Google Calendar
+
+  Contexto: Esta funcionalidad solo sera habilitada a los usuarios que tengan correo Gmail. El objetivo es que puedan visualizar las citas de nuestro sistema desde sus Google Calendar
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+

@@ -50,6 +50,13 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Contexto: Utilizar snake_case en lugar de camelCase; reemplazar created_at y updated_at en lugar de created y updated y agregar ON UPDATE CURRENT_TIMESTAMP a todas las tablas para automatizar la actualización de la columna updated_at de la base de datos.
 
+  Considerar que los nombres de las columnas en DB son en snake_case pero las variables en todo el backend deben ser nombradas en camelCase, incluidos los DTOs
+
+  Cambiar también los nombres de los campos:
+
+  - shippingAddress a is_shipping_address del addresses-api
+  - shippingPayment a is_shipping_payment del payment-methods-api
+
   Tags: back
 
 - ✅ [010] Crear un Bitwarden para todas las credenciales de Inmunolabs

@@ -230,7 +230,9 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [11024] Crear endpoint para obtener el resumen de actividades de un usuario
 
-  Contexto: Crear el endpoint `GET {{usersHost}}/users/:id/summary` en el `users-api`, este endpoint deberá recibir los query params `startDate` y `endDate` para filtrar los resultados entre esas fechas. De momento el endpoint deberá responder con los alimentos y reemplazos que se encuentren dentro del periodo de tiempo solicitado. Si no se reciben los query params que filtran entre fechas por defecto se deberá tomar `startDate` como el primer día del mes actual y `endDate` como el último día del mes actual.
+  Contexto: Crear el endpoint `GET {{usersHost}}/users/:id/summary` en el users-api, este endpoint deberá recibir los query params `startDate` y `endDate` para filtrar los resultados entre esas fechas. El endpoint deberá responder con los días que esten dentro del periodo seleccionado por el cliente y a su vez cada día tendrá un arreglo de simples textos que indiquen al cliente si ese día se cuenta con algún alimento, ejercicio o cita. Para esta tarea solo considerar la revisión de los alimentos (dietas). Si no se reciben los query params que filtran entre fechas por defecto se deberá tomar `startDate` como el primero del mes actual y `endDate` como del mes actual.
+
+  Endpoint para la vista de [tu plan](https://www.multinaturecompany.com/your-plan/). Funcionalidad de la tarea para el apartado de Actividades (Calendario)
 
   Tags: back
 
@@ -239,32 +241,38 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 - ✅ [11025] Agregar los ejercicios de una rutina y sus respectivos reemplazos al endpoint `GET {{usersHost}}/users/:id/summary`
 
   Contexto: Los ejercicios y sus reemplazos deberán alinearse al periodo de tiempo de los query params `startDate` y `endDate`
+  
+  Endpoint para la vista de [tu plan](https://www.multinaturecompany.com/your-plan/). Funcionalidad de la tarea para el apartado de Actividades (Calendario)
 
   Tags: back
 
   Assignee: Erick Robles
 
-- ✅ [11026] Agregar botones de acción "Hecho" y "Hice otra cosa" en cada ítem de dieta o rutina diaria
+- ✅ [11026] Agregar las citas al endpoint `GET {{usersHost}}/users/:id/summary`
 
-  Contexto: Cuando el usuario seleccione "Hice otra cosa" se deberá generar un `user_action_replacement` que representa el reemplazo de un ejercicio o alimento diario. Mostrar mensajes de éxito/error al guardar acción del usuario
+  Contexto: Las citas deberán alinearse al periodo de tiempo de los query params `startDate` y `endDate`
 
-  Tags: front
+  Endpoint para la vista de [tu plan](https://www.multinaturecompany.com/your-plan/). Funcionalidad de la tarea para el apartado de Actividades (Calendario)
 
-  Assignee: Diego Martin Ponce
+  Tags: back
 
-- ✅ [11027] Permitir edición de acciones de reemplazo ya registradas
+  Assignee: Erick Robles
 
-  Tags: front
+- ✅ [11027] Agregar la información para los gráficos al endpoint `GET {{usersHost}}/users/:id/summary`
 
-  Assignee: Diego Martin Ponce
+  Contexto: Revisar con Diego, Miguel y Andrés como se llenará ese apartado
 
-- ✅ [11028] Resaltar en el calendario de actividades las acciones que fueron reemplazadas
+  Endpoint para la vista de [tu plan](https://www.multinaturecompany.com/your-plan/). Funcionalidad de la tarea para el apartado de Gráficos
 
-  Contexto: Con algún color diferente, resaltar en el calendario de actividades las acciones que fueron reemplazadas por el usuario. Este calendario lo verán el paciente y el especialista
+  Tags: back
 
-  Tags: front
+  Assignee: Erick Robles
 
-  Assignee: Diego Martin Ponce
+- [11028] Rediseñar los endpoints de calendario y detalle de actividades de usuario
+
+  Tags: back, front
+
+  Assignee: Miguel Angel Valdés García
 
 - ✅ [11029] Hacer el campo de gender como obligatorio
 
@@ -274,8 +282,28 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- [11030] Rediseñar los endpoints de calendario y detalle de actividades de usuario
+- ✅ [11030] Agregar botones de acción "Hecho" y "Hice otra cosa" en cada ítem de dieta o rutina diaria
 
-  Tags: back, front
+  Contexto: Cuando el usuario seleccione "Hice otra cosa" se deberá generar un `user_action_replacement` que representa el reemplazo de un ejercicio o alimento diario. Mostrar mensajes de éxito/error al guardar acción del usuario
 
-  Assignee: Miguel Angel Valdés García
+  Tags: front
+
+  Assignee: Diego Martin Ponce
+
+- ✅ [11031] Permitir edición de acciones de reemplazo ya registradas
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce
+
+- ✅ [11032] Resaltar en el calendario de actividades las acciones que fueron reemplazadas
+
+  Contexto: Con algún color diferente, resaltar en el calendario de actividades las acciones que fueron reemplazadas por el usuario. Este calendario lo verán el paciente y el especialista
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce
+
+- [11033] Agregar el query param `day` y su funcionalidad al endpoint `GET {{usersHost}}/users/:id/summary`
+
+  Contexto: esta funcionalidad busca que el endpoint responda con los alimentos y sus reemplazos; los ejercicios y sus reemplazos y las citas del usuario solicitado para el día solicitado. Se debe validar que el día sea un día valido. Se deben revisar los snapshoot correspondientes, la información vigente y los reemplazos para responder con la información solicitada

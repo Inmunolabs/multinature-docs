@@ -145,3 +145,11 @@ Task Name Description Priority Status tags
   Tags: back
 
   Assignee: Samuel Reveles
+
+- [24019] Al crear un paciente activar su usuario para permitir la actualización de su contraseña
+
+  Contexto: Cuando un especialista crea un nuevo paciente (endpoint `POST /specialists/patient`) activar la cuenta de ese nuevo usuario (`isActive: true`) para permitir la actualización de su contraseña
+
+  Tags: back
+
+  Assignee: Samuel Reveles

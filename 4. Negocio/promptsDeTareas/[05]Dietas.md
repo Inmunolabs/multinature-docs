@@ -4,7 +4,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [05004] Refactorizar estructura de diets_snapshots y actualizar su uso en el sistema
 
-  Contexto: Agregar las siguientes columnas a la tabla de `foods`
+  Contexto: Agregar las siguientes columnas a la tabla de `diets_snapshots`
 
   `startDate` date NOT NULL,
   `endDate` date NOT NULL,
