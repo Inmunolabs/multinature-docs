@@ -26,8 +26,11 @@
 
    1. Users
       1. [Propuesta para especialidades por Samuel](2.%20BACKEND/2.1.%20Users/propuestaParaEspecialidadesPorSamuel.md)
+      2. [Dashboard](2.%20BACKEND/./2.1.%20Users/dashboard.md)
    2. Templates de dietas y rutinas en Google Sheets
       1. [v1.0](https://drive.google.com/drive/folders/1k8ewAPPuL3iLdtA_D-K657mLd6s_fZ8F?hl=es)
+   3. Diets
+      1. [Dietocálculo](2.%20BACKEND/./2.2.%20Diets/dietCalculation.md)
 
 3. [FRONTEND](./3.%20FRONTEND/README.md)
 
