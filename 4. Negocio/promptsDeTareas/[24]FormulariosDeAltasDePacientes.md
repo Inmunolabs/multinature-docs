@@ -153,3 +153,19 @@ Task Name Description Priority Status tags
   Tags: back
 
   Assignee: Samuel Reveles
+
+- ✅ [24020] Desarrollar la posibilidad de agregar metas a los conceptos gráficables de los formularios
+
+  Contexto: Desarrollar la opción de agregar metas a los conceptos gráficables de los formularios, por ejemplo en el concepto "Peso" un especialista debe poder agregar el peso actual de su paciente y la meta a la que debe llegar para el fin de esa dieta
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [24021] Agrupar los formularios que son de "Valoración inicial"
+
+  Contexto: Yo como especialista quiero ver los formularios de "Valoración inicial" agrupados en el select de formularios al desarrollar una consulta y al dar de alta a un nuevo paciente
+
+  Tags: front
+
+  Assignee: Diego Martin Ponce

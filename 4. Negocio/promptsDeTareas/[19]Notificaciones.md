@@ -89,3 +89,17 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Samuel Reveles
+
+- ✅ [19011] Integrar WhatsApp como canal de envío para notificaciones del sistema
+
+  Contexto: Investigar e integrar WhatsApp para enviar notificaciones por ahí
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [19012] Definir y desarrollar el envio de los mensajes de notificación por WhatsApp
+
+  Tags: back
+
+  Assignee: Samuel Reveles

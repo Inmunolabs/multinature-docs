@@ -146,3 +146,31 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 - ✅ [022] Cambiar la ruta `{{userHost}}/users/today/:id` por `{{userHost}}/users/:id/summary/today`
 
   Tags: front
+
+- ✅ [023] Actualizar las credenciales de Google por las de la cuenta de multinature.mx@gmail.com
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García
+
+- ✅ [024] Desarrollar funcionalidad para que el admin pueda crear notificaciones para dar avisos a los usuarios
+
+  Contexto: Considerar que puede haber notificaciones generales para todos los usuarios, o para usuarios en especifico, usuarios con cierto perfil, con cierta especialidad o incluso usuarios con un correo electrónico en especifico
+
+  Tags: back
+
+- ✅ [025] Desarrollar funcionalidad para que el admin pueda crear notificaciones para dar avisos a los usuarios
+
+  Contexto: Considerar que puede haber notificaciones generales para todos los usuarios, o para usuarios en especifico, usuarios con cierto perfil, con cierta especialidad o incluso usuarios con un correo electrónico en especifico
+
+  Tags: back
+
+- ✅ [026] Desarrollar un rollback en los despliegues automáticos de las APIs al presentarse errores
+
+  Contexto: Asegurar rollback ante fallos
+
+  Tags: back
+
+- ✅ [027] Agregar espacio en el flujo de Crear cuenta de especialista para permitir agregar el horario del especialista
+
+  Tags: front

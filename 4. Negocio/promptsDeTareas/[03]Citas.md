@@ -186,7 +186,9 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- ✅ [03018] Validar que obligatoriamente haya un domicilio o una liga de videollamada al agendar/actualizar una citar
+- ✅ [03018] Validar que haya un domicilio al agendar/actualizar una citar o crear una url de videollamada automáticamente
+
+  Contexto: Si al agendar o actualizar una cita no se tiene un domicilio agregado, crear una url de videollamada en Meet para atender la cita desde ahí. Revisar si esta funcionalidad solo será habilitada a los usuarios que tengan correo Gmail o si puede aplicar para todos.
 
   Tags: back
 
