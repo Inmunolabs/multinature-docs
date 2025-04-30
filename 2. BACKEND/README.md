@@ -12,3 +12,5 @@
       2. [Crear una hoja de cálculo](https://developers.google.com/sheets/api/guides/create?hl=es_419)
 3. Diets
    1. [Dietocálculo](./2.2.%20Diets/dietCalculation.md)
+4. Compras mensuales
+   1. [Funcionalidad](./2.3.ComprasMensuales/funcionalidadCompraMensual.md)

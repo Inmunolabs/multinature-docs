@@ -26,11 +26,13 @@
 
    1. Users
       1. [Propuesta para especialidades por Samuel](2.%20BACKEND/2.1.%20Users/propuestaParaEspecialidadesPorSamuel.md)
-      2. [Dashboard](2.%20BACKEND/./2.1.%20Users/dashboard.md)
+      2. [Dashboard](./2.%20BACKEND/2.1.%20Users/dashboard.md)
    2. Templates de dietas y rutinas en Google Sheets
       1. [v1.0](https://drive.google.com/drive/folders/1k8ewAPPuL3iLdtA_D-K657mLd6s_fZ8F?hl=es)
    3. Diets
-      1. [Dietocálculo](2.%20BACKEND/./2.2.%20Diets/dietCalculation.md)
+      1. [Dietocálculo](./2.%20BACKEND/2.2.%20Diets/dietCalculation.md)
+   4. Compras mensuales
+      1. [Funcionalidad](./2.%20BACKEND/2.3.ComprasMensuales/funcionalidadCompraMensual.md)
 
 3. [FRONTEND](./3.%20FRONTEND/README.md)
 
@@ -69,4 +71,3 @@
    5. [Red de usuarios de Prueba](./4.%20Negocio/redDeUsuariosDePrueba.png)
    6. [Cotizaciones de API de alimentos](https://docs.google.com/spreadsheets/d/1JeiPtQWeF2uLBE1RfwcXrMesc1mnqNiC7EC6lY87YIg/edit?gid=1883683087#gid=1883683087)
    7. [Nutrimind](https://www.nutrimind.net/page/software_de_nutricion_videos)
-

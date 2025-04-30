@@ -39,3 +39,11 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 - ✅ [07008] Mostrar leyenda de falta de pago en correo de Confirmación de compra
 
   Tags: back
+
+- ✅ [07009] Quitar la visibilidad de la propiedad paymentProvider
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
