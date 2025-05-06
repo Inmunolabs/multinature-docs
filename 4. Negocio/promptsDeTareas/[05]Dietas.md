@@ -35,3 +35,11 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Samuel Reveles
+
+- ✅ [05007] Agregar las propiedades `caloriesPerDay`, `proteinPerDay`, `lipidsPerDay`, `carbohydratesPerDay` a los diet snapshots
+
+  Contexto: Agregar las columnas a la tabla `diets_snapshots`, actualizar el código que este involucrado con esa tabla (CRUD de `diets_snapshots`) y actualizar también el archivo `src/dto/userSummaryDTO.js` para que se incluyan las propiedades `caloriesPerDay`, `proteinPerDay`, `lipidsPerDay`, `carbohydratesPerDay` a los objetos `diet`.
+
+  Tags: back
+
+  Assignee: Erick Robles
