@@ -241,7 +241,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 - ✅ [11025] Agregar los ejercicios de una rutina y sus respectivos reemplazos al endpoint `GET {{usersHost}}/users/:id/summary`
 
   Contexto: Los ejercicios y sus reemplazos deberán alinearse al periodo de tiempo de los query params `startDate` y `endDate`
-  
+
   Endpoint para la vista de [tu plan](https://www.multinaturecompany.com/your-plan/). Funcionalidad de la tarea para el apartado de Actividades (Calendario)
 
   Tags: back
@@ -307,6 +307,24 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 - ✅ [11033] Agregar el query param `day` y su funcionalidad al endpoint `GET {{usersHost}}/users/:id/summary`
 
   Contexto: Esta funcionalidad busca que el endpoint responda con los alimentos y sus reemplazos; los ejercicios y sus reemplazos y las citas del usuario solicitado para el día solicitado. Se debe garantizar que el día recibido sea un día valido. Se deben revisar los snapshoot correspondientes, la información vigente y los reemplazos para responder con la información solicitada.
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+- ✅ [11034] Agregar las configuraciones del especialista en Login y List
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [11035] Modificar la respuesta de los gráficos del endpoint `{{userHost}}/users/:id/summary/today`
+
+  Contexto: Actualizar el campo `graphables` de la respuesta del endpoint `{{userHost}}/users/:id/summary/today` conforme la solicitud del frontend, ya que la información que se mostrará en la vista de [home de los clientes](https://www.multinaturecompany.com/home/) en el apartado de `Progreso` mostrará el último valor graficable y la meta de los diferentes conceptos medibles del paciente (usuario).
+
+  Esto hará que el frontend sustituya sus graficas lineales (con puntos en el tiempo) sean susituidas tal vez por gráficas de progreso llenadas a partir de las metas de cada concepto y los valores actuales de los conceptos medibles, es decir a partir de los valores medidos en la última consulta y su meta.
 
   Tags: back
 

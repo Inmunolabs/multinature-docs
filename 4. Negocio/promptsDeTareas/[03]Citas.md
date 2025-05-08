@@ -184,6 +184,10 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [03017] Agregar pago domiciliado de los especialistas (mensualidad (`monthlyCharge`))
 
+  Tags: back
+
+  Assignee: Samuel Reveles
+
   _Tarea creada por Samuel_
 
 - ✅ [03018] Validar que haya un domicilio al agendar/actualizar una citar o crear una url de videollamada automáticamente
@@ -201,4 +205,3 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Samuel Reveles
-

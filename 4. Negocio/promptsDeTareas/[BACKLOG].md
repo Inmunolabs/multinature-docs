@@ -174,3 +174,9 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 - ✅ [027] Agregar espacio en el flujo de Crear cuenta de especialista para permitir agregar el horario del especialista
 
   Tags: front
+
+- ✅ [028] Cambiar el consumo de los endpoints relacionados con la administración de archivos de los usuarios
+
+  Contexto: La nueva api (tal vez `user-files-api`) absorvió los siguientes endpoints del `users-api`: `GET /specialists/certificates/:id`, `GET /specialists/support-material/:id`, `GET /specialists/s3-upload`, `POST /specialists/certificates/`, `POST /specialists/support-material/`, `DELETE /specialists/certificates/:id`, `DELETE /specialists/support-material/:id`. Actualizar la ruta de los mismos
+
+  Tags: front
