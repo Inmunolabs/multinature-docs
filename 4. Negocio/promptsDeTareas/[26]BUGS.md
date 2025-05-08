@@ -100,3 +100,33 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Assignee: Samuel Reveles
 
   _Tarea creada por Samuel_
+
+- ✅ [26014] Arreglar la respuesta del upsert en tax info
+
+  _Tarea creada por Samuel_
+
+- ✅ [26015] Renombrar propiedad 'id' por 'conceptId' de los concepts al ver los templates
+
+  _Tarea creada por Samuel_
+
+- [26016] Arreglar el paginado del endpoint de listado de especialistas `GET {{userHost}}/specialists/?page=1&limit=10`
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+- [26017] Cambiar la posición de los tipos de pago de la respuesta del endpoint `GET {{userHost}}/api/config`
+
+  Contexto: En la respuesta del endpoint `GET {{userHost}}/api/config` se agregan los tipos de pago dentro del objeto `orders`, sacarlos de ahí, dejarlos a nivel de `orders` o de `paymentMethods` y nombrarlos como `paymentTypes`
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+- [26018] Cambiar de api todo lo referente a la tabla `working_hours` del users-api, pasarlo al bookings-api
+
+  Contexto: Incluir el cambio de endpoints y actualizar el api-collection
+
+  Tags: back
+
+  Assignee: Samuel Reveles

@@ -180,3 +180,23 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Contexto: La nueva api (tal vez `user-files-api`) absorvió los siguientes endpoints del `users-api`: `GET /specialists/certificates/:id`, `GET /specialists/support-material/:id`, `GET /specialists/s3-upload`, `POST /specialists/certificates/`, `POST /specialists/support-material/`, `DELETE /specialists/certificates/:id`, `DELETE /specialists/support-material/:id`. Actualizar la ruta de los mismos
 
   Tags: front
+
+- [029] Crear un endpoint para listar las reseñas de un especialista
+
+  Contexto: El endpoint donde se listan los especialistas (`GET {{userHost}}/specialists/?page=1&limit=10`) responde con un listado de las últimas 5 reseñas por especialista; este endpoint nuevo busca responder con el resto de especialidades que puede tener un especialista. Paginar el endpoint y agregar las respectivas validaciones (todos los usuarios pueden ver las reseñas de un especialista)
+
+  Tarea ligada _17037_
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+- [030] Implementar el consumo del nuevo endpoint paginado de reseñas de especialistas
+
+  Contexto: Desarrollar o reciclar interfaz para mostrar a los usuarios las diferentes reseñas de los especialistas, páginar esta interfaz para poder navegar entre las distintas reseñas
+
+  Tarea ligada _17037_ y _17038_
+
+  Tags: back
+
+  Assignee: Erick Robles
