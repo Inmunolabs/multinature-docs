@@ -181,7 +181,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Tags: front
 
-- [029] Crear un endpoint para listar las reseñas de un especialista
+- ✅ [029] Crear un endpoint para listar las reseñas de un especialista
 
   Contexto: El endpoint donde se listan los especialistas (`GET {{userHost}}/specialists/?page=1&limit=10`) responde con un listado de las últimas 5 reseñas por especialista; este endpoint nuevo busca responder con el resto de especialidades que puede tener un especialista. Paginar el endpoint y agregar las respectivas validaciones (todos los usuarios pueden ver las reseñas de un especialista)
 
@@ -191,7 +191,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
-- [030] Implementar el consumo del nuevo endpoint paginado de reseñas de especialistas
+- ✅ [030] Implementar el consumo del nuevo endpoint paginado de reseñas de especialistas
 
   Contexto: Desarrollar o reciclar interfaz para mostrar a los usuarios las diferentes reseñas de los especialistas, páginar esta interfaz para poder navegar entre las distintas reseñas
 

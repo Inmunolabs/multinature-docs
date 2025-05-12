@@ -206,7 +206,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Samuel Reveles
 
-- [03020] Eliminar el estatus "Actualizada" de las citas
+- ✅ [03020] Eliminar el estatus "Actualizada" de las citas
 
   Contexto: Eliminar el estatus "Actualizada" de las citas y actualizar todas las funcionalidades relacionadas con este estatus. Si hay alguna duda durante la tarea consultarla con Miguel
 

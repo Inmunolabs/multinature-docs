@@ -431,7 +431,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Diego Martin Ponce
 
-- [17033] Agregar subespecialidades a los especialistas
+- ✅ [17033] Agregar subespecialidades a los especialistas
 
   Contexto: Crear tabla de `subspecialties`, practicamente igual a la de `specialties` solo agregando una columna que relacione la subespecilidad con la especialidad. Desarrollar también la lógica para permitir agregar, actualizar y/o eliminar (al actualizar) las subespecilidades de un especialista; es decir, al convertir a un usuario a especialista se le debe permitir también agregar sus subespecialidades, y en un futuro estas subespecialidades puedes ser editadas desde la edición del especialista (actualización del usuario). Considerar siempre que cada subespecialidad debe estar relacionada con una especialidad.
 
@@ -443,7 +443,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
-- [17034] Agregar lista de subspecialties a la base de datos
+- ✅ [17034] Agregar lista de subspecialties a la base de datos
 
   Contexto: Consultar con David y/o realizar una investigación de subespecialidades que tienen los nutriologos y los entrenadores de gimnasio para agregar este listado a la base de datos
 
@@ -451,28 +451,25 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Miguel Angel Valdés García
 
-- [17035] Agregar subespecialidades a la respuesta del endpoint `GET {{userHost}}/api/config`
+- ✅ [17035] Agregar subespecialidades a la respuesta del endpoint `GET {{userHost}}/api/config`
 
-  Contexto: El endpoint `GET {{userHost}}/api/config` funciona para enviar todas las constantes que tenemos en nuestra base de datos, sobre todo para nuestros ENUMs, de momento las subespecialidades son de tipo texto, siendo esto más que solo un enum, aún así es necesario enviarlas todas al frontend tal como se envian las especialidades, para este caso debemos enviar las subespecialidades agrupadas por especialidad de la siguiente manera:
+  Contexto: El endpoint `GET {{userHost}}/api/config` funciona para enviar todas las constantes que tenemos en nuestra base de datos, sobre todo para nuestros ENUMs, de momento las subespecialidades son de tipo texto, siendo esto más que solo un enum, aún así es necesario enviarlas todas al frontend tal como se envian las especialidades, para este caso debemos enviar las subespecialidades de la siguiente manera:
 
   ```
-    "subspecialtiesBySpecialty": {
-      "Entrenador": [...],
-      "Nutricionista": [...]
-    },
+    "subspecialties": [...],
   ```
 
   Tags: back
 
   Assignee: Erick Robles
 
-- [17035] Agregar opción para agregar subespecialidades al momento de agregar especialidades al especialista.
+- ✅ [17036] Agregar opción para agregar subespecialidades al momento de agregar especialidades al especialista.
 
   Contexto: Diseñar y desarrollar la interfaz que permita a los especialistas administrar sus `subspecialties`. Cada subspecialty debe tener asignada una specialty. Dentro del sistema contamos con algunas `subspecialties` pero la intención es que al inicio cada especialista pueda ir agregando también subespecialidades que no tengamos registradas.
 
   Tags: front
 
-- [17036] Crear tabla para reseñas de especialistas en la base de datos
+- ✅ [17037] Crear tabla para reseñas de especialistas en la base de datos
 
   Contexto: Crear tabla de `specialist_reviews` agregar las siguientes columnas:
 
@@ -490,7 +487,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
-- [17037] Desarrollar lógica para el manejo de reseñas de especialistas
+- ✅ [17038] Desarrollar lógica para el manejo de reseñas de especialistas
 
   Contexto: Crear o actualizar los siguientes endpoints para la lógica de las reseñas de especialistas
 
@@ -502,7 +499,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
-- [17038] Desarrollar vista para el manejo de reseñas de especialistas
+- ✅ [17039] Desarrollar vista para el manejo de reseñas de especialistas
 
   Contexto: Diseñar y desarrollar la interfaz que permita a los usuarios crear y actualizar reseñas. Cada reseña debe tener un specialistId, userId, rating y review (mensaje) y opcionalmente urlImages y subspecialtyIds. Las reseñas serán enviadas solo en el endpoint `GET {{userHost}}/specialists/?page=1&limit=10` pero estará limitado a las últimas 5 reseñas por especialista. En la lista de backlog se tiene considerada la creación de un nuevo endpoint páginado para obtener el resto de reseñas.
 

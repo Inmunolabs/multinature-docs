@@ -14,7 +14,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Miguel Angel Valdés García
 
-- [25003] Al liquidar comisiones enviar notificaciones al usuario para que actualice su cuenta de pago
+- ✅ [25003] Al liquidar comisiones enviar notificaciones al usuario para que actualice su cuenta de pago
 
   Contexto: Al momento de liquidar comisiones enviar notificaciones al usuario para que actualice o cree su cuenta de pago si es que no contamos con ella.
 
