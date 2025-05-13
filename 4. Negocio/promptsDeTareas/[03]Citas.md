@@ -213,3 +213,15 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Erick Robles
+
+- ✅ [03021] Modificar la dirección y la especialidad de las citas, agregar un snapshot del domicilio y el nombre de la especialidad
+
+  Contexto: Actualmente en citas se guarda el id de la dirección donde la cita fue agendada pero no soportamos el hecho de que haya alguna modificación en la dirección o incluso su eliminación. Para mantener un historico confiable debemos modificar esta situación guardando el domicilio completo en lugar de solo el id del address. Con este objetivo se deberá modificar el nombre de la columna de la base de datos a solo `address` y deberá ser un concatenado del domicilio, `calle, no. exterior, no. interior, vecindario, ciudad, estado y código postal`.
+  Si en algún punto el address de la cita se actualiza el concatenado deberá ser actualizado.
+  El cliente (frontend) al crear una cita seguirá enviando el addressId del especialista y con ese id en backend deberemos mapear el domicilio para guardarlo en la DB como un text.
+
+  Respecto al campo `specialtyId` enviar el nombre de la especialidad en lugar de su id
+
+  Tags: back
+
+  Assignee: Samuel Reveles

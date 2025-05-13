@@ -329,3 +329,20 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Erick Robles
+
+- ✅ [11036] Agregar las clínicas de los especialistas en el Login y List
+  
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+
+- ✅ [11037] Modificar la relación entre usuarios y especialistas, ahora se deben mantener las relaciones inactivas
+
+  Contexto: Actualizar la tabla `users_specialists` para agregar una bandera (`is_current`) que indique si la relación entre el usuario y el especialista es aún vigente; modificar también toda la lógica de cuando se vincula y se desvinvula un especialista. El fin de esto es mantener el acceso del usuario a sus viejos especialistas, aún cuando no están asignados, debido a material historico que puedan mantener con dicho especialista
+
+  Tags: back
+
+  Assignee: Samuel Reveles
