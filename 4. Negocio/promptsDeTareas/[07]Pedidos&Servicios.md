@@ -47,3 +47,9 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Assignee: Samuel Reveles
 
   _Tarea creada por Samuel_
+
+- ✅ [07010] Eliminar los pedidos con estatus "Confirmando el Pago" después de un mes sin efectuar el pago
+
+  Tags: back
+
+  Assignee: Erick Robles

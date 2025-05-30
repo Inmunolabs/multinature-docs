@@ -504,3 +504,60 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Contexto: Diseñar y desarrollar la interfaz que permita a los usuarios crear y actualizar reseñas. Cada reseña debe tener un specialistId, userId, rating y review (mensaje) y opcionalmente urlImages y subspecialtyIds. Las reseñas serán enviadas solo en el endpoint `GET {{userHost}}/specialists/?page=1&limit=10` pero estará limitado a las últimas 5 reseñas por especialista. En la lista de backlog se tiene considerada la creación de un nuevo endpoint páginado para obtener el resto de reseñas.
 
   Tags: front
+
+- ✅ [17040] Cambiar los endpoints de certificados y recursos
+
+  Tags: front
+
+  Assignee: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [17041] Desarrollar el endpoint para la vista de detalle de paciente
+
+  Contexto: El endpoint debe responder con el detelle del paciente solicitidado desde el pathParam `{{userId}}`
+  Solo el espeicilista que tenga asignado al paciente deberá poder ingresar al detalle del mismo.
+  La vista estará divida en 5 renglones (secciones) por lo tanto la respuesta del backend deberá estar divida en 5 objetos:
+
+  1. Información del cliente.
+     Debe presentar el nombre completo, el genero, la edad, el teléfono y el correo electrónico del paciente
+  2. Próxima cita del paciente y el especialista
+     Mostrará la próxima cita asignada que el especialista tiene con el paciente
+  3. Calendario de Actividades.
+     Igual al que se responde en el endpoint (`GET {{userHost}}/users/summary/{{userId}}`, objeto: `res.body.content.activities`)
+  4. Detalle del día seleccionado.
+     Igual al que se responde en el endpoint (`GET {{userHost}}/users/{{userId}}/summary/today`)
+  5. Gráficos.
+     Deben ser el historico de cada concepto gráficable a travez de cada consulta médica (llenados a partir de los formularios)
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+- ✅ [17042] Desarrollar la vista de detalle de paciente
+
+  Contexto: La vista debe ser accesible desde la lista de pacientes, presionando algún botón que mencione que se irá al plan o al detelle de ese paciente.
+  Solo el espeicilista que tenga asignado al paciente deberá poder ingresar al detalle del mismo.
+  La vista estará divida en 6 componentes:
+
+  1. Tarjeta con información del cliente (1 columna (col-12)).
+     Debe presentar el nombre completo, el genero, la edad, el teléfono y el correo electrónico del paciente
+  2. Próxima cita del paciente y el especialista (2 columnas (col-6 + col-6))
+     Mostrará la próxima cita asignada que el especialista tiene con el paciente
+  3. Botones de acción (2 columnas (col-6 + col-6)).
+     Se deben agregar los siguientes botones con sus respectivas condiciones:
+     1. "Iniciar consulta". Este botón debe ser el más notable, de momento no tiene funcionalidad, su funcionalidad se agregará en otra tarea
+     2. "Sugerir productos". Este botón debe ser el segundo más notable, de momento no tiene funcionalidad, su funcionalidad se agregará en otra tarea
+     3. "Agendar cita". Botón que permite crear una nueva cita para ese paciente en especifico. Replicar el flujo de "Alta de cita" solo rellenando en automatico todos los campos que ya se tienen, como el paciente, la especialidad
+     4. "Editar dieta". Solo debe aparecer si el especialista es nutriologo del paciente. De momento no tiene funcionalidad, su funcionalidad se agregará en otra tarea
+     5. "Editar rutina". Solo debe aparecer si el especialista es entrenador del paciente. De momento no tiene funcionalidad, su funcionalidad se agregará en otra tarea
+  4. Calendario de Actividades (1 columna (col-12)).
+     Igual que el que ve cada usuario en la vista [/your-plan/](https://www.multinature.mx/your-plan/).
+  5. Detalle del día seleccionado. (1 columna (col-12)).
+     Al seleccionar un día en el calendario se hará un scroll automático para traer al usuario hasta este componente. La vista deberá ser igual al componente "Actividades" de la página de [/home/](https://www.multinature.mx/home/). Separando las actividades por alimentos (por horario) y ejercicios (por horaio) y sus respectivos reemplazos, si es que los hubiere.
+  6. Gráficos. (1 columna (col-12)).
+     Como los gráficos históricos de la vista [/your-plan/](https://www.multinature.mx/your-plan/). El código de ese componente se encuentra en el archivo `multinature-frontend\src\views\home\Progress-old-graphics.jsx`
+
+  Tags: front
+
+  Assignee: Erick Robles
