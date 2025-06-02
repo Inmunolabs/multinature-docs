@@ -225,3 +225,41 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Samuel Reveles
+
+- ✅ [03022] Devolver citas con intervalos de 1 hora y que no se vean las horas ocupadas
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [03023] Renombrar isPaymentMethod y permitir el uso de la dirección de la clínica desde el paciente
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [03024] Refactorización del bookings-api, actualización de endpoints
+
+  Contexto: Refactorizar el api de bookings, unificar los siguientes endpoints en un solo PATCH que permita:
+
+  1. Cancelar una cita (`PATCH {{bookingsHost}}/bookings/:id/cancel`),
+  2. Confirmar una cita pero considerando si el que confirma es el especialista o el paciente (`PATCH {{bookingsHost}}/bookings/confirm/:id`),
+     1. Si quien confirma es un especialista simplemente se actualizará el estatus de la cita, siempre y cuando el anticipo haya sido cubierto
+     2. Si quien confirma es el paciente, se debe garantizar que se pague el anticipo de la cita y una vez confirmado el pago, se actualizará el estatus de la cita
+  3. Liquidar una cita (`POST {{bookingsHost}}/bookings/liquidate/:id`)
+  4. Actualizar una cita (`PATCH {{bookingsHost}}/bookings/:i`d)
+
+  También se deben realizar los siguientes puntos:
+
+  1. Renombrar y mover el endpoint de "BookingsPayMonthly" (`POST {{bookingsHost}}/bookings/monthly/`) ya que de cierta manera no es un booking, sería más una suscripción, porfa que quede algo como `POST {{bookingsHost}}/monthly-subscription`, como se moverá de ruta deberá tener su propio router
+  2. También mover y renombrar el endpoint de "BookingsCancelMonthly" (`DELETE {{bookingsHost}}/bookings/monthly/`)
+
+  Asegurarse de eliminar todo lo que ya no este en uso, incluidos los endpoints de Bruno (`api-collection`), y documentar un poco todos los flujos que se actualizaron en esta actividad
+
+  Tags: back
+
+  Assignee: Samuel Reveles
