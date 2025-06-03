@@ -17,3 +17,6 @@
    1. [Dietocálculo](./2.2.%20Diets/dietCalculation.md)
 4. Compras mensuales
    1. [Funcionalidad](./2.3.ComprasMensuales/funcionalidadCompraMensual.md)
+5. Bookings
+   1. [Crear y liquidar citas](./2.4%20Bookings/create.md)
+   1. [Actualizar citas](./2.4%20Bookings/update.md)
