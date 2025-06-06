@@ -96,6 +96,7 @@ POST /bookings/liquidate/:id
 ### Descripción
 
 Permite liquidar el pago pendiente de una cita ya creada. Al liquidar, retorna todas las citas del usuario o especialista.
+El amount solo se pone si el pago es de anticipo de la cita, si es pago de liquidación, se ignorará el amount y se cobrará el faltante.
 
 ### Parámetros obligatorios (body)
 
@@ -110,6 +111,7 @@ Permite liquidar el pago pendiente de una cita ya creada. Al liquidar, retorna t
   "paymentMethodId": "7900836f-a416-4ac0-a839-9ab4bb15cc96",
   "description": "Pago de liquidación de consulta",
   "cvv": "123"
+  //"amount": 250
 }
 ```
 
