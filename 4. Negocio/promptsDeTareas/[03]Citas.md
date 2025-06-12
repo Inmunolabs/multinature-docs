@@ -263,3 +263,27 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Samuel Reveles
+
+- ✅ [03025] Retornar la información de pago de las citas en el listado
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [03026] Permitir pago de citas después de la creación si la crea el especialista
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [03027] No se muestran las formas de pago al pagar anticipo de citas con Pago en tienda o Mercado Pago
+
+  Contexto: Al crear una cita no se muestra correctamente la información del pago, en el caso del Pago en Tienda, el PDF no es visible desde la url de la respuesta. En el caso de mercado pago, no se retorna la url para generar el pago.
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García
