@@ -561,3 +561,37 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: front
 
   Assignee: Erick Robles
+
+- ✅ [17043] Devolver especialidades en la respuesta del login y list patients
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [17044] Vista del perfil de un especialista
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- [17045] Excluir administradores y al especialista actual del listado de especialistas
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García
+
+- [17046] Permitir a un especialista asignar pacientes por correo sin registrarlos manualmente
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García
+
+- [17047] Revisar y ajustar el flujo para convertirse en especialista
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García

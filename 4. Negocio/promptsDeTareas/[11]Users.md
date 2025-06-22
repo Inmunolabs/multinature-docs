@@ -331,13 +331,12 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Assignee: Erick Robles
 
 - ✅ [11036] Agregar las clínicas de los especialistas en el Login y List
-  
+
   Tags: back
 
   Assignee: Samuel Reveles
 
   _Tarea creada por Samuel_
-
 
 - ✅ [11037] Modificar la relación entre usuarios y especialistas, ahora se deben mantener las relaciones inactivas
 
@@ -346,3 +345,51 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Samuel Reveles
+
+- ✅ [11038] Mejoras en lógica de reemplazos de alimentos
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+- ✅ [11039] Aceptar arrelgo de especialidades al crear un paciente
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+- [11040] En el Home corregir visualización del platillo, receta y equivalentes en Actividades
+
+  Tags: front
+
+  Assignee: Erick Robles
+
+- [11041] En el Home Indicar visualmente cuándo un alimento es un reemplazo en Actividades
+
+  Tags: front
+
+  Assignee: Erick Robles
+
+- [11042] Arreglar filtrado en Home cuando no se selecciona ninguna opción
+
+  Tags: front
+
+  Assignee: Erick Robles
+
+- [11043] En el Home corregir funcionamiento del botón “Ver más” en la sección de Progreso
+
+  Tags: front
+
+  Assignee: Erick Robles
+
+- [11044] En el Home revisar que la sección de Progreso cargue correctamente
+
+  Tags: front
+
+  Assignee: Erick Robles
+
+- [11045] En el Home convertir Actividades en acordeón como en Pedidos anteriores
+
+  Tags: front
+
+  Assignee: Erick Robles

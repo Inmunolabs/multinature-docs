@@ -280,10 +280,40 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- ✅ [03027] No se muestran las formas de pago al pagar anticipo de citas con Pago en tienda o Mercado Pago
+- ✅ [03027] No se muestran las formas de pago al pagar anticipo de citas con "Pago en tienda" o "Mercado Pago"
 
   Contexto: Al crear una cita no se muestra correctamente la información del pago, en el caso del Pago en Tienda, el PDF no es visible desde la url de la respuesta. En el caso de mercado pago, no se retorna la url para generar el pago.
 
   Tags: back
 
   Assignee: Miguel Angel Valdés García
+
+- ✅ [03028] Corregir los handlers de google meet y eliminado de enlaces
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [03029] Modificar confirmación de cita y bandera de si ya está pagada
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- [03030] Al editar cita si se manda idAddress vacio autogenerar la url de videollamada
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García
+
+- [03031] Reparación de Liquidación y Confirmación de citas y refactorización del api
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García
+
+- [03032] Cambiar texto “Pago pendiente” por “Pagar después” en formulario de citas

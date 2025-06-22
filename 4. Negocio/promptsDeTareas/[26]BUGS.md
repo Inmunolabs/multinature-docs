@@ -150,3 +150,111 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Samuel Reveles
+
+- ✅ [26021] Cambiar de api todo lo referente a la tabla `working_hours` del users-api, pasarlo a la bookings-api
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26022] Corregir error al obtener Ã³rdenes vacÃ­as
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26023] Ajuste de permisos en el endpoint Contact Us
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26024] Dividir respuesta de mÃ©todos de pago por tipo (cobro/pago)
+
+  Tags: back, front
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26025] AÃ±adir la emails layer a la api de notificaciones
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26026] Corregir el mensaje de respuesta de list working hours
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26027] Corregir bug al crear cita sin pago
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26028] Ajustar nombre del endpoint /user-files/s3-upload
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26029] Hacer razÃ³n de cancelaciÃ³n de cita opcional
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26030] Cambiar el nombre erroneo del bucket de las reseÃ±as y devolver nombre en el listado
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26031] Error de sintaxis al desasignar especialistas y devolver solo especialistas asignados
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26032] No estÃ¡ la ruta de compra mensual (upsert)
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- [26033] Evitar que un paciente se agende múltiples veces en el mismo horario
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- [26034] Excluir la fecha actual en la disponibilidad de horarios del especialista
+
+  Tags: back
+
+  Assignee: Samuel Reveles
