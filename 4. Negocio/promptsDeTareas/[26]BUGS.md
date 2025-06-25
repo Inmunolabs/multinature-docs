@@ -247,14 +247,20 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- [26033] Evitar que un paciente se agende múltiples veces en el mismo horario
+- ✅ [26033] Evitar que un paciente se agende múltiples veces en el mismo horario
 
   Tags: back
 
   Assignee: Samuel Reveles
 
-- [26034] Excluir la fecha actual en la disponibilidad de horarios del especialista
+- ✅ [26034] Excluir la fecha actual en la disponibilidad de horarios del especialista
 
   Tags: back
 
   Assignee: Samuel Reveles
+
+- [26035] Permitir crear reemplazos para cualquier día, sin limitar por fecha de creación
+
+  Tags: back
+
+  Assignee: Erick Robles

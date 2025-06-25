@@ -358,38 +358,54 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
-- [11040] En el Home corregir visualización del platillo, receta y equivalentes en Actividades
+- ✅ [11040] En el Home corregir visualización del platillo, receta y equivalentes en Actividades
 
   Tags: front
 
   Assignee: Erick Robles
 
-- [11041] En el Home Indicar visualmente cuándo un alimento es un reemplazo en Actividades
+- ✅ [11041] En el Home Indicar visualmente cuándo un alimento es un reemplazo en Actividades
 
   Tags: front
 
   Assignee: Erick Robles
 
-- [11042] Arreglar filtrado en Home cuando no se selecciona ninguna opción
+- ✅ [11042] Arreglar filtrado en Home cuando no se selecciona ninguna opción
 
   Tags: front
 
   Assignee: Erick Robles
 
-- [11043] En el Home corregir funcionamiento del botón “Ver más” en la sección de Progreso
+- ✅ [11043] En el Home corregir funcionamiento del botón “Ver más” en la sección de Progreso
 
   Tags: front
 
   Assignee: Erick Robles
 
-- [11044] En el Home revisar que la sección de Progreso cargue correctamente
+- ✅ [11044] En el Home revisar que la sección de Progreso cargue correctamente
 
   Tags: front
 
   Assignee: Erick Robles
 
-- [11045] En el Home convertir Actividades en acordeón como en Pedidos anteriores
+- ✅ [11045] En el Home convertir Actividades en acordeón como en Pedidos anteriores
 
   Tags: front
 
   Assignee: Erick Robles
+
+- ✅ [11046] Completar la vista de [clientes](https://www.multinature.mx/customers/)
+
+  Contexto:
+
+  - Arreglar la agenda del especialista, que aparezcan sus citas y que aparezca por default la fecha actual
+  - Agregar todas las acciones del listado de pacientes
+  - Garantizar que el resto de la vista funciona
+
+  Tags: front
+
+- ✅ [11047] Revisar la vista de red de usuarios
+
+  Contexto: La [vista de red usuarios](https://www.multinature.mx/network/) no esta funcionando. La red debe ser solo 3 niveles.
+
+  Tags: front

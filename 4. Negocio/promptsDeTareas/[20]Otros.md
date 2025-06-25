@@ -73,7 +73,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- [20011] Dar seguimiento a la vista "Plan de compesnsación"
+- [20011] Dar seguimiento a la vista "Plan de compensación"
 
   Contexto: Revisar con Andrés que pasará con esa vista, se quito del sistema pero al final si es requerida, no? Recuerdo que iba a quedar algo así como la que se tiene en Inmnuosalud.
 

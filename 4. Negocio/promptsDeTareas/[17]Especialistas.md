@@ -595,3 +595,41 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Miguel Angel Valdés García
+
+- [17048] Agregar botón para agendar cita con tu especialista
+
+  Contexto: Agregar botón para agendar cita con tu especialista en cada tarjeta de los especialistas del listado de [Mis Especialistas](https://www.multinature.mx/my-specialists/).
+
+  Tags: front
+
+- [17049] Corregir redirección de los Certificados en el catálogo de especialistas
+
+  Tags: front
+
+  Assignee: Samuel Reveles
+
+- [17050] En el catálogo de especialistas mostrar únicamente reseñas y ordenarlas de más recientes a más antiguas
+
+  Contexto: Dejar de mostrar las "Reseñas recientes"
+
+  Tags: front
+
+  Assignee: Samuel Reveles
+
+- [17051] En el catálogo de especialistas definir y aplicar colores consistentes para las etiquetas de especialidades
+
+  Tags: front
+
+  Assignee: Samuel Reveles
+
+- [17052] Arreglar la pestaña de _Certificados_ de las configuraciones de especialidad
+
+  Tags: front
+
+- [17053] Arreglar la pestaña de _Material de apoyo_ de las configuraciones de especialidad
+
+  Tags: front
+
+- [17054] Arreglar la pestaña de _Consultas_ de las configuraciones de especialidad
+
+  Tags: front

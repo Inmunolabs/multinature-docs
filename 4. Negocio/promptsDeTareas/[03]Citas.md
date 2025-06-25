@@ -304,16 +304,16 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- [03030] Al editar cita si se manda idAddress vacio autogenerar la url de videollamada
+- ✅ [03030] Al editar cita si se manda idAddress vacio autogenerar la url de videollamada
 
   Tags: back
 
   Assignee: Miguel Angel Valdés García
 
-- [03031] Reparación de Liquidación y Confirmación de citas y refactorización del api
+- ✅ [03031] Reparación de Liquidación y Confirmación de citas y refactorización del api
 
   Tags: back
 
   Assignee: Miguel Angel Valdés García
 
-- [03032] Cambiar texto “Pago pendiente” por “Pagar después” en formulario de citas
+- ✅ [03032] Cambiar texto “Pago pendiente” por “Pagar después” en formulario de citas
