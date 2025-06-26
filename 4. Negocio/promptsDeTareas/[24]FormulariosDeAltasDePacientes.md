@@ -169,3 +169,13 @@ Task Name Description Priority Status tags
   Tags: front
 
   Assignee: Diego Martin Ponce
+
+- ✅ [24022] Migrar users_goals a filled_form_value_id con enum direction
+
+  Contexto: Se actualizó el flujo de guardado de metas del usuario (users_goals) para que en lugar de almacenar el concept_id, utilice el filled_form_value_id, asegurando así un enlace directo al valor específico llenado en un formulario. Además, se dejó de usar valores booleanos para el campo direction y se cambió por un enum (asc | desc). El frontend interpretará esto como booleano para su componente gráfico, manteniendo así compatibilidad sin modificar el diseño visual. Se actualizaron los insert, las queries y la estructura general de la tabla.
+
+  Tags: front
+
+  Assignee: Erick Robles
+
+  _Tarea creada por Erick_

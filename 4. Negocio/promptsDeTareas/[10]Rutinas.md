@@ -28,3 +28,13 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Erick Robles
+
+- ✅ [10003] Actualizar getDayDetail para agrupar ejercicios por rutina y ajustar reemplazos a nivel de rutina
+
+  Contexto: Actualizar el endpoint `getDayDetail` para que los ejercicios se agrupen por `routineId`, tanto para rutinas activas como para rutinas cargadas desde snapshot. Esta estructura agrupada es necesaria para mostrar correctamente los datos en el frontend, donde cada rutina representa un acordeón con sus ejercicios y equivalencias.
+  Los reemplazos de ejercicios deben ser a nivel de rutina, no de ejercicio, modificar el ENUM `type` de la tabla `user_action_replacements` de `enum('meal','exercise')` a `enum('meal','routine')` y todo lo que tenga relación en las APIs.
+  La descripción de cada rutina (en las actividades de los usuarios) debe ser un concatenado de los nombres de los ejercicios con sus `repetitions` y ordenados ascendentemente (de 1 a "n").
+
+  Tags: back, front
+
+  Assignee: Erick Robles

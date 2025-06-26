@@ -73,7 +73,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- [20011] Dar seguimiento a la vista "Plan de compensación"
+- ✅ [20011] Dar seguimiento a la vista "Plan de compensación"
 
   Contexto: Revisar con Andrés que pasará con esa vista, se quito del sistema pero al final si es requerida, no? Recuerdo que iba a quedar algo así como la que se tiene en Inmnuosalud.
 
@@ -81,7 +81,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Miguel Angel Valdés García
 
-- [20012] Probar alta de un paciente y creación de usuario
+- ✅ [20012] Probar alta de un paciente y creación de usuario
 
   Contexto: Revisar los flujo de creaciones de cuentas, alta de un paciente y registro propio.
   Durante la creación de usuario el api-config no puede traer la lista de genero (esto por un typo en el Frontend)
@@ -90,26 +90,26 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Miguel Angel Valdés García
 
-- [20013] Actualizar las credenciales de mercadoPago
+- ✅ [20013] Actualizar las credenciales de mercadoPago
 
   Tags: negocio
 
   Assignee: Miguel Angel Valdés García
 
-- [20014] Mostrar en el listado de pacientes la especialidad con la que el especialista atiende a cada uno
+- ✅ [20014] Mostrar en el listado de pacientes la especialidad con la que el especialista atiende a cada uno
 
   Tags: negocio
 
   Assignee: Miguel Angel Valdés García
 
-- [20015] Preseleccionar opción en selects con una sola alternativa disponible
+- ✅ [20015] Preseleccionar opción en selects con una sola alternativa disponible
 
   Tags: front
 
-- [20016] Agregar opción “Ver tu plan” en el menú lateral
+- ✅ [20016] Agregar opción “Ver tu plan” en el menú lateral
 
   Tags: front
 
-- [20017] Agregar opción “Ver tu perfil de especialista” en el menú lateral (solo especialistas)
+- ✅ [20017] Agregar opción “Ver tu perfil de especialista” en el menú lateral (solo especialistas)
 
   Tags: front

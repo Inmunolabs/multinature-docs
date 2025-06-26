@@ -259,7 +259,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Samuel Reveles
 
-- [26035] Permitir crear reemplazos para cualquier día, sin limitar por fecha de creación
+- ✅ [26035] Permitir crear reemplazos para cualquier día, sin limitar por fecha de creación
 
   Tags: back
 

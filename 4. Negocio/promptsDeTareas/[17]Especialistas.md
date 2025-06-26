@@ -578,37 +578,37 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- [17045] Excluir administradores y al especialista actual del listado de especialistas
+- ✅ [17045] Excluir administradores y al especialista actual del listado de especialistas
 
   Tags: back
 
   Assignee: Miguel Angel Valdés García
 
-- [17046] Permitir a un especialista asignar pacientes por correo sin registrarlos manualmente
+- ✅ [17046] Permitir a un especialista asignar pacientes por correo sin registrarlos manualmente
 
   Tags: back
 
   Assignee: Miguel Angel Valdés García
 
-- [17047] Revisar y ajustar el flujo para convertirse en especialista
+- ✅ [17047] Revisar y ajustar el flujo para convertirse en especialista
 
   Tags: back
 
   Assignee: Miguel Angel Valdés García
 
-- [17048] Agregar botón para agendar cita con tu especialista
+- ✅ [17048] Agregar botón para agendar cita con tu especialista
 
   Contexto: Agregar botón para agendar cita con tu especialista en cada tarjeta de los especialistas del listado de [Mis Especialistas](https://www.multinature.mx/my-specialists/).
 
   Tags: front
 
-- [17049] Corregir redirección de los Certificados en el catálogo de especialistas
+- ✅ [17049] Corregir redirección de los Certificados en el catálogo de especialistas
 
   Tags: front
 
   Assignee: Samuel Reveles
 
-- [17050] En el catálogo de especialistas mostrar únicamente reseñas y ordenarlas de más recientes a más antiguas
+- ✅ [17050] En el catálogo de especialistas mostrar únicamente reseñas y ordenarlas de más recientes a más antiguas
 
   Contexto: Dejar de mostrar las "Reseñas recientes"
 
@@ -616,20 +616,30 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Samuel Reveles
 
-- [17051] En el catálogo de especialistas definir y aplicar colores consistentes para las etiquetas de especialidades
+- ✅ [17051] En el catálogo de especialistas definir y aplicar colores consistentes para las etiquetas de especialidades
 
   Tags: front
 
   Assignee: Samuel Reveles
 
-- [17052] Arreglar la pestaña de _Certificados_ de las configuraciones de especialidad
+- ✅ [17052] Arreglar la pestaña de _Certificados_ de las configuraciones de especialidad
 
   Tags: front
 
-- [17053] Arreglar la pestaña de _Material de apoyo_ de las configuraciones de especialidad
+- ✅ [17053] Arreglar la pestaña de _Material de apoyo_ de las configuraciones de especialidad
 
   Tags: front
 
-- [17054] Arreglar la pestaña de _Consultas_ de las configuraciones de especialidad
+- ✅ [17054] Arreglar la pestaña de _Consultas_ de las configuraciones de especialidad
 
   Tags: front
+
+- ✅ [17055] Actualizar visualización de metas múltiples en gráficos de progreso (graphables)
+
+  Contexto: Se actualizó la lógica de visualización de los gráficos de progreso (graphables) para permitir mostrar múltiples metas asociadas a un mismo concepto. Anteriormente solo se mostraba una meta única por concepto, pero ahora se admite un arreglo de metas (goals_array) proveniente del backend. Esto también implicó actualizar la consulta SQL y el DTO que alimenta los datos al frontend.
+
+  Tags: front
+
+  Assignee: Erick Robles
+
+  _Tarea creada por Erick_
