@@ -113,3 +113,16 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 - ✅ [20017] Agregar opción “Ver tu perfil de especialista” en el menú lateral (solo especialistas)
 
   Tags: front
+
+- ✅ [20018] Modificar el objeto de formulas de la respuesta del endpoint api-config
+
+  Contexto: Modificar el objeto `formulas` de la respuesta del endpoint api-config, debe ser un arreglo de objetos con las propiedades:
+
+  - `name` que no es más que el nombre de la fórmula,
+  - `constansts` debe agrupar en un arreglo las constantes que deben ser ingresadas por especialista para poder utilizar la fórmula (Coeficiente de actividad física (CAF), el Efecto térmico de los alimentos (ETA) y la Actividad física (AF))
+  - `conceptIds` debe agrupar en un arreglo los identificadores de los conceptos que son necesarios para el cálculo de la fórmula, por ejemplo el identificador del concepto `Peso`
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+

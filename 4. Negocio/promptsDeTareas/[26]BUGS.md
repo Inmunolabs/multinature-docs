@@ -264,3 +264,27 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Erick Robles
+
+- ✅ [26040] No sé pueden eliminar las platillas de los formularios
+
+  Contexto: El error se presenta porque existen registros en la tabla filled_forms que están referenciando al form_template que estás intentando eliminar. La mejor práctica en estos casos, especialmente si buscamos mantener los filled_forms, es no eliminar físicamente el form_template, sino solo marcarlo como eliminado.
+
+  Agregar la `deleted_at`
+
+  `ALTER TABLE form_templates ADD COLUMN deleted_at DATETIME NULL;`
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [26041] El campo `is_graphable` de `filled_form_values` siempre se envia como `false`
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+- [26042] Hacer accesible para todos el endpoint `GET {{userHost}}/api/config`
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García
