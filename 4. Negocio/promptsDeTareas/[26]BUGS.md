@@ -159,7 +159,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- ✅ [26022] Corregir error al obtener Ã³rdenes vacÃ­as
+- ✅ [26022] Corregir error al obtener órdenes vacías
 
   Tags: back
 
@@ -175,7 +175,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- ✅ [26024] Dividir respuesta de mÃ©todos de pago por tipo (cobro/pago)
+- ✅ [26024] Dividir respuesta de métodos de pago por tipo (cobro/pago)
 
   Tags: back, front
 
@@ -183,7 +183,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- ✅ [26025] AÃ±adir la emails layer a la api de notificaciones
+- ✅ [26025] Añadir la emails layer a la api de notificaciones
 
   Tags: back
 
@@ -215,7 +215,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- ✅ [26029] Hacer razÃ³n de cancelaciÃ³n de cita opcional
+- ✅ [26029] Hacer razón de cancelación de cita opcional
 
   Tags: back
 
@@ -223,7 +223,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- ✅ [26030] Cambiar el nombre erroneo del bucket de las reseÃ±as y devolver nombre en el listado
+- ✅ [26030] Cambiar el nombre erroneo del bucket de las reseñas y devolver nombre en el listado
 
   Tags: back
 
@@ -239,7 +239,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- ✅ [26032] No estÃ¡ la ruta de compra mensual (upsert)
+- ✅ [26032] No está la ruta de compra mensual (upsert)
 
   Tags: back
 
@@ -283,8 +283,102 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
-- [26042] Hacer accesible para todos el endpoint `GET {{userHost}}/api/config`
+- ✅ [26042] Hacer el api config público
 
   Tags: back
 
-  Assignee: Miguel Angel Valdés García
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26043] Ajustar el api config con las fórmulas y sus datos
+
+  _Tarea creada por Samuel_
+
+- ✅ [26044] El calendario de la vista de clients dice Enero, aunque está bien puesta la fecha en el calendario
+
+  _Tarea creada por Samuel_
+
+- ✅ [26045] La cita en customers/profile 'Próxima Cita' aparece con un día antes
+
+  _Tarea creada por Samuel_
+
+- ✅ [26046] No sirve el botón de nueva cita en `/your-plan/`
+
+  _Tarea creada por Samuel_
+
+- ✅ [26047] Manda a 401 plan de compensación (home)
+
+  _Tarea creada por Samuel_
+
+- ✅ [26048] En `/marketplace/product/:id` no se pueden hacer las acciones de compra ni agregar al carrito
+
+  _Tarea creada por Samuel_
+
+- ✅ [26049] `/compensation-plan/` tiene errores ortográficos
+
+  _Tarea creada por Samuel_
+
+- ✅ [26050] `/marketplace/` no se agrega a la selección
+
+  _Tarea creada por Samuel_
+
+- ✅ [26051] `/monthly-purchase/your-selection/` no desactiva los botones de guardar y comprar cuando no hay productos
+
+  _Tarea creada por Samuel_
+
+- ✅ [26052] `/monthly-purchase/your-selection/` no cambia la dirección de envío según los botones
+
+  _Tarea creada por Samuel_
+
+- ✅ [26053] `/home/` al reagendar una cita confirmada, aparece seleccionado el día de mañana y no deja reagendar hasta 2 días después
+
+  _Tarea creada por Samuel_
+
+- ✅ [26054] `/home/` al liquidar no deja seleccionar monto a pagar ni ingresar un monto personalizado
+
+  _Tarea creada por Samuel_
+
+- ✅ [26055] `/home/` el botón confirmar y pagar de la cita no funciona
+
+  _Tarea creada por Samuel_
+
+- ✅ [26056] `/customers/profile/:id/` no sirve el botón de agendar
+
+  _Tarea creada por Samuel_
+
+- ✅ [26057] En `/my-specialists/`, al intentar eliminar un especialista, aparece que se desasignó en lugar de eliminarlo
+
+  _Tarea creada por Samuel_
+
+- ✅ [26058] El bucket de S3 de los recibos de pago es incorrecto (store-order-9fe5 en lugar de multi-store-order-dev)
+
+  _Tarea creada por Samuel_
+
+- ✅ [26059] En `/marketplace/` al agregar al carrito, solo se puede agregar un producto (no se acumula)
+
+  _Tarea creada por Samuel_
+
+- ✅ [26060] El botón 'agregar a tu selección' solo funciona desde el carrito
+
+  _Tarea creada por Samuel_
+
+- ✅ [26061] `/customers/profile/:id/` faltan desgloses explicativos de los iconos de Cita y Reemplazo
+
+  _Tarea creada por Samuel_
+
+- ✅ [26062] `/customers/profile/:id/` no coinciden iconos de dieta con las actividades reales
+
+  _Tarea creada por Samuel_
+
+- ✅ [26063] En ocasiones, al ir de `/customers/profile/:id/` a `/compensation-plan/`, aparece error 401 (intermitente)
+
+  _Tarea creada por Samuel_
+
+- ✅ [26064] `/your-plan/` debería permitir añadir plan en caso de ser especialista
+
+  _Tarea creada por Samuel_
+
+- ✅ [26065] `/my-specialists/` no se puede seleccionar nuevamente un especialista que ya estaba agregado ni agregar múltiples
+
+  _Tarea creada por Samuel_

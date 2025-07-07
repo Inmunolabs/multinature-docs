@@ -179,3 +179,11 @@ Task Name Description Priority Status tags
   Assignee: Erick Robles
 
   _Tarea creada por Erick_
+
+- ✅ [24023] Al crear un formulario siempre agregar los conceptos de la altura y peso
+
+  Contexto: Al crear un template de formulario por default siempre agregar los conceptos de la altura y peso aunque el especialista no los agregue explicitamente a su petición de creación del formulario
+
+  Tags: back
+
+  Assignee: Erick Robles

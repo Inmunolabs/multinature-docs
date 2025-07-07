@@ -317,3 +317,13 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Assignee: Miguel Angel Valdés García
 
 - ✅ [03032] Cambiar texto “Pago pendiente” por “Pagar después” en formulario de citas
+
+  Tags: front
+
+  Assignee: Samuel Reveles
+
+- ✅ [03032] Los especialistas no deben poder actualizar (reagendar) las citas de sus pacientes
+
+  Tags: back, front
+
+  Assignee: Erick Robles

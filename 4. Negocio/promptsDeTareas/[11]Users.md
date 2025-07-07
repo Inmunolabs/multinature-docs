@@ -409,3 +409,14 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Contexto: La [vista de red usuarios](https://www.multinature.mx/network/) no esta funcionando. La red debe ser solo 3 niveles.
 
   Tags: front
+
+- ✅ [11048] Mejorar la vista de [home](https://www.multinature.mx/home/)
+
+  Contexto:
+
+  - Agregar un scroll al listado de clientes para que los componentes de "Próximas citas" y "Clientes" queden a nivel
+  - En el carrusel de productos agregar el título "Productos" y el nombre de cada producto debajo de la imagen del mismo
+
+  Tags: front
+
+  Assignee: Erick Robles

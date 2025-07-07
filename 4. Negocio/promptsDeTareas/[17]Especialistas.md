@@ -643,3 +643,11 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Assignee: Erick Robles
 
   _Tarea creada por Erick_
+
+- ✅ [17056] Agregar leyenda a los precios de consulta indicando que si no se desea cobrar alguna tarifa se deje en cero
+
+  Contexto: Agregar leyenda a los precios de consulta en las [configuraciones del especialista](https://www.multinature.mx/specialist/settings/?tab=consult) indicando que si no se desea cobrar alguna tarifa se registre en cero.
+
+  Tags: front
+
+  Assignee: Erick Robles
