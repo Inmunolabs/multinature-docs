@@ -309,6 +309,8 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Samuel Reveles
 
+  Assignee: Samuel Reveles
+
   _Tarea creada por Samuel_
 
 - ✅ [26045] La cita en customers/profile 'Próxima Cita' aparece con un día antes
@@ -426,6 +428,8 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   _Tarea creada por Samuel_
 
 - ✅ [26064] `/your-plan/` ¿Debería permitir añadir plan en caso de ser especialista?
+
+  Assignee: Samuel Reveles
 
   Assignee: Samuel Reveles
 
