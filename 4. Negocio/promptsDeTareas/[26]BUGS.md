@@ -265,7 +265,15 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
-- ✅ [26040] No sé pueden eliminar las platillas de los formularios
+- [26036]
+
+- [26037]
+
+- [26038]
+
+- [26039]
+
+- ✅ [26040] No sé pueden eliminar las plantillas de los formularios
 
   Contexto: El error se presenta porque existen registros en la tabla filled_forms que están referenciando al form_template que estás intentando eliminar. La mejor práctica en estos casos, especialmente si buscamos mantener los filled_forms, es no eliminar físicamente el form_template, sino solo marcarlo como eliminado.
 
@@ -293,92 +301,302 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26043] Ajustar el api config con las fórmulas y sus datos
 
+  Assignee: Samuel Reveles
+
   _Tarea creada por Samuel_
 
-- ✅ [26044] El calendario de la vista de clients dice Enero, aunque está bien puesta la fecha en el calendario
+- ✅ [26044] El calendario de la vista de clientes dice Enero, aunque está bien puesta la fecha en el calendario
+
+  Assignee: Samuel Reveles
 
   _Tarea creada por Samuel_
 
 - ✅ [26045] La cita en customers/profile 'Próxima Cita' aparece con un día antes
 
+  Assignee: Samuel Reveles
+
   _Tarea creada por Samuel_
 
 - ✅ [26046] No sirve el botón de nueva cita en `/your-plan/`
+
+  Assignee: Samuel Reveles
 
   _Tarea creada por Samuel_
 
 - ✅ [26047] Manda a 401 plan de compensación (home)
 
+  Assignee: Samuel Reveles
+
   _Tarea creada por Samuel_
 
 - ✅ [26048] En `/marketplace/product/:id` no se pueden hacer las acciones de compra ni agregar al carrito
+
+  Assignee: Samuel Reveles
 
   _Tarea creada por Samuel_
 
 - ✅ [26049] `/compensation-plan/` tiene errores ortográficos
 
+  Assignee: Samuel Reveles
+
   _Tarea creada por Samuel_
 
 - ✅ [26050] `/marketplace/` no se agrega a la selección
+
+  Assignee: Samuel Reveles
 
   _Tarea creada por Samuel_
 
 - ✅ [26051] `/monthly-purchase/your-selection/` no desactiva los botones de guardar y comprar cuando no hay productos
 
+  Assignee: Samuel Reveles
+
   _Tarea creada por Samuel_
 
 - ✅ [26052] `/monthly-purchase/your-selection/` no cambia la dirección de envío según los botones
+
+  Assignee: Samuel Reveles
 
   _Tarea creada por Samuel_
 
 - ✅ [26053] `/home/` al reagendar una cita confirmada, aparece seleccionado el día de mañana y no deja reagendar hasta 2 días después
 
+  Assignee: Samuel Reveles
+
   _Tarea creada por Samuel_
 
 - ✅ [26054] `/home/` al liquidar no deja seleccionar monto a pagar ni ingresar un monto personalizado
+
+  Assignee: Samuel Reveles
 
   _Tarea creada por Samuel_
 
 - ✅ [26055] `/home/` el botón confirmar y pagar de la cita no funciona
 
+  Assignee: Samuel Reveles
+
   _Tarea creada por Samuel_
 
 - ✅ [26056] `/customers/profile/:id/` no sirve el botón de agendar
+
+  Assignee: Samuel Reveles
 
   _Tarea creada por Samuel_
 
 - ✅ [26057] En `/my-specialists/`, al intentar eliminar un especialista, aparece que se desasignó en lugar de eliminarlo
 
+  Assignee: Samuel Reveles
+
   _Tarea creada por Samuel_
 
 - ✅ [26058] El bucket de S3 de los recibos de pago es incorrecto (store-order-9fe5 en lugar de multi-store-order-dev)
+
+  Assignee: Samuel Reveles
 
   _Tarea creada por Samuel_
 
 - ✅ [26059] En `/marketplace/` al agregar al carrito, solo se puede agregar un producto (no se acumula)
 
+  Assignee: Samuel Reveles
+
   _Tarea creada por Samuel_
 
 - ✅ [26060] El botón 'agregar a tu selección' solo funciona desde el carrito
+
+  Assignee: Samuel Reveles
 
   _Tarea creada por Samuel_
 
 - ✅ [26061] `/customers/profile/:id/` faltan desgloses explicativos de los iconos de Cita y Reemplazo
 
+  Assignee: Samuel Reveles
+
   _Tarea creada por Samuel_
 
 - ✅ [26062] `/customers/profile/:id/` no coinciden iconos de dieta con las actividades reales
+
+  Assignee: Samuel Reveles
 
   _Tarea creada por Samuel_
 
 - ✅ [26063] En ocasiones, al ir de `/customers/profile/:id/` a `/compensation-plan/`, aparece error 401 (intermitente)
 
+  Assignee: Samuel Reveles
+
   _Tarea creada por Samuel_
 
-- ✅ [26064] `/your-plan/` debería permitir añadir plan en caso de ser especialista
+- ✅ [26064] `/your-plan/` ¿Debería permitir añadir plan en caso de ser especialista?
+
+  Assignee: Samuel Reveles
 
   _Tarea creada por Samuel_
 
 - ✅ [26065] `/my-specialists/` no se puede seleccionar nuevamente un especialista que ya estaba agregado ni agregar múltiples
 
+  Assignee: Samuel Reveles
+
   _Tarea creada por Samuel_
+
+- ✅ [26066] /network/ no abre la URL de Copiar tu enlace (manda un 404)
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26067] Arreglar el botón de editar usuarios y agregar el teléfono a la tarjeta de usuario
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26068] /profile/?=&tab=tax Al editar Información para recibir tus comisiones y guardar, una vez guardado solo se muestran los datos después de que se refresca la pagina
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26069] /profile/?=&tab=tax Error en la query al actualizar Información para facturar tus compras y en Información para recibir tus comisiones
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26070] /cart/ Cuando se presiona Cambiar método de pago, en Nuevo Método no hace nada el botón Agregar
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26071] /cart/ Cuando estamos en Cambiar dirección y queremos agregar una nueva dirección, al presionar el botón truena
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26072] /profile/ Cuando se crea el método de pago o se actualiza, no se muestra en el front y se tiene que refrescar la pagina para que se vea
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26073] /profile/ En métodos de pago no deja deseleccionar y se crea como predeterminado para compra mensual
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26074] /profile/ Está mal el actualizar la dirección, tampoco deja el botón para hacer clínica y tampoco funciona el delete (profile-Direcciones)
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26075] /specialist/settings/?tab=certificates el delete de Certificados sale petición no autorizada
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26076] /specialist/settings/?tab=supportMaterial el delete de Material de Apoyo sale petición no autorizada
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26077] Mostrar solo los productos válidos para la recomendación
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26078] Access denied al bucket de templates desde la lambda de orders
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26079] Error en vista de configuracion de especialista
+
+  Tags: front
+
+  Assignee: Antoine Ganem
+
+  _Tarea creada por Antoine_
+
+- ✅ [26080] Revisar que en las configuraciones de especialista no se pueda agregar un Anticipo de consulta mayor al precio de la consulta
+
+  Tags: back, front
+
+  Assignee: Antoine Ganem
+
+- ✅ [26081] Compras mensuales, cuando se llega al límite de monto que deja openpay, no muestra el mensaje, solo el error
+
+  _Tarea creada por Samuel_
+
+- ✅ [26082] /customers/profile/:id el agendar cita hace cita para el especialista, no para el usuario
+
+  _Tarea creada por Samuel_
+
+- ✅ [26083] Aparece undefined en el nombre en los detalles de alguien de la red
+
+  _Tarea creada por Samuel_
+
+- ✅ [26084] Agregar sugerencia a la compra mensual -> Al actualizar una compra mensual después de haber borrado un producto se agrega de nuevo
+
+  _Tarea creada por Samuel_
+
+- ✅ [26085] Para liquidar, no se informa el precio que falta, solo el precio total de la cita, puede confundir al cliente /home
+
+  _Tarea creada por Samuel_
+
+- ✅ [26086] No se actualizan las citas cuando ya se hizo una liquidación /home
+
+  _Tarea creada por Samuel_
+
+- ✅ [26087] Configuración de especialidad y mi perfil no cambian con el idioma, el texto de configuración de especialidad está en minúsculas (barra de navegación)
+
+  _Tarea creada por Samuel_
+
+- ✅ [26088] No aparece opción para pagar mensualidad
+
+  _Tarea creada por Samuel_
+
+- ✅ [26089] No se alcanza a leer bien el placeholder de los detalles del día en /customers (modo claro)
+
+  _Tarea creada por Samuel_
+
+- ✅ [26090] Aparecen todas las citas en la sección de próximas citas /home
+
+  _Tarea creada por Samuel_
+
+- ✅ [26091] En confirmar cita, no permite seleccionar ninguna opción /home -> próximas citas -> confirmar (cuando es una cita creada por el especialista)
+
+  _Tarea creada por Samuel_
+
+- ✅ [26092] El costo de la cita está sumando el anticipo, el anticipo es un porcentaje de la cita
+
+  _Tarea creada por Samuel_
+
+- ✅ [26093] No permite liquidar la cita más que cuando se elije pago en línea
+
+  _Tarea creada por Samuel_
+
+- ✅ [26094] Falta indicador de carga de que se está haciendo un pago al liquidar / pagar la cita
+
+  _Tarea creada por Samuel_
+
+- ✅ [26095] No se puede ver el recibo de pago de la cita cuando se pagó la liquidación en tienda
+
+  _Tarea creada por Samuel_
+
+- ✅ [26096] profile/?=&tab=banks cuando se quiere agregar una clave interbancaria no deja, manda Recurso no encontrado (detalles en el Payload y el method)
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26097] Reparar nombres de fórmulas de dietocalculo (api-config)
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García

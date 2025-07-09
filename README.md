@@ -21,6 +21,8 @@
    8. Especialistas
       1. [Servicios de especialistas (service_payments)](./1.%20Definicion%20del%20proyecto/servicios.png)
       2. [Formularios para alta de pacientes](./1.%20Definicion%20del%20proyecto/formulariosAltaPacientes.md)
+   9. [Médicos Generales](./1.%20Definicion%20del%20proyecto/medicosGenerales.md)
+   
 
 2. [BACKEND](./2.%20BACKEND/README.md)
 
@@ -84,5 +86,5 @@
    6. [Cotizaciones de API de alimentos](https://docs.google.com/spreadsheets/d/1JeiPtQWeF2uLBE1RfwcXrMesc1mnqNiC7EC6lY87YIg/edit?gid=1883683087#gid=1883683087)
    7. [Nutrimind](https://www.nutrimind.net/page/software_de_nutricion_videos)
 
-5. [PRUEBAS](./5.%PRUEBAS/README.md)
-   1. [Información Landing page - v1.0.pptx]
+5. [PRUEBAS](./5.%20PRUEBAS/README.md)
+   1. [Matriz de Pruebas primer entrega - 30 de junio de 2025](./5.%20PRUEBAS/5.1.%20primerEntrega-2025.06.30.md)

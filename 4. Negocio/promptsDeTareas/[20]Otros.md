@@ -126,3 +126,61 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Samuel Reveles
 
+- ✅ [20019] Hacer las vistas responsivas https://app.clickup.com/t/868en47ed
+
+  Tags: front
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [20020] Corroborar los loadings https://app.clickup.com/t/868en5ppp
+
+  Tags: front
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [20021] Diseño del dashboard https://app.clickup.com/t/868enrhah
+
+  Tags: back, front
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [20022] Ajustar formulario de constantes con el valor actual https://app.clickup.com/t/868enz2cf
+
+  Tags: back, front
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [20023] Todos los links compartidos deben tener el id del recomendador
+
+  Contexto:
+
+  - Corregir el link compartido de la [red de usuarios](https://www.multinature.mx/network/) (Botón de COPIAR TU ENLACE)
+  - Agregar el id de quien comparte el [perfil de un especialista](https://www.multinature.mx/specialists-catalog/profile/8f74e464-176c-4662-a2fc-c013da3be786/) a la url, por si el usuario que abre la url no tiene una cuenta para que se registre como referido de quien le compartió el enlace
+
+  Tags: front
+
+  Assignee: Antoine Ganem
+
+- [20024] Modificar los porcentajes de comisiones de los niveles de red
+
+  Contexto: Los nuevos porcentajes de comisiones de los niveles de red son:
+
+  Plan de compensación
+
+  | Nivel | Comisión |
+  | ----- | -------- |
+  | 1     | 25%      |
+  | 2     | 10%      |
+  | 3     | 5%       |
+
+  Tags: back, front
+
+  Assignee: Erick Robles

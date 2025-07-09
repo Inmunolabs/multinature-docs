@@ -200,3 +200,14 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Erick Robles
+
+- [031] Error: Too many connections
+
+  Contexto: Error: Too many connections
+
+  ```
+  (λ: api) RequestId: ad46a815-09d6-4364-bbaa-a45670042388  Duration: 6297.20 ms  Billed Duration: 6298 ms
+  🇷​​​​​🇪​​​​​🇸​​​​​ 🡪 [response] ❌ ERROR: {"folio":"ad46a815-09d6-4364-bbaa-a45670042388","message":"Servicio no disponible.","content":{"details":{"code":"ER_CON_COUNT_ERROR","errno":1040,"sqlState":"08004","sqlMesssage":"Too many connections"}}}
+  ```
+
+  Tags: back

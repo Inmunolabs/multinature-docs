@@ -15,3 +15,4 @@
 8. Especialistas
    1. [Servicios de especialistas (service_payments)](./servicios.png)
    2. [Formularios para alta de pacientes](./formulariosAltaPacientes.md)
+9. [Médicos Generales](./medicosGenerales.md)
