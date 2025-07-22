@@ -265,9 +265,26 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
-- [26036]
+- [26036] Revisar el error 500 al eliminar un producto
 
-- [26037]
+  Contexto: Log: [`2025-07-17T18:10:15.772Z 31b2fa98-9266-4a77-a9e1-822e94ca40bd INFO ### DELETE /products/f4498a5a-3fb7-4cd2-af5a-4cb4fe30e0ad`](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/$252Faws$252Flambda$252Fmulti-products-dev-api/log-events/2025$252F07$252F17$252F$255B$2524LATEST$255De8bdb3aa83fc45bca918f9ff3dc263d0)
+
+  Revisar también que al eliminar un producto se responda solo con los productos activos (los que no han sido eliminados lógicamente). En general este tipo de respuesta, con solo los productos activos debe funcionar para toda al API, revisar todos los endpoints, desde las queries (`WHERE is_active = true`) hasta el DTO
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- [26037] Error al querer crear una compra mensual con un usuario que no ha agregado ninguna tarjeta a su usuario
+
+  Contexto: Log: [`2025-07-17T22:42:47.550Z
+2025-07-17T22:42:47.550Z 1baf477d-8a84-4c29-bd9a-a3e90d3923b1 INFO ### PATCH /monthly-purchase/`](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/$252Faws$252Flambda$252Fmulti-monthly-purchase-dev-api/log-events/2025$252F07$252F17$252F$255B$2524LATEST$255De555572cc95148b891fe5d8a51e3b69a$3Fstart$3D2025-07-17T22$253A42$253A47.557Z)
+
+  Desde backend responder con un mensaje de error adecuado (manejo del error), desde el frontend no permitir crear la compra mensual sin antes tener un método de pago de tipo pago (una tarjeta registrada), pedirle al usuario que agregué una tarjeta y después completar la creación de la compra mensual
+
+  Tags: back, front
+
+  Assignee: Samuel Reveles
 
 - [26038]
 
@@ -306,8 +323,6 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   _Tarea creada por Samuel_
 
 - ✅ [26044] El calendario de la vista de clientes dice Enero, aunque está bien puesta la fecha en el calendario
-
-  Assignee: Samuel Reveles
 
   Assignee: Samuel Reveles
 
@@ -428,8 +443,6 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   _Tarea creada por Samuel_
 
 - ✅ [26064] `/your-plan/` ¿Debería permitir añadir plan en caso de ser especialista?
-
-  Assignee: Samuel Reveles
 
   Assignee: Samuel Reveles
 
@@ -604,3 +617,105 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Miguel Angel Valdés García
+
+- ✅ [26098] Error al importar la entity de diets en get diets
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26099] Validar los dias disponibles del especialista
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [26100] Crear/editar formulario duplica preguntas
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [26101] Vista "your-plan" errores en vista de Cliente
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [26102] Bug del Pie chart en el dashboard del admin en mobile
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26103] NaN en dashboard
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26104] Métodos de pago
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26105] Citas
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26106] Órdenes
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26107] Admin
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26108] Perfil de especialista
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26109] Login
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26110] Home
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26111] Otros
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26112] Bugs de responsividad
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26113] Se crean pagos en efectivo como pendientes y no se crean objetos de service payments complements
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26114] No se manda el amount al crear cita como especialsita y no permite confirmar citas.
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_

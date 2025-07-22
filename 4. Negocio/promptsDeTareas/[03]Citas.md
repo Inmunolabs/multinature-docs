@@ -328,7 +328,15 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
-- [03034] Los pacientes deben poder confirmar las citas creadas por el especialista como citas con pago completo en efectivo
+- ✅ [03034] Arreglar las validaciones en bookings
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+  _Tarea creada por Erick _
+
+- [03035] Los pacientes deben poder confirmar las citas creadas por el especialista como citas con pago completo en efectivo
 
   Contexto: Cuando un especialista crea una cita en efectivo con el pago completo, el paciente de la cita debe poder confirmarla sin necesidad de generar un pago, solo con un botón para confirmar.
 
