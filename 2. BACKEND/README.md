@@ -17,7 +17,5 @@
          2. [Crear una hoja de cálculo](https://developers.google.com/sheets/api/guides/create?hl=es_419)
 3. Compras Mensuales
    1. [Funcionalidad](./2.3.%20MonthlyPurchases/2.3.1.%20funcionalidadCompraMensual.md)
-4. Citas
-   1. [Endpoints](./2.4.%20Bookings/2.4.1.%20endpoints.md)
-5. Notificaciones
+4. Notificaciones
    1. [Envío de Notificaciones](./2.5.%20Notifications/2.5.1.%20sendNotifications.md)

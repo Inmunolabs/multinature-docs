@@ -1,6 +1,6 @@
 # GET /bookings/user/:userId
 
-Obtiene todas las citas asociadas a un usuario (paciente).
+Obtiene todas las citas asociadas a un usuario (paciente o especialista).
 
 ---
 
@@ -14,7 +14,7 @@ Obtiene todas las citas asociadas a un usuario (paciente).
 
 ## Explicación funcional
 
-Permite al frontend obtener el historial o próximas citas de un paciente, filtrando opcionalmente por fecha de inicio. Útil para mostrar la agenda o historial de citas del usuario.
+Permite al frontend obtener el historial o próximas citas de un usuario, filtrando opcionalmente por fecha de inicio. Útil para mostrar la agenda o historial de citas del usuario.
 
 ---
 
@@ -31,16 +31,68 @@ Permite al frontend obtener el historial o próximas citas de un paciente, filtr
 [
   {
     "id": "booking-uuid",
-    "date": "2025-07-25",
-    "startHour": "11:00",
-    "endHour": "11:30",
-    "status": "Confirmada",
+    "user": {
+      "id": "uuid",
+      "name": "Samuel Cliente"
+    },
     "specialist": {
       "id": "uuid",
-      "name": "Dra. López"
+      "name": "Ejemplo Prueba de update 2"
     },
-    "specialty": "Nutrición",
-    "isPaid": true
+    "specialty": "Nutricionista",
+    "address": "",
+    "videoCallUrl": "https://meet.google.com/xfd-vcfc-pjt",
+    "status": "Confirmada",
+    "date": "2025-12-09T00:00:00.000Z",
+    "startHour": "15:00:00",
+    "endHour": "15:30:00",
+    "notes": "Todo cool jaja",
+    "isPaid": true,
+    "advancePayment": {},
+    "liquidationPayment": {}
+  },
+  {
+    "id": "booking-uuid",
+    "user": {
+      "id": "uuid",
+      "name": "Samuel Cliente"
+    },
+    "specialist": {
+      "id": "uuid",
+      "name": "Samuel Reveles Especialista"
+    },
+    "specialty": "Nutricionista",
+    "address": "",
+    "videoCallUrl": "https://meet.google.com/xfd-vcfc-pjt",
+    "status": "Confirmada",
+    "date": "2025-12-03T00:00:00.000Z",
+    "startHour": "18:00:00",
+    "endHour": "18:30:00",
+    "notes": "Cita agendada por el cliente",
+    "isPaid": false,
+    "advancePayment": {
+      "id": "advancePayment-uuid",
+      "iva": 39.2,
+      "subtotal": 205.8,
+      "total": 245,
+      "type": "openpayStore",
+      "name": "Anticipo de consulta",
+      "status": "Confirmando el Pago",
+      "paymentMethod": "https://multi-store-order-dev.s3.us-east-1.amazonaws.com/payment-receipt/bookings/f0d8e32b-e4bb-4e08-ae48-6c9b96a3a98f/1010102061935396.pdf",
+      "folio": "202507080011",
+      "purchaseDate": "2025-07-08"
+    },
+    "liquidationPayment": {
+      "id": "liquidationPayment-uuid",
+      "iva": 24.8,
+      "subtotal": 130.2,
+      "total": 155,
+      "type": "openpayStore",
+      "status": "Confirmando el Pago",
+      "paymentMethod": "https://multi-store-order-dev.s3.us-east-1.amazonaws.com/payment-receipt/bookings/f0d8e32b-e4bb-4e08-ae48-6c9b96a3a98f/1010102061935396.pdf",
+      "updatedAt": "2025-07-09",
+      "createdAt": "2025-07-09"
+    }
   }
 ]
 ```

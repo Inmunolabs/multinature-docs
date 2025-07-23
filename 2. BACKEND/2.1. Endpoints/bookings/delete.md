@@ -14,7 +14,7 @@ Elimina una cita existente por su ID.
 
 ## Explicación funcional
 
-Permite cancelar o eliminar una cita previamente agendada. Solo usuarios autorizados pueden realizar esta acción. Es útil para permitir al paciente o especialista cancelar una cita antes de que ocurra.
+Elimina una cita previamente agendada. Solo usuarios autorizados pueden realizar esta acción. Es útil para permitir al paciente o especialista eliminar una cita antes de que ocurra.
 
 ---
 

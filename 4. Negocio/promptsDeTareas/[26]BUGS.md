@@ -265,7 +265,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
-- [26036] Revisar el error 500 al eliminar un producto
+- ✅ [26036] Revisar el error 500 al eliminar un producto
 
   Contexto: Log: [`2025-07-17T18:10:15.772Z 31b2fa98-9266-4a77-a9e1-822e94ca40bd INFO ### DELETE /products/f4498a5a-3fb7-4cd2-af5a-4cb4fe30e0ad`](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/$252Faws$252Flambda$252Fmulti-products-dev-api/log-events/2025$252F07$252F17$252F$255B$2524LATEST$255De8bdb3aa83fc45bca918f9ff3dc263d0)
 
@@ -275,10 +275,11 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Samuel Reveles
 
-- [26037] Error al querer crear una compra mensual con un usuario que no ha agregado ninguna tarjeta a su usuario
+  _Tarea creada por Samuel_
 
-  Contexto: Log: [`2025-07-17T22:42:47.550Z
-2025-07-17T22:42:47.550Z 1baf477d-8a84-4c29-bd9a-a3e90d3923b1 INFO ### PATCH /monthly-purchase/`](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/$252Faws$252Flambda$252Fmulti-monthly-purchase-dev-api/log-events/2025$252F07$252F17$252F$255B$2524LATEST$255De555572cc95148b891fe5d8a51e3b69a$3Fstart$3D2025-07-17T22$253A42$253A47.557Z)
+- ✅ [26037] Error al querer crear una compra mensual con un usuario que no ha agregado ninguna tarjeta a su usuario
+
+  Contexto: Log: [`2025-07-17T22:42:47.550Z 2025-07-17T22:42:47.550Z 1baf477d-8a84-4c29-bd9a-a3e90d3923b1 INFO ### PATCH /monthly-purchase/`](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/$252Faws$252Flambda$252Fmulti-monthly-purchase-dev-api/log-events/2025$252F07$252F17$252F$255B$2524LATEST$255De555572cc95148b891fe5d8a51e3b69a$3Fstart$3D2025-07-17T22$253A42$253A47.557Z)
 
   Desde backend responder con un mensaje de error adecuado (manejo del error), desde el frontend no permitir crear la compra mensual sin antes tener un método de pago de tipo pago (una tarjeta registrada), pedirle al usuario que agregué una tarjeta y después completar la creación de la compra mensual
 
@@ -286,7 +287,15 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Samuel Reveles
 
-- [26038]
+  _Tarea creada por Samuel_
+
+- [26038] Al actualizar una cita se responde con un arreglo vacio
+
+  Contexto: Revisar si al actualizar una cita se debe responder con la cita ya actualizada, o con las últimas citas de quien hace la actualización
+
+  Tags: back
+
+  Assignee: Samuel Reveles
 
 - [26039]
 
@@ -715,6 +724,12 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   _Tarea creada por Samuel_
 
 - ✅ [26114] No se manda el amount al crear cita como especialsita y no permite confirmar citas.
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26115] No se muestran bien los logs de los buckets y cambio de validación en confirmar cita
 
   Assigne: Samuel Reveles
 
