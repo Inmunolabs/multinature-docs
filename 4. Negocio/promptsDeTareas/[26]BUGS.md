@@ -289,13 +289,15 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- [26038] Al actualizar una cita se responde con un arreglo vacio
+- ✅ [26038] Al actualizar una cita se responde con un arreglo vacio
 
   Contexto: Revisar si al actualizar una cita se debe responder con la cita ya actualizada, o con las últimas citas de quien hace la actualización
 
   Tags: back
 
   Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
 
 - [26039]
 

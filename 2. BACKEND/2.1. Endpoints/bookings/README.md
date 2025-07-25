@@ -4,16 +4,20 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de ci
 
 ## Índice de Endpoints
 
+- [GET / - Healthcheck](./healthcheck.md)
+
 - [POST /bookings - Crear cita](./create.md)
 - [GET /bookings/:id - Obtener cita por ID](./get.md)
 - [PATCH /bookings/:id - Actualizar cita](./update.md)
 - [DELETE /bookings/:id - Eliminar cita](./delete.md)
 - [GET /bookings/user/:userId - Citas de un usuario](./get-by-user-id.md)
 - [POST /bookings/liquidate/:id - Liquidar pago de cita](./liquidate.md)
+
 - [POST /monthly-services/ - Pagar mensualidad](./pay-monthly.md)
 - [DELETE /monthly-services/ - Cancelar mensualidad](./cancel-monthly.md)
-- [GET / - Healthcheck](./healthcheck.md)
-- [POST /service-payment/confirm - Confirmar pago de servicio](./service-payment-confirm.md)
+
+- [POST (WEBHOOK) /service-payment/confirm - Confirmar pago de servicio](./service-payment-confirm.md)
+
 - [GET /working-hours/availability/:id - Disponibilidad de especialista](./working-hours-availability.md)
 - [GET /working-hours/:id - Horarios de trabajo por usuario](./working-hours-get-by-user-id.md)
 - [PUT /working-hours/:userId - Actualizar horarios de trabajo](./working-hours-update.md)

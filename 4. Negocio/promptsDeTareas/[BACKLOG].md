@@ -201,7 +201,21 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Erick Robles
 
-- [031] Error: Too many connections
+- ✅ [031] Crear Hook de reducers
+
+  _Tarea creada por Erick_
+
+- ✅ [032] Eliminar thunks y archivos que ya no se utilizan
+
+  _Tarea creada por Samuel_
+
+- [033] Agregar alguna variable de entorno que apague todo lo que tiene que ver con pagos a openpay y monex
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- [034] Error: Too many connections
 
   Contexto: Error: Too many connections
 

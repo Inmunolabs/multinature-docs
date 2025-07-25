@@ -1,4 +1,4 @@
-# POST /service-payment/confirm
+# POST (WEBHOOK) /service-payment/confirm
 
 Confirma el pago de un servicio recibido desde el proveedor de pagos (webhook).
 
