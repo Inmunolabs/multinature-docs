@@ -26,31 +26,26 @@
 
 2. [BACKEND](./2.%20BACKEND/README.md)
 
-   1. Usuarios
-      1. [Propuesta para especialidades por Samuel](./2.%20BACKEND/2.1.%20Users/2.1.1-proposal-for-specialties.md)
-      2. [Dashboard](./2.%20BACKEND/2.1.%20Users/2.1.2-dashboard.md)
-      3. Especialistas
-         1. [Certificados del especialista](./2.%20BACKEND/2.1.%20Users/2.1.3.%20Specialists/2.1.3.1.%20certificates.md)
-         2. [Material de soporte de los especialistas](./2.%20BACKEND/2.1.%20Users/2.1.3.%20Specialists/2.1.3.2.%20supportMaterial.md)
-   2. Dietas
-      1. [Dietocálculo](./2.%20BACKEND/2.2.%20Diets/2.2.1-diet-calculation.md)
+   1. [2.1 - Endpoints](./2.%20BACKEND/2.1-endpoints/)
+   2. [2.2 - Users](./2.%20BACKEND/2.2-users/)
+      1. [2.2.1 - Propuesta para especialidades por Samuel](./2.%20BACKEND/2.2-users/2.2.1-proposal-for-specialties.md)
+      2. [2.2.2 - Dashboard](./2.%20BACKEND/2.2-users/2.2.2-dashboard.md)
+      3. [2.2.3 - Especialistas](./2.%20BACKEND/2.2-users/2.2.3-specialists/)
+         1. [2.2.2.2 - Certificados del especialista](./2.%20BACKEND/2.2-users/2.2.3-specialists/2.2.2.2-certificates.md)
+         2. [2.2.3.2 - Material de soporte de los especialistas](./2.%20BACKEND/2.2-users/2.2.3-specialists/2.2.3.2-support-material.md)
+   3. [2.3 - Diets](./2.%20BACKEND/2.3-diets/)
+      1. [2.3.1 - Dietocálculo](./2.%20BACKEND/2.3-diets/2.3.1-diet-calculation.md)
       2. Templates de dietas y rutinas en Google Sheets
          1. [v1.0](https://drive.google.com/drive/folders/1k8ewAPPuL3iLdtA_D-K657mLd6s_fZ8F?hl=es)
          2. Google Sheets
             1. [Guía de inicio rápido de Node.js](https://developers.google.com/sheets/api/quickstart/nodejs?hl=es_419)
             2. [Crear una hoja de cálculo](https://developers.google.com/sheets/api/guides/create?hl=es_419)
-   3. Compras Mensuales
-      1. [Funcionalidad](./2.%20BACKEND/2.3.%20MonthlyPurchases/2.3.1-monthly-purchase-logic.md)
-   4. Citas
-      1. [Endpoints](./2.%20BACKEND/2.4.%20Bookings/2.4.1.%20endpoints.md)
-   5. Notificaciones
-<<<<<<< HEAD
-      1. [Envío de Notificaciones](./2.%20BACKEND/2.5.%20Notifications/2.5.1-send-notifications.md)
-=======
-      1. [Envío de Notificaciones](./2.%20BACKEND/2.5.%20Notifications/2.5.1.%20sendNotifications.md)
-   6. Órdenes
-      1. [Funcionamiento del código de órdenes](./2.%20BACKEND/2.6.%20Orders/2.6.1.%20orderspatterns.md)
->>>>>>> daee62107874e6873320f154947cd703b39ce601
+   4. [2.4 - Monthly Purchases](./2.%20BACKEND/2.4-monthly-purchases/)
+      1. [2.4.1 - Funcionalidad](./2.%20BACKEND/2.4-monthly-purchases/2.4.1-monthly-purchase-logic.md)
+   5. [2.5 - Notifications](./2.%20BACKEND/2.5-notifications/)
+      1. [2.5.1 - Envío de Notificaciones](./2.%20BACKEND/2.5-notifications/2.5.1-send-notifications.md)
+   6. [2.6 - Orders](./2.%20BACKEND/2.6-orders/)
+      1. [2.6.1 - Funcionamiento del código de órdenes](./2.%20BACKEND/2.6-orders/2.6.1-orders-patterns.md)
 
 3. [FRONTEND](./3.%20FRONTEND/README.md)
 
