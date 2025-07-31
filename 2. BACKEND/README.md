@@ -8,7 +8,7 @@
    2. [2.2.2 - Dashboard](./2.2-users/2.2.2-dashboard.md)
    3. [2.2.3 - Especialistas](./2.2-users/2.2.3-specialists/)
       1. [2.2.3.1 - Certificados del especialista](./2.2-users/2.2.3-specialists/2.2.3.1-certificates.md)
-      2. [2.2.3.2 - Material de soporte de los especialistas](./2.2-users/2.2.3-specialists/3.1.3.2-support-material.md)
+      2. [2.2.3.2 - Material de soporte de los especialistas](./2.2-users/2.2.3-specialists/2.2.3.2-support-material.md)
 3. [2.3 - Diets](./2.3-diets/)
    1. [2.3.1 - Dietocálculo](./2.3-diets/2.3.1-diet-calculation.md)
    2. Templates de dietas y rutinas en Google Sheets
@@ -21,4 +21,4 @@
 5. [2.5 - Notifications](./2.5-notifications/)
    1. [2.5.1 - Envío de Notificaciones](./2.5-notifications/2.5.1-send-notifications.md)
 6. [2.6 - Orders](./2.6-orders/)
-   1. [3.5.1 - Funcionamiento del código de órdenes](./2.6-orders/3.5.1-orders-patterns.md)
+   1. [2.6.1 - Funcionamiento del código de órdenes](./2.6-orders/2.6.1-orders-patterns.md)

@@ -1,5 +1,11 @@
 # Negocio
 
+## Nomenclatura
+
+| Icono | Significado                                                                                       |
+| ----- | ------------------------------------------------------------------------------------------------- |
+| ✅    | Tarea creada en [ClickUp](https://app.clickup.com/9011834369/v/o/5-90115276863-28?pr=90113420950) |
+
 ## Contenido
 
 1. [Información Landing page - v1.0.pptx](https://docs.google.com/presentation/d/1RVrquVY3e3JVPRQHY2QF3gE5zH37i3OD/edit?usp=drive_web&ouid=115463368008145921571&rtpof=true)
@@ -35,9 +41,3 @@
 5. [Red de usuarios de Prueba](./redDeUsuariosDePrueba.png)
 6. [Cotizaciones de API de alimentos](https://docs.google.com/spreadsheets/d/1JeiPtQWeF2uLBE1RfwcXrMesc1mnqNiC7EC6lY87YIg/edit?gid=1883683087#gid=1883683087)
 7. [Nutrimind](https://www.nutrimind.net/page/software_de_nutricion_videos)
-
-## Nomenclatura
-
-| Icono | Significado                                                                                       |
-| ----- | ------------------------------------------------------------------------------------------------- |
-| ✅    | Tarea creada en [ClickUp](https://app.clickup.com/9011834369/v/o/5-90115276863-28?pr=90113420950) |

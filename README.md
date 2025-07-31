@@ -31,7 +31,7 @@
       1. [2.2.1 - Propuesta para especialidades por Samuel](./2.%20BACKEND/2.2-users/2.2.1-proposal-for-specialties.md)
       2. [2.2.2 - Dashboard](./2.%20BACKEND/2.2-users/2.2.2-dashboard.md)
       3. [2.2.3 - Especialistas](./2.%20BACKEND/2.2-users/2.2.3-specialists/)
-         1. [2.2.2.2 - Certificados del especialista](./2.%20BACKEND/2.2-users/2.2.3-specialists/2.2.2.2-certificates.md)
+         1. [2.2.3.1 - Certificados del especialista](./2.%20BACKEND/2.2-users/2.2.3-specialists/2.2.3.1-certificates.md)
          2. [2.2.3.2 - Material de soporte de los especialistas](./2.%20BACKEND/2.2-users/2.2.3-specialists/2.2.3.2-support-material.md)
    3. [2.3 - Diets](./2.%20BACKEND/2.3-diets/)
       1. [2.3.1 - Dietocálculo](./2.%20BACKEND/2.3-diets/2.3.1-diet-calculation.md)
