@@ -19,3 +19,5 @@
    1. [Funcionalidad](./2.3.%20MonthlyPurchases/2.3.1.%20funcionalidadCompraMensual.md)
 4. Notificaciones
    1. [Envío de Notificaciones](./2.5.%20Notifications/2.5.1.%20sendNotifications.md)
+6. Orders
+   1. [Funcionamiento del código de órdenes](./2.6.%20Orders/2.6.1.%20orderspatterns.md)

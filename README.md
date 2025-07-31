@@ -45,6 +45,8 @@
       1. [Endpoints](./2.%20BACKEND/2.4.%20Bookings/2.4.1.%20endpoints.md)
    5. Notificaciones
       1. [Envío de Notificaciones](./2.%20BACKEND/2.5.%20Notifications/2.5.1.%20sendNotifications.md)
+   6. Órdenes
+      1. [Funcionamiento del código de órdenes](./2.%20BACKEND/2.6.%20Orders/2.6.1.%20orderspatterns.md)
 
 3. [FRONTEND](./3.%20FRONTEND/README.md)
 
