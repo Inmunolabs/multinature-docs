@@ -13,6 +13,8 @@
 7. [Citas](./citas.md)
    1. [Agendar cita](./agendarCita.png)
 8. Especialistas
-   1. [Servicios de especialistas (service_payments)](./servicios.png)
-   2. [Formularios para alta de pacientes](./formulariosAltaPacientes.md)
+   1. [Servicios de especialistas (service_payments)](./specialists/servicios.png)
+   2. [Formularios para alta de pacientes](./specialists/formulariosAltaPacientes.md)
 9. [Médicos Generales](./medicosGenerales.md)
+10. Usuarios
+    1. [Equipos de trabajo](./users/teamworks.md)

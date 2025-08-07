@@ -19,10 +19,11 @@
    7. [Citas](./1.%20Definicion%20del%20proyecto/citas.md)
       1. [Agendar cita](./1.%20Definicion%20del%20proyecto/agendarCita.png)
    8. Especialistas
-      1. [Servicios de especialistas (service_payments)](./1.%20Definicion%20del%20proyecto/servicios.png)
-      2. [Formularios para alta de pacientes](./1.%20Definicion%20del%20proyecto/formulariosAltaPacientes.md)
+      1. [Servicios de especialistas (service_payments)](./1.%20Definicion%20del%20proyecto/specialists/servicios.png)
+      2. [Formularios para alta de pacientes](./1.%20Definicion%20del%20proyecto/specialists/formulariosAltaPacientes.md)
    9. [Médicos Generales](./1.%20Definicion%20del%20proyecto/medicosGenerales.md)
-   
+   10. Usuarios
+       1. [Equipos de trabajo](./1.%20Definicion%20del%20proyecto/users/teamworks.md)
 
 2. [BACKEND](./2.%20BACKEND/README.md)
 
