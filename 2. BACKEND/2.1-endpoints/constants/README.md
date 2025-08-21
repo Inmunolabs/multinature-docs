@@ -4,9 +4,14 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de co
 
 ## Índice de Endpoints
 
-- [GET /constants - Listar constantes](./constants-list.md)
-- [PATCH /constants/:id - Actualizar constante](./constants-update.md)
-- [GET / - Healthcheck](./constants-healthcheck.md)
+### Consulta de Constantes
+- [GET /constants - Listar todas las constantes](./list.md)
+
+### Gestión de Constantes
+- [PATCH /constants/:constantId - Actualizar constante específica](./update.md)
+
+### Sistema
+- [GET / - Healthcheck](./healthcheck.md)
 
 ---
 
@@ -15,8 +20,10 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de co
 - Las constantes definen valores importantes del sistema (IVA, costos de envío, etc.).
 - Las constantes pueden ser de diferentes tipos (porcentajes, montos, fechas).
 - Las constantes afectan cálculos en órdenes, carritos y otros módulos.
-- Las constantes pueden tener diferentes contextos (global, por especialidad).
 - Las constantes se usan para configuraciones del sistema.
+- Solo administradores con contraseña especial pueden modificar constantes.
+- Las constantes se almacenan en base de datos y se transforman a DTOs.
+- Los cambios en constantes afectan inmediatamente todos los cálculos del sistema.
 
 ---
 
@@ -28,4 +35,5 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de co
 - **Caché:** Considerar caché de constantes para mejor rendimiento.
 - **Actualización:** Las constantes pueden cambiar, validar valores antes de usar.
 - **Formato:** Mostrar constantes con formato apropiado (porcentajes, moneda).
-- **Contexto:** Algunas constantes pueden ser específicas por especialidad. 
+- **Seguridad:** Solo administradores pueden modificar constantes del sistema.
+- **Impacto:** Los cambios en constantes afectan inmediatamente el sistema. 
