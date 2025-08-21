@@ -127,10 +127,17 @@ docs/2. BACKEND/2.1-endpoints/
 │   └── ...
 ```
 
+### APIs con Múltiples Routers:
+- **API Principal:** Documentar en carpeta principal con prefijo de router
+- **Routers Secundarios:** Documentar con prefijo del router (ej: `menus-create.md`, `smae-search.md`)
+- **README Principal:** Incluir índice de todos los routers y endpoints
+- **Endpoints Comentados:** Documentar con nota sobre estado de producción
+
 ### Nomenclatura:
 - **README.md:** Por carpeta de API
-- **Archivos de endpoint:** Nombre descriptivo sin prefijos innecesarios
+- **Archivos de endpoint:** Nombre descriptivo con prefijo de router si aplica
 - **Consistencia:** Seguir el patrón establecido en `bookings/`
+- **Múltiples routers:** Usar prefijo para distinguir origen (ej: `diets-get.md`, `menus-create.md`)
 
 ---
 
