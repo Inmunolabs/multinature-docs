@@ -1,36 +1,41 @@
 # GET /bookings/:id
 
-Obtiene la información detallada de una cita específica por su ID.
+## Descripción funcional
 
----
+Obtiene la información detallada de una cita específica por su ID. Permite consultar todos los datos de una cita agendada, incluyendo información del paciente, especialista, horarios, estado, pagos y notas. Es útil para mostrar el detalle de la cita en el frontend.
 
-## Método, ruta y autorización
-- **Método:** GET
-- **Ruta:** `/bookings/:id`
-- **Autorización:** Bearer token en headers
+## Autorización
 
----
-
-## Explicación funcional
-Permite consultar todos los datos de una cita agendada, incluyendo información del paciente, especialista, horarios, estado, pagos y notas. Es útil para mostrar el detalle de la cita en el frontend.
-
----
+Requiere token Bearer válido. Solo usuarios autorizados pueden consultar citas.
 
 ## Parámetros de ruta
-- `id` (obligatorio): UUID de la cita a consultar.
 
----
+- `id` (UUID, requerido): ID único de la cita a consultar
+
+### Ejemplo
+```
+GET /bookings/123e4567-e89b-12d3-a456-426614174000
+```
+
+## Query parameters
+
+No aplica
+
+## Body del request
+
+No aplica
 
 ## Ejemplo de respuesta exitosa (200 OK)
+
 ```json
 {
-  "id": "booking-uuid",
+  "id": "123e4567-e89b-12d3-a456-426614174000",
   "user": {
-    "id": "uuid",
+    "id": "123e4567-e89b-12d3-a456-426614174000",
     "name": "Juan Pérez"
   },
   "specialist": {
-    "id": "uuid",
+    "id": "456e7890-e89b-12d3-a456-426614174000",
     "name": "Dra. López"
   },
   "specialty": "Nutrición",
@@ -43,7 +48,7 @@ Permite consultar todos los datos de una cita agendada, incluyendo información 
   "notes": "Quiero hablar sobre mi dieta keto",
   "isPaid": false,
   "advancePayment": {
-    "id": "payment-uuid",
+    "id": "789e0123-e89b-12d3-a456-426614174000",
     "type": "openpayCard",
     "name": "Anticipo de consulta",
     "status": "Pendiente",
@@ -55,19 +60,21 @@ Permite consultar todos los datos de una cita agendada, incluyendo información 
 }
 ```
 
----
+## Códigos de estado y errores
 
-## Errores comunes
-| Código | Mensaje                        | Causa                                 |
-|--------|--------------------------------|---------------------------------------|
-| 403    | No autorizado                  | Token inválido o sin permisos         |
-| 404    | Cita no encontrada             | El ID no existe o fue eliminada       |
-| 500    | Error interno                  | Error inesperado en el servidor       |
+| Código | Significado | Descripción |
+|--------|-------------|-------------|
+| 200 | OK | Cita obtenida exitosamente |
+| 401 | Unauthorized | Token faltante o inválido |
+| 403 | Forbidden | Sin permisos para consultar esta cita |
+| 404 | Not Found | Cita no encontrada |
+| 500 | Internal Server Error | Error del servidor |
 
----
+## Notas útiles para el frontend
 
-## Notas útiles para frontend
-- Usar el campo `status` para mostrar el estado visual de la cita.
-- Mostrar el enlace de videollamada solo si la cita es virtual (`addressId` nulo).
-- Revisar el campo `isPaid` para mostrar opciones de pago si aplica.
-- Mostrar notas y detalles relevantes para el usuario y especialista. 
+- **Estado visual:** Usar el campo `status` para mostrar el estado visual de la cita
+- **Videollamada:** Mostrar el enlace de videollamada solo si la cita es virtual (`addressId` nulo)
+- **Pagos:** Revisar el campo `isPaid` para mostrar opciones de pago si aplica
+- **Detalles:** Mostrar notas y detalles relevantes para el usuario y especialista
+- **Permisos:** Verificar que el usuario tenga acceso a la cita específica
+- **UI:** Adaptar la interfaz según el estado de la cita y permisos del usuario 
