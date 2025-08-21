@@ -4,15 +4,13 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de di
 
 ## Índice de Endpoints
 
-- [GET /addresses - Listar direcciones](./addresses-list.md)
-- [GET /addresses/:id - Obtener dirección por ID](./addresses-get.md)
-- [GET /addresses/user/:userId - Direcciones de un usuario](./addresses-list-by-user.md)
-- [GET /addresses/neighborhoods - Listar colonias](./addresses-neighborhoods.md)
-- [POST /addresses - Crear dirección](./addresses-create.md)
-- [PATCH /addresses/:id - Actualizar dirección](./addresses-update.md)
-- [PATCH /addresses/:id/shipping - Actualizar dirección de envío](./addresses-shipping-update.md)
-- [DELETE /addresses/:id - Eliminar dirección](./addresses-delete.md)
-- [GET / - Healthcheck](./addresses-healthcheck.md)
+- [GET /addresses/user/:id - Direcciones de un usuario](./list-by-user.md)
+- [GET /addresses/neighborhoods/:zipCode - Listar colonias por código postal](./neighborhoods.md)
+- [GET /addresses/:id - Obtener dirección por ID](./get.md)
+- [POST /addresses/:id - Crear dirección](./create.md)
+- [PATCH /addresses/:id - Actualizar dirección](./update.md)
+- [PATCH /addresses/shippingAddress/:id - Actualizar dirección de envío](./shipping-update.md)
+- [DELETE /addresses/:id - Eliminar dirección](./delete.md)
 
 ---
 

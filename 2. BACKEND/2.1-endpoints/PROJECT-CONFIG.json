@@ -1,0 +1,107 @@
+{
+  "project": {
+    "name": "MultiNature Backend",
+    "version": "1.0.0",
+    "updatedAt": "2025-08-21T00:00:00.000Z",
+    "stack": {
+      "runtime": "Node.js",
+      "framework": "Express",
+      "database": "MySQL",
+      "cloud": "AWS Lambda",
+      "authentication": "JWT Bearer tokens",
+      "payment": ["OpenPay", "MercadoPago"],
+      "storage": "AWS S3",
+      "notifications": "Email automático"
+    }
+  },
+  "documentation": {
+    "language": "es",
+    "tone": "profesional-conciso",
+    "target": "equipo-frontend-mobile",
+    "format": "markdown",
+    "structure": {
+      "sections": [
+        "titulo",
+        "descripcion-funcional",
+        "autorizacion",
+        "parametros-ruta",
+        "query-parameters",
+        "body-request",
+        "respuesta-exitosa",
+        "codigos-estado-errores",
+        "notas-frontend",
+        "consideraciones-tecnicas"
+      ],
+      "required": [
+        "titulo",
+        "descripcion-funcional",
+        "autorizacion",
+        "respuesta-exitosa",
+        "codigos-estado-errores",
+        "notas-frontend"
+      ]
+    }
+  },
+  "http": {
+    "statusCodes": {
+      "200": "OK - Respuesta exitosa",
+      "201": "Created - Recurso creado exitosamente",
+      "400": "Bad Request - Validación fallida, datos incorrectos",
+      "401": "Unauthorized - Token faltante o inválido",
+      "403": "Forbidden - Sin permisos para el recurso",
+      "404": "Not Found - Recurso no encontrado",
+      "428": "Precondition Required - Pago requerido antes de continuar",
+      "500": "Internal Server Error - Error del servidor"
+    },
+    "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    "headers": {
+      "authorization": "Bearer <token>",
+      "content-type": "application/json"
+    }
+  },
+  "validation": {
+    "dateFormat": "YYYY-MM-DD",
+    "timeFormat": "HH:MM",
+    "uuidFormat": "UUID v4",
+    "emailFormat": "email válido",
+    "phoneFormat": "número de teléfono válido"
+  },
+  "pagination": {
+    "defaultPage": 1,
+    "defaultLimit": 10,
+    "maxLimit": 100,
+    "responseFields": ["total", "page", "totalPages", "data"]
+  },
+  "filters": {
+    "dateRange": ["startDate", "endDate"],
+    "search": "texto de búsqueda",
+    "sorting": ["sortBy", "sortOrder"],
+    "sortOrder": ["ASC", "DESC"]
+  },
+  "fileOrganization": {
+    "basePath": "docs/2. BACKEND/2.1-endpoints/",
+    "structure": {
+      "apiFolder": {
+        "README.md": "índice y consideraciones generales",
+        "endpoint.md": "documentación individual por endpoint"
+      }
+    },
+    "naming": {
+      "folders": "kebab-case",
+      "files": "kebab-case",
+      "endpoints": "descriptivo-sin-prefijos"
+    }
+  },
+  "restrictions": {
+    "noInventar": "nombres, estructuras o comportamientos no presentes en el código",
+    "noInferir": "usar TODO: si falta información clara",
+    "noCambiar": "estructura de secciones ya definida",
+    "noOmitir": "campos o validaciones presentes en el código"
+  },
+  "priorities": {
+    "critical": ["autenticacion", "pagos", "citas"],
+    "main": ["users", "bookings", "orders", "products"],
+    "special": ["working-hours", "forms", "routines"],
+    "support": ["constants", "notifications", "public-resources"]
+  }
+}
