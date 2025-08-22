@@ -2,7 +2,7 @@
   "project": {
     "name": "MultiNature Backend",
     "version": "1.0.0",
-    "updatedAt": "2025-08-21T00:00:00.000Z",
+    "updatedAt": "2025-01-27T00:00:00.000Z",
     "stack": {
       "runtime": "Node.js",
       "framework": "Express",
@@ -97,6 +97,23 @@
     "noInferir": "usar TODO: si falta información clara",
     "noCambiar": "estructura de secciones ya definida",
     "noOmitir": "campos o validaciones presentes en el código"
+  },
+  "apis": {
+    "addresses": "completed",
+    "bookings": "completed", 
+    "cart": "completed",
+    "commissions": "completed",
+    "constants": "completed",
+    "diets": "completed",
+    "forms": "completed",
+    "monthly-purchases": "completed",
+    "notifications": "completed",
+    "orders": "completed",
+    "payment-methods": "completed",
+    "products": "pending",
+    "public-resources": "pending",
+    "routines": "pending",
+    "users": "pending"
   },
   "priorities": {
     "critical": ["autenticacion", "pagos", "citas"],
