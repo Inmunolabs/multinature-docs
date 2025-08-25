@@ -2,7 +2,7 @@
   "project": {
     "name": "MultiNature Backend",
     "version": "1.0.0",
-    "updatedAt": "2025-01-27T00:00:00.000Z",
+    "updatedAt": "2025-08-25T00:00:00.000Z",
     "stack": {
       "runtime": "Node.js",
       "framework": "Express",
@@ -111,7 +111,7 @@
     "orders": "completed",
     "payment-methods": "completed",
     "products": "completed",
-    "public-resources": "pending",
+    "public-resources": "completed",
     "routines": "pending",
     "users": "pending"
   },

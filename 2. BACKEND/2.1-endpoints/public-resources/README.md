@@ -1,31 +1,55 @@
-# API de Public Resources
+# API Public Resources
 
-Esta documentación cubre todos los endpoints relacionados con la gestión de recursos públicos del sistema.
+## Descripción general
 
-## Índice de Endpoints
+La API de Public Resources gestiona recursos públicos del sistema que están disponibles para todos los usuarios autenticados. Estos recursos incluyen archivos, documentos, imágenes y otros contenidos que se muestran en diferentes páginas de la aplicación con un orden específico de visualización.
 
-- [GET /public-resources - Listar recursos públicos](./public-resources-list.md)
-- [GET / - Healthcheck](./public-resources-healthcheck.md)
+## Endpoints disponibles
 
----
+### Recursos Públicos
+- **[GET /public-resources](list.md)** - Listar todos los recursos públicos activos
 
-## Reglas importantes y contexto del proyecto
+## Reglas importantes del proyecto
 
-- Los recursos públicos son archivos, imágenes o documentos accesibles sin autenticación.
-- Los recursos públicos pueden ser estáticos o generados dinámicamente.
-- Los recursos públicos pueden tener diferentes tipos (imágenes, documentos, videos).
-- Los recursos públicos pueden estar organizados por categorías o tags.
-- Los recursos públicos pueden tener metadatos asociados.
+### Autenticación y Autorización
+- **Todos los endpoints** requieren token Bearer válido
+- **Acceso público:** Una vez autenticado, cualquier usuario puede acceder a los recursos
+- **Sin restricciones:** No hay validaciones de rol o permisos especiales
 
----
+### Estructura de Recursos
+- **Orden de visualización:** Los recursos se ordenan por `displayOrder` para controlar su presentación
+- **Tipos de visualización:** Campo `displayType` para determinar cómo mostrar el recurso
+- **Estado activo:** Solo se muestran recursos con `isActive = true`
+- **Extensiones:** Campo `extension` para identificar el tipo de archivo
+- **Páginas:** Campo `page` para asociar recursos a secciones específicas
 
-## Consideraciones generales para el frontend
+### Consideraciones Técnicas
+- **Base de datos:** Consulta directa a tabla `public_resources`
+- **Filtrado:** Solo recursos activos (`is_active = true`)
+- **Sin DTO:** Respuesta directa de la base de datos
+- **Performance:** Consulta optimizada sin paginación
 
-- **Acceso público:** Los recursos no requieren autenticación para acceder.
-- **Tipos:** Mostrar diferentes controles según el tipo de recurso.
-- **Categorías:** Organizar recursos por categorías para mejor navegación.
-- **Búsqueda:** Implementar búsqueda por nombre, tipo o categoría.
-- **Filtros:** Permitir filtrar por tipo de archivo, tamaño, fecha.
-- **Previsualización:** Mostrar previsualizaciones para imágenes y documentos.
-- **Descarga:** Permitir descarga directa de recursos.
-- **Metadatos:** Mostrar información adicional como tamaño, fecha de creación. 
+## Notas para el equipo frontend
+
+### Campos clave para UI
+- **`displayOrder`:** Para ordenar recursos en la interfaz
+- **`displayType`:** Para determinar el componente de visualización
+- **`page`:** Para filtrar recursos por sección específica
+- **`extension`:** Para mostrar iconos o validar tipos de archivo
+- **`url`:** Para acceder al contenido del recurso
+- **`isActive`:** Para controlar visibilidad (siempre true en respuestas)
+
+### Estados de autorización
+- **Sin token:** No puede acceder a recursos
+- **Con token:** Acceso completo a todos los recursos activos
+
+### Manejo de errores
+- **200:** Lista vacía si no hay recursos (con mensaje "Recurso público no encontrado")
+- **401:** Token faltante o inválido
+- **500:** Error del servidor
+
+### Casos de uso
+- **Páginas estáticas:** Recursos para secciones como "Acerca de", "Términos y condiciones"
+- **Documentos legales:** Políticas de privacidad, términos de servicio
+- **Contenido informativo:** Guías, manuales, recursos educativos
+- **Imágenes públicas:** Logos, banners, iconos del sistema 
