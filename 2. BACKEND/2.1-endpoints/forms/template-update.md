@@ -137,3 +137,4 @@ No aplica
 - **Seguridad:** Solo permite actualizar plantillas propias del especialista
 - **Transaccional:** Actualiza la plantilla, preguntas y relaciones en una sola operación
 
+

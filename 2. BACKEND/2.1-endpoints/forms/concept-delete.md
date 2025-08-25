@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo especialistas autorizados pueden eliminar su
 - `id` (UUID, requerido): ID único del concepto a eliminar
 
 ### Ejemplo
+
 ```
 DELETE /forms/concept/123e4567-e89b-12d3-a456-426614174000
 ```
@@ -43,13 +44,13 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Concepto eliminado exitosamente |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para eliminar este concepto |
-| 404 | Not Found | Concepto no encontrado |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                              |
+| ------ | --------------------- | ---------------------------------------- |
+| 200    | OK                    | Concepto eliminado exitosamente          |
+| 401    | Unauthorized          | Token faltante o inválido                |
+| 403    | Forbidden             | Sin permisos para eliminar este concepto |
+| 404    | Not Found             | Concepto no encontrado                   |
+| 500    | Internal Server Error | Error del servidor                       |
 
 ## Notas útiles para el frontend
 
@@ -69,4 +70,3 @@ No aplica
 - **Seguridad:** Solo permite eliminar conceptos propios del especialista
 - **Dependencias:** Verifica relaciones con plantillas antes de eliminar
 - **Transaccional:** Elimina el concepto y retorna la información eliminada
-

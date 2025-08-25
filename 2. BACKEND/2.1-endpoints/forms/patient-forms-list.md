@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo especialistas autorizados pueden consultar f
 - `id` (UUID, requerido): ID único del paciente
 
 ### Ejemplo
+
 ```
 GET /forms/123e4567-e89b-12d3-a456-426614174000
 ```
@@ -25,6 +26,7 @@ GET /forms/123e4567-e89b-12d3-a456-426614174000
 - `limit` (number, opcional): Número de elementos por página (por defecto: 10)
 
 ### Ejemplo
+
 ```
 GET /forms/123e4567-e89b-12d3-a456-426614174000?startDate=2024-01-01&endDate=2024-12-31&page=1&limit=20
 ```
@@ -84,14 +86,14 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Formularios obtenidos exitosamente |
-| 400 | Bad Request | Parámetros de fecha inválidos |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para consultar formularios de este paciente |
-| 404 | Not Found | Paciente no encontrado |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                              |
+| ------ | --------------------- | -------------------------------------------------------- |
+| 200    | OK                    | Formularios obtenidos exitosamente                       |
+| 400    | Bad Request           | Parámetros de fecha inválidos                            |
+| 401    | Unauthorized          | Token faltante o inválido                                |
+| 403    | Forbidden             | Sin permisos para consultar formularios de este paciente |
+| 404    | Not Found             | Paciente no encontrado                                   |
+| 500    | Internal Server Error | Error del servidor                                       |
 
 ## Notas útiles para el frontend
 
@@ -114,4 +116,3 @@ No aplica
 - **DTO:** Usa `filledFormToDTO` para transformar la respuesta
 - **Permisos:** Verifica que el especialista tenga acceso al paciente
 - **Performance:** Optimizado para consultas con filtros de fecha
-

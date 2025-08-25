@@ -20,6 +20,7 @@ No aplica
 - `limit` (number, opcional): Número de elementos por página (por defecto: 10)
 
 ### Ejemplo
+
 ```
 GET /orders?startDate=2024-01-01&endDate=2024-03-31&page=1&limit=20
 ```
@@ -70,7 +71,7 @@ No aplica
       ],
       "subtotal": 599.98,
       "iva": 95.99,
-      "shippingCost": 150.00,
+      "shippingCost": 150.0,
       "total": 845.97,
       "deliveryStatus": "En camino",
       "purchaseDate": "2024-01-15",
@@ -96,13 +97,13 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Órdenes obtenidas exitosamente |
-| 400 | Bad Request | Parámetros de fecha inválidos |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para consultar órdenes |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                         |
+| ------ | --------------------- | ----------------------------------- |
+| 200    | OK                    | Órdenes obtenidas exitosamente      |
+| 400    | Bad Request           | Parámetros de fecha inválidos       |
+| 401    | Unauthorized          | Token faltante o inválido           |
+| 403    | Forbidden             | Sin permisos para consultar órdenes |
+| 500    | Internal Server Error | Error del servidor                  |
 
 ## Notas útiles para el frontend
 

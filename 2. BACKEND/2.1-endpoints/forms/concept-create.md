@@ -63,13 +63,13 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 201 | Created | Concepto creado exitosamente |
-| 400 | Bad Request | Datos del concepto inválidos o faltantes |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para crear conceptos |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                              |
+| ------ | --------------------- | ---------------------------------------- |
+| 201    | Created               | Concepto creado exitosamente             |
+| 400    | Bad Request           | Datos del concepto inválidos o faltantes |
+| 401    | Unauthorized          | Token faltante o inválido                |
+| 403    | Forbidden             | Sin permisos para crear conceptos        |
+| 500    | Internal Server Error | Error del servidor                       |
 
 ## Notas útiles para el frontend
 
@@ -90,4 +90,3 @@ No aplica
 - **DTO:** Usa `conceptToDTO` para transformar la respuesta
 - **Especialista:** Asocia automáticamente el concepto al especialista autenticado
 - **Transaccional:** Crea el concepto y retorna la lista actualizada
-

@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo usuarios autorizados pueden consultar sus pr
 - `id` (UUID, requerido): ID único del usuario
 
 ### Ejemplo
+
 ```
 GET /payment-methods/user/abc123-e89b-12d3-a456-426614174000
 ```
@@ -75,13 +76,13 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Métodos de pago obtenidos exitosamente |
-| 400 | Bad Request | ID de usuario inválido |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para consultar métodos de pago de este usuario |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                                 |
+| ------ | --------------------- | ----------------------------------------------------------- |
+| 200    | OK                    | Métodos de pago obtenidos exitosamente                      |
+| 400    | Bad Request           | ID de usuario inválido                                      |
+| 401    | Unauthorized          | Token faltante o inválido                                   |
+| 403    | Forbidden             | Sin permisos para consultar métodos de pago de este usuario |
+| 500    | Internal Server Error | Error del servidor                                          |
 
 ## Notas útiles para el frontend
 

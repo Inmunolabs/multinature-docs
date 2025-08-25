@@ -71,16 +71,16 @@ No aplica
         "id": "abc123-e89b-12d3-a456-426614174000",
         "product": "Proteína en polvo",
         "urlImage": "https://example.com/proteina.jpg",
-        "price": 450.00,
+        "price": 450.0,
         "quantity": 2,
-        "total": 900.00
+        "total": 900.0
       }
     ],
     "subtotal": 1034.48,
     "ivaPorcentaje": 16,
     "iva": 165.52,
-    "shippingCost": 150.00,
-    "total": 1350.00,
+    "shippingCost": 150.0,
+    "total": 1350.0,
     "shippingAddress": {
       "id": "def456-e89b-12d3-a456-426614174000",
       "street": "Av. Principal 123",
@@ -99,15 +99,15 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 201 | Created | Compra mensual creada exitosamente |
-| 200 | OK | Compra mensual actualizada exitosamente |
-| 400 | Bad Request | Datos inválidos o requisitos no cumplidos |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para crear/actualizar compra mensual |
-| 404 | Not Found | Dirección de envío no encontrada |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                       |
+| ------ | --------------------- | ------------------------------------------------- |
+| 201    | Created               | Compra mensual creada exitosamente                |
+| 200    | OK                    | Compra mensual actualizada exitosamente           |
+| 400    | Bad Request           | Datos inválidos o requisitos no cumplidos         |
+| 401    | Unauthorized          | Token faltante o inválido                         |
+| 403    | Forbidden             | Sin permisos para crear/actualizar compra mensual |
+| 404    | Not Found             | Dirección de envío no encontrada                  |
+| 500    | Internal Server Error | Error del servidor                                |
 
 ## Notas útiles para el frontend
 

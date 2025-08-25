@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo usuarios autorizados pueden eliminar órdene
 - `id` (UUID, requerido): ID único de la orden
 
 ### Ejemplo
+
 ```
 DELETE /orders/789e0123-e89b-12d3-a456-426614174000
 ```
@@ -42,14 +43,14 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Orden eliminada exitosamente |
-| 400 | Bad Request | ID de orden inválido |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para eliminar esta orden |
-| 404 | Not Found | Orden no encontrada |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                           |
+| ------ | --------------------- | ------------------------------------- |
+| 200    | OK                    | Orden eliminada exitosamente          |
+| 400    | Bad Request           | ID de orden inválido                  |
+| 401    | Unauthorized          | Token faltante o inválido             |
+| 403    | Forbidden             | Sin permisos para eliminar esta orden |
+| 404    | Not Found             | Orden no encontrada                   |
+| 500    | Internal Server Error | Error del servidor                    |
 
 ## Notas útiles para el frontend
 

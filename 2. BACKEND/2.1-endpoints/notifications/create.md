@@ -17,33 +17,39 @@ No aplica
 ### Filtros de Usuario Disponibles
 
 #### **Filtros Básicos**
+
 - `email` (string, opcional): Email exacto del usuario
 - `specialties` (array, opcional): IDs de especialidades médicas
 
 #### **Filtros de Perfil**
+
 - `patient` (boolean, opcional): Usuarios con perfil de paciente
 - `specialist` (boolean, opcional): Usuarios con perfil de especialista
 - `admin` (boolean, opcional): Usuarios con perfil de administrador
 
 #### **Filtros Demográficos**
+
 - `minAge` (number, opcional): Edad mínima en años
 - `maxAge` (number, opcional): Edad máxima en años
 - `createdFrom` (string, opcional): Fecha de creación desde (YYYY-MM-DD)
 - `createdTo` (string, opcional): Fecha de creación hasta (YYYY-MM-DD)
 
 #### **Filtros de Servicios**
+
 - `hasDiet` (boolean, opcional): Usuarios con dieta activa
 - `hasNoDiet` (boolean, opcional): Usuarios sin dieta
 - `hasRoutine` (boolean, opcional): Usuarios con rutina de ejercicios
 - `hasNoRoutine` (boolean, opcional): Usuarios sin rutina
 
 #### **Filtros de Relaciones**
+
 - `hasSpecialist` (boolean, opcional): Usuarios con especialista asignado
 - `hasNoSpecialist` (boolean, opcional): Usuarios sin especialista
 - `specialistWithPatients` (boolean, opcional): Especialistas con pacientes
 - `specialistWithoutPatients` (boolean, opcional): Especialistas sin pacientes
 
 #### **Filtros de Actividad**
+
 - `withCommissions` (boolean, opcional): Usuarios con comisiones en el período actual
 - `withoutCommissions` (boolean, opcional): Usuarios sin comisiones en el período actual
 - `withOrdersInProgress` (boolean, opcional): Usuarios con órdenes en preparación
@@ -54,6 +60,7 @@ No aplica
 - `withoutRecommendations` (boolean, opcional): Usuarios sin recomendaciones
 
 ### Ejemplo de Query Parameters
+
 ```
 POST /notifications?specialist=true&hasPatients=true&minAge=25&maxAge=65&withCommissions=true
 ```
@@ -119,13 +126,13 @@ POST /notifications?specialist=true&hasPatients=true&minAge=25&maxAge=65&withCom
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Notificaciones creadas exitosamente |
-| 400 | Bad Request | Datos de notificación inválidos o filtros incorrectos |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para crear notificaciones |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                           |
+| ------ | --------------------- | ----------------------------------------------------- |
+| 200    | OK                    | Notificaciones creadas exitosamente                   |
+| 400    | Bad Request           | Datos de notificación inválidos o filtros incorrectos |
+| 401    | Unauthorized          | Token faltante o inválido                             |
+| 403    | Forbidden             | Sin permisos para crear notificaciones                |
+| 500    | Internal Server Error | Error del servidor                                    |
 
 ## Notas útiles para el frontend
 

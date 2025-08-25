@@ -121,13 +121,13 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 201 | Created | Plantilla creada exitosamente |
-| 400 | Bad Request | Datos de la plantilla inválidos o faltantes |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para crear plantillas |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                 |
+| ------ | --------------------- | ------------------------------------------- |
+| 201    | Created               | Plantilla creada exitosamente               |
+| 400    | Bad Request           | Datos de la plantilla inválidos o faltantes |
+| 401    | Unauthorized          | Token faltante o inválido                   |
+| 403    | Forbidden             | Sin permisos para crear plantillas          |
+| 500    | Internal Server Error | Error del servidor                          |
 
 ## Notas útiles para el frontend
 
@@ -150,4 +150,3 @@ No aplica
 - **DTO:** Usa `templateToDTO` para transformar la respuesta
 - **Especialista:** Asocia automáticamente la plantilla al especialista autenticado
 - **Transaccional:** Crea plantilla, conceptos y relaciones en una sola operación
-

@@ -20,6 +20,7 @@ No aplica
 - `limit` (number, opcional): Número de elementos por página (por defecto: 10)
 
 ### Ejemplo
+
 ```
 GET /orders/logistics?startDate=2024-01-01&endDate=2024-03-31&page=1&limit=20
 ```
@@ -95,13 +96,13 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Información de logística obtenida exitosamente |
-| 400 | Bad Request | Parámetros de fecha inválidos |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para consultar información de logística |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                          |
+| ------ | --------------------- | ---------------------------------------------------- |
+| 200    | OK                    | Información de logística obtenida exitosamente       |
+| 400    | Bad Request           | Parámetros de fecha inválidos                        |
+| 401    | Unauthorized          | Token faltante o inválido                            |
+| 403    | Forbidden             | Sin permisos para consultar información de logística |
+| 500    | Internal Server Error | Error del servidor                                   |
 
 ## Notas útiles para el frontend
 

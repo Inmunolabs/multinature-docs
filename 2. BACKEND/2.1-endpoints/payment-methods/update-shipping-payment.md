@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo usuarios autorizados pueden actualizar sus p
 - `id` (UUID, requerido): ID único del método de pago
 
 ### Ejemplo
+
 ```
 PATCH /payment-methods/shippingPayment/789e0123-e89b-12d3-a456-426614174000
 ```
@@ -75,14 +76,14 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Método de pago de envío actualizado exitosamente |
-| 400 | Bad Request | ID de método de pago inválido o método no editable |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para actualizar este método de pago |
-| 404 | Not Found | Método de pago no encontrado |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                        |
+| ------ | --------------------- | -------------------------------------------------- |
+| 200    | OK                    | Método de pago de envío actualizado exitosamente   |
+| 400    | Bad Request           | ID de método de pago inválido o método no editable |
+| 401    | Unauthorized          | Token faltante o inválido                          |
+| 403    | Forbidden             | Sin permisos para actualizar este método de pago   |
+| 404    | Not Found             | Método de pago no encontrado                       |
+| 500    | Internal Server Error | Error del servidor                                 |
 
 ## Notas útiles para el frontend
 

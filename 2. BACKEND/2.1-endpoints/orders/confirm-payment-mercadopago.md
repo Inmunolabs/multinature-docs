@@ -78,7 +78,7 @@ No aplica
     "orderId": "def456-e89b-12d3-a456-426614174000",
     "mercadopagoId": "mp_987654321",
     "status": "confirmed",
-    "amount": 672.00,
+    "amount": 672.0,
     "message": "El pago ha sido confirmado y la orden ha sido procesada"
   }
 }
@@ -86,11 +86,11 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Pago confirmado exitosamente |
-| 400 | Bad Request | Datos de confirmación inválidos |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                     |
+| ------ | --------------------- | ------------------------------- |
+| 200    | OK                    | Pago confirmado exitosamente    |
+| 400    | Bad Request           | Datos de confirmación inválidos |
+| 500    | Internal Server Error | Error del servidor              |
 
 ## Notas útiles para el frontend
 

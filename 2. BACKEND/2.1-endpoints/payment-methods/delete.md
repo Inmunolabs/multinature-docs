@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo usuarios autorizados pueden eliminar sus pro
 - `id` (UUID, requerido): ID único del método de pago a eliminar
 
 ### Ejemplo
+
 ```
 DELETE /payment-methods/789e0123-e89b-12d3-a456-426614174000
 ```
@@ -62,15 +63,15 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Método de pago eliminado exitosamente |
-| 400 | Bad Request | ID de método de pago inválido o método no eliminable |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para eliminar este método de pago |
-| 404 | Not Found | Método de pago no encontrado |
-| 428 | Precondition Failed | Método de pago no puede ser eliminado (en uso o es método de envío) |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                                         |
+| ------ | --------------------- | ------------------------------------------------------------------- |
+| 200    | OK                    | Método de pago eliminado exitosamente                               |
+| 400    | Bad Request           | ID de método de pago inválido o método no eliminable                |
+| 401    | Unauthorized          | Token faltante o inválido                                           |
+| 403    | Forbidden             | Sin permisos para eliminar este método de pago                      |
+| 404    | Not Found             | Método de pago no encontrado                                        |
+| 428    | Precondition Failed   | Método de pago no puede ser eliminado (en uso o es método de envío) |
+| 500    | Internal Server Error | Error del servidor                                                  |
 
 ## Notas útiles para el frontend
 

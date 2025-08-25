@@ -75,3 +75,4 @@ No aplica
 - **Email:** Usa `EmailsNotifications.EmailNotificationStrategy` para notificaciones
 - **Transaccional:** Proceso que incluye cancelación, reembolso y notificaciones
 - **Seguridad:** Solo permite cancelar órdenes propias del usuario autenticado
+

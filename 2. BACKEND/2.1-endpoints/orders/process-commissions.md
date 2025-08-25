@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo usuarios autorizados pueden procesar comisio
 - `openpayId` (string, requerido): ID de la transacción de OpenPay
 
 ### Ejemplo
+
 ```
 PATCH /orders/process-commissions/ch_123456789
 ```
@@ -34,7 +35,7 @@ No aplica
   "data": {
     "orderId": "789e0123-e89b-12d3-a456-426614174000",
     "openpayId": "ch_123456789",
-    "commissionAmount": 136.80,
+    "commissionAmount": 136.8,
     "status": "processed",
     "message": "Las comisiones han sido procesadas y liquidadas correctamente"
   }
@@ -43,14 +44,14 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Comisiones procesadas exitosamente |
-| 400 | Bad Request | ID de OpenPay inválido |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para procesar comisiones de esta orden |
-| 404 | Not Found | Orden o comisiones no encontradas |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                         |
+| ------ | --------------------- | --------------------------------------------------- |
+| 200    | OK                    | Comisiones procesadas exitosamente                  |
+| 400    | Bad Request           | ID de OpenPay inválido                              |
+| 401    | Unauthorized          | Token faltante o inválido                           |
+| 403    | Forbidden             | Sin permisos para procesar comisiones de esta orden |
+| 404    | Not Found             | Orden o comisiones no encontradas                   |
+| 500    | Internal Server Error | Error del servidor                                  |
 
 ## Notas útiles para el frontend
 

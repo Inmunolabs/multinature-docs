@@ -37,12 +37,12 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Limpieza de órdenes completada exitosamente |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para ejecutar limpieza de órdenes |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                    |
+| ------ | --------------------- | ---------------------------------------------- |
+| 200    | OK                    | Limpieza de órdenes completada exitosamente    |
+| 401    | Unauthorized          | Token faltante o inválido                      |
+| 403    | Forbidden             | Sin permisos para ejecutar limpieza de órdenes |
+| 500    | Internal Server Error | Error del servidor                             |
 
 ## Notas útiles para el frontend
 

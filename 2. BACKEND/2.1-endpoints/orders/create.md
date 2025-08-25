@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo usuarios autorizados pueden crear órdenes.
 - `id` (UUID, requerido): ID único del usuario (debe coincidir con el usuario autenticado)
 
 ### Ejemplo
+
 ```
 POST /orders/abc123-e89b-12d3-a456-426614174000
 ```
@@ -98,14 +99,14 @@ POST /orders/abc123-e89b-12d3-a456-426614174000
             "id": "prod_002",
             "product": "Proteína en polvo",
             "urlImage": "https://example.com/proteina.jpg",
-            "price": 450.00,
+            "price": 450.0,
             "quantity": 1,
-            "total": 450.00
+            "total": 450.0
           }
         ],
         "subtotal": 1049.98,
         "iva": 167.99,
-        "shippingCost": 150.00,
+        "shippingCost": 150.0,
         "total": 1367.97,
         "deliveryStatus": "Pendiente",
         "purchaseDate": "2024-01-15",
@@ -126,21 +127,21 @@ POST /orders/abc123-e89b-12d3-a456-426614174000
       "limit": 10,
       "totalPages": 1
     },
-    "userBalance": 2500.00
+    "userBalance": 2500.0
   }
 }
 ```
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 201 | Created | Orden creada exitosamente |
-| 400 | Bad Request | Datos de orden inválidos o productos no disponibles |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para crear órdenes |
-| 404 | Not Found | Usuario, dirección o método de pago no encontrado |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                         |
+| ------ | --------------------- | --------------------------------------------------- |
+| 201    | Created               | Orden creada exitosamente                           |
+| 400    | Bad Request           | Datos de orden inválidos o productos no disponibles |
+| 401    | Unauthorized          | Token faltante o inválido                           |
+| 403    | Forbidden             | Sin permisos para crear órdenes                     |
+| 404    | Not Found             | Usuario, dirección o método de pago no encontrado   |
+| 500    | Internal Server Error | Error del servidor                                  |
 
 ## Notas útiles para el frontend
 

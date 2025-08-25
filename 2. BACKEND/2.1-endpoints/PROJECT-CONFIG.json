@@ -110,7 +110,7 @@
     "notifications": "completed",
     "orders": "completed",
     "payment-methods": "completed",
-    "products": "pending",
+    "products": "completed",
     "public-resources": "pending",
     "routines": "pending",
     "users": "pending"

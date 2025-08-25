@@ -5,6 +5,7 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de ó
 ## Índice de Endpoints
 
 ### Gestión de Órdenes
+
 - [GET /orders - Listar todas las órdenes](./list.md)
 - [GET /orders/:id - Obtener orden específica](./get-by-id.md)
 - [GET /orders/user/:id - Listar órdenes del usuario](./list-by-user-id.md)
@@ -17,10 +18,12 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de ó
 - [DELETE /orders/cleanup - Limpiar órdenes pendientes antiguas](./cleanup.md)
 
 ### Confirmación de Pagos
+
 - [POST /confirm - Confirmar pago OpenPay](./confirm-payment-openpay.md)
 - [POST /confirm/mercado-pago - Confirmar pago MercadoPago](./confirm-payment-mercadopago.md)
 
 ### Sistema
+
 - [GET / - Healthcheck](./healthcheck.md)
 
 ---
@@ -49,4 +52,4 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de ó
 - **Paginación:** Implementar paginación para listas de órdenes
 - **Filtros:** Permitir filtrado por fechas y estado de entrega
 - **Comisiones:** Gestionar comisiones para órdenes con 3D Secure
-- **Balance:** Mostrar balance actualizado después de operaciones 
+- **Balance:** Mostrar balance actualizado después de operaciones

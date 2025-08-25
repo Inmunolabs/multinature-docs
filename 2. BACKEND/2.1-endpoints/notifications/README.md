@@ -5,11 +5,13 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de no
 ## Índice de Endpoints
 
 ### Gestión de Notificaciones
+
 - [GET /notifications/:id - Listar notificaciones del usuario](./get-by-user-id.md)
 - [POST /notifications - Crear notificaciones masivas](./create.md)
 - [PATCH /notifications/:id/read - Marcar notificaciones como leídas](./mark-as-read.md)
 
 ### Sistema
+
 - [GET / - Healthcheck](./healthcheck.md)
 
 ---
@@ -36,4 +38,4 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de no
 - **Filtros de usuario:** Implementar filtros complejos para selección de destinatarios
 - **URLs de redirección:** Manejar enlaces para navegación desde notificaciones
 - **Texto de acción:** Mostrar botones de acción personalizables
-- **Historial:** Mantener historial de notificaciones enviadas y recibidas 
+- **Historial:** Mantener historial de notificaciones enviadas y recibidas

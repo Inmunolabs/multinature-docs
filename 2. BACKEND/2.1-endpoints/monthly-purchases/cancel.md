@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo usuarios autorizados pueden cancelar sus com
 - `id` (UUID, requerido): ID único del usuario (mismo que el ID de la compra mensual)
 
 ### Ejemplo
+
 ```
 DELETE /monthly-purchase/cancel/123e4567-e89b-12d3-a456-426614174000
 ```
@@ -46,16 +47,16 @@ No aplica
         "id": "abc123-e89b-12d3-a456-426614174000",
         "product": "Proteína en polvo",
         "urlImage": "https://example.com/proteina.jpg",
-        "price": 450.00,
+        "price": 450.0,
         "quantity": 2,
-        "total": 900.00
+        "total": 900.0
       }
     ],
     "subtotal": 1034.48,
     "ivaPorcentaje": 16,
     "iva": 165.52,
-    "shippingCost": 150.00,
-    "total": 1350.00,
+    "shippingCost": 150.0,
+    "total": 1350.0,
     "shippingAddress": {
       "id": "def456-e89b-12d3-a456-426614174000",
       "street": "Av. Principal 123",
@@ -74,13 +75,13 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Compra mensual cancelada exitosamente |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para cancelar esta compra mensual |
-| 404 | Not Found | Compra mensual no encontrada |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                    |
+| ------ | --------------------- | ---------------------------------------------- |
+| 200    | OK                    | Compra mensual cancelada exitosamente          |
+| 401    | Unauthorized          | Token faltante o inválido                      |
+| 403    | Forbidden             | Sin permisos para cancelar esta compra mensual |
+| 404    | Not Found             | Compra mensual no encontrada                   |
+| 500    | Internal Server Error | Error del servidor                             |
 
 ## Notas útiles para el frontend
 

@@ -5,6 +5,7 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de co
 ## Índice de Endpoints
 
 ### Gestión de Compras Mensuales
+
 - [GET /monthly-purchase/:id - Obtener compra mensual del usuario](./get-by-user-id.md)
 - [PATCH /monthly-purchase - Crear/actualizar compra mensual](./upsert.md)
 - [PATCH /monthly-purchase/:id - Actualizar compra mensual existente](./update.md)
@@ -12,6 +13,7 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de co
 - [DELETE /monthly-purchase/cancel/:id - Cancelar compra mensual](./cancel.md)
 
 ### Sistema
+
 - [GET / - Healthcheck](./healthcheck.md)
 
 ---
@@ -40,4 +42,4 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de co
 - **Estado:** Indicar si la suscripción está activa o cancelada
 - **Cancelación:** Permitir cancelar suscripciones con confirmación
 - **Actualización:** Permitir modificar productos de la suscripción
-- **Dirección:** Permitir cambiar la dirección de envío 
+- **Dirección:** Permitir cambiar la dirección de envío

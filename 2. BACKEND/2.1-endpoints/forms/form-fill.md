@@ -109,15 +109,15 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Formulario completado exitosamente |
-| 400 | Bad Request | Datos del formulario inválidos o faltantes |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para completar formularios |
-| 404 | Not Found | Plantilla no encontrada |
-| 428 | Precondition Required | Preguntas obligatorias no completadas |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                |
+| ------ | --------------------- | ------------------------------------------ |
+| 200    | OK                    | Formulario completado exitosamente         |
+| 400    | Bad Request           | Datos del formulario inválidos o faltantes |
+| 401    | Unauthorized          | Token faltante o inválido                  |
+| 403    | Forbidden             | Sin permisos para completar formularios    |
+| 404    | Not Found             | Plantilla no encontrada                    |
+| 428    | Precondition Required | Preguntas obligatorias no completadas      |
+| 500    | Internal Server Error | Error del servidor                         |
 
 ## Notas útiles para el frontend
 
@@ -140,4 +140,3 @@ No aplica
 - **DTO:** Usa `filledFormToDTO` para transformar la respuesta
 - **Permisos:** Verifica que el especialista tenga acceso a la plantilla y paciente
 - **Historial:** Mantiene respuestas anteriores para análisis temporal
-

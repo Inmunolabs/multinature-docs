@@ -81,12 +81,12 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Plantillas obtenidas exitosamente |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para consultar plantillas |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                            |
+| ------ | --------------------- | -------------------------------------- |
+| 200    | OK                    | Plantillas obtenidas exitosamente      |
+| 401    | Unauthorized          | Token faltante o inválido              |
+| 403    | Forbidden             | Sin permisos para consultar plantillas |
+| 500    | Internal Server Error | Error del servidor                     |
 
 ## Notas útiles para el frontend
 
@@ -108,4 +108,3 @@ No aplica
 - **Preguntas:** Incluye conceptos y configuraciones de cada pregunta
 - **Performance:** Optimizado para consultas del catálogo personal
 - **Relaciones:** Las plantillas se asocian a especialidades y conceptos
-

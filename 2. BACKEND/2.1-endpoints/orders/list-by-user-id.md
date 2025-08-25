@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo usuarios autorizados pueden consultar sus pr
 - `id` (UUID, requerido): ID único del usuario
 
 ### Ejemplo
+
 ```
 GET /orders/user/abc123-e89b-12d3-a456-426614174000
 ```
@@ -23,6 +24,7 @@ GET /orders/user/abc123-e89b-12d3-a456-426614174000
 - `limit` (number, opcional): Número de elementos por página (por defecto: 10)
 
 ### Ejemplo
+
 ```
 GET /orders/user/abc123-e89b-12d3-a456-426614174000?page=1&limit=20
 ```
@@ -74,7 +76,7 @@ No aplica
         ],
         "subtotal": 599.98,
         "iva": 95.99,
-        "shippingCost": 150.00,
+        "shippingCost": 150.0,
         "total": 845.97,
         "deliveryStatus": "En camino",
         "purchaseDate": "2024-01-15",
@@ -116,15 +118,15 @@ No aplica
             "id": "prod_002",
             "product": "Proteína en polvo",
             "urlImage": "https://example.com/proteina.jpg",
-            "price": 450.00,
+            "price": 450.0,
             "quantity": 1,
-            "total": 450.00
+            "total": 450.0
           }
         ],
-        "subtotal": 450.00,
-        "iva": 72.00,
-        "shippingCost": 150.00,
-        "total": 672.00,
+        "subtotal": 450.0,
+        "iva": 72.0,
+        "shippingCost": 150.0,
+        "total": 672.0,
         "deliveryStatus": "Entregada",
         "purchaseDate": "2024-01-10",
         "deliveryEstimateDate": "2024-01-15",
@@ -150,13 +152,13 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Órdenes del usuario obtenidas exitosamente |
-| 400 | Bad Request | ID de usuario inválido |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para consultar órdenes de este usuario |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                         |
+| ------ | --------------------- | --------------------------------------------------- |
+| 200    | OK                    | Órdenes del usuario obtenidas exitosamente          |
+| 400    | Bad Request           | ID de usuario inválido                              |
+| 401    | Unauthorized          | Token faltante o inválido                           |
+| 403    | Forbidden             | Sin permisos para consultar órdenes de este usuario |
+| 500    | Internal Server Error | Error del servidor                                  |
 
 ## Notas útiles para el frontend
 

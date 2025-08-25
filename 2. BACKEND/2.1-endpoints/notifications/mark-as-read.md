@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo usuarios autorizados pueden marcar sus propi
 - `id` (UUID, requerido): ID único del usuario
 
 ### Ejemplo
+
 ```
 PATCH /notifications/123e4567-e89b-12d3-a456-426614174000/read
 ```
@@ -22,6 +23,7 @@ PATCH /notifications/123e4567-e89b-12d3-a456-426614174000/read
 - `all` (boolean, opcional): Si es `true`, marca todas las notificaciones como leídas
 
 ### Ejemplo
+
 ```
 PATCH /notifications/123e4567-e89b-12d3-a456-426614174000/read?all=true
 ```
@@ -29,14 +31,13 @@ PATCH /notifications/123e4567-e89b-12d3-a456-426614174000/read?all=true
 ## Body del request
 
 ### Para notificaciones individuales
+
 ```json
-[
-  "789e0123-e89b-12d3-a456-426614174000",
-  "abc123-e89b-12d3-a456-426614174000"
-]
+["789e0123-e89b-12d3-a456-426614174000", "abc123-e89b-12d3-a456-426614174000"]
 ```
 
 ### Para marcar todas como leídas
+
 No requiere body cuando se usa `?all=true`
 
 ## Ejemplo de respuesta exitosa (200 OK)
@@ -82,13 +83,13 @@ No requiere body cuando se usa `?all=true`
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Notificaciones marcadas como leídas exitosamente |
-| 400 | Bad Request | IDs de notificación inválidos o faltantes |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para marcar notificaciones de este usuario |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                             |
+| ------ | --------------------- | ------------------------------------------------------- |
+| 200    | OK                    | Notificaciones marcadas como leídas exitosamente        |
+| 400    | Bad Request           | IDs de notificación inválidos o faltantes               |
+| 401    | Unauthorized          | Token faltante o inválido                               |
+| 403    | Forbidden             | Sin permisos para marcar notificaciones de este usuario |
+| 500    | Internal Server Error | Error del servidor                                      |
 
 ## Notas útiles para el frontend
 

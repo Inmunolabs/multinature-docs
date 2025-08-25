@@ -5,6 +5,7 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de m�
 ## Índice de Endpoints
 
 ### Gestión de Métodos de Pago
+
 - [GET /payment-methods/user/:id - Listar métodos de pago del usuario](./list-by-user-id.md)
 - [GET /payment-methods/:id - Obtener método de pago específico](./get-by-id.md)
 - [POST /payment-methods/:id - Crear nuevo método de pago](./create.md)
@@ -13,6 +14,7 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de m�
 - [DELETE /payment-methods/:id - Eliminar método de pago](./delete.md)
 
 ### Sistema
+
 - [GET / - Healthcheck](./healthcheck.md)
 
 ---
@@ -39,4 +41,4 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de m�
 - **OpenPay:** Las tarjetas se procesan a través de OpenPay con tokens
 - **Sincronización:** Mantener sincronizados los datos locales con OpenPay
 - **Interfaz:** Mostrar claramente qué método es el de envío actual
-- **Restricciones:** Aplicar validaciones según el tipo de método de pago 
+- **Restricciones:** Aplicar validaciones según el tipo de método de pago

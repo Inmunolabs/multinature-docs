@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo especialistas autorizados pueden actualizar 
 - `id` (UUID, requerido): ID único del concepto a actualizar
 
 ### Ejemplo
+
 ```
 PATCH /forms/concept/123e4567-e89b-12d3-a456-426614174000
 ```
@@ -59,14 +60,14 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Concepto actualizado exitosamente |
-| 400 | Bad Request | Datos del concepto inválidos o faltantes |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para actualizar este concepto |
-| 404 | Not Found | Concepto no encontrado |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                |
+| ------ | --------------------- | ------------------------------------------ |
+| 200    | OK                    | Concepto actualizado exitosamente          |
+| 400    | Bad Request           | Datos del concepto inválidos o faltantes   |
+| 401    | Unauthorized          | Token faltante o inválido                  |
+| 403    | Forbidden             | Sin permisos para actualizar este concepto |
+| 404    | Not Found             | Concepto no encontrado                     |
+| 500    | Internal Server Error | Error del servidor                         |
 
 ## Notas útiles para el frontend
 
@@ -87,4 +88,3 @@ No aplica
 - **DTO:** Usa `conceptToDTO` para transformar la respuesta
 - **Seguridad:** Solo permite actualizar conceptos propios del especialista
 - **Transaccional:** Actualiza el concepto y retorna la información actualizada
-

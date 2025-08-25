@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo usuarios autorizados pueden crear métodos d
 - `id` (UUID, requerido): ID único del usuario (debe coincidir con el usuario autenticado)
 
 ### Ejemplo
+
 ```
 POST /payment-methods/abc123-e89b-12d3-a456-426614174000
 ```
@@ -24,6 +25,7 @@ No aplica
 ## Body del request
 
 ### Para método de pago (tarjeta)
+
 ```json
 {
   "cardUse": "Pago",
@@ -35,6 +37,7 @@ No aplica
 ```
 
 ### Para método de cobro (cuenta bancaria)
+
 ```json
 {
   "cardUse": "Cobro",
@@ -45,6 +48,7 @@ No aplica
 ```
 
 ### Ejemplo de body para tarjeta
+
 ```json
 {
   "cardUse": "Pago",
@@ -56,6 +60,7 @@ No aplica
 ```
 
 ### Ejemplo de body para cuenta bancaria
+
 ```json
 {
   "cardUse": "Cobro",
@@ -94,14 +99,14 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 201 | Created | Método de pago creado exitosamente |
-| 400 | Bad Request | Datos del método de pago inválidos o límite excedido |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para crear métodos de pago |
-| 404 | Not Found | Usuario no encontrado |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                          |
+| ------ | --------------------- | ---------------------------------------------------- |
+| 201    | Created               | Método de pago creado exitosamente                   |
+| 400    | Bad Request           | Datos del método de pago inválidos o límite excedido |
+| 401    | Unauthorized          | Token faltante o inválido                            |
+| 403    | Forbidden             | Sin permisos para crear métodos de pago              |
+| 404    | Not Found             | Usuario no encontrado                                |
+| 500    | Internal Server Error | Error del servidor                                   |
 
 ## Notas útiles para el frontend
 

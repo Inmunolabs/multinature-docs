@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo usuarios autorizados pueden consultar órden
 - `id` (UUID, requerido): ID único de la orden
 
 ### Ejemplo
+
 ```
 GET /orders/789e0123-e89b-12d3-a456-426614174000
 ```
@@ -67,14 +68,14 @@ No aplica
         "id": "prod_002",
         "product": "Proteína en polvo",
         "urlImage": "https://example.com/proteina.jpg",
-        "price": 450.00,
+        "price": 450.0,
         "quantity": 1,
-        "total": 450.00
+        "total": 450.0
       }
     ],
     "subtotal": 1049.98,
     "iva": 167.99,
-    "shippingCost": 150.00,
+    "shippingCost": 150.0,
     "total": 1367.97,
     "deliveryStatus": "En camino",
     "purchaseDate": "2024-01-15",
@@ -93,14 +94,14 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Orden obtenida exitosamente |
-| 400 | Bad Request | ID de orden inválido |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para consultar esta orden |
-| 404 | Not Found | Orden no encontrada |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                            |
+| ------ | --------------------- | -------------------------------------- |
+| 200    | OK                    | Orden obtenida exitosamente            |
+| 400    | Bad Request           | ID de orden inválido                   |
+| 401    | Unauthorized          | Token faltante o inválido              |
+| 403    | Forbidden             | Sin permisos para consultar esta orden |
+| 404    | Not Found             | Orden no encontrada                    |
+| 500    | Internal Server Error | Error del servidor                     |
 
 ## Notas útiles para el frontend
 

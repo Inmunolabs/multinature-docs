@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo especialistas autorizados pueden eliminar su
 - `id` (UUID, requerido): ID único de la plantilla a eliminar
 
 ### Ejemplo
+
 ```
 DELETE /forms/template/123e4567-e89b-12d3-a456-426614174000
 ```
@@ -54,13 +55,13 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Plantilla eliminada exitosamente |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para eliminar esta plantilla |
-| 404 | Not Found | Plantilla no encontrada |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                               |
+| ------ | --------------------- | ----------------------------------------- |
+| 200    | OK                    | Plantilla eliminada exitosamente          |
+| 401    | Unauthorized          | Token faltante o inválido                 |
+| 403    | Forbidden             | Sin permisos para eliminar esta plantilla |
+| 404    | Not Found             | Plantilla no encontrada                   |
+| 500    | Internal Server Error | Error del servidor                        |
 
 ## Notas útiles para el frontend
 
@@ -81,4 +82,3 @@ No aplica
 - **Seguridad:** Solo permite eliminar plantillas propias del especialista
 - **Dependencias:** Verifica relaciones con formularios antes de eliminar
 - **Transaccional:** Elimina la plantilla, preguntas y relaciones en una sola operación
-
