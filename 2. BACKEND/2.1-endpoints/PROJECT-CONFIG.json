@@ -112,7 +112,7 @@
     "payment-methods": "completed",
     "products": "completed",
     "public-resources": "completed",
-    "routines": "pending",
+    "routines": "completed",
     "users": "pending"
   },
   "priorities": {

@@ -1,40 +1,71 @@
-# API de Routines
+# API Routines
 
-Esta documentación cubre todos los endpoints relacionados con la gestión de rutinas de ejercicios.
+## Descripción general
 
-## Índice de Endpoints
+La API de Routines gestiona rutinas de ejercicios personalizadas creadas por especialistas para sus pacientes. Permite crear, actualizar, consultar y eliminar rutinas completas con ejercicios organizados por días de la semana. El sistema incluye funcionalidad de historial automático para rutinas que han sido modificadas después de 6 días.
 
-- [GET /routines/:id - Obtener rutina por ID](./routines-get.md)
-- [GET /routines/user/:userId - Rutinas de un usuario](./routines-list-by-user.md)
-- [GET /routines/specialist/:specialistId - Rutinas de un especialista](./routines-list-by-specialist.md)
-- [GET /routines/exercises/:specialistId - Ejercicios de un especialista](./routines-exercises-by-specialist.md)
-- [POST /routines - Crear rutina](./routines-create.md)
-- [POST /routines/exercises - Crear ejercicio](./routines-create-exercise.md)
-- [PATCH /routines/:id - Actualizar rutina](./routines-update.md)
-- [PATCH /routines/exercises/:id - Actualizar ejercicio](./routines-update-exercise.md)
-- [DELETE /routines/exercises/:id - Eliminar ejercicio](./routines-delete-exercise.md)
-- [GET / - Healthcheck](./routines-healthcheck.md)
+## Endpoints disponibles
 
----
+### Gestión de Rutinas
+- **[GET /routines/:id](get-by-id.md)** - Obtener rutina específica por ID
+- **[GET /routines/user/:id](get-by-user-id.md)** - Obtener rutinas de un usuario específico
+- **[GET /routines/specialist/:id](get-by-specialist-id.md)** - Obtener rutinas creadas por un especialista
+- **[POST /routines](upsert.md)** - Crear o actualizar rutina (upsert inteligente)
 
-## Reglas importantes y contexto del proyecto
+### Gestión de Ejercicios
+- **[GET /routines/exercise/](list-exercises.md)** - Listar ejercicios de un especialista
+- **[GET /routines/exercise/:id](get-exercise.md)** - Obtener ejercicio específico por ID
+- **[POST /routines/exercise](create-exercise.md)** - Crear nuevo ejercicio
+- **[PATCH /routines/exercise/:id](update-exercise.md)** - Actualizar ejercicio existente
+- **[DELETE /routines/exercise/:id](delete-exercise.md)** - Eliminar ejercicio
 
-- Las rutinas son conjuntos de ejercicios diseñados por especialistas.
-- Las rutinas pueden ser asignadas a pacientes específicos.
-- Las rutinas pueden tener diferentes niveles de dificultad.
-- Los ejercicios pueden tener videos, imágenes y descripciones.
-- Las rutinas pueden ser activas o inactivas.
-- Los ejercicios pueden tener series, repeticiones y descansos.
+## Reglas importantes del proyecto
 
----
+### Autenticación y Autorización
+- **Todos los endpoints** requieren token Bearer válido
+- **Rutinas:** Solo especialistas pueden crear/actualizar rutinas para sus pacientes
+- **Ejercicios:** Solo especialistas pueden crear/editar ejercicios (propios o como admin)
+- **Acceso:** Usuarios solo pueden ver sus propias rutinas, especialistas ven las que crearon
 
-## Consideraciones generales para el frontend
+### Validaciones de Negocio
+- **Propiedad de rutina:** Usuarios solo pueden acceder a rutinas propias o creadas por su especialista
+- **Propiedad de ejercicio:** Solo el especialista creador o administradores pueden modificar ejercicios
+- **Historial automático:** Rutinas modificadas después de 6 días generan snapshot automático
+- **Relación especialista-paciente:** Validación `userBelongsToSpecialist` para creación de rutinas
 
-- **Niveles:** Mostrar rutinas según el nivel del usuario.
-- **Ejercicios:** Mostrar ejercicios con videos e imágenes explicativas.
-- **Progreso:** Permitir seguimiento del progreso del usuario.
-- **Asignación:** Mostrar rutinas asignadas por especialistas.
-- **Dificultad:** Mostrar indicadores de dificultad de ejercicios.
-- **Series:** Mostrar series, repeticiones y tiempos de descanso.
-- **Multimedia:** Reproducir videos y mostrar imágenes de ejercicios.
-- **Historial:** Mostrar historial de rutinas completadas. 
+### Estructura de Rutinas
+- **Organización por días:** Ejercicios organizados por días de la semana
+- **Orden de ejercicios:** Campo `index` para controlar secuencia de ejercicios
+- **Repeticiones:** Campo `repetitions` para cada ejercicio en la rutina
+- **Notas:** Campo `notes` para comentarios del especialista
+
+### Consideraciones Técnicas
+- **Upsert inteligente:** Lógica compleja para crear/actualizar con historial automático
+- **Snapshots:** Sistema de versionado automático para rutinas antiguas
+- **DTOs especializados:** Transformación de entidades a respuestas frontend-friendly
+- **Validaciones personalizadas:** Middleware específico para rutinas y ejercicios
+
+## Notas para el equipo frontend
+
+### Campos clave para UI
+- **`exercises`:** Objeto organizado por días de la semana (lunes, martes, etc.)
+- **`index`:** Orden de ejercicios dentro de cada día
+- **`repetitions`:** Número de repeticiones para cada ejercicio
+- **`specialistId`:** ID del especialista que creó la rutina
+- **`userId`:** ID del paciente asignado a la rutina
+
+### Estados de autorización
+- **Paciente:** Solo puede ver sus propias rutinas
+- **Especialista:** Puede crear/editar rutinas para sus pacientes y ejercicios propios
+- **Admin:** Acceso completo a todas las rutinas y ejercicios
+
+### Manejo de errores
+- **200:** Rutina no encontrada (con mensaje específico)
+- **403:** Sin permisos para acceder o modificar
+- **404:** Ejercicio no encontrado
+- **500:** Error del servidor
+
+### Funcionalidades especiales
+- **Historial automático:** Snapshots se crean automáticamente para rutinas antiguas
+- **Upsert inteligente:** Un solo endpoint maneja creación y actualización
+- **Validación de relación:** Verifica que el especialista tenga relación con el paciente 
