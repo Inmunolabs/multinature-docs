@@ -47,6 +47,8 @@
       1. [2.5.1 - Envío de Notificaciones](./2.%20BACKEND/2.5-notifications/2.5.1-send-notifications.md)
    6. [2.6 - Orders](./2.%20BACKEND/2.6-orders/)
       1. [2.6.1 - Funcionamiento del código de órdenes](./2.%20BACKEND/2.6-orders/2.6.1-orders-patterns.md)
+   7. [2.7 - Chatbot](./2.%20BACKEND/2.7-chatbot/)
+      1. [2.7.1 - Contexto del Chatbot](./2.%20BACKEND/2.7-chatbot/chatbotContext.md)
 
 3. [FRONTEND](./3.%20FRONTEND/README.md)
 
