@@ -90,3 +90,5 @@
 
 5. [PRUEBAS](./5.%20PRUEBAS/README.md)
    1. [Matriz de Pruebas primer entrega - 30 de junio de 2025](./5.%20PRUEBAS/5.1.%20primerEntrega-2025.06.30.md)
+
+© Multinature
