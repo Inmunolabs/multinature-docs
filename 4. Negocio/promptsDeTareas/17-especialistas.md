@@ -548,7 +548,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
      Se deben agregar los siguientes botones con sus respectivas condiciones:
      1. "Iniciar consulta". Este botón debe ser el más notable, de momento no tiene funcionalidad, su funcionalidad se agregará en otra tarea
      2. "Sugerir productos". Este botón debe ser el segundo más notable, de momento no tiene funcionalidad, su funcionalidad se agregará en otra tarea
-     3. "Agendar cita". Botón que permite crear una nueva cita para ese paciente en especifico. Replicar el flujo de "Alta de cita" solo rellenando en automatico todos los campos que ya se tienen, como el paciente, la especialidad
+     3. "Agendar cita". Botón que permite crear una nueva cita para ese paciente en especifico. Replicar el flujo de "Alta de cita" solo rellenando en automático todos los campos que ya se tienen, como el paciente, la especialidad
      4. "Editar dieta". Solo debe aparecer si el especialista es nutriologo del paciente. De momento no tiene funcionalidad, su funcionalidad se agregará en otra tarea
      5. "Editar rutina". Solo debe aparecer si el especialista es entrenador del paciente. De momento no tiene funcionalidad, su funcionalidad se agregará en otra tarea
   4. Calendario de Actividades (1 columna (col-12)).
@@ -651,3 +651,73 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: front
 
   Assignee: Erick Robles
+
+- ✅ [17057] Enpoints de los equipos de trabajo
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [17058] Vistas de los equipos de trabajo
+
+  Tags: back, front
+
+  Assignee: Samuel Reveles
+
+- ✅ [17059] Permitir que las especialidades al asignar sean un arreglo al asingarse a un especialista
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [17060] Crear tablas de relacion entre equipos y transferencia de paciente
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [17061] Implementar logica de insercion en tablas patient_team_share_specialists y patient_team_shares
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [17062] Crear/actualizar endpoint para desasignacion de paciente
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [17063] Middleware para respetar la especialidad a la que esta asignado el paciente con el especialista
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [17064] Actualizar las recomendaciones de especialistas para definir el consumo de los suplementos por paciente
+
+  Contexto: Añadir capsulas o dosis recomendada diaria en los suplementos alimenticios
+  Estrategías de suplementación. También las recomendaciones de suplementos son por indicaciones medicas y a criterio del especialista
+  Fomentar una estrategia de suplementacion, para que no se sienta como una venta mas bien como una recomendación
+
+  Tags: back, front
+
+  Assignee: Samuel Reveles
+
+- ✅ [17065] Actualizar las recomendaciones de especialistas para definir el consumo de los suplementos por paciente
+
+  Contexto: Añadir capsulas o dosis recomendada diaria en los suplementos alimenticios
+  Estrategías de suplementación. También las recomendaciones de suplementos son por indicaciones medicas y a criterio del especialista
+  Fomentar una estrategia de suplementacion, para que no se sienta como una venta mas bien como una recomendación
+
+  Tags: back
+
+  Assignee: Samuel Reveles

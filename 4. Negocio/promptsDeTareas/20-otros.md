@@ -169,7 +169,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Antoine Ganem
 
-- [20024] Modificar los porcentajes de comisiones de los niveles de red
+- ✅ [20024] Modificar los porcentajes de comisiones de los niveles de red
 
   Contexto: Los nuevos porcentajes de comisiones de los niveles de red son:
 
@@ -183,4 +183,50 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Tags: back, front
 
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [20025] En los pagos de tienda, regresar el enlace de generar recibo de openpay
+
+  Tags: back, front
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [20026] Reparar el crear administrador y editar administrador
+
+  Tags: back, front
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [20027] Crear un proxy para las conexiones a las bases de datos desde las lambdas
+
+  Tags: back, front
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [20028] Separar responsabilidades de pasarelas de pago de apis y commons-layer
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García
+
+- ✅ [20029] Modificar en API CONFIG el listado de Foods
+
+  Tags: back
+
   Assignee: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [20030] Crear base de datos de PROD
+
+  Tags: back
+
+  Assignee: Samuel Reveles

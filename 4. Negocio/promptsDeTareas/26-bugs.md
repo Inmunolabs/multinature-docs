@@ -299,7 +299,13 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- [26039]
+- ✅ [26039] Quitar los inputs del Cálculo de Dieta que no se requieran según la(s) fórmula(s) seleccionadas
+
+  Contexto: En el Cálculo de Dieta en el paso de calcular las kilocalorias por día quitar los inputs que no se requieran según la(s) fórmula(s) seleccionadas, por ejemplo la fórmula Health Canada es la única que utiliza el CAF, entonces el input del CAF solo debería aparecer cuando se tiene esa fórmula seleccionada.
+
+  Tags: front
+
+  Assigne: Diego Martin Ponce
 
 - ✅ [26040] No sé pueden eliminar las plantillas de los formularios
 
@@ -733,6 +739,180 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26115] No se muestran bien los logs de los buckets y cambio de validación en confirmar cita
 
+  Tags: back
+
   Assigne: Samuel Reveles
 
   _Tarea creada por Samuel_
+
+- ✅ [26116] Error al crear usuario con varias especialidades
+
+  Tags: back
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26117] Errores visuales en your plan en mobile y bug de paginado de reseñas
+
+  Tags: front
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26118] Error al presionar "Crear Plan" en el listado de citas
+
+  Tags: front
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26119] Actualizar la Distribución de Macronutrientes para permitirle a los especialistas hacer la distribución en gramos, kcal o porcentajes, dependiendo como lo seleccionen
+
+  Contexto: Actualizar la Distribución de Macronutrientes para permitirle a los especialistas hacer la distribución en gramos, kcal o porcentajes, dependiendo como lo seleccionen. También actualizar en automático el último de los macronutrientes a partir de la resta de los otros dos previamente seleccionados. Aunque se seleccione en automático el último de los macronutrientes, igual este debería poder editarse. Y modificar la vista para que el total de los macronutrientes aparezca al lado de los input de macronutrientes, es decir la sección de "Selección de Macronutrientes (%)" debe tener cuatro columnas, tres inputs y el Total (con la funcionalidad de "semaforo")
+
+  Tags: front
+
+  Assigne: Diego Martin Ponce
+
+- ✅ [26120] Bug al cargar los detalles de usuario en la red
+
+  Tags: front
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26121] Corregir endpoint del webhook de openpay y agregar permisos de s3:ListBucket
+
+  Tags: back
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26122] Corregir el bug visual de las gráficas de progreso
+
+  Tags: front
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26124] Bug al compartir el link de referido desde la vista Network
+
+  Tags: front
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [26125] Corregir bug al asignar especialista desde un paciente
+
+  Tags: back
+
+  Assigne: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [26126] Bug en el listado de pacientes de un especialista
+
+  Tags: back, front
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [26127] Textos encimados en los inputs y cambio en el mensaje de respuesta
+
+  Tags: front
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [26128] Link al dar de alta cliente en el correo y validar en el componente el link
+
+  Contexto: Corregir la liga de verificación de los correos de registro de nuevo usuario (También puedes verificar tu cuenta haciendo <a href="https://www.multinaturecompany.com/users/verify-account?code&#x3D;755067&amp;email&#x3D;000%40miguel.com">click aquí.</a></p>\r\n')
+
+  Tags: back, front
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [26129] Arreglar visualmente la vista de portions
+
+  Tags: front
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [26130] Añadir la opcion de "Lunes a viernes" en la configuracion de horario
+
+  Contexto: En el select de días de los horarios de atención agregar una opción de Lunes a Viernes, para que el usuario no tenga que agregar día por día
+
+  Tags: back, front
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [26131] Conceptos de "Estatura" y "Peso" solo para formularios de "Nutricionista"
+
+  Tags: back
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [26132] Respuesta del Todayinfo y del listado de pacientes
+
+  Tags: back, front
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [26133] Loadings en el flujo para crear dieta a usuario
+
+  Tags: front
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [26134] Modificar la fórmula de AGA ya que actualmente maneja un rango bastante amplio
+
+  Contexto: Tal vez solo promediando será suficiente, pero revisar si se puede obtener un resultado más preciso
+
+  Tags: front
+
+  Assigne: Erick Robles
+
+- ✅ [26135] Modificar el valor de la tolerancia en los cálculos de dietas para que sea del 5%
+
+  Tags: front
+
+  Assigne: Erick Robles
+
+- ✅ [26136] Cuando editas un menú desaparece de la vista de "Asigna el Plan de Alimentación"
+
+  Tags: front
+
+  Assigne: Erick Robles
+
+- ✅ [26137] Agendar nueva cita a un paciente recien creado no permite seleccionar especialidad
+
+  Tags: front
+
+  Assigne: Erick Robles
+
+- ✅ [26138] Cambiar 'cita en linea' por 'Cita en línea'
+
+  Tags: front
+
+  Assigne: Erick Robles

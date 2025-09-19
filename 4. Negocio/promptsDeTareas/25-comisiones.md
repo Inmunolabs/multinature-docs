@@ -8,7 +8,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Miguel Angel Valdés García
 
-- ✅ [25002] Implementar MONEX para el pago automatico de las comisiones
+- ✅ [25002] Implementar MONEX para el pago automático de las comisiones
 
   Tags: back
 

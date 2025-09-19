@@ -207,15 +207,17 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [032] Eliminar thunks y archivos que ya no se utilizan
 
+- ✅ [033] Cambiar todos los states de modales de slices por states locales en todas las páginas
+
   _Tarea creada por Samuel_
 
-- [033] Agregar alguna variable de entorno que apague todo lo que tiene que ver con pagos a openpay y monex
+- [034] Agregar alguna variable de entorno que apague todo lo que tiene que ver con pagos a openpay y monex
 
   Tags: back
 
   Assignee: Samuel Reveles
 
-- [034] Error: Too many connections
+- [035] Error: Too many connections
 
   Contexto: Error: Too many connections
 
@@ -225,3 +227,11 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   ```
 
   Tags: back
+
+- ✅ [036] Revisar [ysonut](https://www.ysonut.com.mx/)
+ 
+  Contexto: David lo menciono en la reunión del 11 de septiembre de 2025. Posible competidor que valdría la pena revisar/analizar
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García

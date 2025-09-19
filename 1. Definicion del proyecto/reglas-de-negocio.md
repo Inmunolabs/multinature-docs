@@ -1,7 +1,7 @@
 # Reglas de Negocio - Proyecto Multinature
 
 **Versión:** 1.0  
-**Fecha de creación:** 2025-01-26
+**Fecha de creación:** 2025-01-26  
 **Estado:** ✅ Activo y vigente
 
 ---

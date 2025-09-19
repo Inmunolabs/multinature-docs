@@ -187,3 +187,54 @@ Task Name Description Priority Status tags
   Tags: back
 
   Assignee: Erick Robles
+
+- ✅ [24024] Categorizar las preguntas de los formularios
+
+  Contexto: Agregar un campo de category que sea un enum de los diferentes tipos de preguntas que pueden existir, con el fin de agruparlas y hacer más sencilla su búsqueda/uso
+
+  Tags: back
+
+  Assignee: Antoine Ganem
+
+- ✅ [24025] Agregar preguntas genericas para los formularios de rutinas y de dietas.
+
+  Contexto: Considerar agregar las siguientes categorías de preguntas para casos de uso del módulo de rutinas:
+
+  - Historial Clínico (Antecedentes familiares, Enfermedades/Cirugías Previas, Enfermedades DX (Enfermedades de diagnóstico), Medicamentos)
+  - Ejercicio (¿Cuánto tiempo tienes de sedentario?, ¿Qué tanta disponibilidad de tiempo tienes para realizar tus ejercicios?, etc.)
+  - Pruebas físicas, por ejemplo: ¿Cuántas lagartijas puede sacar?, ¿Cuántas sentadillas por minuto puedes hacer? (con el fin de revisar postura, cadera, rodillas, pie plano, etc.), prueba de escalon, etc.
+  - Capacidad fisica persivida
+  - Nivel sobre conocimientos de fisica, cuerpo y el objetivo del ejercicio.
+  - Prescripción de cardio, fatmax (punto de intensidad del ejercicio donde el cuerpo oxida la mayor cantidad de grasa como combustible por unidad de tiempo)
+  - Composición corporal, porcentaje de grasa, somototipo.
+  - Frecuencia, Observaciones, Molestias, Lesiones,
+  - Ginecológico (Frecuencia CM, Flujo CM, Duración Menst., Molestias)
+  - Hábitos nocivos (Tabaco, Alcohol, Café, Refresco, Jugos)
+  - Nivel de estrés
+  - Hábitos de sueño
+  - Hábitos Laborales (Tipo, Horario, Comidas, Accesorios)
+  - Suplementos deportivos
+  - Frecuencia alimentaria (Horario 1, Horario 2, Horario 3)
+  - Gastrointestinales (Apetito, Digestión, Evacuaciones)
+  - Consumo de agua
+  - Alergias
+  - Intolerancias
+  - Aversiones
+
+  Tags: back
+
+  Assignee: Antoine Ganem
+
+- ✅ [24026] Crear endpoint para traer banco de preguntas globales
+
+  Tags: back
+
+  Assignee: Antoine Ganem
+
+  _Tarea creada por Antoine_
+
+- ✅ [24027] Crear formularios que funcionen como plantillas genericas para los especialistas
+
+  Tags: back
+
+  Assignee: Antoine Ganem

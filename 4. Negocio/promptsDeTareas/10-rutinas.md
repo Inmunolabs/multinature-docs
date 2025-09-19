@@ -38,3 +38,47 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back, front
 
   Assignee: Erick Robles
+
+- ✅ [10004] Vista para crear rutinas
+
+  Tags: back, front
+
+  Assignee: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [10005] Cambio en rutinas segun recomendaciones de David
+
+  Tags: back, front
+
+  Assignee: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [10006] Buscar una base de datos para los ejercicios de rutinas
+
+  Contexto: Considerar agregar rutinas basicas/genericas para facilitar el uso del sistema
+
+  Tags: back
+
+  Assignee: Antoine Ganem
+
+- ✅ [10007] Permitir mover los ejercicios (drag & drop) en el calendario semanal para faciliar la asignación de rutina
+
+  Tags: back
+
+  Assignee: Erick Robles
+
+- ✅ [10008] Crear una manera diferente para manejar las Estadísticas y Metas de rutinas.
+
+  Contexto: La tabla `users_goals` actual puede quedarse corta para registrar datos de rendimiento detallado. Se sugiere:
+
+  - Crear una tabla adicional `user_workout_stats` para registrar:
+    - `user_id`, `routine_id`, `exercise_id`.
+    - Duración real vs programada.
+    - Series completadas y repeticiones logradas.
+    - Fecha/hora de cada acción.
+
+  Tags: back
+
+  Assignee: Antoine Ganem
