@@ -336,10 +336,52 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Erick _
 
-- [03035] Los pacientes deben poder confirmar las citas creadas por el especialista como citas con pago completo en efectivo
+- ✅ [03035] Los pacientes deben poder confirmar las citas creadas por el especialista como citas con pago completo en efectivo
 
   Contexto: Cuando un especialista crea una cita en efectivo con el pago completo, el paciente de la cita debe poder confirmarla sin necesidad de generar un pago, solo con un botón para confirmar.
 
-  Tags: back, front
+  Tags: back
 
-  Assignee: Erick Robles
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [03036] Undefined requestBooking en el middleware de liquidation
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [03037] Devolver las bookings a partir de la fecha de hoy en update y liquidate bookings
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [03038] Inicializar en /customers con las citas de hoy
+
+  Tags: front
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [03039] Se crean las citas pagadas siempre
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_
+
+- ✅ [03040] Rediseño del listado de citas
+
+  Tags: front
+
+  Assignee: Samuel Reveles
+
+  _Tarea creada por Samuel_

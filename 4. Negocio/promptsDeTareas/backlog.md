@@ -211,25 +211,16 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   _Tarea creada por Samuel_
 
-- [034] Agregar alguna variable de entorno que apague todo lo que tiene que ver con pagos a openpay y monex
+- ✅ [034] Agregar alguna variable de entorno que apague todo lo que tiene que ver con pagos a openpay y monex
 
   Tags: back
 
   Assignee: Samuel Reveles
 
-- [035] Error: Too many connections
-
-  Contexto: Error: Too many connections
-
-  ```
-  (λ: api) RequestId: ad46a815-09d6-4364-bbaa-a45670042388  Duration: 6297.20 ms  Billed Duration: 6298 ms
-  🇷​​​​​🇪​​​​​🇸​​​​​ 🡪 [response] ❌ ERROR: {"folio":"ad46a815-09d6-4364-bbaa-a45670042388","message":"Servicio no disponible.","content":{"details":{"code":"ER_CON_COUNT_ERROR","errno":1040,"sqlState":"08004","sqlMesssage":"Too many connections"}}}
-  ```
-
-  Tags: back
+- [035]
 
 - ✅ [036] Revisar [ysonut](https://www.ysonut.com.mx/)
- 
+
   Contexto: David lo menciono en la reunión del 11 de septiembre de 2025. Posible competidor que valdría la pena revisar/analizar
 
   Tags: back
