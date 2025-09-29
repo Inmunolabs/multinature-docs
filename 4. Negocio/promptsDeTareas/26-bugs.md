@@ -916,3 +916,114 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: front
 
   Assigne: Erick Robles
+
+- ✅ [26139] Revisar la respuesta del GetSummary y GetDayDetails
+
+  Tags: back
+
+  Assigne: Erick Robles
+
+  _Tarea creada por Erick_
+
+- ✅ [26140] Al crear formularios se están duplicando conceptos que ya existen
+
+  Contexto: Al crear formularios se están duplicando los conceptos que ya existen, incluso si los crea el mismo especialista, esta copia de conceptos solo debe ocurrir si el esepecialista agrega un descripción o una unidad de medida diferente a las que ya existen.
+
+  Tags: front
+
+  Assigne: Erick Robles
+
+- ✅ [26141] Al crear un nuevo formulario no se debe permitir agregar la misma pregunta más de una vez
+
+  Tags: front
+
+  Assigne: Erick Robles
+
+- ✅ [26142] Corregir error de Nodemailer al enviar correos
+
+  Contexto: ERROR 📩 🡪 [emails-layer],[sendEmailsByNodemailerTransport()] ❌ Nodemailer SendEmail failed: Error: connect ETIMEDOUT 142.251.111.109:465
+  at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1636:16) {
+  errno: -110,
+  code: 'ESOCKET',
+  syscall: 'connect',
+  address: '142.251.111.109',
+  port: 465,
+  command: 'CONN'
+  }
+
+  [URL](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/$252Faws$252Flambda$252Fmulti-users-prod-api/log-events/2025$252F09$252F26$252F$255B$2524LATEST$255D8efc71d708a9427db0c2cf9638e1359f)
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [26143] Agregar "loading" al enviar código de verficación de cuenta al crear un nuevo usuario
+
+  Tags: front
+
+  Assigne: Erick Robles
+
+- ✅ [26144] Error al verificar cuenta. No se esta creando el usuario en Openpay
+
+  Contexto: [URL](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/$252Faws$252Flambda$252Fmulti-users-prod-api/log-events/2025$252F09$252F26$252F$255B$2524LATEST$255D36c7975d402540e5908963955f4da9d4)
+
+  Folio: 6eb6e401-da3e-4988-8321-6bbe0460cb42
+
+  Tags: back
+
+  Assignee: Samuel Reveles
+
+- ✅ [26145] En flujo de convertirse a especialista, en paso de crear formulario permite presionar el botón siguiente, lanza req a back y falla ya que el body se manda vacia
+
+  Tags: front
+
+  Assignee: Samuel Reveles
+
+- ✅ [26146] Revisar que los formularios creados por un admin no sé editen sino que se cree una copia a partir del formulario editado
+
+  Contexto: Los formularios de Administrador General solo deben poder ser actualizados por el mismo, si un especialista edita el formulario se debe crear un formulario copia a nombre del especialista que lo creo
+
+  Tags: front
+
+  Assignee: Samuel Reveles
+
+- ✅ [26147] En flujo de convertirse a especialista, en paso de crear formulario que aparezcan los formularios creados por el Administrador general
+
+  Contexto: Que los formularios que aparezcan sean solo aquellos que compartan las especilidades del especialista
+
+  Tags: front
+
+  Assignee: Samuel Reveles
+
+- ✅ [26148] Corregir el error de autenticación de multi-products-prod-api
+
+  Tags: back
+
+  Assigne: Miguel Angel Valdés García
+
+- ✅ [26149] Agregar la columna base_template_id en la tabla form_templates
+
+  Tags: back
+
+  Assigne: Miguel Angel Valdés García
+
+- ✅ [26150] Corregir acceso denegado al bucket de templates de la multi-users-prod-api
+
+  Contexto: AccessDenied: User: arn:aws:sts::559878150643:assumed-role/multi-users-prod-us-east-1-lambdaRole/multi-users-prod-api is not authorized to perform: s3:ListBucket on resource: "arn:aws:s3:::multi-email-templates-9fe5" because no identity-based policy allows the s3:ListBucket action
+
+  Tags: back
+
+  Assigne: Miguel Angel Valdés García
+
+- ✅ [26151] En el perfil de un cliente, al seleccionar un día del calendario, no se muestran las actividades de ese día
+
+  Contexto: [Vista](https://www.multinature.mx/customers/profile/742745d3-86fa-46dd-8f6c-7910284dfec7/)
+  Login con usuario mvaldes988@gmail.com (12345678)
+  Cliente mvaldes999@gmail.com (Miguel TEST Valdés TEST)
+  Ambiente PROD
+
+  No se puede ver la cita que tiene agendada para el 26 de septiembre
+
+  Tags: front
+
+  Assigne: Erick Robles
