@@ -1018,8 +1018,11 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 - ✅ [26151] En el perfil de un cliente, al seleccionar un día del calendario, no se muestran las actividades de ese día
 
   Contexto: [Vista](https://www.multinature.mx/customers/profile/742745d3-86fa-46dd-8f6c-7910284dfec7/)
+
   Login con usuario mvaldes988@gmail.com (12345678)
+
   Cliente mvaldes999@gmail.com (Miguel TEST Valdés TEST)
+
   Ambiente PROD
 
   No se puede ver la cita que tiene agendada para el 26 de septiembre
@@ -1027,3 +1030,25 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: front
 
   Assigne: Erick Robles
+
+- ✅ [26152] Agregar lista de subspecialties a la base de datos de PROD
+
+  Contexto: Agregar lista de subspecialties a la base de datos de producción y hacer que las subespecialidades se vean en el frontend para que el especialista pueda agregarlas; revisar si existen más subespecialidades, ya que Lorena nos comento otra que no ví en la lista pero no recuerdo. También revisar que este listado sea retornado por el backend en el mismo endpoint donde se ven las especialidades
+
+  Tags: front
+
+  Assigne: Erick Robles
+
+- ✅ [26153] Actualizar los openpay_id de los usuarios creados en producción
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García
+
+- ✅ [26154] Respetar el orden de las preguntas del formulario
+
+  Contexto: Aplicar este cambio en todos los lugares donde sea necesario, pero el orden de las preguntas en las que se cree el formulario debe ser el mismo orden de las preguntas al responder los formularios en consulta
+
+  Tags: back, front
+
+  Assigne: Samuel Reveles

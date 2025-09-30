@@ -88,7 +88,7 @@ Task Name Description Priority Status tags
 
   Assignee: Samuel Reveles
 
-- ✅ [24011] Diseñar y desarrollar vista para mostrar el historico de formularios llenados en citas del paciente
+- ✅ [24011] Diseñar y desarrollar vista para mostrar el histórico de formularios llenados en citas del paciente
 
   Contexto: Diseñar la vista que muestre el historial de formularios llenados en cada cita del paciente con la opción de ver detalles.
 
@@ -136,7 +136,7 @@ Task Name Description Priority Status tags
 
   Tags: negocio
 
-  Assignee: Miguel Angel Valdés García
+  Assignee: Antoine Ganem
 
 - ✅ [24018] Actualizar el funcionamiento de los `form_template_concepts` y los `concepts` para que sea afín al frontend
 
@@ -238,3 +238,13 @@ Task Name Description Priority Status tags
   Tags: back
 
   Assignee: Antoine Ganem
+
+  NOTA: Esta tarea es similar a la tarea _[24017] Crear formularios de "Valoración inicial (Multinature)" y "Dietocalculos (Multinature)"_
+
+- ✅ [24028] Al crear/editar un fomulario permitir agregar/quitar la meta de cualquier concepto
+
+  Contexto: Al crear/editar un fomulario permitir agregar/quitar la meta de cualquier concepto. Al llenar estos formularios en consulta solicitar la meta de manera forzosa y preseleccionar la última meta (este punto puede quedar desde front o desde back, depende como mejor convenga, ya sea que front lo previsualice, lo envie en la req y back lo valide o que back no lo espere y lo registre en automatico en la DB copiando la última meta del concepto)
+
+  Tags: back, front
+
+  Assigne: Samuel Reveles

@@ -231,7 +231,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Samuel Reveles
 
-- [20031] Modificar las bases de datos para que no sean públicas
+- ✅ [20031] Modificar las bases de datos para que no sean públicas
 
   Contexto: Según recuerdo, en una investigación que realice para buscar reducir costos de AWS, tener las bases de datos públicas en RDS genera costos. El objetivo de la tarea es hacerlas privadas y permitir que cada equipo del team pueda conectarse a ambas bases de datos.
 
@@ -239,7 +239,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Samuel Reveles
 
-- [20032] Separar los buckets por ambiente
+- ✅ [20032] Separar los buckets por ambiente
 
   Contexto: Separar todos los buckets por ambiente, considerar actualizar también las variables de ambiente
 
@@ -247,7 +247,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Samuel Reveles
 
-- [20033] Utilizar JWT_SECRET diferente por ambientes
+- ✅ [20033] Utilizar JWT_SECRET diferente por ambientes
 
   Contexto: Utilizar JWT_SECRET diferente por ambientes, procurar que el de PROD sea más complejo
 
@@ -255,14 +255,26 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
   Assignee: Samuel Reveles
 
-- [20034] Agregar un delete on cascade a la tabla verification_codes cuando un usuario se elimine
+- ✅ [20034] Agregar un delete on cascade a la tabla verification_codes cuando un usuario se elimine
 
   Tags: back
 
   Assignee: Erick Robles
 
-- [20035] Agregar Terminos y Condiciones al crear una cuenta
+- ✅ [20035] Agregar Terminos y Condiciones al crear una cuenta
 
   Tags: back
 
   Assignee: Erick Robles
+
+- ✅ [20036] Cambiar los repositorios remotos de Back a la cuenta de inmunosalud.mx@gmail.com
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García
+
+- ✅ [20037] Agregar Reviewrs para realizar los merge los repositorios remotos de Back
+
+  Tags: back
+
+  Assignee: Miguel Angel Valdés García
