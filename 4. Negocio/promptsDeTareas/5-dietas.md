@@ -20,7 +20,7 @@ _Tarea creada por Samuel_
 
 - ✅ [05004] Refactorizar estructura de diets_snapshots y actualizar su uso en el sistema
 
-  Contexto: Agregar las siguientes columnas a la tabla de `diets_snapshots`
+  Context: Agregar las siguientes columnas a la tabla de `diets_snapshots`
 
   `startDate` date NOT NULL,
   `endDate` date NOT NULL,
@@ -33,7 +33,7 @@ _Tarea creada por Samuel_
 
 - ✅ [05005] Refactorizar estructura de diets y actualizar su uso en el sistema
 
-  Contexto: Agregar las siguientes columnas a la tabla de `diets`
+  Context: Agregar las siguientes columnas a la tabla de `diets`
 
   `calories_per_day` double NOT NULL,
   `protein_per_day` double NOT NULL,
@@ -46,7 +46,7 @@ _Tarea creada por Samuel_
 
 - ✅ [05006] Refactorizar estructura de foods_equivalences y actualizar su uso en el sistema
 
-  Contexto: Renombrar la columna `quantity` por `equivalent_quantity` en la tabla de `foods_equivalences`, la columna debe ser un double NOT NULL,
+  Context: Renombrar la columna `quantity` por `equivalent_quantity` en la tabla de `foods_equivalences`, la columna debe ser un double NOT NULL,
 
   Tags: back
 
@@ -54,7 +54,7 @@ _Tarea creada por Samuel_
 
 - ✅ [05007] Agregar las propiedades `caloriesPerDay`, `proteinPerDay`, `lipidsPerDay`, `carbohydratesPerDay` a los diet snapshots
 
-  Contexto: Agregar las columnas a la tabla `diets_snapshots`, actualizar el código que este involucrado con esa tabla (CRUD de `diets_snapshots`) y actualizar también el archivo `src/dto/userSummaryDTO.js` para que se incluyan las propiedades `caloriesPerDay`, `proteinPerDay`, `lipidsPerDay`, `carbohydratesPerDay` a los objetos `diet`.
+  Context: Agregar las columnas a la tabla `diets_snapshots`, actualizar el código que este involucrado con esa tabla (CRUD de `diets_snapshots`) y actualizar también el archivo `src/dto/userSummaryDTO.js` para que se incluyan las propiedades `caloriesPerDay`, `proteinPerDay`, `lipidsPerDay`, `carbohydratesPerDay` a los objetos `diet`.
 
   Tags: back
 
@@ -230,7 +230,7 @@ _Tarea creada por Samuel_
 
 - ✅ [05029] Revisar los flujos de Menus
 
-  Contexto: Los menus son entidades, deben guardarse de manera independiente a la dieta, no en la misma consulta, deberían tener su propio CRUD
+  Context: Los menus son entidades, deben guardarse de manera independiente a la dieta, no en la misma consulta, deberían tener su propio CRUD
 
   Tags: back, front
 

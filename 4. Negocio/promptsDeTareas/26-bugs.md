@@ -4,7 +4,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26001] El Usuario registrado no esta dado de alta en openpay
 
-  Contexto: Al crear un usuario éste no esta guardando el openpayUserId en la base de datos y se desconoce si esta creando al usuario en Openpay. Revisar el error.
+  Context: Al crear un usuario éste no esta guardando el openpayUserId en la base de datos y se desconoce si esta creando al usuario en Openpay. Revisar el error.
   El error se detecto al crear al usuario 000@multi.com y quere iniciar sesión con el
 
   Tags: back
@@ -13,7 +13,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26002] Corregir el antiquity de la respuesta al momento de crear un usuario
 
-  Contexto: Al crear un usuario el antiquity que debería aparecer en la respuesta es de 0 'meses', no 'NaN meses'
+  Context: Al crear un usuario el antiquity que debería aparecer en la respuesta es de 0 'meses', no 'NaN meses'
 
   Tags: back
 
@@ -27,7 +27,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26004] Ajustar la respuesta de inicio de sesión no valido por falta de confirmación de correo
 
-  Contexto: Ajustar la respuesta de inicio de sesión no valido por falta de confirmación de correo. Agregar un mensaje como `"Tu cuenta no ha sido verificada. Por favor, completa la verificación con el código que enviamos a tu correo, si no cuentas con el código intenta solicitando uno nuevo."` y con un codigo de error `428`
+  Context: Ajustar la respuesta de inicio de sesión no valido por falta de confirmación de correo. Agregar un mensaje como `"Tu cuenta no ha sido verificada. Por favor, completa la verificación con el código que enviamos a tu correo, si no cuentas con el código intenta solicitando uno nuevo."` y con un codigo de error `428`
 
   Tags: back
 
@@ -35,7 +35,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26005] Errores al crear y verficar cuentas de usuarios
 
-  Contexto: No se envía el código de verificación en el correo y el token que se envia en la respuesta de la `Verficación de cuenta` esta malformado
+  Context: No se envía el código de verificación en el correo y el token que se envia en la respuesta de la `Verficación de cuenta` esta malformado
 
   Tags: back
 
@@ -43,13 +43,13 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26006] Asegurarse que se generen los consumos de usuarios
 
-  Contexto: Asegurarse que al completar el pago de una compra se registren los consumos del usuario
+  Context: Asegurarse que al completar el pago de una compra se registren los consumos del usuario
 
   Tags: back
 
 - ✅ [26007] Error al intentar acceder al detalle de un producto desde el [home de un cliente](https://www.multinaturecompany.com/home/F)
 
-  Contexto: folio: "5a4be020-e6dd-48e4-a2ff-d18af000a13f"
+  Context: folio: "5a4be020-e6dd-48e4-a2ff-d18af000a13f"
 
   path: `GET /products/2e17cfde-136c-481f-bd33-9e4b16ab5d91`
 
@@ -57,7 +57,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26008] Eliminar el endpoint POST {{userHost}}/specialists/config/:id. El PATCH debería ser suficiente
 
-  Contexto: El `PATCH {{userHost}}/specialists/config/:id` debería ser suficiente incluso para crear las configuraciones, a ojos del cliente todo especialista tiene configuraciones, a ojos del servidor el especialista que no tiene configuraciones utiliza las de default y eso nos basta para justificar porque solo debería existir el endpoint `PATCH`. Validar que el PATCH funcione como un `upsert` y renombrar todo lo referente. Eliminar todo lo de `create` validaciones, servicios, rutas, etc. y renombrar lo de `update` por `upsert`. Si no queda claro revisar como referencia la cart-api, para las recomendaciones o el carrito en si
+  Context: El `PATCH {{userHost}}/specialists/config/:id` debería ser suficiente incluso para crear las configuraciones, a ojos del cliente todo especialista tiene configuraciones, a ojos del servidor el especialista que no tiene configuraciones utiliza las de default y eso nos basta para justificar porque solo debería existir el endpoint `PATCH`. Validar que el PATCH funcione como un `upsert` y renombrar todo lo referente. Eliminar todo lo de `create` validaciones, servicios, rutas, etc. y renombrar lo de `update` por `upsert`. Si no queda claro revisar como referencia la cart-api, para las recomendaciones o el carrito en si
 
   Tags: back
 
@@ -65,7 +65,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26009] Error al reingresar a la página, solicitud de inicio de sesión incorrecta
 
-  Contexto: Al reingresar a la página después de un tiempo de haber cerrado la pestaña se solicita inicar sesión de nuevo, pero no muestra el formulario de login y tampoco indica con que cuenta se inicio sesión, si no se ha cerrado la sesión o no se ha vencido el token, entonces que al reingresar a la página, no se solicite un reinicio de sesión
+  Context: Al reingresar a la página después de un tiempo de haber cerrado la pestaña se solicita inicar sesión de nuevo, pero no muestra el formulario de login y tampoco indica con que cuenta se inicio sesión, si no se ha cerrado la sesión o no se ha vencido el token, entonces que al reingresar a la página, no se solicite un reinicio de sesión
 
   Tags: front
 
@@ -73,13 +73,13 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26010] La tabla users_specialies no tiene llaves foraneas
 
-  Contexto: Agregar las FKs para la tabla de users y la specialties
+  Context: Agregar las FKs para la tabla de users y la specialties
 
   Tags: back
 
 - ✅ [26011] Renombrar la tabla de `form_template_units` a `form_template_concepts`
 
-  Contexto: Considerar modificar también el código
+  Context: Considerar modificar también el código
 
   Tags: back
 
@@ -87,7 +87,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26012] Error 500 al editar la tax information de un usuario, implementar un Upsert en lugar de un create/update
 
-  Contexto: Eliminar el endpoint: `POST {{userHost}}/users/tax-info/:userId` y actualizar el endpoint: `PATCH {{userHost}}/users/tax-info/:id` para que funcione como un upsert
+  Context: Eliminar el endpoint: `POST {{userHost}}/users/tax-info/:userId` y actualizar el endpoint: `PATCH {{userHost}}/users/tax-info/:id` para que funcione como un upsert
 
   Tags: back
 
@@ -121,7 +121,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26017] Cambiar la posición de los tipos de pago de la respuesta del endpoint `GET {{userHost}}/api/config`
 
-  Contexto: En la respuesta del endpoint `GET {{userHost}}/api/config` se agregan los tipos de pago dentro del objeto `orders`, sacarlos de ahí, dejarlos a nivel de `orders` o de `paymentMethods` y nombrarlos como `paymentTypes`
+  Context: En la respuesta del endpoint `GET {{userHost}}/api/config` se agregan los tipos de pago dentro del objeto `orders`, sacarlos de ahí, dejarlos a nivel de `orders` o de `paymentMethods` y nombrarlos como `paymentTypes`
 
   Tags: back
 
@@ -145,7 +145,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26020] Cambiar de api todo lo referente a la tabla `working_hours` del users-api, pasarlo a la bookings-api
 
-  Contexto: Incluir el cambio de endpoints y actualizar el api-collection
+  Context: Incluir el cambio de endpoints y actualizar el api-collection
 
   Tags: back
 
@@ -267,7 +267,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26036] Revisar el error 500 al eliminar un producto
 
-  Contexto: Log: [`2025-07-17T18:10:15.772Z 31b2fa98-9266-4a77-a9e1-822e94ca40bd INFO ### DELETE /products/f4498a5a-3fb7-4cd2-af5a-4cb4fe30e0ad`](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/$252Faws$252Flambda$252Fmulti-products-dev-api/log-events/2025$252F07$252F17$252F$255B$2524LATEST$255De8bdb3aa83fc45bca918f9ff3dc263d0)
+  Context: Log: [`2025-07-17T18:10:15.772Z 31b2fa98-9266-4a77-a9e1-822e94ca40bd INFO ### DELETE /products/f4498a5a-3fb7-4cd2-af5a-4cb4fe30e0ad`](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/$252Faws$252Flambda$252Fmulti-products-dev-api/log-events/2025$252F07$252F17$252F$255B$2524LATEST$255De8bdb3aa83fc45bca918f9ff3dc263d0)
 
   Revisar también que al eliminar un producto se responda solo con los productos activos (los que no han sido eliminados lógicamente). En general este tipo de respuesta, con solo los productos activos debe funcionar para toda al API, revisar todos los endpoints, desde las queries (`WHERE is_active = true`) hasta el DTO
 
@@ -279,7 +279,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26037] Error al querer crear una compra mensual con un usuario que no ha agregado ninguna tarjeta a su usuario
 
-  Contexto: Log: [`2025-07-17T22:42:47.550Z 2025-07-17T22:42:47.550Z 1baf477d-8a84-4c29-bd9a-a3e90d3923b1 INFO ### PATCH /monthly-purchase/`](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/$252Faws$252Flambda$252Fmulti-monthly-purchase-dev-api/log-events/2025$252F07$252F17$252F$255B$2524LATEST$255De555572cc95148b891fe5d8a51e3b69a$3Fstart$3D2025-07-17T22$253A42$253A47.557Z)
+  Context: Log: [`2025-07-17T22:42:47.550Z 2025-07-17T22:42:47.550Z 1baf477d-8a84-4c29-bd9a-a3e90d3923b1 INFO ### PATCH /monthly-purchase/`](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/$252Faws$252Flambda$252Fmulti-monthly-purchase-dev-api/log-events/2025$252F07$252F17$252F$255B$2524LATEST$255De555572cc95148b891fe5d8a51e3b69a$3Fstart$3D2025-07-17T22$253A42$253A47.557Z)
 
   Desde backend responder con un mensaje de error adecuado (manejo del error), desde el frontend no permitir crear la compra mensual sin antes tener un método de pago de tipo pago (una tarjeta registrada), pedirle al usuario que agregué una tarjeta y después completar la creación de la compra mensual
 
@@ -291,7 +291,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26038] Al actualizar una cita se responde con un arreglo vacio
 
-  Contexto: Revisar si al actualizar una cita se debe responder con la cita ya actualizada, o con las últimas citas de quien hace la actualización
+  Context: Revisar si al actualizar una cita se debe responder con la cita ya actualizada, o con las últimas citas de quien hace la actualización
 
   Tags: back
 
@@ -301,7 +301,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26039] Quitar los inputs del Cálculo de Dieta que no se requieran según la(s) fórmula(s) seleccionadas
 
-  Contexto: En el Cálculo de Dieta en el paso de calcular las kilocalorias por día quitar los inputs que no se requieran según la(s) fórmula(s) seleccionadas, por ejemplo la fórmula Health Canada es la única que utiliza el CAF, entonces el input del CAF solo debería aparecer cuando se tiene esa fórmula seleccionada.
+  Context: En el Cálculo de Dieta en el paso de calcular las kilocalorias por día quitar los inputs que no se requieran según la(s) fórmula(s) seleccionadas, por ejemplo la fórmula Health Canada es la única que utiliza el CAF, entonces el input del CAF solo debería aparecer cuando se tiene esa fórmula seleccionada.
 
   Tags: front
 
@@ -309,7 +309,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26040] No sé pueden eliminar las plantillas de los formularios
 
-  Contexto: El error se presenta porque existen registros en la tabla filled_forms que están referenciando al form_template que estás intentando eliminar. La mejor práctica en estos casos, especialmente si buscamos mantener los filled_forms, es no eliminar físicamente el form_template, sino solo marcarlo como eliminado.
+  Context: El error se presenta porque existen registros en la tabla filled_forms que están referenciando al form_template que estás intentando eliminar. La mejor práctica en estos casos, especialmente si buscamos mantener los filled_forms, es no eliminar físicamente el form_template, sino solo marcarlo como eliminado.
 
   Agregar la `deleted_at`
 
@@ -771,7 +771,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26119] Actualizar la Distribución de Macronutrientes para permitirle a los especialistas hacer la distribución en gramos, kcal o porcentajes, dependiendo como lo seleccionen
 
-  Contexto: Actualizar la Distribución de Macronutrientes para permitirle a los especialistas hacer la distribución en gramos, kcal o porcentajes, dependiendo como lo seleccionen. También actualizar en automático el último de los macronutrientes a partir de la resta de los otros dos previamente seleccionados. Aunque se seleccione en automático el último de los macronutrientes, igual este debería poder editarse. Y modificar la vista para que el total de los macronutrientes aparezca al lado de los input de macronutrientes, es decir la sección de "Selección de Macronutrientes (%)" debe tener cuatro columnas, tres inputs y el Total (con la funcionalidad de "semaforo")
+  Context: Actualizar la Distribución de Macronutrientes para permitirle a los especialistas hacer la distribución en gramos, kcal o porcentajes, dependiendo como lo seleccionen. También actualizar en automático el último de los macronutrientes a partir de la resta de los otros dos previamente seleccionados. Aunque se seleccione en automático el último de los macronutrientes, igual este debería poder editarse. Y modificar la vista para que el total de los macronutrientes aparezca al lado de los input de macronutrientes, es decir la sección de "Selección de Macronutrientes (%)" debe tener cuatro columnas, tres inputs y el Total (con la funcionalidad de "semaforo")
 
   Tags: front
 
@@ -835,7 +835,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26128] Link al dar de alta cliente en el correo y validar en el componente el link
 
-  Contexto: Corregir la liga de verificación de los correos de registro de nuevo usuario (También puedes verificar tu cuenta haciendo <a href="https://www.multinaturecompany.com/users/verify-account?code&#x3D;755067&amp;email&#x3D;000%40miguel.com">click aquí.</a></p>\r\n')
+  Context: Corregir la liga de verificación de los correos de registro de nuevo usuario (También puedes verificar tu cuenta haciendo <a href="https://www.multinaturecompany.com/users/verify-account?code&#x3D;755067&amp;email&#x3D;000%40miguel.com">click aquí.</a></p>\r\n')
 
   Tags: back, front
 
@@ -853,7 +853,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26130] Añadir la opcion de "Lunes a viernes" en la configuracion de horario
 
-  Contexto: En el select de días de los horarios de atención agregar una opción de Lunes a Viernes, para que el usuario no tenga que agregar día por día
+  Context: En el select de días de los horarios de atención agregar una opción de Lunes a Viernes, para que el usuario no tenga que agregar día por día
 
   Tags: back, front
 
@@ -887,7 +887,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26134] Modificar la fórmula de AGA ya que actualmente maneja un rango bastante amplio
 
-  Contexto: Tal vez solo promediando será suficiente, pero revisar si se puede obtener un resultado más preciso
+  Context: Tal vez solo promediando será suficiente, pero revisar si se puede obtener un resultado más preciso
 
   Tags: front
 
@@ -927,7 +927,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26140] Al crear formularios se están duplicando conceptos que ya existen
 
-  Contexto: Al crear formularios se están duplicando los conceptos que ya existen, incluso si los crea el mismo especialista, esta copia de conceptos solo debe ocurrir si el esepecialista agrega un descripción o una unidad de medida diferente a las que ya existen.
+  Context: Al crear formularios se están duplicando los conceptos que ya existen, incluso si los crea el mismo especialista, esta copia de conceptos solo debe ocurrir si el esepecialista agrega un descripción o una unidad de medida diferente a las que ya existen.
 
   Tags: front
 
@@ -941,7 +941,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26142] Corregir error de Nodemailer al enviar correos
 
-  Contexto: ERROR 📩 🡪 [emails-layer],[sendEmailsByNodemailerTransport()] ❌ Nodemailer SendEmail failed: Error: connect ETIMEDOUT 142.251.111.109:465
+  Context: ERROR 📩 🡪 [emails-layer],[sendEmailsByNodemailerTransport()] ❌ Nodemailer SendEmail failed: Error: connect ETIMEDOUT 142.251.111.109:465
   at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1636:16) {
   errno: -110,
   code: 'ESOCKET',
@@ -965,7 +965,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26144] Error al verificar cuenta. No se esta creando el usuario en Openpay
 
-  Contexto: [URL](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/$252Faws$252Flambda$252Fmulti-users-prod-api/log-events/2025$252F09$252F26$252F$255B$2524LATEST$255D36c7975d402540e5908963955f4da9d4)
+  Context: [URL](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/$252Faws$252Flambda$252Fmulti-users-prod-api/log-events/2025$252F09$252F26$252F$255B$2524LATEST$255D36c7975d402540e5908963955f4da9d4)
 
   Folio: 6eb6e401-da3e-4988-8321-6bbe0460cb42
 
@@ -981,7 +981,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26146] Revisar que los formularios creados por un admin no sé editen sino que se cree una copia a partir del formulario editado
 
-  Contexto: Los formularios de Administrador General solo deben poder ser actualizados por el mismo, si un especialista edita el formulario se debe crear un formulario copia a nombre del especialista que lo creo
+  Context: Los formularios de Administrador General solo deben poder ser actualizados por el mismo, si un especialista edita el formulario se debe crear un formulario copia a nombre del especialista que lo creo
 
   Tags: front
 
@@ -989,7 +989,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26147] En flujo de convertirse a especialista, en paso de crear formulario que aparezcan los formularios creados por el Administrador general
 
-  Contexto: Que los formularios que aparezcan sean solo aquellos que compartan las especilidades del especialista
+  Context: Que los formularios que aparezcan sean solo aquellos que compartan las especilidades del especialista
 
   Tags: front
 
@@ -1009,7 +1009,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26150] Corregir acceso denegado al bucket de templates de la multi-users-prod-api
 
-  Contexto: AccessDenied: User: arn:aws:sts::559878150643:assumed-role/multi-users-prod-us-east-1-lambdaRole/multi-users-prod-api is not authorized to perform: s3:ListBucket on resource: "arn:aws:s3:::multi-email-templates-9fe5" because no identity-based policy allows the s3:ListBucket action
+  Context: AccessDenied: User: arn:aws:sts::559878150643:assumed-role/multi-users-prod-us-east-1-lambdaRole/multi-users-prod-api is not authorized to perform: s3:ListBucket on resource: "arn:aws:s3:::multi-email-templates-9fe5" because no identity-based policy allows the s3:ListBucket action
 
   Tags: back
 
@@ -1017,7 +1017,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26151] En el perfil de un cliente, al seleccionar un día del calendario, no se muestran las actividades de ese día
 
-  Contexto: [Vista](https://www.multinature.mx/customers/profile/742745d3-86fa-46dd-8f6c-7910284dfec7/)
+  Context: [Vista](https://www.multinature.mx/customers/profile/742745d3-86fa-46dd-8f6c-7910284dfec7/)
 
   Login con usuario mvaldes988@gmail.com (12345678)
 
@@ -1033,7 +1033,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26152] Agregar lista de subspecialties a la base de datos de PROD
 
-  Contexto: Agregar lista de subspecialties a la base de datos de producción y hacer que las subespecialidades se vean en el frontend para que el especialista pueda agregarlas; revisar si existen más subespecialidades, ya que Lorena nos comento otra que no ví en la lista pero no recuerdo. También revisar que este listado sea retornado por el backend en el mismo endpoint donde se ven las especialidades
+  Context: Agregar lista de subspecialties a la base de datos de producción y hacer que las subespecialidades se vean en el frontend para que el especialista pueda agregarlas; revisar si existen más subespecialidades, ya que Lorena nos comento otra que no ví en la lista pero no recuerdo. También revisar que este listado sea retornado por el backend en el mismo endpoint donde se ven las especialidades
 
   Tags: front
 
@@ -1047,8 +1047,38 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [26154] Respetar el orden de las preguntas del formulario
 
-  Contexto: Aplicar este cambio en todos los lugares donde sea necesario, pero el orden de las preguntas en las que se cree el formulario debe ser el mismo orden de las preguntas al responder los formularios en consulta
+  Context: Aplicar este cambio en todos los lugares donde sea necesario, pero el orden de las preguntas en las que se cree el formulario debe ser el mismo orden de las preguntas al responder los formularios en consulta
 
   Tags: back, front
 
   Assigne: Samuel Reveles
+
+- [261??] Al asignar un cliente que ya existe a un especialista aparece un error por AccessDenied
+
+  Context: Yo como especialista, al intentar dar de alta de un cliente que existe en un sistema se presenta el siguiente error:
+
+  ```
+  {
+    "folio": "798ff028-dee3-490e-b090-442641994df8",
+    "message": "El usuario no pudo ser asignado al especialista.",
+    "content": {
+        "details": {
+            "name": "AccessDenied",
+            "$fault": "client",
+            "$metadata": {
+                "httpStatusCode": 403,
+                "requestId": "JXE5NK8X4NZCN28V",
+                "extendedRequestId": "l8FHyr8r6Q6qlbAqcFo/X0yThKhaZ9aDq2I8QpG64eGc8HvncUfdEa/g4HhSXgtpz1yTgJFx06w=",
+                "attempts": 1,
+                "totalRetryDelay": 0
+            },
+            "Code": "AccessDenied",
+            "RequestId": "JXE5NK8X4NZCN28V",
+            "HostId": "l8FHyr8r6Q6qlbAqcFo/X0yThKhaZ9aDq2I8QpG64eGc8HvncUfdEa/g4HhSXgtpz1yTgJFx06w=",
+            "message": "User: arn:aws:sts::559878150643:assumed-role/multi-users-dev-us-east-1-lambdaRole/multi-users-dev-api is not authorized to perform: s3:ListBucket on resource: \"arn:aws:s3:::multi-email-templates-9fe5-dev\" because no identity-based policy allows the s3:ListBucket action"
+        }
+    }
+  }
+  ```
+
+  Pero aún así se asigna el paciente

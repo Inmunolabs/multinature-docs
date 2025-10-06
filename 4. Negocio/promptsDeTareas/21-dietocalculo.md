@@ -4,7 +4,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [21001] Diseñar con patrones de diseño el funcionamiento de dietocalculos
 
-  Contexto: Este funcionamiento debe ser agregado a la diets-api y consiste en diseñar un modelo de clases para utilizar las diferentes fórmulas de dietocáculo con el fin de calcular el Gasto Energético Basal (GEB) de un usuario. Las fórmulas identificadas hasta el momento son:
+  Context: Este funcionamiento debe ser agregado a la diets-api y consiste en diseñar un modelo de clases para utilizar las diferentes fórmulas de dietocáculo con el fin de calcular el Gasto Energético Basal (GEB) de un usuario. Las fórmulas identificadas hasta el momento son:
 
   1.  Harris Benedict
   2.  Institute of medicine (IOM)
@@ -28,7 +28,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [21002] Crear las clases para cada fórmula de dietocálculo
 
-  Contexto: Tener en cuenta que existen "fórmulas" que más que fórmulas son tablas.
+  Context: Tener en cuenta que existen "fórmulas" que más que fórmulas son tablas.
 
   Fórmulas:
 
@@ -50,7 +50,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [21003] Crear endpoint en el diets-api que permita obtener el resultado de un dietocálculo
 
-  Contexto: El endpoint debe ser capaz de recibir las diferentes fórmulas con las que se busca obtener el resultado del dietocálculo. Cada fórmula debe tener una validación de los campos que necesita, como edad, peso, estatura, etc. (debe haber una validación general y que cada formula la implemente de acuerdo a sus necesidades). Este endpoint debe obtener las calorias por día que debe consumir el paciente y guardarlo en el registro de la base de datos para su dieta. El proceso del dietocálculo debe ser correctamente logeado, para posibles futuras revisiones.
+  Context: El endpoint debe ser capaz de recibir las diferentes fórmulas con las que se busca obtener el resultado del dietocálculo. Cada fórmula debe tener una validación de los campos que necesita, como edad, peso, estatura, etc. (debe haber una validación general y que cada formula la implemente de acuerdo a sus necesidades). Este endpoint debe obtener las calorias por día que debe consumir el paciente y guardarlo en el registro de la base de datos para su dieta. El proceso del dietocálculo debe ser correctamente logeado, para posibles futuras revisiones.
 
   Tags: back
 
@@ -58,7 +58,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [21004] Agregar fórmulario de macronutrientes al panel de atención de cita (consulta de paciente)
 
-  Contexto: Agregar fórmulario de macronutrientes (Lípidos, Proteinas y Carbohidratos) al panel de atención de cita (consulta de paciente)
+  Context: Agregar fórmulario de macronutrientes (Lípidos, Proteinas y Carbohidratos) al panel de atención de cita (consulta de paciente)
 
   Tags: front
 
@@ -66,7 +66,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [21005] Agregar el promedio de los resultados de las fórmulas del dietocalculo
 
-  Contexto: Durante el cálculo del dietocalculo se seleccionan varias formulas para obtener las calorias por día para la generación de la dieta de una persona, en la respuesta de este cálculo se responde el resultado de cada fórmula, agregar a esa respuesta el promediado de cada fórmula.
+  Context: Durante el cálculo del dietocalculo se seleccionan varias formulas para obtener las calorias por día para la generación de la dieta de una persona, en la respuesta de este cálculo se responde el resultado de cada fórmula, agregar a esa respuesta el promediado de cada fórmula.
 
   Tags: back
 
@@ -74,7 +74,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [21006] Implementar la obtención de la Masa Libre de Grasa (MLG)
 
-  Contexto: Corroborar que la MLG debe ser ingresada por el especialista y considerarla para los cálculos del dietocalculo
+  Context: Corroborar que la MLG debe ser ingresada por el especialista y considerarla para los cálculos del dietocalculo
 
   Tags: back
 

@@ -8,7 +8,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [27002] Diseñar diagrama relacional para manejo de dietas, alimentos y equivalencias
 
-  Contexto: Considerar las tablas actuales para la nueva implementación del API de alimentos, considerando equivalentes y grupos de alimentos
+  Context: Considerar las tablas actuales para la nueva implementación del API de alimentos, considerando equivalentes y grupos de alimentos
 
   Tags: back
 
@@ -40,7 +40,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [27006] Investigación sobre el Sistema Méxicano de Equivalentes
 
-  Contexto: Investigar sobre el Sistema Méxicano de Equivalentes para encontrar una fuente de los grupos de alimentos y sus equivalentes.
+  Context: Investigar sobre el Sistema Méxicano de Equivalentes para encontrar una fuente de los grupos de alimentos y sus equivalentes.
 
   Considerar comprar la lincencia de [smae](https://midietasmae.com.mx/)
 
@@ -50,7 +50,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [27007] Modificar la estructura de la tabla `foods` para alojar más detalle de los alimentos
 
-  Contexto: Agregar las siguientes columnas a la tabla de `foods`
+  Context: Agregar las siguientes columnas a la tabla de `foods`
 
   `quantity` double NOT NULL,
   `unit` enum('','barra','bolsa','bolsa chica (30g)','botella','cda','cdita','disp. de un segundo','filete','gramos','lata','mitades','paquete','pieza','reb','rebanada delgada','rebanada gruesa','sobre','taza') NOT NULL,
@@ -70,7 +70,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [27008] Ajustar lógica y estructuras impactadas por cambios en la tabla foods para mayor detalle de alimentos
 
-  Contexto: Ajustar el código por los cambios de la tarea 27007, ahí se agregaron las siguientes columnas a la tabla de `foods`
+  Context: Ajustar el código por los cambios de la tarea 27007, ahí se agregaron las siguientes columnas a la tabla de `foods`
 
   `quantity` double NOT NULL,
   `unit` enum('','barra','bolsa','bolsa chica (30g)','botella','cda','cdita','disp. de un segundo','filete','gramos','lata','mitades','paquete','pieza','reb','rebanada delgada','rebanada gruesa','sobre','taza') NOT NULL,
@@ -90,7 +90,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [27009] Poblar la tabla `foods` con la información de alimentos y platillos de smae
 
-  Contexto: Consultar la página de [smae](https://midietasmae.com.mx/), revisar la estructura de los datos, considerar hacer scraping para obtener la información y poblar la tabla `foods`
+  Context: Consultar la página de [smae](https://midietasmae.com.mx/), revisar la estructura de los datos, considerar hacer scraping para obtener la información y poblar la tabla `foods`
 
   Tags: back
 

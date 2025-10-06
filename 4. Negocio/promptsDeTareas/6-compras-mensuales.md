@@ -4,13 +4,13 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [06001] Al actualizar el método de pago de una compra mensual, seleccionar este método de pago como 'default' (isShippingPayment)
 
-  Contexto: Al actualizar el método de pago de la compra mensual, asegurar que el nuevo método se establezca como predeterminado `isShippingPayment`.
+  Context: Al actualizar el método de pago de la compra mensual, asegurar que el nuevo método se establezca como predeterminado `isShippingPayment`.
 
   Tags: back
 
 - ✅ [06002] Al actualizar el precio de algún producto también se debe actualizar la suscripción de Openpay de todos los usuarios
 
-  Contexto: Asegurar que las actualizaciones de precios de productos se reflejen automáticamente en las suscripciones de Openpay de cada usuario afectado.
+  Context: Asegurar que las actualizaciones de precios de productos se reflejen automáticamente en las suscripciones de Openpay de cada usuario afectado.
 
   Tags: back
 

@@ -52,7 +52,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [28007] Implementar flujo de creación de dietas con IA
 
-  Contexto: Implementar el flujo completo de creación de plan de dietas con IA
+  Context: Implementar el flujo completo de creación de plan de dietas con IA
 
   Tags: front
 
@@ -60,7 +60,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [28008] Implementar flujo de creación de dietas con IA
 
-  Contexto: Implementar el flujo completo de creación de plan de dietas con IA
+  Context: Implementar el flujo completo de creación de plan de dietas con IA
 
   Tags: back
 

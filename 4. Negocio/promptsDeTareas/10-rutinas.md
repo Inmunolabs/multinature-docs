@@ -4,7 +4,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [10001] Actualizar el routines-api para que tenga una estructura similar al diets-api
 
-  Contexto: La tarea abarca los siguientes puntos:
+  Context: La tarea abarca los siguientes puntos:
 
   1. Actualizar el routines-api para que tenga una estructura similar al diets-api.
   2. Intentar duplicar la estructura de los datos para que ambas apis tengan una estructura similar.
@@ -18,7 +18,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [10002] Refactorizar estructura de routines_snapshots y actualizar su uso en el sistema
 
-  Contexto: Agregar las siguientes columnas a la tabla de `routines_snapshots`
+  Context: Agregar las siguientes columnas a la tabla de `routines_snapshots`
 
   `startDate` date NOT NULL,
   `endDate` date NOT NULL,
@@ -31,7 +31,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [10003] Actualizar getDayDetail para agrupar ejercicios por rutina y ajustar reemplazos a nivel de rutina
 
-  Contexto: Actualizar el endpoint `getDayDetail` para que los ejercicios se agrupen por `routineId`, tanto para rutinas activas como para rutinas cargadas desde snapshot. Esta estructura agrupada es necesaria para mostrar correctamente los datos en el frontend, donde cada rutina representa un acordeón con sus ejercicios y equivalencias.
+  Context: Actualizar el endpoint `getDayDetail` para que los ejercicios se agrupen por `routineId`, tanto para rutinas activas como para rutinas cargadas desde snapshot. Esta estructura agrupada es necesaria para mostrar correctamente los datos en el frontend, donde cada rutina representa un acordeón con sus ejercicios y equivalencias.
   Los reemplazos de ejercicios deben ser a nivel de rutina, no de ejercicio, modificar el ENUM `type` de la tabla `user_action_replacements` de `enum('meal','exercise')` a `enum('meal','routine')` y todo lo que tenga relación en las APIs.
   La descripción de cada rutina (en las actividades de los usuarios) debe ser un concatenado de los nombres de los ejercicios con sus `repetitions` y ordenados ascendentemente (de 1 a "n").
 
@@ -57,7 +57,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [10006] Buscar una base de datos para los ejercicios de rutinas
 
-  Contexto: Considerar agregar rutinas basicas/genericas para facilitar el uso del sistema
+  Context: Considerar agregar rutinas basicas/genericas para facilitar el uso del sistema
 
   Tags: back
 
@@ -71,7 +71,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [10008] Crear una manera diferente para manejar las Estadísticas y Metas de rutinas.
 
-  Contexto: La tabla `users_goals` actual puede quedarse corta para registrar datos de rendimiento detallado. Se sugiere:
+  Context: La tabla `users_goals` actual puede quedarse corta para registrar datos de rendimiento detallado. Se sugiere:
 
   - Crear una tabla adicional `user_workout_stats` para registrar:
     - `user_id`, `routine_id`, `exercise_id`.

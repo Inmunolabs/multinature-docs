@@ -8,7 +8,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [19003] Diseñar el envio de notificaciones haciendo uso de patrones de diseño
 
-  Contexto: El sistema enviará notificaciones por correo, por whatsapp y también lo hara mediante un CRUD de notificaciones, diseñar una funcionalidad para permitir que las notificaciones se puedan enviar por estos tres medios, considerando la posibilidad de que algunas notificaciones podrían ser enviadas solo por uno de los tres medios mencionados.
+  Context: El sistema enviará notificaciones por correo, por whatsapp y también lo hara mediante un CRUD de notificaciones, diseñar una funcionalidad para permitir que las notificaciones se puedan enviar por estos tres medios, considerando la posibilidad de que algunas notificaciones podrían ser enviadas solo por uno de los tres medios mencionados.
   De momento toda la funcionalidad del Whatsapp no esta desarrollada ni definida pero tomarlo en cuenta para este diseño, además cabe mencionar que en un futuro se podrían implementar nuevos métodos de comunicación como mensajes SMS o alguna red social como Instagram o Facebook
 
   Tags: back
@@ -17,7 +17,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [19004] Crear la Notificación N2.1 para Especialistas. "Tienes un nuevo paciente"
 
-  Contexto: El fin de la notificaión es informar al Especialista que un nuevo usuario se agrego a su lista de pacientes, ya sea porque el mismo especialista lo registro o el paciente se autoasigno
+  Context: El fin de la notificaión es informar al Especialista que un nuevo usuario se agrego a su lista de pacientes, ya sea porque el mismo especialista lo registro o el paciente se autoasigno
 
   Tags: back
 
@@ -25,7 +25,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [19005] Crear el template de correos de la Notificación N2.1
 
-  Contexto: Crear el template de correos utilizando la imagen del sistema (paleta de colores, logos, etc.). El fin del correo es notificar al Especialista que un nuevo usuario se agrego a su lista de pacientes, agregar textos alusivos al fin del correo
+  Context: Crear el template de correos utilizando la imagen del sistema (paleta de colores, logos, etc.). El fin del correo es notificar al Especialista que un nuevo usuario se agrego a su lista de pacientes, agregar textos alusivos al fin del correo
 
   Tags: back
 
@@ -33,7 +33,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [19006] Notificar al usuario y al especialista sobre una actualización o cancelación de cita
 
-  Contexto: El usuario y el especialista deben ser notificados cada que se actualice o se cancele una cita.
+  Context: El usuario y el especialista deben ser notificados cada que se actualice o se cancele una cita.
   Tomar en cuenta los siguientes únicos y posibles cuatro escenarios:
 
   - En caso de que el especialista actualice una cita notificar al usuario
@@ -47,7 +47,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [19007] Notificar al usuario y/o al especialista sobre el agendamiento de una nueva cita
 
-  Contexto: Cuando el usuario y/o el especialista agenden una nueva cita cada uno debe ser notificado, en dicha notificación se debe aclarar que se espera la confirmación de la cita y esta acción deberá de generar dos posibles escenarios:
+  Context: Cuando el usuario y/o el especialista agenden una nueva cita cada uno debe ser notificado, en dicha notificación se debe aclarar que se espera la confirmación de la cita y esta acción deberá de generar dos posibles escenarios:
 
   - Si el especialista no tiene configurado el cobro de anticipo de confirmación de cita (campo `charge_advance_payment` de la nueva tabla `specialist_settings` igual o menor a 0) el mensaje de la notificación solo mencionará algo como "La cita fue confirmada por ..."
   - Si el especialista tiene configurado el cobro de anticipo de confirmación de cita (campo `charge_advance_payment` mayor a 0) el mensaje de la notificación deberá incluir un mensaje como "Recuerda pagar el anticipo de tu cita para poder confirmarla" (La cita se confirmará desde otra tarea)
@@ -63,7 +63,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [19008] Notificar al usuario y al especialista sobre la confirmación de una nueva cita
 
-  Contexto: Cuando el usuario y/o el especialista confirmen la asistencia a una nueva cita cada uno debe ser notificado.
+  Context: Cuando el usuario y/o el especialista confirmen la asistencia a una nueva cita cada uno debe ser notificado.
   Tomar en cuenta los siguientes escenarios:
 
   - Si el especialista tiene configurado el cobro de anticipo de confirmación de cita (campo `charge_advance_payment` de la nueva tabla `specialist_settings` mayor a 0) se deberá efectuar primero el cobro del anticpo de la cita (tarea: [03009] Generar una orden de pago para Cobro de confirmación de la cita) y una vez confirmado el pago de la misma (tarea: [03010] Crear webhook del pago de la confirmación de la cita) se deberá notificar al especialista que su paciente hizo el pago de confirmación y que esta listo para atender la nueva cita
@@ -76,7 +76,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [19009] Crear una tabla en la base de datos para el manejo de las notificaciones
 
-  Contexto: La tabla deberá tener la siguiente información: id, id del usuario, fecha en que fue creada, un título, el mensaje y un estatus (para identificar si la notificación ya fue leída)
+  Context: La tabla deberá tener la siguiente información: id, id del usuario, fecha en que fue creada, un título, el mensaje y un estatus (para identificar si la notificación ya fue leída)
 
   Tags: back
 
@@ -84,7 +84,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [19010] Crear api para el manejo de las notificaciones
 
-  Contexto: El objetivo de esta api es informar al usuario, mediante una vista en el frontend sobre sus notificaciones. En dicha vista el usuario podrá marcar como leídas las notificaciones (de una por una o cierta cantidad seleccionada) y es la única acción que el usuario puede hacer. Esto se traduce a dos endpoints, uno para listar las notificaciones por usuario y otro para marcarlas como leídas.
+  Context: El objetivo de esta api es informar al usuario, mediante una vista en el frontend sobre sus notificaciones. En dicha vista el usuario podrá marcar como leídas las notificaciones (de una por una o cierta cantidad seleccionada) y es la única acción que el usuario puede hacer. Esto se traduce a dos endpoints, uno para listar las notificaciones por usuario y otro para marcarlas como leídas.
 
   Tags: back
 
@@ -92,7 +92,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [19011] Integrar WhatsApp como canal de envío para notificaciones del sistema
 
-  Contexto: Investigar e integrar WhatsApp para enviar notificaciones por ahí
+  Context: Investigar e integrar WhatsApp para enviar notificaciones por ahí
 
   Tags: back
 

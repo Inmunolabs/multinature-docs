@@ -12,7 +12,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [23002] Crear endpoint para busqueda de recetas consultando a SMAE
 
-  Contexto: Crear el endpoint `GET /diets/dishes/search?q=pollo` para realizar una búsqueda en el portal de SMAE, el resultado de su respuesta tenemos que tratarlo para poder guardar los respectivos alimentos y su detalle en nuestra base de datos, y una vez este tratada y guardada la respuesta de SMAE responder al cliente con dichos resultados
+  Context: Crear el endpoint `GET /diets/dishes/search?q=pollo` para realizar una búsqueda en el portal de SMAE, el resultado de su respuesta tenemos que tratarlo para poder guardar los respectivos alimentos y su detalle en nuestra base de datos, y una vez este tratada y guardada la respuesta de SMAE responder al cliente con dichos resultados
 
   Tags: back
 
@@ -20,7 +20,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [23003] Modificar los pasos del flujo de plan de dieta.
 
-  Contexto: El nutriólogo debe poder elegir si después de la distibución de macronutrientes quiere continuar con la distribución de los Grupos de Alimentos (distribución de porciones) o con la asignación del Plan de Alimentación (que define los días de la semana, las comidas y selecciona los platillos para cada tiempo)
+  Context: El nutriólogo debe poder elegir si después de la distibución de macronutrientes quiere continuar con la distribución de los Grupos de Alimentos (distribución de porciones) o con la asignación del Plan de Alimentación (que define los días de la semana, las comidas y selecciona los platillos para cada tiempo)
 
   Tags: front
 
@@ -40,7 +40,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [23006] Que se vean las cantidades en gramos de los alimentos en las vistas donde sea requerida o de ayuda esta información
 
-  Contexto: Considerar gramos por porciones de ingredientes, por ejemplo una tortilla pesa 50gr.
+  Context: Considerar gramos por porciones de ingredientes, por ejemplo una tortilla pesa 50gr.
   En consulta los nutriólogos utilizan "Modelos de alimentos" que son estas figuras de plastico para representar el tamaño (porción) de los alimentos o en su defecto utilizan gramos para poder medirlos; nuestro sistema utilizará gramos
 
   Tags: back, front

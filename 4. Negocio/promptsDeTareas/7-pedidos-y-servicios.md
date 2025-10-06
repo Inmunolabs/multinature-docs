@@ -4,11 +4,11 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [07003] Crear una nueva tabla consumos y modificar los flujos correspondientes
 
-  Contexto: Modificar todos los funcionamientos y flujos para que el sistema siga trabajando de manera correcta con la nueva tabla de consumos, considerar relacionar la tabla de ordenes, productos y usuarios. Considerar la creación del trigger
+  Context: Modificar todos los funcionamientos y flujos para que el sistema siga trabajando de manera correcta con la nueva tabla de consumos, considerar relacionar la tabla de ordenes, productos y usuarios. Considerar la creación del trigger
 
 - ✅ [07004] Actualizar el orders-api para implementar la nueva lógica de perfiles y especialidades
 
-  Contexto: Revisar toda el api, ya que por ejemplo el archivo _src/classes/OrderTemplate.js_ utiliza código como este:
+  Context: Revisar toda el api, ya que por ejemplo el archivo _src/classes/OrderTemplate.js_ utiliza código como este:
 
   ```
     const partners = [
@@ -21,7 +21,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [07005] Analizar nueva lógica para generar cobros por servicios
 
-  Contexto: Revisar cual es nuestra mejor opción para generar cobros por los diferentes servicios que brindaremos, tener muy en cuenta la lógica los cobros de los pedidos.
+  Context: Revisar cual es nuestra mejor opción para generar cobros por los diferentes servicios que brindaremos, tener muy en cuenta la lógica los cobros de los pedidos.
   Hasta el momento los servicios que tenemos mapeados son tres: Cobro por anticipo de consulta, cobro de consulta y cobro de mensualidad. Los tres son servicios aplicables para nuestras dos especialidades actuales 'Entrenador' y 'Nutricionista'
 
   Tags: back

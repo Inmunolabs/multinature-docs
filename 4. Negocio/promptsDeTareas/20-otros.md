@@ -4,7 +4,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [20004] Implementación de constantes del sistema (configuraciones del sistema)
 
-  Contexto: Implementar las constantes del sistema, asegurando que los campos reflejen la respuesta del endpoint GET {{usersHost}}/api/config.
+  Context: Implementar las constantes del sistema, asegurando que los campos reflejen la respuesta del endpoint GET {{usersHost}}/api/config.
 
   Tags: front
 
@@ -12,7 +12,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [20005] Refactorización del Frontend
 
-  Contexto: Modularizar todo el código; refactorizar los services (llamadas a apis) y el redux toolkit de los diferentes modulos y organizar los archivos y folders para facilitar el trabajo.
+  Context: Modularizar todo el código; refactorizar los services (llamadas a apis) y el redux toolkit de los diferentes modulos y organizar los archivos y folders para facilitar el trabajo.
 
   Modulos de Redux:
 
@@ -37,7 +37,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [20006] Ignorar en Git los cambios en el meta.seq de todo el api-collection
 
-  Contexto: Investigar como igonorar cambios especificos en campos de un JSON en archivos .bru y aplicarlos a toda el api-collection
+  Context: Investigar como igonorar cambios especificos en campos de un JSON en archivos .bru y aplicarlos a toda el api-collection
 
   Tags: negocio
 
@@ -51,7 +51,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [20008] Agregar las unidades de los conceptos al endpoint `GET {{userHost}}/api/config`
 
-  Contexto: Agregar un arreglo con las unidades posibles que pueden tener los conceptos, como kilogramos, centrimetros, etc.
+  Context: Agregar un arreglo con las unidades posibles que pueden tener los conceptos, como kilogramos, centrimetros, etc.
 
   Tags: back
 
@@ -75,7 +75,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [20011] Dar seguimiento a la vista "Plan de compensación"
 
-  Contexto: Revisar con Andrés que pasará con esa vista, se quito del sistema pero al final si es requerida, no? Recuerdo que iba a quedar algo así como la que se tiene en Inmnuosalud.
+  Context: Revisar con Andrés que pasará con esa vista, se quito del sistema pero al final si es requerida, no? Recuerdo que iba a quedar algo así como la que se tiene en Inmnuosalud.
 
   Tags: negocio
 
@@ -83,7 +83,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [20012] Probar alta de un paciente y creación de usuario
 
-  Contexto: Revisar los flujo de creaciones de cuentas, alta de un paciente y registro propio.
+  Context: Revisar los flujo de creaciones de cuentas, alta de un paciente y registro propio.
   Durante la creación de usuario el api-config no puede traer la lista de genero (esto por un typo en el Frontend)
 
   Tags: negocio
@@ -116,7 +116,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [20018] Modificar el objeto de formulas de la respuesta del endpoint api-config
 
-  Contexto: Modificar el objeto `formulas` de la respuesta del endpoint api-config, debe ser un arreglo de objetos con las propiedades:
+  Context: Modificar el objeto `formulas` de la respuesta del endpoint api-config, debe ser un arreglo de objetos con las propiedades:
 
   - `name` que no es más que el nombre de la fórmula,
   - `constansts` debe agrupar en un arreglo las constantes que deben ser ingresadas por especialista para poder utilizar la fórmula (Coeficiente de actividad física (CAF), el Efecto térmico de los alimentos (ETA) y la Actividad física (AF))
@@ -160,7 +160,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [20023] Todos los links compartidos deben tener el id del recomendador
 
-  Contexto:
+  Context:
 
   - Corregir el link compartido de la [red de usuarios](https://www.multinature.mx/network/) (Botón de COPIAR TU ENLACE)
   - Agregar el id de quien comparte el [perfil de un especialista](https://www.multinature.mx/specialists-catalog/profile/8f74e464-176c-4662-a2fc-c013da3be786/) a la url, por si el usuario que abre la url no tiene una cuenta para que se registre como referido de quien le compartió el enlace
@@ -171,7 +171,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [20024] Modificar los porcentajes de comisiones de los niveles de red
 
-  Contexto: Los nuevos porcentajes de comisiones de los niveles de red son:
+  Context: Los nuevos porcentajes de comisiones de los niveles de red son:
 
   Plan de compensación
 
@@ -233,7 +233,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [20031] Modificar las bases de datos para que no sean públicas
 
-  Contexto: Según recuerdo, en una investigación que realice para buscar reducir costos de AWS, tener las bases de datos públicas en RDS genera costos. El objetivo de la tarea es hacerlas privadas y permitir que cada equipo del team pueda conectarse a ambas bases de datos.
+  Context: Según recuerdo, en una investigación que realice para buscar reducir costos de AWS, tener las bases de datos públicas en RDS genera costos. El objetivo de la tarea es hacerlas privadas y permitir que cada equipo del team pueda conectarse a ambas bases de datos.
 
   Tags: back
 
@@ -241,7 +241,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [20032] Separar los buckets por ambiente
 
-  Contexto: Separar todos los buckets por ambiente, considerar actualizar también las variables de ambiente
+  Context: Separar todos los buckets por ambiente, considerar actualizar también las variables de ambiente
 
   Tags: back
 
@@ -249,7 +249,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [20033] Utilizar JWT_SECRET diferente por ambientes
 
-  Contexto: Utilizar JWT_SECRET diferente por ambientes, procurar que el de PROD sea más complejo
+  Context: Utilizar JWT_SECRET diferente por ambientes, procurar que el de PROD sea más complejo
 
   Tags: back
 

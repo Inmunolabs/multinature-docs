@@ -17,6 +17,7 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de di
 - [GET /diets/equivalences/group - Grupos de equivalencias](./diets-equivalences-group.md)
 
 #### Cálculos y Creación
+- [POST /diets/generate-automatic - Generar dieta automática con IA](./diets-generate-automatic.md) ✨
 - [POST /diets/diet-calculations/:id - Calcular dieta](./diets-diet-calculations.md)
 - [POST /diets/:id - Crear/actualizar dieta](./diets-upsert.md)
 - [POST /diets/equivalences/:id - Establecer equivalencias](./diets-equivalences.md)

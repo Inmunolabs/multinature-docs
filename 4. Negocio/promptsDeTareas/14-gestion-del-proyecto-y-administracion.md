@@ -5,13 +5,13 @@
 
 - ✅ [14003] Estructurar la distribución de archivos para la documentación del proyecto en Google Drive
 
-  Contexto: Considerar modificar la ubicación de los templates de dietas y rutinas de Google Sheets y subir los archivos compartidos por los especialistas, nuestras notas y fotografías de pizarrones, y el resto de información que debería ser documentada.
+  Context: Considerar modificar la ubicación de los templates de dietas y rutinas de Google Sheets y subir los archivos compartidos por los especialistas, nuestras notas y fotografías de pizarrones, y el resto de información que debería ser documentada.
 
   Considerar actualizar la ruta de donde se obtienen los templates [MultiNature/2. Backend/spreadsheetsTemplates/v1.0](https://drive.google.com/drive/folders/1k8ewAPPuL3iLdtA_D-K657mLd6s_fZ8F?hl=es) y la ruta en donde se generarían las copias por pacientes, esta nueva ruta debería estar dentro del mismo Drive
 
 - ✅ [14004] Inicializar el diagrama de las epicas e historias de usuario del sistema
 
-  Contexto: Crear un diagrama en excalidraw para mejorar el seguimiento del desarrollo del proyecto. El diagrama debe contener las epicas, las historias de usuario y notas importantes determinadas hasta el momento, debe ser generado a partir de los acuerdos obtenidos en las reuniones de definición
+  Context: Crear un diagrama en excalidraw para mejorar el seguimiento del desarrollo del proyecto. El diagrama debe contener las epicas, las historias de usuario y notas importantes determinadas hasta el momento, debe ser generado a partir de los acuerdos obtenidos en las reuniones de definición
 
   Tags: negocio
 
@@ -19,7 +19,7 @@
 
 - ✅ [14005] Crear y publicar la documentación del proyecto
 
-  Contexto: Crear el repositorio remoto de GitHub y procurar hacer la documentación accesible para cualquier compañero del equipo
+  Context: Crear el repositorio remoto de GitHub y procurar hacer la documentación accesible para cualquier compañero del equipo
 
 - ✅ [14006] Mejorar los textos de la Landing Page a partir de las nuevas definiciones del proyecto
 
@@ -27,11 +27,11 @@
 
 - ✅ [14008] Concretar y simplificar la información obtenida en las sesiones en un diagrama de epicas e historias de usuario
 
-  Contexto: Utilizar [excalidraw](https://excalidraw.com/) para generar el diagrama
+  Context: Utilizar [excalidraw](https://excalidraw.com/) para generar el diagrama
 
 - ✅ [14009] Agregar a la documentación las credenciales de los sistemas que se involucran con Multi
 
-  Contexto:
+  Context:
 
   1. [JOPAKA](https://jopaka.onrender.com/#/jopaka) es el sistema desarrollado por Samuel y su equipo de tecnologo. Samuel nos pidio discreción para modificar datos lo menos posible ya que utiliza el proyecto para algunas presentaciones. Los diferentes perfiles que el nos ayudo a crear son:
 
@@ -52,7 +52,7 @@
 
 - ✅ [14010] Revisar las tareas pendientes de review
 
-  Contexto: Tareas:
+  Context: Tareas:
 
   [] [02002] Agregar bandera para definir si la dirección es un consultorio de especialista (ESTATUS SAMUEL: Ya esta)
   [] [07001] Modificar estructura de la tabla orders, unir los campos openpay y mercadoPago en uno solo (ESTATUS SAMUEL: Ya esta)
@@ -92,7 +92,7 @@
 
 - ✅ [14015] Investigar Nutrimind para agregar funcionalidades y formularios a Multinature
 
-  Contexto: Investigar [Nutrimind](https://www.nutrimind.net/page/software_de_nutricion_videos) para agregar funcionalidades y formularios a Multinature.
+  Context: Investigar [Nutrimind](https://www.nutrimind.net/page/software_de_nutricion_videos) para agregar funcionalidades y formularios a Multinature.
 
   Especial cuidado en:
 
@@ -114,7 +114,7 @@
 
 - ✅ [14016] Estimar tiempos para finalizar el proyecto
 
-  Contexto: Estimar y presentar tiempos para finalizar el proyecto. Revisar la opción de crear algún Diagrama de Gantt
+  Context: Estimar y presentar tiempos para finalizar el proyecto. Revisar la opción de crear algún Diagrama de Gantt
 
   Tags: negocio
 

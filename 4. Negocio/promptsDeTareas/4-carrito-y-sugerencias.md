@@ -6,7 +6,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [04002] Actualizar el cart-api para implementar la nueva lógica de perfiles y especialidades
 
-  Contexto: Trabajar desde el PR https://github.com/Inmunolabs/multinature-cart-api/pull/5/files revisar como se implemento esta actualización en el api y corregirla para implementar correctamente la nueva lógica de perfiles y especialidades
+  Context: Trabajar desde el PR https://github.com/Inmunolabs/multinature-cart-api/pull/5/files revisar como se implemento esta actualización en el api y corregirla para implementar correctamente la nueva lógica de perfiles y especialidades
 
 - ✅ [04003] Componentes de las recomendaciones desde vistas de paciente y especialista
 
@@ -18,7 +18,7 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
 
 - ✅ [04004] Mejorar el formulario de [Resumen de recomendación](https://www.multinature.mx/customers/profile/049a81fb-c507-4da9-8cd4-f6a6df3b0afe/) de los especialistas
 
-  Contexto:
+  Context:
 
   - Mover la tarjeta de "_Paciente_" para que quede horizontal con su título
   - Mover los "_Productos seleccionados_" debajo del listado de productos por seleccionar y arriba del "_Subtotal_", el "_IVA_", el "_Envio_" y el "_Total_"
