@@ -1,97 +1,306 @@
-# MultiNature
+# 📚 Documentación del Backend - Multinature
 
-**La multimedia se encuentra en el [Google Drive](https://drive.google.com/drive/folders/1cwJvfCM1wVJkn_u9QfFUjZUTU_ccIsdU?hl=es)**
+Bienvenido a la documentación completa del backend del sistema Multinature.
 
-**Las tareas se encuentran creadas en el [Tablero de ClickUp](https://app.clickup.com/9011834369/v/o/5-90115276863-28?pr=90113420950)**
+---
 
-## Contenido
+## 🗂️ Estructura de la Documentación
 
-1. [Definición del proyecto](1.%20Definicion%20del%20proyecto/README.md)
+```
+docs/
+├── README.md                    # Este archivo (índice principal)
+├── AGENTS.md                    # Guía para trabajar con el monorepo
+├── DB_MODELS.md                 # Índice de todas las tablas
+├── ESTRUCTURA_PROYECTO.md       # Vista completa de la estructura
+│
+├── 1. Definicion del proyecto/  # Arquitectura y diseño
+├── 2. BACKEND/                  # Documentación técnica del backend
+├── 3. FRONTEND/                 # Documentación del frontend
+├── 4. Negocio/                  # Reglas de negocio y procesos
+├── 5. PRUEBAS/                  # Estrategias de testing
+│
+├── db/                          # DDL de todas las tablas (87 archivos)
+│   ├── foods.md
+│   ├── users.md
+│   ├── diets.md
+│   └── ... (84 más)
+│
+├── refactors/                   # Histórico de refactors importantes
+│   ├── README.md                # Índice de refactors
+│   └── 2025-10-15-*.md          # Refactors documentados
+│
+└── scripts/                     # Documentación de scripts
+    ├── README.md                # Guía completa de scripts
+    └── validation-tools.md      # Herramientas de validación
+```
 
-   1. [¿Qué somos?, ¿A quién atendemos?, Prioridades y Objetivos](./1.%20Definicion%20del%20proyecto/nosotros/nosotros.md)
-   2. [Requerimientos de Software](https://docs.google.com/document/d/1RmOMpKeZ9XW2bLhkbv60YhoURoQoVh6NG7p35GC2HfY/edit?tab=t.0#heading=h.ch0ua7wmgt2e)
-   3. [Pizarrones (Fotografías)](https://drive.google.com/drive/folders/1xzSU2FvYMJ0FUUQ61IK06SSVKvtlDxv4?hl=es)
-   4. [Plan de dieta por Lorena Mendizabal](https://drive.google.com/drive/folders/1xo10DQko5NIA4IcDTyH213Qk4CWEk86f?hl=es)
-   5. [Asesorías David](https://drive.google.com/drive/folders/1XLMn-3zAtnoJp-h9YuRxb90oBlFK3Xw3?hl=es)
-      1. [Excel fórmulas dietocálculo](https://docs.google.com/spreadsheets/d/1s78fjfSze-kaOj6Tkxzc-PolM9R1wRvm/edit?gid=622333526#gid=622333526).
-         (_Se recomienda descargar el archivo y trabajarlo desde Excel, alguna información podría no reflejarse igual desde Google Sheets_)
-   6. [Epicas e Historias de Usuario](./1.%20Definicion%20del%20proyecto/epics&UserStories.png)
-   7. [Citas](./1.%20Definicion%20del%20proyecto/citas.md)
-      1. [Agendar cita](./1.%20Definicion%20del%20proyecto/agendarCita.png)
-   8. Especialistas
-      1. [Servicios de especialistas (service_payments)](./1.%20Definicion%20del%20proyecto/specialists/servicios.png)
-      2. [Formularios para alta de pacientes](./1.%20Definicion%20del%20proyecto/specialists/formulariosAltaPacientes.md)
-   9. [Médicos Generales](./1.%20Definicion%20del%20proyecto/medicosGenerales.md)
-   10. Usuarios
-       1. [Equipos de trabajo](./1.%20Definicion%20del%20proyecto/users/teamworks.md)
+---
 
-2. [BACKEND](./2.%20BACKEND/README.md)
+## 🚀 Inicio Rápido
 
-   1. [2.1 - Endpoints](./2.%20BACKEND/2.1-endpoints/)
-   2. [2.2 - Users](./2.%20BACKEND/2.2-users/)
-      1. [2.2.1 - Propuesta para especialidades por Samuel](./2.%20BACKEND/2.2-users/2.2.1-proposal-for-specialties.md)
-      2. [2.2.2 - Dashboard](./2.%20BACKEND/2.2-users/2.2.2-dashboard.md)
-      3. [2.2.3 - Especialistas](./2.%20BACKEND/2.2-users/2.2.3-specialists/)
-         1. [2.2.3.1 - Certificados del especialista](./2.%20BACKEND/2.2-users/2.2.3-specialists/2.2.3.1-certificates.md)
-         2. [2.2.3.2 - Material de soporte de los especialistas](./2.%20BACKEND/2.2-users/2.2.3-specialists/2.2.3.2-support-material.md)
-   3. [2.3 - Diets](./2.%20BACKEND/2.3-diets/)
-      1. [2.3.1 - Dietocálculo](./2.%20BACKEND/2.3-diets/2.3.1-diet-calculation.md)
-      2. Templates de dietas y rutinas en Google Sheets
-         1. [v1.0](https://drive.google.com/drive/folders/1k8ewAPPuL3iLdtA_D-K657mLd6s_fZ8F?hl=es)
-         2. Google Sheets
-            1. [Guía de inicio rápido de Node.js](https://developers.google.com/sheets/api/quickstart/nodejs?hl=es_419)
-            2. [Crear una hoja de cálculo](https://developers.google.com/sheets/api/guides/create?hl=es_419)
-   4. [2.4 - Monthly Purchases](./2.%20BACKEND/2.4-monthly-purchases/)
-      1. [2.4.1 - Funcionalidad](./2.%20BACKEND/2.4-monthly-purchases/2.4.1-monthly-purchase-logic.md)
-   5. [2.5 - Notifications](./2.%20BACKEND/2.5-notifications/)
-      1. [2.5.1 - Envío de Notificaciones](./2.%20BACKEND/2.5-notifications/2.5.1-send-notifications.md)
-   6. [2.6 - Orders](./2.%20BACKEND/2.6-orders/)
-      1. [2.6.1 - Funcionamiento del código de órdenes](./2.%20BACKEND/2.6-orders/2.6.1-orders-patterns.md)
-   7. [2.7 - Chatbot](./2.%20BACKEND/2.7-chatbot/)
-      1. [2.7.1 - Contexto del Chatbot](./2.%20BACKEND/2.7-chatbot/chatbotContext.md)
+### Para Nuevos Desarrolladores
 
-3. [FRONTEND](./3.%20FRONTEND/README.md)
+1. **Entiende la estructura**: [ESTRUCTURA_PROYECTO.md](./ESTRUCTURA_PROYECTO.md) ⭐
+   - Vista completa del monorepo
+   - Navegación por carpetas
+   - Archivos clave por tarea
 
-   1. [Template (Materio)](https://drive.google.com/drive/folders/1s18xBtu_Lr_UXC78rAHNnpBERNfTjTBR)
+2. **Lee la guía principal**: [AGENTS.md](./AGENTS.md)
+   - Estructura del proyecto
+   - Convenciones de código
+   - Flujos de trabajo
 
-4. [Negocio](./4.%20Negocio/README.md)
+3. **Revisa la base de datos**: [DB_MODELS.md](./DB_MODELS.md)
+   - 87 tablas documentadas
+   - DDL completo de cada tabla
+   - Reglas de mapeo SQL ↔ JS
 
-   1. [Información Landing page - v1.0.pptx](https://docs.google.com/presentation/d/1RVrquVY3e3JVPRQHY2QF3gE5zH37i3OD/edit?usp=drive_web&ouid=115463368008145921571&rtpof=true)
-   2. [Prompt para redacción de tareas y generación de CSV](./4.%20Negocio/promptRedaccionDeTareas.md)
-   3. [Prompts de tareas](./4.%20Negocio/promptsDeTareas/)
-      1. [1 - Actualización por Inmuno](./4.%20Negocio/promptsDeTareas/1-actualizacion-por-inmuno.md)
-      2. [2 - Direcciones](./4.%20Negocio/promptsDeTareas/2-direcciones.md)
-      3. [3 - Citas](./4.%20Negocio/promptsDeTareas/3-citas.md)
-      4. [4 - Carrito y Sugerencias](./4.%20Negocio/promptsDeTareas/4-carrito-y-sugerencias.md)
-      5. [5 - Dietas](./4.%20Negocio/promptsDeTareas/5-dietas.md)
-      6. [6 - Compras mensuales](./4.%20Negocio/promptsDeTareas/6-compras-mensuales.md)
-      7. [7 - Pedidos y Servicios](./4.%20Negocio/promptsDeTareas/7-pedidos-y-servicios.md)
-      8. [8 - Métodos de pago](./4.%20Negocio/promptsDeTareas/8-metodos-de-pago.md)
-      9. [9 - Productos](./4.%20Negocio/promptsDeTareas/9-productos.md)
-      10. [10 - Rutinas](./4.%20Negocio/promptsDeTareas/10-rutinas.md)
-      11. [11 - Users](./4.%20Negocio/promptsDeTareas/11-users.md)
-      12. [12 - CICD (Backend)](./4.%20Negocio/promptsDeTareas/12-cicd.md)
-      13. [14 - Gestión del Proyecto y Administración](./4.%20Negocio/promptsDeTareas/14-gestion-del-proyecto-y-administracion.md)
-      14. [16 - Históricos](./4.%20Negocio/promptsDeTareas/16-historicos.md)
-      15. [17 - Especialistas](./4.%20Negocio/promptsDeTareas/17-especialistas.md)
-      16. [18 - Landing y Página de Socios](./4.%20Negocio/promptsDeTareas/18-landing-y-pagina-de-socios.md)
-      17. [19 - Notificaciones](./4.%20Negocio/promptsDeTareas/19-notificaciones.md)
-      18. [20 - Otros](./4.%20Negocio/promptsDeTareas/20-otros.md)
-      19. [21 - Dietocálculo](./4.%20Negocio/promptsDeTareas/21-dietocalculo.md)
-      20. [22 - Somatotipos](./4.%20Negocio/promptsDeTareas/22-somatotipos.md)
-      21. [23 - Plan de Dieta](./4.%20Negocio/promptsDeTareas/23-plan-de-dieta.md)
-      22. [24 - Formularios de Altas de Pacientes](./4.%20Negocio/promptsDeTareas/24-formularios-de-altas-de-pacientes.md)
-      23. [25 - Comisiones](./4.%20Negocio/promptsDeTareas/25-comisiones.md)
-      24. [26 - BUGS](./4.%20Negocio/promptsDeTareas/26-bugs.md)
-      25. [27 - API de alimentos](./4.%20Negocio/promptsDeTareas/27-api-de-alimentos.md)
-      26. [28 - Integración con IA](./4.%20Negocio/promptsDeTareas/28-integracion-con-ia.md)
-      27. [BACKLOG](./4.%20Negocio/promptsDeTareas/backlog.md)
-   4. [Prompt para instrucciones de diagramas de Excalidraw](./4.%20Negocio/propmtDiagramasDeExcalidraw.md)
-   5. [Red de usuarios de Prueba](./4.%20Negocio/redDeUsuariosDePrueba.png)
-   6. [Cotizaciones de API de alimentos](https://docs.google.com/spreadsheets/d/1JeiPtQWeF2uLBE1RfwcXrMesc1mnqNiC7EC6lY87YIg/edit?gid=1883683087#gid=1883683087)
-   7. [Nutrimind](https://www.nutrimind.net/page/software_de_nutricion_videos)
+4. **Familiarízate con los scripts**: [scripts/README.md](./scripts/README.md)
+   - Scripts de validación
+   - Scripts de build y deploy
+   - Flujos de trabajo comunes
 
-5. [PRUEBAS](./5.%20PRUEBAS/README.md)
-   1. [Matriz de Pruebas primer entrega - 30 de junio de 2025](./5.%20PRUEBAS/5.1.%20primerEntrega-2025.06.30.md)
+---
 
-© Multinature
+## 📋 Guías por Rol
+
+### Desarrollador Backend
+
+**Lectura obligatoria**:
+- ✅ [AGENTS.md](./AGENTS.md) - Guía completa del monorepo
+- ✅ [DB_MODELS.md](./DB_MODELS.md) - Base de datos
+- ✅ [scripts/README.md](./scripts/README.md) - Scripts disponibles
+
+**Carpetas relevantes**:
+- `2. BACKEND/` - Documentación técnica
+- `db/` - DDL de tablas
+- `refactors/` - Histórico de cambios
+
+### Especialista en Base de Datos
+
+**Lectura obligatoria**:
+- ✅ [DB_MODELS.md](./DB_MODELS.md)
+- ✅ `db/*.md` - DDL de cada tabla
+
+**Herramientas**:
+- [validate-entities-vs-ddl.js](./scripts/README.md#validate-entities-vs-ddljs) - Validar alineación
+
+### DevOps / SRE
+
+**Lectura obligatoria**:
+- ✅ [AGENTS.md - Sección Serverless/AWS](./AGENTS.md#7-serverlessaws)
+- ✅ [scripts/README.md](./scripts/README.md) - Scripts de deploy
+
+**Scripts relevantes**:
+- `build-layers.bat` - Construir layers
+- `deploy-apis-lambdas.bat` - Deploy a AWS
+
+### Product Owner / QA
+
+**Lectura recomendada**:
+- ✅ `4. Negocio/` - Reglas de negocio
+- ✅ `5. PRUEBAS/` - Estrategias de testing
+- ✅ [refactors/](./refactors/README.md) - Cambios recientes
+
+---
+
+## 🔍 Búsqueda Rápida
+
+### Por Dominio
+
+| Dominio | Documentación Principal |
+|---------|------------------------|
+| **Usuarios** | `db/users.md` |
+| **Dietas** | `db/diets.md`, `db/foods.md`, `db/ingredients.md` |
+| **Rutinas** | `db/routines.md`, `db/exercises.md` |
+| **Menús** | `db/menus.md`, `db/menu_meals.md` |
+| **Productos** | `db/products.md`, `db/orders.md` |
+| **Pagos** | `db/payment_methods.md`, `db/service_payments.md` |
+| **Citas** | `db/bookings.md`, `db/working_hours.md` |
+
+### Por API
+
+Cada API tiene su carpeta en `apis/*/`:
+- `diets-api` → Dietas, alimentos, ingredientes, menús
+- `users-api` → Usuarios, autenticación, perfiles
+- `routines-api` → Rutinas de ejercicio
+- `products-api` → Catálogo de productos
+- `orders-api` → Órdenes y logística
+- `bookings-api` → Citas y calendarios
+- (Ver lista completa en [AGENTS.md](./AGENTS.md#17-estructura-detectada-del-monorepo-depth-2))
+
+---
+
+## 🛠️ Herramientas y Scripts
+
+### Validación de Código
+
+```bash
+# Validar que entities coincidan con DDL
+node scripts/validate-entities-vs-ddl.js
+
+# Validar una tabla específica
+node scripts/validate-entities-vs-ddl.js --entity=foods
+```
+
+**Documentación**: [scripts/README.md#validate-entities-vs-ddl](./scripts/README.md#validate-entities-vs-ddljs)
+
+### Build y Deploy
+
+```bash
+# Construir layers
+scripts\build-layers.bat
+
+# Deploy a AWS
+scripts\deploy-apis-lambdas.bat dev
+```
+
+**Documentación**: [scripts/README.md#build-y-empaquetado](./scripts/README.md#-build-y-empaquetado)
+
+### Actualizar Documentación
+
+```bash
+# Actualizar índice de tablas
+npx ts-node scripts/update-docs-index.ts
+```
+
+---
+
+## 📖 Documentación Detallada
+
+### Base de Datos
+
+- **[DB_MODELS.md](./DB_MODELS.md)** - Índice de las 87 tablas
+- **`db/*.md`** - DDL completo de cada tabla
+  - Estructura SQL
+  - Resumen de columnas
+  - Reglas de mapeo
+  - Queries sugeridos
+
+### APIs
+
+Documentación en cada API:
+- `apis/diets-api/README.md`
+- `apis/users-api/README.md`
+- (etc.)
+
+### Layers Compartidas
+
+- `layers/multi-mysql-layer` - Queries y entities
+- `layers/multi-commons-layer` - Utilidades comunes
+- `layers/multi-emails-layer` - Plantillas de email
+
+---
+
+## 🔄 Histórico de Cambios
+
+### Refactors Importantes
+
+Ver [refactors/README.md](./refactors/README.md) para historial completo.
+
+**Último refactor**: 2025-10-15
+- Alineación completa de entities vs DDL
+- 6 entities refactorizadas
+- 7 archivos modificados
+- 0 errores post-deploy
+
+---
+
+## 🤝 Contribuir a la Documentación
+
+### Agregar Nueva Tabla
+
+1. Crear `docs/db/nueva-tabla.md` usando `TEMPLATE_TABLE.md`
+2. Incluir DDL completo
+3. Ejecutar `npx ts-node scripts/update-docs-index.ts`
+4. Commit con mensaje: `docs: add nueva-tabla DDL`
+
+### Documentar Refactor
+
+1. Crear `docs/refactors/YYYY-MM-DD-descripcion.md`
+2. Usar template de `refactors/README.md`
+3. Actualizar índice en `refactors/README.md`
+4. Commit con mensaje: `docs: refactor descripcion`
+
+### Agregar Script
+
+1. Crear script en `scripts/`
+2. Documentar en `docs/scripts/README.md`
+3. Incluir: propósito, uso, ejemplos, troubleshooting
+4. Commit con mensaje: `feat: add script-name`
+
+---
+
+## 📊 Convenciones
+
+### Nombres de Archivos
+
+- Tablas DDL: `kebab-case.md` (ej: `menu_meals.md`)
+- Refactors: `YYYY-MM-DD-descripcion.md`
+- Scripts: `kebab-case.js/bat/ps1`
+
+### Formato de Commits
+
+```
+tipo: descripción breve
+
+- Detalle 1
+- Detalle 2
+```
+
+**Tipos**: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`
+
+### Mapeo SQL ↔ JavaScript
+
+```
+SQL (snake_case)    →    JS (snake_case en entity)
+─────────────────────────────────────────────────
+first_name          →    first_name
+user_id             →    user_id
+is_active           →    is_active
+```
+
+En `createEntity()` se mapea desde camelCase:
+
+```javascript
+entity.first_name = data.firstName;  // camelCase → snake_case
+```
+
+---
+
+## 🔗 Enlaces Externos
+
+- **Repositorio**: (agregar URL)
+- **Confluence**: (agregar URL si existe)
+- **Jira**: (agregar URL si existe)
+- **Slack**: (agregar canal)
+
+---
+
+## 📞 Contacto
+
+**Mantenedor**: Miguel Valdés  
+**Equipo**: Backend Multinature  
+**Última actualización**: 2025-10-15
+
+---
+
+## ⭐ Recursos Destacados
+
+### Más Consultados
+
+1. [AGENTS.md](./AGENTS.md) - Guía completa
+2. [DB_MODELS.md](./DB_MODELS.md) - Índice de tablas
+3. [scripts/README.md](./scripts/README.md) - Scripts disponibles
+4. [refactors/](./refactors/README.md) - Histórico de cambios
+
+### Más Útiles
+
+- [validate-entities-vs-ddl](./scripts/README.md#validate-entities-vs-ddljs) - Validación automática
+- [db/foods.md](./db/foods.md) - Tabla crítica del sistema
+- [db/users.md](./db/users.md) - Usuarios del sistema
+- [db/diets.md](./db/diets.md) - Dietas nutricionales
+
+---
+
+**¡Happy coding! 🚀**

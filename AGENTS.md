@@ -2,6 +2,8 @@
 
 > **Índice rápido**
 > - [Modelos de BD (índice)](./DB_MODELS.md)
+> - [Histórico de Refactors](./refactors/README.md)
+> - [Scripts de Validación](./scripts/README.md)
 > - Tablas: revisa `docs/db/*.md` antes de tocar queries/repos/entities.
 
 

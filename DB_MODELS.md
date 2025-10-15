@@ -2,6 +2,12 @@
 
 Este índice referencia el DDL fuente de verdad de cada tabla.
 
+## 🔗 Enlaces Rápidos
+
+- [📚 Histórico de Refactors](./refactors/README.md) - Documentación de cambios importantes
+- [🔧 Scripts de Validación](./scripts/README.md) - Herramientas para mantener alineación DDL vs Código
+- [📖 Guía de Agentes](./AGENTS.md) - Cómo trabajar con el monorepo
+
 ## Tablas
 - [addresses](./db/addresses.md)
 - [agent_evals](./db/agent_evals.md)
