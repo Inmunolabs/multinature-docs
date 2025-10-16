@@ -347,7 +347,70 @@ Reglas para **layers**:
 
 ---
 
-## 19) Guardarraíles específicos (aplicando a tu estructura)
+## 19) Convenciones de Mapeo Entity ↔ Tabla
+
+### Nomenclatura estándar
+
+| Elemento | Convención | Ejemplo |
+|----------|-----------|---------|
+| **Tabla DB** | `snake_case` plural | `monthly_purchases` |
+| **Archivo Entity** | `camelCase` singular | `monthlyPurchase.js` |
+| **Clase Entity** | `PascalCase` singular | `MonthlyPurchase` |
+| **Propiedades Entity** | `snake_case` (igual que columnas) | `user_id`, `created_at` |
+
+### Mapeo en Controllers/Services
+
+```javascript
+// En controllers, recibimos camelCase del frontend
+const data = { userId: "123", firstName: "Juan" };
+
+// Entity usa snake_case (igual que DB)
+const entity = MonthlyPurchase.createEntity(data);
+// entity.user_id = "123"
+// entity.first_name = "Juan"
+```
+
+### Tabla de Mapeos Comunes
+
+| Tabla SQL | Entity File | Entity Class | Documentación |
+|-----------|-------------|--------------|---------------|
+| `addresses` | `address.js` | `Address` | `docs/db/addresses.md` |
+| `monthly_purchases` | `monthlyPurchase.js` | `MonthlyPurchase` | `docs/db/monthly_purchases.md` |
+| `payment_methods` | `paymentMethod.js` | `PaymentMethod` | `docs/db/payment_methods.md` |
+| `specialist_support_material` | `supportMaterial.js` | `SupportMaterial` | `docs/db/specialist_support_material.md` |
+| `verification_codes` | `verificationCode.js`* | `VerificationCode` | `docs/db/verification_codes.md` |
+
+*Nota: Actualmente existe typo `verficationCode.js` (sin 'i') - pendiente corrección.
+
+### Excepciones Multi-Tabla
+
+Algunas entities mapean a múltiples tablas relacionadas:
+
+| Entity File | Tablas relacionadas | Propósito |
+|-------------|---------------------|-----------|
+| `forms.js` | `form_templates`, `filled_forms`, `concepts`, `filled_form_values`, `form_template_concepts` | Manejo completo del sistema de formularios |
+| `equivalences.js` | `equivalences_groups`, `exercises_equivalences`, `diet_equivalences_groups` | Grupos de equivalencias de ejercicios y dietas |
+| `menus.js` | `menus`, `menu_meals`, `menu_meal_items`, `menu_meal_item_food_overrides` | Sistema completo de menús |
+
+### Reglas de Validación
+
+1. **Entity sin tabla documentada** → Verificar si es excepción multi-tabla o falta documentación
+2. **Tabla sin entity** → Revisar si es tabla auxiliar/legacy o falta implementación
+3. **Nombres inconsistentes** → Priorizar cambio en entity (menos impacto que cambio de tabla)
+
+### Herramientas de Validación
+
+```bash
+# Auditar mapeos entity ↔ documentación
+node scripts/docs-audit.js
+
+# Validar que entity coincida con DDL
+node scripts/validate-entities-vs-ddl.js --entity=foods
+```
+
+---
+
+## 20) Guardarraíles específicos (aplicando a tu estructura)
 
 1. **Cambios en `multi-mysql-layer`**  
    - No eliminar helpers (p. ej. `getSpecialtiesByUserId`) si están en uso.  
@@ -369,7 +432,7 @@ Reglas para **layers**:
 
 ---
 
-## 20) Prompts de trabajo (con tus rutas)
+## 21) Prompts de trabajo (con tus rutas)
 
 ### A) Arreglar inconsistencias en layer y repos
 ```
@@ -400,7 +463,7 @@ Genera plan de despliegue (pasos y validaciones post-deploy).
 
 ---
 
-## 21) Siguientes pasos sugeridos para el agente
+## 22) Siguientes pasos sugeridos para el agente
 
 1. **Inventario de scripts**: leer `package.json` en cada carpeta de `apis/*` y `layers/*` y producir una tabla `paquete → scripts`.
 2. **Mapa de dependencias cruzadas**: detectar dónde se usa cada export de `multi-mysql-layer` / `multi-commons-layer`.

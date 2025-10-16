@@ -6,18 +6,77 @@ Documentación completa de todos los scripts disponibles en el monorepo.
 
 ## 📋 Índice Rápido
 
-| Script | Tipo | Propósito | Documentación |
-|--------|------|-----------|---------------|
-| [validate-entities-vs-ddl.js](#validate-entities-vs-ddljs) | Validación | Compara entities vs DDL | [📖 Guía completa](./validation-tools.md) |
-| [update-docs-index](#update-docs-index) | Documentación | Actualiza índices de docs | [📖 Ver abajo](#update-docs-index) |
-| [build-layers.bat](#build-layersbat) | Build | Construye layers compartidas | [📖 Ver abajo](#build-layersbat) |
-| [deploy-apis-lambdas.bat](#deploy-apis-lambdasbat) | Deploy | Despliega APIs a AWS | [📖 Ver abajo](#deploy-apis-lambdasbat) |
-| [commitAndPush-git-repos.bat](#commitandpush-git-reposbat) | Git | Commit en múltiples repos | [📖 Ver abajo](#commitandpush-git-reposbat) |
-| [pull-git-repos.bat](#pull-git-reposbat) | Git | Pull en múltiples repos | [📖 Ver abajo](#pull-git-reposbat) |
+| Script                                                     | Tipo          | Propósito                        | Documentación                               |
+| ---------------------------------------------------------- | ------------- | -------------------------------- | ------------------------------------------- |
+| [docs-audit.js](#docs-auditjs)                             | **Auditoría** | Valida salud de la documentación | [📖 Ver abajo](#docs-auditjs)               |
+| [validate-entities-vs-ddl.js](#validate-entities-vs-ddljs) | Validación    | Compara entities vs DDL          | [📖 Guía completa](./validation-tools.md)   |
+| [update-docs-index](#update-docs-index)                    | Documentación | Actualiza índices de docs        | [📖 Ver abajo](#update-docs-index)          |
+| [build-layers.bat](#build-layersbat)                       | Build         | Construye layers compartidas     | [📖 Ver abajo](#build-layersbat)            |
+| [deploy-apis-lambdas.bat](#deploy-apis-lambdasbat)         | Deploy        | Despliega APIs a AWS             | [📖 Ver abajo](#deploy-apis-lambdasbat)     |
+| [commitAndPush-git-repos.bat](#commitandpush-git-reposbat) | Git           | Commit en múltiples repos        | [📖 Ver abajo](#commitandpush-git-reposbat) |
+| [pull-git-repos.bat](#pull-git-reposbat)                   | Git           | Pull en múltiples repos          | [📖 Ver abajo](#pull-git-reposbat)          |
 
 ---
 
 ## 🔍 Validación y Mantenimiento
+
+### **docs-audit.js**
+
+**Ubicación**: `scripts/docs-audit.js`  
+**Tipo**: Node.js  
+**Propósito**: Auditoría automatizada de la salud de la documentación
+
+#### Uso:
+
+```bash
+# Ejecutar auditoría completa
+node scripts/docs-audit.js
+```
+
+#### Salida:
+
+Genera un reporte en terminal con colores y un archivo JSON detallado.
+
+```
+🔍 AUDITORÍA DE DOCUMENTACIÓN - MULTINATURE BACKEND
+======================================================================
+📊 RESUMEN DE AUDITORÍA
+✅ Información: 5
+⚠️  Advertencias: 15
+❌ Problemas críticos: 0
+```
+
+**Archivos generados**:
+
+- `docs-audit-report.json` - Reporte JSON detallado con todas las validaciones
+
+#### Qué valida:
+
+- ✅ Estructura de directorios (`docs/db/`, `entities/`)
+- ✅ Sincronización entre `DB_MODELS.md` y archivos en `docs/db/`
+- ✅ Mapeo entre entities JS y documentación de tablas
+- ✅ Enlaces internos válidos en documentos principales
+- ✅ Formato DDL correcto en todos los archivos de tablas
+- ✅ Archivos huérfanos sin referenciar
+
+#### Cuándo usar:
+
+- ✅ Antes de crear PR que modifique documentación
+- ✅ Después de agregar/modificar tablas en la BD
+- ✅ Periódicamente para verificar salud de la docs
+- ✅ Como parte de CI/CD (integración continua)
+
+#### Exit codes:
+
+- `0` - Todo OK (sin problemas críticos)
+- `1` - Problemas encontrados (revisar warnings/errores)
+
+#### Ver también:
+
+- [Plan de Auditoría](../../docs-audit-plan.md) - Reporte completo y plan de acción
+- [Reporte JSON](../../docs-audit-report.json) - Última ejecución
+
+---
 
 ### **validate-entities-vs-ddl.js**
 
@@ -71,6 +130,7 @@ Ver [validation-tools.md](./validation-tools.md) para guía detallada, ejemplos 
 ### **update-docs-index**
 
 **Ubicaciones**:
+
 - `scripts/update-docs-index.ts` (TypeScript)
 - `scripts/update-docs-index.ps1` (PowerShell)
 - `scripts/update-docs-index.sh` (Bash) - Si existe
@@ -392,6 +452,7 @@ npx ts-node scripts/update-docs-index.ts
 ### Error: "AWS credentials not configured"
 
 **Solución**:
+
 ```bash
 aws configure
 # Ingresar AWS_ACCESS_KEY_ID y AWS_SECRET_ACCESS_KEY
@@ -400,6 +461,7 @@ aws configure
 ### Error: "Serverless command not found"
 
 **Solución**:
+
 ```bash
 npm install -g serverless
 ```
@@ -416,7 +478,8 @@ npm install -g serverless
 
 ## 📊 Estadísticas
 
-- **Total de scripts**: 6
+- **Total de scripts**: 7
+- **Scripts de auditoría**: 1
 - **Scripts de validación**: 1
 - **Scripts de build**: 1
 - **Scripts de deploy**: 1
@@ -448,18 +511,32 @@ npm install -g serverless
 **Propósito**: [Descripción breve]
 
 #### Uso:
+
 [Ejemplos de comandos]
 
 #### Qué hace:
+
 [Lista numerada]
 
 #### Cuándo usar:
+
 [Lista con checkmarks]
 ```
 
 ---
 
-**Última actualización**: 2025-10-15  
+**Última actualización**: 2025-10-16  
 **Mantenedor**: Miguel Valdés  
 **Contribuidores**: AI Agent (Cursor/Claude)
 
+---
+
+## 🆕 Nuevo - Auditoría de Documentación
+
+Se agregó el script **`docs-audit.js`** para validación automatizada de la salud de la documentación. Ver detalles arriba o ejecutar:
+
+```bash
+node scripts/docs-audit.js
+```
+
+Ver plan completo en: [docs-audit-plan.md](../../docs-audit-plan.md)
