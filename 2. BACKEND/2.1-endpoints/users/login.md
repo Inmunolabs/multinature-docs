@@ -40,7 +40,7 @@ No aplica
   "awsRequestId": "456e7890-e89b-12d3-a456-426614174000",
   "message": "Inicio de sesión exitoso.",
   "data": {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVzZXIxMjMtZTg5Yi0xMmQzLWE0NTYtNDI2NjE0MTc0MDAwIiwiaWF0IjoxNzA2MjE5ODAwLCJleHAiOjE3MDYzMDU4MDB9.signature",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVzZXItZXhhbXBsZS0xMjM0IiwiaWF0IjoxNjAwMDAwMDAwLCJleHAiOjE2MDAwODY0MDB9.EXAMPLE_SIGNATURE_DO_NOT_USE",
     "user": {
       "id": "user123-e89b-12d3-a456-426614174000",
       "firstName": "Juan",
