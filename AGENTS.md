@@ -1,4 +1,4 @@
-# AGENTS.md — Guía para agentes (Codex) en el monorepo de Multinature
+# AGENTS.md — Guía para agentes (Codex, Cursor, etc) en el monorepo de Multinature
 
 > **Índice rápido**
 > - [Modelos de BD (índice)](./DB_MODELS.md)
@@ -7,7 +7,7 @@
 > - Tablas: revisa `docs/db/*.md` antes de tocar queries/repos/entities.
 
 
-> **Propósito**: Este documento le dice al agente (Codex – OpenAI’s coding agent en VS Code) **cómo trabajar dentro de este repo**: estructura, comandos, convenciones, límites y plantillas de tareas. La idea es que puedas pedirle features o arreglos y que el agente ejecute, pruebe y entregue cambios listos para revisión.
+> **Propósito**: Este documento le dice al agente (Codex – OpenAI’s coding agent en VS Code, Cursor, etc.) **cómo trabajar dentro de este repo**: estructura, comandos, convenciones, límites y plantillas de tareas. La idea es que puedas pedirle features o arreglos y que el agente ejecute, pruebe y entregue cambios listos para revisión.
 
 ---
 
@@ -29,7 +29,7 @@
 
 ## 2) Requisitos locales
 - **Node.js** LTS (>= 18.x) y npm.
-- **VS Code** con la extensión **Codex – OpenAI’s coding agent**.
+- **VS Code** con la extensión **Codex – OpenAI’s coding agent** o **Cursor**.
 - **Sistema operativo**: Windows con **WSL** recomendado (Ubuntu). Ejecutar el workspace dentro de WSL para evitar issues al correr scripts.
 - **Credenciales/vars** (ver `.env.example`):
   - MySQL: `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME` (por entorno).
@@ -60,7 +60,7 @@
 ---
 
 ## 4) Estructura y convenciones
-- **TypeScript** preferido en nuevos módulos; JS permitido en capas legadas.
+- **TypeScript** preferido en nuevos módulos; JS permitido en capas legadas; uso de Arrow functions en lugar de solo functions.
 - **Arquitectura**: Controller → Service → Repo → DB (queries en `multi-mysql-layer`).
 - **Convenciones de import**: Reutilizar utilidades en `multi-commons-layer`. **No duplicar** helpers.
 - **Formateo**: Prettier (respetar saltos de línea configurados por el usuario). ESLint para reglas.

@@ -83,7 +83,7 @@ Este índice referencia el DDL fuente de verdad de cada tabla.
 - [users_specialties](./db/users_specialties.md)
 - [users_subspecialties](./db/users_subspecialties.md)
 - [users](./db/users.md)
-- [verification_codes](./db/verification_codes.md)
+****- [verification_codes](./db/verification_codes.md)
 - [working_hours](./db/working_hours.md)
 - [workout_day_muscles](./db/workout_day_muscles.md)
 - [workout_day_splits](./db/workout_day_splits.md)
