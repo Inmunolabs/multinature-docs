@@ -332,9 +332,9 @@ npx ts-node scripts/update-docs-index.ts
 
 ## 📚 Referencias
 
-- [AGENTS.md](./docs/AGENTS.md) - Guía principal del monorepo
-- [DB_MODELS.md](./docs/DB_MODELS.md) - Índice de tablas
-- [scripts/README.md](./docs/scripts/README.md) - Documentación de scripts
+- [AGENTS.md](../../00_Overview/AGENTS_GUIDE.md) - Guía principal del monorepo
+- [DB_MODELS.md](../../01_Backend/Database/00_INDEX.md) - Índice de tablas
+- [scripts/README.md](../../00_Overview/Business_Rules/README.md) - Documentación de scripts
 - [docs-audit-report.json](./docs-audit-report.json) - Reporte JSON detallado
 
 ---

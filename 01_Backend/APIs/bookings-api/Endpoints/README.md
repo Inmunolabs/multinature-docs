@@ -18,9 +18,9 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de ci
 
 - [POST (WEBHOOK) /service-payment/confirm - Confirmar pago de servicio](./service-payment-confirm.md)
 
-- [GET /working-hours/availability/:id - Disponibilidad de especialista](./working-hours-availability.md)
-- [GET /working-hours/:id - Horarios de trabajo por usuario](./working-hours-get-by-user-id.md)
-- [PUT /working-hours/:userId - Actualizar horarios de trabajo](./working-hours-update.md)
+- [GET /working-hours/availability/:id - Disponibilidad de especialista](working-hours/working-hours-availability.md)
+- [GET /working-hours/:id - Horarios de trabajo por usuario](working-hours/working-hours-get-by-user-id.md)
+- [PUT /working-hours/:userId - Actualizar horarios de trabajo](working-hours/working-hours-update.md)
 
 ---
 

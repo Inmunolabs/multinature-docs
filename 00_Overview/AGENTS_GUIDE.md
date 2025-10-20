@@ -1,9 +1,9 @@
 # AGENTS.md — Guía para agentes (Codex, Cursor, etc) en el monorepo de Multinature
 
 > **Índice rápido**
-> - [Modelos de BD (índice)](./DB_MODELS.md)
-> - [Histórico de Refactors](./refactors/README.md)
-> - [Scripts de Validación](./scripts/README.md)
+> - [Modelos de BD (índice)](../01_Backend/Database/00_INDEX.md)
+> - [Histórico de Refactors](Business_Rules/README.md)
+> - [Scripts de Validación](Business_Rules/README.md)
 > - Tablas: revisa `docs/db/*.md` antes de tocar queries/repos/entities.
 
 

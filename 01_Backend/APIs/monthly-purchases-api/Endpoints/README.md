@@ -8,7 +8,7 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de co
 
 - [GET /monthly-purchase/:id - Obtener compra mensual del usuario](./get-by-user-id.md)
 - [PATCH /monthly-purchase - Crear/actualizar compra mensual](./upsert.md)
-- [PATCH /monthly-purchase/:id - Actualizar compra mensual existente](./update.md)
+- [PATCH /monthly-purchase/:id - Actualizar compra mensual existente](../../addresses-api/Endpoints/shipping-update.md)
 - [PATCH /monthly-purchase/shipping-address/:id - Actualizar dirección de envío](./update-shipping-address.md)
 - [DELETE /monthly-purchase/cancel/:id - Cancelar compra mensual](./cancel.md)
 

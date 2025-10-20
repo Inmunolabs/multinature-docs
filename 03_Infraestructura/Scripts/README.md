@@ -73,7 +73,7 @@ Genera un reporte en terminal con colores y un archivo JSON detallado.
 
 #### Ver también:
 
-- [Plan de Auditoría](../../docs-audit-plan.md) - Reporte completo y plan de acción
+- [Plan de Auditoría](../../05_Privado/Reportes/docs-audit-plan.md) - Reporte completo y plan de acción
 - [Reporte JSON](../../docs-audit-report.json) - Última ejecución
 
 ---
@@ -409,9 +409,9 @@ npx ts-node scripts/update-docs-index.ts
 ## 🔗 Referencias
 
 - [Validación de Entities (Guía completa)](./validation-tools.md)
-- [Guía de Agentes](../AGENTS.md)
-- [Modelos de Base de Datos](../DB_MODELS.md)
-- [Histórico de Refactors](../refactors/README.md)
+- [Guía de Agentes](../../00_Overview/AGENTS_GUIDE.md)
+- [Modelos de Base de Datos](../../01_Backend/Database/00_INDEX.md)
+- [Histórico de Refactors](../../00_Overview/Business_Rules/README.md)
 
 ---
 
@@ -539,4 +539,4 @@ Se agregó el script **`docs-audit.js`** para validación automatizada de la sal
 node scripts/docs-audit.js
 ```
 
-Ver plan completo en: [docs-audit-plan.md](../../docs-audit-plan.md)
+Ver plan completo en: [docs-audit-plan.md](../../05_Privado/Reportes/docs-audit-plan.md)

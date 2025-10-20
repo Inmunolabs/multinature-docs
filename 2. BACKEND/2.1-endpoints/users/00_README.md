@@ -4,11 +4,6 @@ Documentación de users.
 
 ---
 
-## Secciones
-
-- [specialists](./specialists/00_README.md)
-- [teamworks](./teamworks/00_README.md)
-
 ## Archivos
 
 - [POST /users](./users-create.md)

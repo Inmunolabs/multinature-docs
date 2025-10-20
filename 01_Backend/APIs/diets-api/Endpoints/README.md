@@ -6,19 +6,19 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de di
 
 ### Router Principal `/diets/`
 #### Consulta de Dietas
-- [GET /diets/:id - Obtener dieta por ID](./diets-get.md)
-- [GET /diets/user/:id - Dietas de un usuario](./diets-list-by-user.md)
-- [GET /diets/specialist/:id - Dietas de un especialista](./diets-list-by-specialist.md)
+- [GET /diets/:id - Obtener dieta por ID](get.md)
+- [GET /diets/user/:id - Dietas de un usuario](list-by-user.md)
+- [GET /diets/specialist/:id - Dietas de un especialista](list-by-specialist.md)
 
 #### Gestión de Alimentos e Ingredientes
-- [GET /diets/foods - Listar alimentos disponibles](./diets-foods.md)
-- [GET /diets/ingredients/ - Listar ingredientes](./diets-ingredients.md)
-- [GET /diets/ingredients/:id - Ingredientes por alimento](./diets-ingredients-by-food.md)
-- [GET /diets/equivalences/group - Grupos de equivalencias](./diets-equivalences-group.md)
+- [GET /diets/foods - Listar alimentos disponibles](foods.md)
+- [GET /diets/ingredients/ - Listar ingredientes](ingredients.md)
+- [GET /diets/ingredients/:id - Ingredientes por alimento](ingredients-by-food.md)
+- [GET /diets/equivalences/group - Grupos de equivalencias](equivalences-group.md)
 
 #### Cálculos y Creación
-- [POST /diets/generate-automatic - Generar dieta automática con IA](./diets-generate-automatic.md) ✨
-- [POST /diets/diet-calculations/:id - Calcular dieta](./diets-diet-calculations.md)
+- [POST /diets/generate-automatic - Generar dieta automática con IA](generate-automatic.md) ✨
+- [POST /diets/diet-calculations/:id - Calcular dieta](diet-calculations.md)
 - [POST /diets/:id - Crear/actualizar dieta](./diets-upsert.md)
 - [POST /diets/equivalences/:id - Establecer equivalencias](./diets-equivalences.md)
 
@@ -27,7 +27,7 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de di
 - [POST /diets/confirm-diet - Confirmar dieta](./diets-confirm-diet.md) ⚠️
 
 ### Router `/menus/`
-- [POST /menus/ - Establecer menús](./menus-create.md)
+- [POST /menus/ - Establecer menús](menus/create.md)
 - [POST /menus/foods - Establecer alimentos de menús](./menus-foods.md)
 - [POST /menus/foods/ingredients - Establecer ingredientes](./menus-ingredients.md)
 

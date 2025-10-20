@@ -13,11 +13,11 @@ La API de Routines gestiona rutinas de ejercicios personalizadas creadas por esp
 - **[POST /routines](upsert.md)** - Crear o actualizar rutina (upsert inteligente)
 
 ### Gestión de Ejercicios
-- **[GET /routines/exercise/](list-exercises.md)** - Listar ejercicios de un especialista
-- **[GET /routines/exercise/:id](get-exercise.md)** - Obtener ejercicio específico por ID
-- **[POST /routines/exercise](create-exercise.md)** - Crear nuevo ejercicio
-- **[PATCH /routines/exercise/:id](update-exercise.md)** - Actualizar ejercicio existente
-- **[DELETE /routines/exercise/:id](delete-exercise.md)** - Eliminar ejercicio
+- **[GET /routines/exercise/](exercises/list-exercises.md)** - Listar ejercicios de un especialista
+- **[GET /routines/exercise/:id](exercises/get-exercise.md)** - Obtener ejercicio específico por ID
+- **[POST /routines/exercise](exercises/create-exercise.md)** - Crear nuevo ejercicio
+- **[PATCH /routines/exercise/:id](exercises/update-exercise.md)** - Actualizar ejercicio existente
+- **[DELETE /routines/exercise/:id](exercises/delete-exercise.md)** - Eliminar ejercicio
 
 ## Reglas importantes del proyecto
 

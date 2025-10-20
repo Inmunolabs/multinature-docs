@@ -232,24 +232,24 @@ nombre-api/
 ## 🔗 Links de Navegación
 
 ### Documentación Principal
-- [📖 Índice General](./README.md)
-- [🤖 Guía de Agentes](./AGENTS.md)
-- [🗄️ Modelos de BD](./DB_MODELS.md)
+- [📖 Índice General](Business_Rules/README.md)
+- [🤖 Guía de Agentes](AGENTS_GUIDE.md)
+- [🗄️ Modelos de BD](../01_Backend/Database/00_INDEX.md)
 
 ### Guías Específicas
-- [🔧 Scripts y Herramientas](./scripts/README.md)
-- [📚 Histórico de Refactors](./refactors/README.md)
-- [🔍 Validación de Entities](./scripts/validation-tools.md)
+- [🔧 Scripts y Herramientas](Business_Rules/README.md)
+- [📚 Histórico de Refactors](Business_Rules/README.md)
+- [🔍 Validación de Entities](../03_Infraestructura/Scripts/validation-tools.md)
 
 ### Tablas Más Usadas
-- [users](./db/users.md)
-- [diets](./db/diets.md)
-- [foods](./db/foods.md)
-- [ingredients](./db/ingredients.md)
-- [routines](./db/routines.md)
-- [bookings](./db/bookings.md)
-- [orders](./db/orders.md)
-- [products](./db/products.md)
+- [users](../04_Negocio/Tareas/11-users.md)
+- [diets](../01_Backend/Database/Tables/diets.md)
+- [foods](../01_Backend/APIs/diets-api/Endpoints/foods.md)
+- [ingredients](../01_Backend/APIs/diets-api/Endpoints/ingredients.md)
+- [routines](Business_Rules/routines.md)
+- [bookings](../01_Backend/Database/Tables/bookings.md)
+- [orders](../01_Backend/Database/Tables/orders.md)
+- [products](../01_Backend/Database/Tables/products.md)
 
 ---
 

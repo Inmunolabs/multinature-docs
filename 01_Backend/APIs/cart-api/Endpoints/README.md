@@ -9,9 +9,9 @@ Esta documentación cubre todos los endpoints relacionados con la gestión del c
 - [PATCH /cart/:id - Actualizar carrito](./update.md)
 
 ### Recomendaciones
-- [GET /recommendations/user/:id - Listar recomendaciones activas de un usuario](./recommendations-list.md)
-- [GET /recommendations/patient/:id - Obtener recomendaciones de un paciente](./recommendations-get-patient.md)
-- [PATCH /recommendations/:id - Crear/actualizar recomendación](./recommendations-upsert.md)
+- [GET /recommendations/user/:id - Listar recomendaciones activas de un usuario](recommendations/recommendations-list.md)
+- [GET /recommendations/patient/:id - Obtener recomendaciones de un paciente](recommendations/recommendations-get-patient.md)
+- [PATCH /recommendations/:id - Crear/actualizar recomendación](recommendations/recommendations-upsert.md)
 
 ### Sistema
 - [GET / - Healthcheck](./healthcheck.md)

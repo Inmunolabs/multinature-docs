@@ -160,9 +160,9 @@ node scripts/docs-verify-and-index.js
 ## 🔗 Referencias
 
 - [Índice Maestro](../../DOCUMENTATION_INDEX.md) - Punto de entrada principal
-- [AGENTS.md](../AGENTS.md) - Guía del monorepo
-- [DB_MODELS.md](../DB_MODELS.md) - Índice de tablas
-- [Scripts README](../scripts/README.md) - Documentación de scripts
+- [AGENTS.md](../../00_Overview/AGENTS_GUIDE.md) - Guía del monorepo
+- [DB_MODELS.md](../../01_Backend/Database/00_INDEX.md) - Índice de tablas
+- [Scripts README](../../00_Overview/Business_Rules/README.md) - Documentación de scripts
 
 ---
 

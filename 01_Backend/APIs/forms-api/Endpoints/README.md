@@ -5,16 +5,16 @@ Esta documentación cubre todos los endpoints relacionados con la gestión de fo
 ## Índice de Endpoints
 
 ### Gestión de Conceptos
-- [GET /forms/concept - Listar conceptos del especialista](./concept-list.md)
-- [POST /forms/concept - Crear concepto](./concept-create.md)
-- [PATCH /forms/concept/:id - Actualizar concepto](./concept-update.md)
-- [DELETE /forms/concept/:id - Eliminar concepto](./concept-delete.md)
+- [GET /forms/concept - Listar conceptos del especialista](concepts/concept-list.md)
+- [POST /forms/concept - Crear concepto](concepts/concept-create.md)
+- [PATCH /forms/concept/:id - Actualizar concepto](concepts/concept-update.md)
+- [DELETE /forms/concept/:id - Eliminar concepto](concepts/concept-delete.md)
 
 ### Gestión de Plantillas
-- [GET /forms/template - Listar plantillas del especialista](./template-list.md)
-- [POST /forms/template - Crear plantilla](./template-create.md)
-- [PUT /forms/template/:id - Actualizar plantilla](./template-update.md)
-- [DELETE /forms/template/:id - Eliminar plantilla](./template-delete.md)
+- [GET /forms/template - Listar plantillas del especialista](templates/template-list.md)
+- [POST /forms/template - Crear plantilla](templates/template-create.md)
+- [PUT /forms/template/:id - Actualizar plantilla](templates/template-update.md)
+- [DELETE /forms/template/:id - Eliminar plantilla](templates/template-delete.md)
 
 ### Formularios Completados
 - [GET /forms/:id - Listar formularios completados del paciente](./patient-forms-list.md)

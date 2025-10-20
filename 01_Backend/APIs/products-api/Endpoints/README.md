@@ -16,9 +16,9 @@ La API de Products gestiona el catálogo de productos nutricionales, incluyendo 
 
 ### Sistema de Reseñas
 
-- **[GET /products/reviews/:id](list-reviews.md)** - Listar reseñas de un producto
-- **[POST /products/:id/reviews](create-review.md)** - Crear reseña para un producto
-- **[PATCH /products/reviews/:id](update-review.md)** - Actualizar reseña existente
+- **[GET /products/reviews/:id](reviews/list-reviews.md)** - Listar reseñas de un producto
+- **[POST /products/:id/reviews](reviews/create-review.md)** - Crear reseña para un producto
+- **[PATCH /products/reviews/:id](reviews/update-review.md)** - Actualizar reseña existente
 
 ### Utilidades
 

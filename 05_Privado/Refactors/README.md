@@ -147,9 +147,9 @@ Cuando hagas un nuevo refactor importante:
 
 ## 🔗 Referencias
 
-- [Modelos de BD](../DB_MODELS.md)
-- [Guía de Agentes](../AGENTS.md)
-- [Scripts de Validación](../scripts/README.md)
+- [Modelos de BD](../../01_Backend/Database/00_INDEX.md)
+- [Guía de Agentes](../../00_Overview/AGENTS_GUIDE.md)
+- [Scripts de Validación](../../00_Overview/Business_Rules/README.md)
 
 ---
 

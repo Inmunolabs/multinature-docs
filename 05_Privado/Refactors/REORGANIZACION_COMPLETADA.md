@@ -188,14 +188,14 @@ docs/refactors/README.md
 ## 🔗 Enlaces Rápidos
 
 ### Documentación Principal
-- [📖 docs/README.md](docs/README.md) - Índice principal
-- [📁 docs/ESTRUCTURA_PROYECTO.md](docs/ESTRUCTURA_PROYECTO.md) - Mapa del proyecto
-- [🤖 docs/AGENTS.md](docs/AGENTS.md) - Guía de desarrollo
+- [📖 docs/README.md](../../00_Overview/Business_Rules/README.md) - Índice principal
+- [📁 docs/ESTRUCTURA_PROYECTO.md](../../00_Overview/PROJECT_STRUCTURE.md) - Mapa del proyecto
+- [🤖 docs/AGENTS.md](../../00_Overview/AGENTS_GUIDE.md) - Guía de desarrollo
 
 ### Guías Específicas
-- [🔧 docs/scripts/README.md](docs/scripts/README.md) - Todos los scripts
-- [📚 docs/refactors/README.md](docs/refactors/README.md) - Histórico
-- [🗄️ docs/DB_MODELS.md](docs/DB_MODELS.md) - Tablas
+- [🔧 docs/scripts/README.md](../../00_Overview/Business_Rules/README.md) - Todos los scripts
+- [📚 docs/refactors/README.md](../../00_Overview/Business_Rules/README.md) - Histórico
+- [🗄️ docs/DB_MODELS.md](../../01_Backend/Database/00_INDEX.md) - Tablas
 
 ---
 

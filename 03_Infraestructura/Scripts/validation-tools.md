@@ -284,8 +284,8 @@ export class User {
 
 ## 📖 Referencias
 
-- [Guía de Agentes](../docs/AGENTS.md)
-- [Modelos de BD](../docs/DB_MODELS.md)
+- [Guía de Agentes](../../00_Overview/AGENTS_GUIDE.md)
+- [Modelos de BD](../../01_Backend/Database/00_INDEX.md)
 - [Reporte de Refactor Completo](../COMPLETE_REFACTOR_REPORT.md)
 
 ---
