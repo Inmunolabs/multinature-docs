@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo especialistas autorizados pueden calcular di
 - `id` (UUID, requerido): ID único del paciente
 
 ### Ejemplo
+
 ```
 POST /diets/diet-calculations/123e4567-e89b-12d3-a456-426614174000
 ```
@@ -76,14 +77,14 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Cálculos de dieta obtenidos exitosamente |
-| 400 | Bad Request | Datos de cálculo inválidos o faltantes |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para calcular dieta para este paciente |
-| 404 | Not Found | Paciente no encontrado |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                         |
+| ------ | --------------------- | --------------------------------------------------- |
+| 200    | OK                    | Cálculos de dieta obtenidos exitosamente            |
+| 400    | Bad Request           | Datos de cálculo inválidos o faltantes              |
+| 401    | Unauthorized          | Token faltante o inválido                           |
+| 403    | Forbidden             | Sin permisos para calcular dieta para este paciente |
+| 404    | Not Found             | Paciente no encontrado                              |
+| 500    | Internal Server Error | Error del servidor                                  |
 
 ## Notas útiles para el frontend
 

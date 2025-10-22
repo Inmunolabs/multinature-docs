@@ -1,14 +1,17 @@
 # POST /diets/generate-automatic - Generar Dieta Automática
 
 ## Descripción
+
 Genera una dieta automática completa basada en fórmulas de cálculo dietético, datos clínicos del usuario y objetivos nutricionales. Utiliza IA para crear recomendaciones personalizadas de GET, distribución de macronutrientes, porciones y platillos específicos del SMAE.
 
 ## Endpoint
+
 ```
 POST /diets/generate-automatic
 ```
 
 ## Headers
+
 ```
 Authorization: Bearer <token>
 Content-Type: application/json
@@ -17,15 +20,18 @@ Content-Type: application/json
 ## Request Body
 
 ### Campos Requeridos
+
 - `formulas` (array): Array de fórmulas de cálculo dietético a utilizar
 - `userId` (string): ID del usuario/paciente para quien se genera la dieta
 
 ### Campos Opcionales
+
 - `CAF` (number): Factor de actividad física (default: 1.2)
 - `ETA` (number): Efecto térmico de los alimentos en % (default: 10, rango: 0-100)
 - `AF` (number): Factor adicional (default: 0)
 
 ### Fórmulas Válidas
+
 - `harrisBenedict`: Ecuación Harris-Benedict (1919)
 - `IOM`: Institute of Medicine
 - `mifflinStJeor`: Ecuación Mifflin-St Jeor (1990)
@@ -40,6 +46,7 @@ Content-Type: application/json
 - `owenSpecific`: Owen Específica
 
 ### Ejemplo de Request
+
 ```json
 {
   "formulas": ["mifflinStJeor", "harrisBenedict", "IOM"],
@@ -53,6 +60,7 @@ Content-Type: application/json
 ## Response
 
 ### Success Response (200)
+
 ```json
 {
   "success": true,
@@ -206,7 +214,7 @@ Content-Type: application/json
             "portionValidation": "Los alimentos seleccionados corresponden exactamente a: 1 Leche Descremada según la distribución de porciones asignada"
           }
           // ... más comidas para el día 0
-        },
+        }
         // ... días 1-6
       },
       "nutritionalSummary": {
@@ -237,6 +245,7 @@ Content-Type: application/json
 ### Error Responses
 
 #### 400 - Bad Request
+
 ```json
 {
   "success": false,
@@ -246,6 +255,7 @@ Content-Type: application/json
 ```
 
 #### 404 - Patient Not Found
+
 ```json
 {
   "success": false,
@@ -255,6 +265,7 @@ Content-Type: application/json
 ```
 
 #### 400 - Missing Clinical Data
+
 ```json
 {
   "success": false,
@@ -264,6 +275,7 @@ Content-Type: application/json
 ```
 
 #### 500 - Server Error
+
 ```json
 {
   "success": false,
@@ -277,9 +289,11 @@ Content-Type: application/json
 ## Validaciones
 
 ### Middleware Aplicado
+
 - `validateAutomaticDietGeneration`: Valida el request body y obtiene datos del paciente
 
 ### Validaciones Específicas
+
 1. **Formulas**: Debe ser un array no vacío con fórmulas válidas
 2. **UserId**: Debe ser un string válido
 3. **CAF**: Si se proporciona, debe ser un número positivo
@@ -304,11 +318,13 @@ Content-Type: application/json
 ## Consideraciones Técnicas
 
 ### Datos Clínicos Requeridos
+
 - El usuario debe tener formularios completados con datos clínicos
 - Se requieren registros de altura y peso
 - Los objetivos se extraen automáticamente de conceptos como "objetivo", "goal", "meta"
 
 ### Integración con IA
+
 - Utiliza OpenAI GPT-4o para todas las recomendaciones nutricionales
 - **Prompts configurables**: Los prompts están en `apis/diets-api/src/config/diet-prompts.js` para fácil modificación sin redeploy
 - **Flujo dinámico**: La IA determina estructura de comidas basada en datos clínicos del paciente
@@ -320,6 +336,7 @@ Content-Type: application/json
 - **4 llamadas secuenciales a IA**: Estructura → Macronutrientes → Porciones → Platillos
 
 ### Almacenamiento
+
 - Se guarda la dieta principal en la tabla `diets`
 - Se mantiene historial automático (snapshots cada 6 días)
 - Los platillos generados se marcan como `ai_generated = 1`
@@ -327,6 +344,7 @@ Content-Type: application/json
 ## Casos de Uso
 
 ### Caso 1: Pérdida de Peso
+
 ```json
 {
   "formulas": ["mifflinStJeor", "harrisBenedict"],
@@ -334,11 +352,13 @@ Content-Type: application/json
   "CAF": 1.2
 }
 ```
+
 - GET se reduce 15%
 - Mayor proporción de proteínas (30%)
 - Menor proporción de grasas y azúcares
 
 ### Caso 2: Aumento de Peso
+
 ```json
 {
   "formulas": ["mifflinStJeor", "IOM", "FAO"],
@@ -346,11 +366,13 @@ Content-Type: application/json
   "CAF": 1.6
 }
 ```
+
 - GET se aumenta 15%
 - Mayor densidad calórica
 - Más grasas saludables (30%)
 
 ### Caso 3: Mantenimiento
+
 ```json
 {
   "formulas": ["mifflinStJeor"],
@@ -358,6 +380,7 @@ Content-Type: application/json
   "CAF": 1.4
 }
 ```
+
 - GET se mantiene calculado
 - Distribución balanceada estándar
 - Enfoque en variedad nutricional

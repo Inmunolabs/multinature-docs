@@ -9,7 +9,6 @@ Documentación de endpoints.
 - [DELETE /monthly-purchase/cancel/:id](./cancel.md)
 - [GET /monthly-purchase/:id](./get-by-user-id.md)
 - [GET /](./healthcheck.md)
-- [API de Monthly Purchases](./README.md)
 - [PATCH /monthly-purchase/shipping-address/:id](./update-shipping-address.md)
 - [PATCH /monthly-purchase](./upsert.md)
 

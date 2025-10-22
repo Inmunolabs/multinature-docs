@@ -6,7 +6,7 @@ Documentación de endpoints.
 
 ## Secciones
 
-- [working-hours](./working-hours/00_README.md)
+- [working-hours](./working-hours/README.md)
 
 ## Archivos
 
@@ -18,11 +18,10 @@ Documentación de endpoints.
 - [GET /](./healthcheck.md)
 - [POST /bookings/liquidate/:id](./liquidate.md)
 - [POST /monthly-services/](./pay-monthly.md)
-- [API de Bookings](./README.md)
 - [POST (WEBHOOK) /service-payment/confirm](./service-payment-confirm.md)
 - [PATCH /bookings/:id](./update.md)
 
 ---
 
-- **Última actualización:** 2025-10-20  
-- **Total de archivos:** 11
+- **Última actualización:** 2025-10-22
+- **Total de archivos:** 10

@@ -6,7 +6,7 @@ Documentación de endpoints.
 
 ## Secciones
 
-- [exercises](./exercises/00_README.md)
+- [exercises](./exercises/README.md)
 
 ## Archivos
 

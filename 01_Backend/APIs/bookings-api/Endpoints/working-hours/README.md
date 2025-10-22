@@ -12,5 +12,5 @@ Documentación de working-hours.
 
 ---
 
-- **Última actualización:** 2025-10-20  
+- **Última actualización:** 2025-10-22
 - **Total de archivos:** 3

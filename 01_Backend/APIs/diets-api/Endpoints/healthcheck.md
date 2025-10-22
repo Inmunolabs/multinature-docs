@@ -32,10 +32,10 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Servicio funcionando correctamente |
-| 500 | Internal Server Error | El servicio no está disponible |
+| Código | Significado           | Descripción                        |
+| ------ | --------------------- | ---------------------------------- |
+| 200    | OK                    | Servicio funcionando correctamente |
+| 500    | Internal Server Error | El servicio no está disponible     |
 
 ## Notas útiles para el frontend
 

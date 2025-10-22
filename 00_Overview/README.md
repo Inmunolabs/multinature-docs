@@ -6,7 +6,7 @@ Documentación de 00 overview.
 
 ## Secciones
 
-- [Business Rules](./Business_Rules/00_README.md)
+- [Business Rules](./Business_Rules/README.md)
 
 ## Archivos
 

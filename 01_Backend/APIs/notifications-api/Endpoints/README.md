@@ -10,7 +10,6 @@ Documentación de endpoints.
 - [GET /notifications/:id](./get-by-user-id.md)
 - [GET /](./healthcheck.md)
 - [PATCH /notifications/:id/read](./mark-as-read.md)
-- [API de Notifications](./README.md)
 
 ---
 

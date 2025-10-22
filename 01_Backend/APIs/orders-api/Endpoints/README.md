@@ -18,7 +18,6 @@ Documentación de endpoints.
 - [GET /orders](./list.md)
 - [GET /orders/logistics](./logistics.md)
 - [PATCH /orders/process-commissions/:openpayId](./process-commissions.md)
-- [API de Orders](./README.md)
 - [PATCH /orders/:id](./update.md)
 
 ---

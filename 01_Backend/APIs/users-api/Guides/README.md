@@ -6,7 +6,7 @@ Documentación de guides.
 
 ## Secciones
 
-- [2.2.3-specialists](./2.2.3-specialists/00_README.md)
+- [2.2.3-specialists](./2.2.3-specialists/README.md)
 
 ## Archivos
 

@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo usuarios autorizados pueden consultar dietas
 - `id` (UUID, requerido): ID único del especialista
 
 ### Ejemplo
+
 ```
 GET /diets/specialist/456e7890-e89b-12d3-a456-426614174000
 ```
@@ -58,13 +59,13 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Dietas del especialista obtenidas exitosamente |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para consultar dietas de este especialista |
-| 404 | Not Found | Especialista no encontrado o sin dietas |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                             |
+| ------ | --------------------- | ------------------------------------------------------- |
+| 200    | OK                    | Dietas del especialista obtenidas exitosamente          |
+| 401    | Unauthorized          | Token faltante o inválido                               |
+| 403    | Forbidden             | Sin permisos para consultar dietas de este especialista |
+| 404    | Not Found             | Especialista no encontrado o sin dietas                 |
+| 500    | Internal Server Error | Error del servidor                                      |
 
 ## Notas útiles para el frontend
 

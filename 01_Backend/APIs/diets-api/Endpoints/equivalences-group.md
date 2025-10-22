@@ -83,12 +83,12 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Grupos de equivalencias obtenidos exitosamente |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para consultar equivalencias |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                    |
+| ------ | --------------------- | ---------------------------------------------- |
+| 200    | OK                    | Grupos de equivalencias obtenidos exitosamente |
+| 401    | Unauthorized          | Token faltante o inválido                      |
+| 403    | Forbidden             | Sin permisos para consultar equivalencias      |
+| 500    | Internal Server Error | Error del servidor                             |
 
 ## Notas útiles para el frontend
 

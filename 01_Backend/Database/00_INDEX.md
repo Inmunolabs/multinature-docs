@@ -6,7 +6,7 @@ Documentación de database.
 
 ## Secciones
 
-- [Tables](./Tables/00_README.md)
+- [Tables](./Tables/README.md)
 
 ## Archivos
 

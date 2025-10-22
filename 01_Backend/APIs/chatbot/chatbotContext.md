@@ -43,76 +43,85 @@ Para cada flujo específico de una acción en concreto, se va a partir desde que
 ### 📅 Modificar una cita (evento `edit_booking`)
 
 #### 1. **IA → Backend**: consulta contexto
+
 - List bookings
 - Get availability
-    
-    *"🔎 Consultando tus citas y disponibilidad…"*
-    
+  _"🔎 Consultando tus citas y disponibilidad…"_
+
 #### 2. **Desambiguación y (opcional) confirmación**
-- Si ya se identifica la cita: *"¿Confirmas mover la cita del 20/09 10:00–10:30?"*
+
+- Si ya se identifica la cita: _"¿Confirmas mover la cita del 20/09 10:00–10:30?"_
 - Si no, pregunta cuál de las citas quiere modificar.
-- Propón *slots* válidos si falta horario: *"🧭 Disponibles: 11:00–11:30, 12:00–12:30"*.
+- Propón _slots_ válidos si falta horario: _"🧭 Disponibles: 11:00–11:30, 12:00–12:30"_.
 
 #### 3. **Ejecución**
+
 1. La IA identifica acción **`edit_booking`** y recopila: `booking_id`, `starts_at`, `ends_at`, `notes`, `location`, `idempotency_key`.
 2. El backend llama al **método editBooking** (endpoint lambda de edición).
-3. El método devuelve la respuesta y la IA redacta al usuario: *"✅ Cita reagendada …"*.
+3. El método devuelve la respuesta y la IA redacta al usuario: _"✅ Cita reagendada …"_.
 
 ### ❌ Cancelar una cita (evento `cancel_booking`)
 
 #### 1. **IA → Backend**: verifica elegibilidad y contexto
+
 - Revisa políticas de cancelación/hora límite.
-    
-    *"🔎 Revisando tu cita y políticas de cancelación…"*
-    
+  _"🔎 Revisando tu cita y políticas de cancelación…"_
+
 #### 2. **Desambiguación (si hay varias)**
+
 - Pide elegir la cita a cancelar si hay más de una candidata.
 - (Opcional) solicita motivo breve.
 
 #### 3. **Ejecución**
+
 1. La IA identifica **`cancel_booking`** con: `booking_id`, `reason?`, `idempotency_key`.
 2. El backend llama al **método cancelBooking** (endpoint lambda de cancelación).
-3. Respuesta al usuario: *"🗑️ Cita cancelada (id …). Envié confirmación por correo."*.
+3. Respuesta al usuario: _"🗑️ Cita cancelada (id …). Envié confirmación por correo."_.
 
 ### 🛒 Agregar productos al carrito (evento `add_to_cart`)
 
 #### 1. **IA → Backend**: valida datos mínimos
+
 - Verifica `product_id` y `quantity` (nueva cantidad total).
-    
-    *"🧺 Actualizando tu carrito…"*
-    
+  _"🧺 Actualizando tu carrito…"_
+
 #### 2. **Desambiguación (si falta algo)**
+
 - Si falta cantidad o hay varias presentaciones, pregunta.
 
 #### 3. **Ejecución**
+
 1. La IA identifica **`add_to_cart`** con: `product_id`, `quantity`, `idempotency_key`.
 2. El backend llama a **POST /cart**.
-3. Respuesta al usuario: *"✅ Carrito actualizado. Total: $… (items …)."*.
+3. Respuesta al usuario: _"✅ Carrito actualizado. Total: $… (items …)."_.
 
 ### 👤 Cambiar datos de perfil (evento `update_profile`)
 
 #### 1. **IA → Backend**: recolecta campos a modificar
+
 - `name`, `last_name`, `phone`, `birth_date` (solo los presentes).
-    
-    *"🪪 Actualizando tu perfil…"*
-    
+  _"🪪 Actualizando tu perfil…"_
+
 #### 2. **Validaciones**
+
 - Formato de teléfono y fecha de nacimiento.
 
 #### 3. **Ejecución**
+
 1. La IA identifica **`update_profile`** con: campos a actualizar + `idempotency_key`.
 2. El backend llama a **PATCH /profile**.
-3. Respuesta: *"✅ Perfil actualizado."*.
+3. Respuesta: _"✅ Perfil actualizado."_.
 
 ### 🗓️ Disponibilidad de un especialista (evento `get_availability`)
 
 #### 1. **IA → Backend**: obtiene disponibilidad
+
 - `specialist_id` y rango `from/to`.
-    
-    *"🗓️ Consultando disponibilidad…"*
-    
+  _"🗓️ Consultando disponibilidad…"_
+
 #### 2. **Presentación**
-- Lista de *slots* ordenados por fecha.
+
+- Lista de _slots_ ordenados por fecha.
 - Si el usuario ya dio una fecha objetivo, filtra.
 
 #### 3. **Devolver los datos al usuario**
@@ -120,14 +129,16 @@ Para cada flujo específico de una acción en concreto, se va a partir desde que
 ### 📊 Analizar datos del dashboard (evento `analyze_dashboard`, solo admin)
 
 #### 1. **IA → Backend**: verifica rol admin y recupera datos
+
 - Llama a **GET /admin/dashboard** (con rango/ métricas si se pide).
-    
-    *"📊 Recuperando datos del dashboard…"*
-    
+  _"📊 Recuperando datos del dashboard…"_
+
 #### 2. **Interpretación**
+
 - La IA resume tendencias, outliers, KPIs y compara contra periodos previos.
 - Señala causas probables y recomendaciones accionables.
 
 #### 3. **Entrega**
-- Resumen claro + bullets y, si aplica, *"Siguiente paso sugerido: …"*.
-- Si no es admin: *"Esta función es solo para administradores."*.
+
+- Resumen claro + bullets y, si aplica, _"Siguiente paso sugerido: …"_.
+- Si no es admin: _"Esta función es solo para administradores."_.

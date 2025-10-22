@@ -6,8 +6,8 @@ Documentación de 4. negocio.
 
 ## Secciones
 
-- [pendientes](./pendientes/00_README.md)
-- [promptsDeTareas](./promptsDeTareas/00_README.md)
+- [pendientes](./pendientes/README.md)
+- [promptsDeTareas](./promptsDeTareas/README.md)
 
 ---
 

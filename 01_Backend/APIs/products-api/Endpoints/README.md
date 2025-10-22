@@ -6,7 +6,7 @@ Documentación de endpoints.
 
 ## Secciones
 
-- [reviews](./reviews/00_README.md)
+- [reviews](./reviews/README.md)
 
 ## Archivos
 

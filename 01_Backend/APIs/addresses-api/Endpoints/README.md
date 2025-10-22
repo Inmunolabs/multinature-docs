@@ -11,11 +11,10 @@ Documentación de endpoints.
 - [GET /addresses/:id](./get.md)
 - [GET /addresses/user/:id](./list-by-user.md)
 - [GET /addresses/neighborhoods/:zipCode](./neighborhoods.md)
-- [API de Addresses](./README.md)
-- [PATCH /addresses/shippingAddress/:id](./shipping-update.md)
+- [PATCH /addresses/shippingAddress/:id](./shipping-update.md) // TODO Cambiar url ("/addresses/shippingAddress/:id" => "/addresses/shipping-address/:id")
 - [PATCH /addresses/:id](./update.md)
 
 ---
 
-- **Última actualización:** 2025-10-20  
+- **Última actualización:** 2025-10-22
 - **Total de archivos:** 8

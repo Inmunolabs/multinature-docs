@@ -6,11 +6,11 @@ Documentación de business rules.
 
 ## Secciones
 
-- [citas](./citas/00_README.md)
-- [nosotros](./nosotros/00_README.md)
-- [nutriologos](./nutriologos/00_README.md)
-- [specialists](./specialists/00_README.md)
-- [users](./users/00_README.md)
+- [citas](./citas/README.md)
+- [nosotros](./nosotros/README.md)
+- [nutriologos](./nutriologos/README.md)
+- [specialists](./specialists/README.md)
+- [users](./users/README.md)
 
 ## Archivos
 

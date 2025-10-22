@@ -32,11 +32,11 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Liquidación procesada exitosamente |
-| 401 | Unauthorized | Token faltante/inválido o contraseña incorrecta |
-| 500 | Internal Server Error | Error del servidor o en Wire4 |
+| Código | Significado           | Descripción                                     |
+| ------ | --------------------- | ----------------------------------------------- |
+| 200    | OK                    | Liquidación procesada exitosamente              |
+| 401    | Unauthorized          | Token faltante/inválido o contraseña incorrecta |
+| 500    | Internal Server Error | Error del servidor o en Wire4                   |
 
 ## Notas útiles para el frontend
 
