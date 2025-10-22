@@ -6,7 +6,7 @@ Documentación de products-api.
 
 ## Secciones
 
-- [Endpoints](./Endpoints/00_README.md)
+- [Endpoints](./Endpoints/README.md)
 
 ---
 

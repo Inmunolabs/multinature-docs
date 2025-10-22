@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo usuarios autorizados pueden consultar ingred
 - `id` (UUID, requerido): ID único del alimento/platillo
 
 ### Ejemplo
+
 ```
 GET /diets/ingredients/123e4567-e89b-12d3-a456-426614174000
 ```
@@ -67,13 +68,13 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Ingredientes del alimento obtenidos exitosamente |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para consultar ingredientes |
-| 404 | Not Found | Alimento no encontrado |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                      |
+| ------ | --------------------- | ------------------------------------------------ |
+| 200    | OK                    | Ingredientes del alimento obtenidos exitosamente |
+| 401    | Unauthorized          | Token faltante o inválido                        |
+| 403    | Forbidden             | Sin permisos para consultar ingredientes         |
+| 404    | Not Found             | Alimento no encontrado                           |
+| 500    | Internal Server Error | Error del servidor                               |
 
 ## Notas útiles para el frontend
 

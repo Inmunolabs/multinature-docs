@@ -18,6 +18,7 @@ No aplica
 - `endDate` (string, opcional): Fecha de fin del rango en formato YYYY-MM-DD. Por defecto: fecha actual
 
 ### Ejemplo
+
 ```
 GET /commissions?startDate=2024-01-01&endDate=2024-01-31
 ```
@@ -33,7 +34,7 @@ No aplica
   {
     "userId": "123e4567-e89b-12d3-a456-426614174000",
     "userEmail": "especialista@ejemplo.com",
-    "amount": 1250.50,
+    "amount": 1250.5,
     "status": "confirming",
     "createdAt": "2024-01-15T10:30:00Z"
   },
@@ -47,7 +48,7 @@ No aplica
   {
     "userId": "789e0123-e89b-12d3-a456-426614174000",
     "userEmail": "fisioterapeuta@ejemplo.com",
-    "amount": 2100.00,
+    "amount": 2100.0,
     "status": "pending",
     "createdAt": "2024-01-13T09:20:00Z"
   }
@@ -56,14 +57,14 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Comisiones obtenidas exitosamente |
-| 400 | Bad Request | Formato incorrecto de fechas |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para consultar comisiones |
-| 404 | Not Found | No se encontraron comisiones en el rango |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                              |
+| ------ | --------------------- | ---------------------------------------- |
+| 200    | OK                    | Comisiones obtenidas exitosamente        |
+| 400    | Bad Request           | Formato incorrecto de fechas             |
+| 401    | Unauthorized          | Token faltante o inválido                |
+| 403    | Forbidden             | Sin permisos para consultar comisiones   |
+| 404    | Not Found             | No se encontraron comisiones en el rango |
+| 500    | Internal Server Error | Error del servidor                       |
 
 ## Notas útiles para el frontend
 

@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo usuarios autorizados pueden consultar sus pr
 - `id` (UUID, requerido): ID único del usuario
 
 ### Ejemplo
+
 ```
 GET /commissions/user/123e4567-e89b-12d3-a456-426614174000
 ```
@@ -23,6 +24,7 @@ GET /commissions/user/123e4567-e89b-12d3-a456-426614174000
 - `endDate` (string, opcional): Fecha de fin del rango en formato YYYY-MM-DD
 
 ### Ejemplo
+
 ```
 GET /commissions/user/123e4567-e89b-12d3-a456-426614174000?startDate=2024-01-01&endDate=2024-01-31
 ```
@@ -38,17 +40,17 @@ No aplica
   {
     "userId": "123e4567-e89b-12d3-a456-426614174000",
     "userEmail": "especialista@ejemplo.com",
-    "amount": 1250.50,
+    "amount": 1250.5,
     "transactions": [
       {
         "id": "456e7890-e89b-12d3-a456-426614174000",
-        "amount": 400.00,
+        "amount": 400.0,
         "concept": "Consulta de nutrición",
         "date": "2024-01-15T10:30:00Z"
       },
       {
         "id": "789e0123-e89b-12d3-a456-426614174000",
-        "amount": 850.50,
+        "amount": 850.5,
         "concept": "Plan nutricional personalizado",
         "date": "2024-01-14T15:45:00Z"
       }
@@ -61,14 +63,14 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Comisiones del usuario obtenidas exitosamente |
-| 400 | Bad Request | Formato incorrecto de fechas |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para consultar comisiones de este usuario |
-| 404 | Not Found | Usuario no encontrado o sin comisiones en el rango |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                            |
+| ------ | --------------------- | ------------------------------------------------------ |
+| 200    | OK                    | Comisiones del usuario obtenidas exitosamente          |
+| 400    | Bad Request           | Formato incorrecto de fechas                           |
+| 401    | Unauthorized          | Token faltante o inválido                              |
+| 403    | Forbidden             | Sin permisos para consultar comisiones de este usuario |
+| 404    | Not Found             | Usuario no encontrado o sin comisiones en el rango     |
+| 500    | Internal Server Error | Error del servidor                                     |
 
 ## Notas útiles para el frontend
 

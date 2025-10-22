@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo especialistas autorizados pueden actualizar 
 - `id` (UUID, requerido): ID único de la plantilla a actualizar
 
 ### Ejemplo
+
 ```
 PUT /forms/template/123e4567-e89b-12d3-a456-426614174000
 ```
@@ -108,14 +109,14 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Plantilla actualizada exitosamente |
-| 400 | Bad Request | Datos de la plantilla inválidos o faltantes |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para actualizar esta plantilla |
-| 404 | Not Found | Plantilla no encontrada |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                 |
+| ------ | --------------------- | ------------------------------------------- |
+| 200    | OK                    | Plantilla actualizada exitosamente          |
+| 400    | Bad Request           | Datos de la plantilla inválidos o faltantes |
+| 401    | Unauthorized          | Token faltante o inválido                   |
+| 403    | Forbidden             | Sin permisos para actualizar esta plantilla |
+| 404    | Not Found             | Plantilla no encontrada                     |
+| 500    | Internal Server Error | Error del servidor                          |
 
 ## Notas útiles para el frontend
 
@@ -136,5 +137,3 @@ No aplica
 - **DTO:** Usa `templateToDTO` para transformar la respuesta
 - **Seguridad:** Solo permite actualizar plantillas propias del especialista
 - **Transaccional:** Actualiza la plantilla, preguntas y relaciones en una sola operación
-
-

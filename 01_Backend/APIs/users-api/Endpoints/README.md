@@ -6,9 +6,9 @@ Documentación de endpoints.
 
 ## Secciones
 
-- [specialists](./specialists/00_README.md)
-- [summary](./summary/00_README.md)
-- [teamworks](./teamworks/00_README.md)
+- [specialists](./specialists/README.md)
+- [summary](./summary/README.md)
+- [teamworks](./teamworks/README.md)
 
 ## Archivos
 

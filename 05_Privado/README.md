@@ -6,9 +6,9 @@ Documentación de 05 privado.
 
 ## Secciones
 
-- [Refactors](./Refactors/00_README.md)
-- [Reportes](./Reportes/00_README.md)
-- [Testing](./Testing/00_README.md)
+- [Refactors](./Refactors/README.md)
+- [Reportes](./Reportes/README.md)
+- [Testing](./Testing/README.md)
 
 ---
 

@@ -118,14 +118,14 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Menús establecidos exitosamente |
-| 400 | Bad Request | Datos de menús inválidos o faltantes |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para establecer menús |
-| 404 | Not Found | Dieta no encontrada |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                          |
+| ------ | --------------------- | ------------------------------------ |
+| 200    | OK                    | Menús establecidos exitosamente      |
+| 400    | Bad Request           | Datos de menús inválidos o faltantes |
+| 401    | Unauthorized          | Token faltante o inválido            |
+| 403    | Forbidden             | Sin permisos para establecer menús   |
+| 404    | Not Found             | Dieta no encontrada                  |
+| 500    | Internal Server Error | Error del servidor                   |
 
 ## Notas útiles para el frontend
 

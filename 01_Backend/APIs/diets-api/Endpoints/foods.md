@@ -68,12 +68,12 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Alimentos obtenidos exitosamente |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para consultar alimentos |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                           |
+| ------ | --------------------- | ------------------------------------- |
+| 200    | OK                    | Alimentos obtenidos exitosamente      |
+| 401    | Unauthorized          | Token faltante o inválido             |
+| 403    | Forbidden             | Sin permisos para consultar alimentos |
+| 500    | Internal Server Error | Error del servidor                    |
 
 ## Notas útiles para el frontend
 

@@ -1,7 +1,7 @@
 [
   {
     "origen": "README.md",
-    "destino": "00_Overview/00_README.md",
+    "destino": "00_Overview/README.md",
     "accion": "mover",
     "sensibilidad": "publico",
     "notas": "README principal movido a Overview"
@@ -50,7 +50,7 @@
   },
   {
     "origen": "3. FRONTEND/README.md",
-    "destino": "02_Frontend/00_README.md",
+    "destino": "02_Frontend/README.md",
     "accion": "mover",
     "sensibilidad": "publico",
     "notas": "README de frontend"

@@ -6,7 +6,7 @@ Documentación de 03 infraestructura.
 
 ## Secciones
 
-- [Scripts](./Scripts/00_README.md)
+- [Scripts](./Scripts/README.md)
 
 ---
 

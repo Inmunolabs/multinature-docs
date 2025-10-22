@@ -1,12 +1,12 @@
-# menus
+# smae
 
-Documentación de menus.
+Documentación de smae.
 
 ---
 
 ## Archivos
 
-- [POST /menus/](./create.md)
+- [GET /smae/dishes/search](./smae-search.md)
 
 ---
 

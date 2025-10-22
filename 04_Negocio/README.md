@@ -6,8 +6,8 @@ Documentación de 04 negocio.
 
 ## Secciones
 
-- [Pendientes](./Pendientes/00_README.md)
-- [Tareas](./Tareas/00_README.md)
+- [Pendientes](./Pendientes/README.md)
+- [Tareas](./Tareas/README.md)
 
 ## Archivos
 

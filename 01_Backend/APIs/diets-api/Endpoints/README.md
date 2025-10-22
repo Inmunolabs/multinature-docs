@@ -6,7 +6,8 @@ Documentación de endpoints.
 
 ## Secciones
 
-- [menus](./menus/00_README.md)
+- [menus](./menus/README.md)
+- [smae](./smae/README.md) // TODO Completar la documentación de los endpoints de SMAE
 
 ## Archivos
 
@@ -20,10 +21,8 @@ Documentación de endpoints.
 - [GET /diets/ingredients/](./ingredients.md)
 - [GET /diets/specialist/:id](./list-by-specialist.md)
 - [GET /diets/user/:id](./list-by-user.md)
-- [API de Diets](./README.md)
-- [GET /smae/dishes/search](./smae-search.md)
 
 ---
 
-- **Última actualización:** 2025-10-20  
+- **Última actualización:** 2025-10-20
 - **Total de archivos:** 12

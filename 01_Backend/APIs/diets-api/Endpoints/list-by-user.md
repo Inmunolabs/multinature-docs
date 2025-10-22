@@ -13,6 +13,7 @@ Requiere token Bearer válido. Solo usuarios autorizados pueden consultar dietas
 - `id` (UUID, requerido): ID único del usuario
 
 ### Ejemplo
+
 ```
 GET /diets/user/123e4567-e89b-12d3-a456-426614174000
 ```
@@ -58,13 +59,13 @@ No aplica
 
 ## Códigos de estado y errores
 
-| Código | Significado | Descripción |
-|--------|-------------|-------------|
-| 200 | OK | Dietas del usuario obtenidas exitosamente |
-| 401 | Unauthorized | Token faltante o inválido |
-| 403 | Forbidden | Sin permisos para consultar dietas de este usuario |
-| 404 | Not Found | Usuario no encontrado o sin dietas |
-| 500 | Internal Server Error | Error del servidor |
+| Código | Significado           | Descripción                                        |
+| ------ | --------------------- | -------------------------------------------------- |
+| 200    | OK                    | Dietas del usuario obtenidas exitosamente          |
+| 401    | Unauthorized          | Token faltante o inválido                          |
+| 403    | Forbidden             | Sin permisos para consultar dietas de este usuario |
+| 404    | Not Found             | Usuario no encontrado o sin dietas                 |
+| 500    | Internal Server Error | Error del servidor                                 |
 
 ## Notas útiles para el frontend
 

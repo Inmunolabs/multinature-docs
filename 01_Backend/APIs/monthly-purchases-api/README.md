@@ -6,8 +6,8 @@ Documentación de monthly-purchases-api.
 
 ## Secciones
 
-- [Endpoints](./Endpoints/00_README.md)
-- [Guides](./Guides/00_README.md)
+- [Endpoints](./Endpoints/README.md)
+- [Guides](./Guides/README.md)
 
 ---
 

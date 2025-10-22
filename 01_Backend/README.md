@@ -6,9 +6,9 @@ Documentación de 01 backend.
 
 ## Secciones
 
-- [APIs](./APIs/00_README.md)
-- [Database](../00_Overview/00_README.md)
-- [Layers](./Layers/00_README.md)
+- [APIs](./APIs/README.md)
+- [Database](../00_Overview/README.md)
+- [Layers](./Layers/README.md)
 
 ## Archivos
 

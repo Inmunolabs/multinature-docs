@@ -10,9 +10,8 @@ Documentación de endpoints.
 - [POST /commissions/liquidate](./liquidate.md)
 - [GET /commissions/user/:id](./list-by-user.md)
 - [GET /commissions](./list.md)
-- [API de Commissions](./README.md)
 
 ---
 
-- **Última actualización:** 2025-10-20  
-- **Total de archivos:** 5
+- **Última actualización:** 2025-10-22
+- **Total de archivos:** 4
