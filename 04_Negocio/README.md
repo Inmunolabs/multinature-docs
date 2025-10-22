@@ -17,5 +17,5 @@ Documentación de 04 negocio.
 
 ---
 
-**Última actualización:** 2025-10-20  
-**Total de archivos:** 3
+- **Última actualización:** 2025-10-20  
+- **Total de archivos:** 3

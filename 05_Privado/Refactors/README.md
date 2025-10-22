@@ -14,5 +14,5 @@ Documentación de refactors.
 
 ---
 
-**Última actualización:** 2025-10-20  
-**Total de archivos:** 5
+- **Última actualización:** 2025-10-20  
+- **Total de archivos:** 5

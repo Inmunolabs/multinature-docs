@@ -149,6 +149,6 @@ bash backend/logs/rollback-2025-10-20T*.sh
 
 ---
 
-**Última actualización:** 2025-10-20  
+- **Última actualización:** 2025-10-20  
 **Mantenido por:** Backend Team
 

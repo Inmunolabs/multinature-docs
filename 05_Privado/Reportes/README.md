@@ -18,5 +18,5 @@ Documentación de reportes.
 
 ---
 
-**Última actualización:** 2025-10-20  
-**Total de archivos:** 9
+- **Última actualización:** 2025-10-20  
+- **Total de archivos:** 9

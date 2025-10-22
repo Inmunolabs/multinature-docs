@@ -10,5 +10,5 @@ Documentación de cart-api.
 
 ---
 
-**Última actualización:** 2025-10-20  
-**Total de archivos:** 0
+- **Última actualización:** 2025-10-20  
+- **Total de archivos:** 0

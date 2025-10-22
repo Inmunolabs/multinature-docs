@@ -10,5 +10,5 @@ Documentación de 02 frontend.
 
 ---
 
-**Última actualización:** 2025-10-20  
-**Total de archivos:** 1
+- **Última actualización:** 2025-10-20  
+- **Total de archivos:** 1

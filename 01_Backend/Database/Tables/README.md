@@ -91,5 +91,5 @@ Documentación de tables.
 
 ---
 
-**Última actualización:** 2025-10-20  
-**Total de archivos:** 82
+- **Última actualización:** 2025-10-20  
+- **Total de archivos:** 82

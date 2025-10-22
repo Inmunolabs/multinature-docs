@@ -30,5 +30,5 @@ Documentación de endpoints.
 
 ---
 
-**Última actualización:** 2025-10-20  
-**Total de archivos:** 15
+- **Última actualización:** 2025-10-20  
+- **Total de archivos:** 15

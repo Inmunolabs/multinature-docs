@@ -13,5 +13,5 @@ Documentación de nutriólogos.
 
 ---
 
-**Última actualización:** 2025-10-21
-**Total de archivos:** 0
+- **Última actualización:** 2025-10-21
+- **Total de archivos:** 0

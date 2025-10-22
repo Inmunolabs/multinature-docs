@@ -36,5 +36,5 @@ Documentación de tareas.
 
 ---
 
-**Última actualización:** 2025-10-20  
-**Total de archivos:** 27
+- **Última actualización:** 2025-10-20  
+- **Total de archivos:** 27
