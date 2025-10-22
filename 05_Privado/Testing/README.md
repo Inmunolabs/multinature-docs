@@ -1,11 +1,15 @@
-# PRUEBAS
+# Testing
 
-## Contenido
+Documentación de testing.
 
-1. [Primer entrega 30 de junio de 2025](./5.1.%20primerEntrega-2025.06.30.md)
+---
 
-## Nomenclatura
+## Archivos
 
-| Icono | Significado |
-| ----- | ----------- |
-|       |             |
+- [Matriz de Pruebas primer entrega - 30 de junio de 2025](./5.1. primerEntrega-2025.06.30.md)
+- [PRUEBAS](./README.md)
+
+---
+
+- **Última actualización:** 2025-10-20  
+- **Total de archivos:** 2
