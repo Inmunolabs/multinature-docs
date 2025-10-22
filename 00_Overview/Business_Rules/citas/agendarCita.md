@@ -1,13 +1,11 @@
-# Citas
-
-## Agendar una cita
+# Agendar una cita
 
 Un usuario o un especialista pueden agendarse una cita entre si. (**El token determina quien esta agendando la cita.**)
 
 - Si specialistId es igual al `requestUser.id` un especilista esta agendando la cita a un usuario
 - Si userId es igual al `requestUser.id` un usuario esta agendando la cita a un especialista
 
-### Flujo
+## Flujo
 
 1. La fecha de la cita debe ser después del día en curso. Formato de fecha (`isISO8601()`)
 2. La hora de finalización (`endDate`) de la cita debe ser mayor a la hora de inicio de la cita (`starDate`)
@@ -21,7 +19,11 @@ Un usuario o un especialista pueden agendarse una cita entre si. (**El token det
 10. Si el especialista tiene `chargePerConsultation = 0` y `chargeAdvancePayment > 0` solo se genera un `service_payment` `Anticipo de consulta`
 11. Si el especialista tiene `chargePerConsultation = 0` y `chargeAdvancePayment = 0` no se genera ningún `service_payment`
 
-### Notas clave
+## Diagramas de Flujo
+
+1. [Agendamiento de cita](./agendarCita.png)
+
+## Notas clave
 
 - Un Anticipo de un consulta (un `service_payment_complements`) puede llegar a ser el pago completo del servicio (`service_payments`).
   - Para este caso el `service_payments` estará compuesto de los siguientes campos:

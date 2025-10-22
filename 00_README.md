@@ -12,7 +12,6 @@ Documentación de docs.
 - [03 Infraestructura](./03_Infraestructura/00_README.md)
 - [04 Negocio](./04_Negocio/00_README.md)
 - [05 Privado](./05_Privado/00_README.md)
-- [1. Definicion del proyecto](./1. Definicion del proyecto/00_README.md)
 - [2. BACKEND](./2. BACKEND/00_README.md)
 - [3. FRONTEND](./3. FRONTEND/00_README.md)
 - [4. Negocio](./4. Negocio/00_README.md)

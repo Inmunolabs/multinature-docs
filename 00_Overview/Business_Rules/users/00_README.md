@@ -6,9 +6,9 @@ Documentación de users.
 
 ## Archivos
 
-- [Reglas de visibilidad y edición de pacientes en equipos de trabajo](./teamworks.md)
+- [Equipos de trabajo. Reglas de visibilidad y edición de pacientes](./teamworks.md)
 
 ---
 
-**Última actualización:** 2025-10-20  
+**Última actualización:** 2025-10-21
 **Total de archivos:** 1
