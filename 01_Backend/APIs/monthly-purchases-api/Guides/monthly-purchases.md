@@ -1,4 +1,4 @@
-# Funcionalidad de Compra Mensual
+# Compras Mensuales
 
 ## Vista general
 

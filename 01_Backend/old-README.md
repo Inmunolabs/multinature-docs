@@ -17,7 +17,7 @@
          1. [Guía de inicio rápido de Node.js](https://developers.google.com/sheets/api/quickstart/nodejs?hl=es_419)
          2. [Crear una hoja de cálculo](https://developers.google.com/sheets/api/guides/create?hl=es_419)
 4. [2.4 - Monthly Purchases](./2.4-monthly-purchases/)
-   1. [2.4.1 - Funcionalidad](APIs/monthly-purchases-api/Guides/2.4.1-monthly-purchase-logic.md)
+   1. [2.4.1 - Funcionalidad](APIs/monthly-purchases-api/Guides/monthly-purchases.md)
 5. [2.5 - Notifications](./2.5-notifications/)
    1. [2.5.1 - Envío de Notificaciones](APIs/notifications-api/Guides/2.5.1-send-notifications.md)
 6. [2.6 - Orders](./2.6-orders/)

@@ -1396,8 +1396,8 @@
       "heading": "📊 Documentación del Endpoint de Diet Calculation"
     },
     {
-      "name": "2.4.1-monthly-purchase-logic.md",
-      "path": "2. BACKEND/2.4-monthly-purchases/2.4.1-monthly-purchase-logic.md",
+      "name": "monthly-purchases.md",
+      "path": "2. BACKEND/2.4-monthly-purchases/monthly-purchases.md",
       "directory": "2. BACKEND\\2.4-monthly-purchases",
       "size": 2496,
       "heading": "Funcionalidad de Compra Mensual"

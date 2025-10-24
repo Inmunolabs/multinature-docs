@@ -6,9 +6,9 @@ Documentación de guides.
 
 ## Archivos
 
-- [Funcionalidad de Compra Mensual](./2.4.1-monthly-purchase-logic.md)
+- [Compras Mensuales](./monthly-purchases.md)
 
 ---
 
-- **Última actualización:** 2025-10-20  
+- **Última actualización:** 2025-10-22
 - **Total de archivos:** 1

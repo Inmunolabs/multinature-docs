@@ -1346,8 +1346,8 @@
     "notas": "Migrado según reestructuración v2"
   },
   {
-    "origen": "2. BACKEND/2.4-monthly-purchases/2.4.1-monthly-purchase-logic.md",
-    "destino": "01_Backend/APIs/monthly-purchases-api/Guides/2.4.1-monthly-purchase-logic.md",
+    "origen": "2. BACKEND/2.4-monthly-purchases/monthly-purchases.md",
+    "destino": "01_Backend/APIs/monthly-purchases-api/Guides/monthly-purchases.md",
     "accion": "mover",
     "sensibilidad": "publico",
     "notas": "Migrado según reestructuración v2"
