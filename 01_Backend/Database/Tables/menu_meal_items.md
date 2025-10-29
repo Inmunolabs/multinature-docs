@@ -23,7 +23,7 @@ CREATE TABLE `menu_meal_items` (
   CONSTRAINT `chk_mmi_qty` CHECK ((`quantity` > 0)),
   CONSTRAINT `chk_mmi_xor` CHECK ((((`ingredient_id` is not null) and (`food_id` is null)) or ((`ingredient_id` is null) and (`food_id` is not null))))
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

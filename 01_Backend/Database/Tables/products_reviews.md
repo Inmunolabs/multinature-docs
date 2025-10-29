@@ -19,7 +19,7 @@ CREATE TABLE `products_reviews` (
   CONSTRAINT `products_reviews_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `product_reviews_chk_1` CHECK ((`rating` between 1 and 5))
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

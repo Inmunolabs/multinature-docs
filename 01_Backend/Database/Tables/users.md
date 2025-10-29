@@ -26,7 +26,7 @@ CREATE TABLE `users` (
   KEY `fk_recommenderId` (`recommender_id`),
   CONSTRAINT `fk_recommenderId` FOREIGN KEY (`recommender_id`) REFERENCES `users` (`id`)
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

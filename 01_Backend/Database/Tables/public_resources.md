@@ -14,7 +14,7 @@ CREATE TABLE `public_resources` (
   `is_active` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id`)
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

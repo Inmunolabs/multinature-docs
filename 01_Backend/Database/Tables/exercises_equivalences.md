@@ -12,7 +12,7 @@ CREATE TABLE `exercises_equivalences` (
   CONSTRAINT `exercises_equivalences_ibfk_1` FOREIGN KEY (`exercise_id`) REFERENCES `exercises` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `exercises_equivalences_ibfk_2` FOREIGN KEY (`equivalent_id`) REFERENCES `exercises` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

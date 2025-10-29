@@ -26,7 +26,7 @@ CREATE TABLE `bookings` (
   CONSTRAINT `bookings_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `bookings_ibfk_4` FOREIGN KEY (`specialty_id`) REFERENCES `specialties` (`id`)
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

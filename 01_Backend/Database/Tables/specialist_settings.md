@@ -14,7 +14,7 @@ CREATE TABLE `specialist_settings` (
   PRIMARY KEY (`specialist_id`),
   CONSTRAINT `specialist_settings_ibfk_1` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

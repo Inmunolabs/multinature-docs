@@ -26,7 +26,7 @@ CREATE TABLE `diets_snapshots` (
   CONSTRAINT `diets_snapshots_ibfk_1` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`),
   CONSTRAINT `diets_snapshots_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

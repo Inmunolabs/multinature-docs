@@ -24,7 +24,7 @@ CREATE TABLE `addresses` (
   KEY `addresses_ibfk_1` (`user_id`),
   CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

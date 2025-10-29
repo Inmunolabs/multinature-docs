@@ -14,7 +14,7 @@ CREATE TABLE `workout_day_splits` (
   UNIQUE KEY `uq_workout_day` (`workout_id`,`weekday`),
   CONSTRAINT `workout_day_splits_ibfk_1` FOREIGN KEY (`workout_id`) REFERENCES `workout_plans` (`id`) ON DELETE CASCADE
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

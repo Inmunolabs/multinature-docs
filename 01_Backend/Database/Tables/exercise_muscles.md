@@ -13,7 +13,7 @@ CREATE TABLE `exercise_muscles` (
   CONSTRAINT `exercise_muscles_ibfk_2` FOREIGN KEY (`muscle_id`) REFERENCES `muscles` (`id`),
   CONSTRAINT `exercise_muscles_chk_1` CHECK ((`type` in (_utf8mb4'primary',_utf8mb4'secondary')))
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

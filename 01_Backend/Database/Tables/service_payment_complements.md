@@ -19,7 +19,7 @@ CREATE TABLE `service_payment_complements` (
   KEY `service_payment_complements_ibfk_1` (`service_payment_id`),
   CONSTRAINT `service_payment_complements_ibfk_1` FOREIGN KEY (`service_payment_id`) REFERENCES `service_payments` (`id`)
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

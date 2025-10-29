@@ -11,7 +11,7 @@ CREATE TABLE `patient_team_share_specialists` (
   CONSTRAINT `patient_team_share_specialists_ibfk_1` FOREIGN KEY (`share_id`) REFERENCES `patient_team_shares` (`id`),
   CONSTRAINT `patient_team_share_specialists_ibfk_2` FOREIGN KEY (`to_specialist_id`) REFERENCES `users` (`id`)
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

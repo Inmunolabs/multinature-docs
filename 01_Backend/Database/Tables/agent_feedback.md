@@ -37,7 +37,7 @@ CREATE TABLE `agent_feedback` (
   CONSTRAINT `chk_satisfaction_score` CHECK ((`satisfaction_score` between 1 and 5)),
   CONSTRAINT `chk_usefulness_score` CHECK ((`usefulness_score` between 1 and 5))
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

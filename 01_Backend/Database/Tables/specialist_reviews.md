@@ -20,7 +20,7 @@ CREATE TABLE `specialist_reviews` (
   CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `specialist_reviews_chk_1` CHECK ((`rating` between 1 and 5))
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

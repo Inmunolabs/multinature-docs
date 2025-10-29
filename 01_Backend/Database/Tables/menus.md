@@ -17,7 +17,7 @@ CREATE TABLE `menus` (
   CONSTRAINT `fk_menus_diet` FOREIGN KEY (`diet_id`) REFERENCES `diets` (`id`) ON DELETE SET NULL,
   CONSTRAINT `fk_menus_specialist` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

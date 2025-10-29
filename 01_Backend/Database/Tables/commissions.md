@@ -16,7 +16,7 @@ CREATE TABLE `commissions` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `userId` (`user_id`,`period`)
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

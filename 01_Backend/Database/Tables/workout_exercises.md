@@ -19,7 +19,7 @@ CREATE TABLE `workout_exercises` (
   CONSTRAINT `workout_exercises_ibfk_2` FOREIGN KEY (`exercise_id`) REFERENCES `exercises2` (`id`),
   CONSTRAINT `workout_exercises_ibfk_3` FOREIGN KEY (`muscle_id`) REFERENCES `muscles` (`id`)
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

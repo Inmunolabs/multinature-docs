@@ -15,7 +15,7 @@ CREATE TABLE `subspecialties` (
   CONSTRAINT `fk_subspecialties_specialty` FOREIGN KEY (`specialty_id`) REFERENCES `specialties` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `fk_subspecialty_created_by` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`)
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

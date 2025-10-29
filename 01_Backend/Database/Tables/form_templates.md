@@ -20,7 +20,7 @@ CREATE TABLE `form_templates` (
   CONSTRAINT `fk_form_templates_base` FOREIGN KEY (`base_template_id`) REFERENCES `form_templates` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `form_templates_ibfk_1` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`)
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

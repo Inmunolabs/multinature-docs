@@ -21,7 +21,7 @@ CREATE TABLE `filled_forms` (
   CONSTRAINT `filled_forms_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `filled_forms_ibfk_4` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`)
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

@@ -17,7 +17,7 @@ CREATE TABLE `menu_meals_eq` (
   CONSTRAINT `fk_mmeq_group` FOREIGN KEY (`equivalence_group_id`) REFERENCES `equivalences_groups` (`id`) ON DELETE RESTRICT,
   CONSTRAINT `fk_mmeq_meal` FOREIGN KEY (`menu_meal_id`) REFERENCES `menu_meals` (`id`) ON DELETE CASCADE
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

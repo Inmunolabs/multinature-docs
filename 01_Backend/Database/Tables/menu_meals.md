@@ -14,7 +14,7 @@ CREATE TABLE `menu_meals` (
   KEY `ix_meals_menu` (`menu_id`,`meal_type`),
   CONSTRAINT `fk_menu_meals_menu` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

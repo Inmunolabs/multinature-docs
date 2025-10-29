@@ -16,7 +16,7 @@ CREATE TABLE `user_action_replacements` (
   KEY `fk_user_action_replacements2_user_id` (`user_id`),
   CONSTRAINT `fk_user_action_replacements2_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

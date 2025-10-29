@@ -12,7 +12,7 @@ CREATE TABLE `diet_equivalences_groups` (
   CONSTRAINT `diet_equivalences_groups_ibfk_1` FOREIGN KEY (`diet_id`) REFERENCES `diets` (`id`),
   CONSTRAINT `diet_equivalences_groups_ibfk_2` FOREIGN KEY (`equivalences_group_id`) REFERENCES `equivalences_groups` (`id`)
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

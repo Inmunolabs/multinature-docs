@@ -42,7 +42,7 @@ CREATE TABLE `agent_evals` (
   CONSTRAINT `chk_overall_score` CHECK ((`overall_score` between 0 and 100)),
   CONSTRAINT `chk_substitution_cost_score` CHECK ((`substitution_cost_score` between 0 and 100))
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

@@ -19,7 +19,7 @@ CREATE TABLE `menu_meal_item_food_overrides` (
   CONSTRAINT `fk_override_item` FOREIGN KEY (`menu_meal_item_id`) REFERENCES `menu_meal_items` (`id`) ON DELETE CASCADE,
   CONSTRAINT `chk_override_qty` CHECK ((`quantity` > 0))
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas

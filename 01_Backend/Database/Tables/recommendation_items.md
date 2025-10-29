@@ -14,7 +14,7 @@ CREATE TABLE `recommendation_items` (
   CONSTRAINT `recommendation_items_ibfk_1` FOREIGN KEY (`recommendation_id`) REFERENCES `recommendations` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `recommendation_items_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON UPDATE CASCADE
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas
