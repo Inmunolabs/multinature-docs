@@ -11,8 +11,7 @@ CREATE TABLE `foods_ingredients` (
   PRIMARY KEY (`food_id`,`ingredient_id`),
   KEY `foods_ingredients_ibfk_2` (`ingredient_id`),
   CONSTRAINT `foods_ingredients_ibfk_1` FOREIGN KEY (`food_id`) REFERENCES `foods` (`id`),
-  CONSTRAINT `foods_ingredients_ibfk_2` FOREIGN KEY (`ingredient_id`) REFERENCES `ingredients` (`id`) ON DELETE CASCADE
-);
+  CONSTRAINT `foods_ingredients_ibfk_2` FOREIGN KEY (`ingredient_id`) REFERENCES `ingredients` (`id`) ON DELETE CASCADE);
 ```
 
 ## Resumen de columnas

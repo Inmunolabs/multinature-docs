@@ -12,8 +12,7 @@ CREATE TABLE `equivalences_groups` (
   `proteins` decimal(6,2) DEFAULT NULL,
   `lipids` decimal(6,2) DEFAULT NULL,
   `carbohydrates` decimal(6,2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
+  PRIMARY KEY (`id`));
 ```
 
 ## Resumen de columnas

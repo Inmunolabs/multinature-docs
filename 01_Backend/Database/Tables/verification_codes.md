@@ -1,9 +1,9 @@
 # verification_codes
 
 ## DDL (fuente de verdad)
+
 ```sql
 CREATE TABLE `verification_codes` (
-
   `id` varchar(36) NOT NULL,
   `user_id` varchar(36) NOT NULL,
   `type` enum('account','password') NOT NULL DEFAULT 'account',
@@ -12,11 +12,11 @@ CREATE TABLE `verification_codes` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_user_type` (`user_id`,`type`),
   CONSTRAINT `verification_codes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-
 );
 ```
 
 ## Resumen de columnas
+
 ```
 Table: verification_codes
 Columns:
@@ -29,11 +29,13 @@ expiration_date datetime
 ```
 
 ## Reglas de mapeo
+
 - SQL `snake_case` ↔ JS `camelCase` 1:1.
 - Tipos DECIMAL/NUMERIC → `number` en JS. `TINYINT(1)` ↔ `boolean`.
 - Evitar alias de columnas inexistentes; si no está en DDL, no va en entity/DTO.
 
 ## Queries estándar sugeridos
+
 - SELECT por `id`
 - LIST con filtros comunes y paginación
 - INSERT validando NOT NULL
@@ -41,4 +43,5 @@ expiration_date datetime
 - DELETE por `id` (si aplica)
 
 ## Notas
+
 - Documenta claves foráneas, índices y `ORDER BY` por defecto si aplica.

@@ -1,9 +1,9 @@
 # service_payment_complements
 
 ## DDL (fuente de verdad)
+
 ```sql
 CREATE TABLE `service_payment_complements` (
-
   `id` varchar(36) NOT NULL,
   `service_payment_id` varchar(36) NOT NULL,
   `payment_method` json NOT NULL,
@@ -18,11 +18,11 @@ CREATE TABLE `service_payment_complements` (
   PRIMARY KEY (`id`),
   KEY `service_payment_complements_ibfk_1` (`service_payment_id`),
   CONSTRAINT `service_payment_complements_ibfk_1` FOREIGN KEY (`service_payment_id`) REFERENCES `service_payments` (`id`)
-
 );
 ```
 
 ## Resumen de columnas
+
 ```
 Table: service_payment_complements
 Columns:
@@ -41,11 +41,13 @@ created_at datetime
 ```
 
 ## Reglas de mapeo
+
 - SQL `snake_case` ↔ JS `camelCase` 1:1.
 - Tipos DECIMAL/NUMERIC → `number` en JS. `TINYINT(1)` ↔ `boolean`.
 - Evitar alias de columnas inexistentes; si no está en DDL, no va en entity/DTO.
 
 ## Queries estándar sugeridos
+
 - SELECT por `id`
 - LIST con filtros comunes y paginación
 - INSERT validando NOT NULL
@@ -53,4 +55,5 @@ created_at datetime
 - DELETE por `id` (si aplica)
 
 ## Notas
+
 - Documenta claves foráneas, índices y `ORDER BY` por defecto si aplica.

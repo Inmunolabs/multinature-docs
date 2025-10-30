@@ -1,9 +1,9 @@
 # form_templates
 
 ## DDL (fuente de verdad)
+
 ```sql
 CREATE TABLE `form_templates` (
-
   `id` varchar(36) NOT NULL,
   `specialty_id` varchar(36) DEFAULT NULL,
   `specialist_id` varchar(36) DEFAULT NULL,
@@ -18,12 +18,11 @@ CREATE TABLE `form_templates` (
   KEY `specialistId` (`specialist_id`),
   KEY `fk_form_templates_base` (`base_template_id`),
   CONSTRAINT `fk_form_templates_base` FOREIGN KEY (`base_template_id`) REFERENCES `form_templates` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `form_templates_ibfk_1` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`)
-
-);
+  CONSTRAINT `form_templates_ibfk_1` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`));
 ```
 
 ## Resumen de columnas
+
 ```
 Table: form_templates
 Columns:
@@ -41,11 +40,13 @@ base_template_id char(36)
 ```
 
 ## Reglas de mapeo
+
 - SQL `snake_case` ↔ JS `camelCase` 1:1.
 - Tipos DECIMAL/NUMERIC → `number` en JS. `TINYINT(1)` ↔ `boolean`.
 - Evitar alias de columnas inexistentes; si no está en DDL, no va en entity/DTO.
 
 ## Queries estándar sugeridos
+
 - SELECT por `id`
 - LIST con filtros comunes y paginación
 - INSERT validando NOT NULL
@@ -53,4 +54,5 @@ base_template_id char(36)
 - DELETE por `id` (si aplica)
 
 ## Notas
+
 - Documenta claves foráneas, índices y `ORDER BY` por defecto si aplica.

@@ -18,8 +18,7 @@ CREATE TABLE `foods` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `specialist_id` (`specialist_id`),
-  CONSTRAINT `foods_ibfk_1` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`)
-);
+  CONSTRAINT `foods_ibfk_1` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`));
 ```
 
 ## Resumen de columnas

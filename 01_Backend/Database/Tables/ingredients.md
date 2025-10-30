@@ -37,8 +37,7 @@ CREATE TABLE `ingredients` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `equivalences_group_id` (`equivalences_group_id`),
-  CONSTRAINT `ingredients_ibfk_1` FOREIGN KEY (`equivalences_group_id`) REFERENCES `equivalences_groups` (`id`)
-);
+  CONSTRAINT `ingredients_ibfk_1` FOREIGN KEY (`equivalences_group_id`) REFERENCES `equivalences_groups` (`id`));
 ```
 
 ## Resumen de columnas

@@ -12,7 +12,6 @@ Documentación de docs.
 - [03 Infraestructura](./03_Infraestructura/README.md)
 - [04 Negocio](./04_Negocio/README.md)
 - [05 Privado](./05_Privado/README.md)
-- [reports](./reports/README.md)
 
 ---
 

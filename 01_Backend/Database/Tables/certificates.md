@@ -1,9 +1,9 @@
 # certificates
 
 ## DDL (fuente de verdad)
-```sql
-CREATE TABLE `certificates` (
 
+````sql
+CREATE TABLE `certificates` (
   `id` varchar(36) NOT NULL,
   `user_id` varchar(36) NOT NULL,
   `url` text NOT NULL,
@@ -15,12 +15,12 @@ CREATE TABLE `certificates` (
   PRIMARY KEY (`id`),
   KEY `certificates_ibfk_1` (`user_id`),
   CONSTRAINT `certificates_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-
 );
 ```
 
 ## Resumen de columnas
-```
+````
+
 Table: certificates
 Columns:
 CREATE TABLE `certificates` (
@@ -32,6 +32,7 @@ name varchar(255)
 s3_key varchar(255)
 created_at datetime
 updated_at datetime
+
 ```
 
 ## Reglas de mapeo
@@ -48,3 +49,4 @@ updated_at datetime
 
 ## Notas
 - Documenta claves foráneas, índices y `ORDER BY` por defecto si aplica.
+```
