@@ -306,17 +306,19 @@ El sistema puede registrar la adherencia del paciente, retroalimentación del nu
 flowchart TD
   A["Inicio del proceso"] --> B["Evaluación del paciente<br>(peso, edad, sexo, etc.)"]
   B --> C["Selección de fórmulas<br>y cálculo energético<br>(DietCalculator)"]
-  C --> D["Distribución de macronutrientes<br>(proteínas, carbohidratos, grasas)"]
-  D --> E["Asignación de porciones<br>por tiempos y grupos de alimentos"]
-  E --> F["Generación de platillos automáticos<br>y/o creación de menús diarios"]
+  C --> D["Distribución de macronutrientes<br>(proteínas, carbohidratos,<br>grasas)"]
+  D --> E["Asignación de porciones<br>por tiempos y grupos<br>de alimentos"]
+  E --> F["Generación de platillos automáticos<br>y/o creación de<br>menús diarios"]
   F --> G["Revisión del nutriólogo<br>y ajustes manuales"]
-  G --> H["Seguimiento y mejora continua"]
+  G --> H["Seguimiento y mejora<br>continua"]
   H --> I["Fin del proceso"]
 ```
 
 ---
 
-## 🧩 Endpoints de Dietas — Orquestador sin persistencia (schema actual)
+## 🧩 Integraciones y Endpoints Relacionados (Arquitectura REST Pragmática)
+
+**Endpoints de Dietas — Orquestador sin persistencia (schema actual)**
 
 > El **POST /diets/{dietId}/actions** **no guarda** en la BD; solo orquesta y devuelve el render completo en el **mismo formato** que ya estamos consumiendo. El **GET /diets/generate-automatic/:userId** se mantiene igual.
 
