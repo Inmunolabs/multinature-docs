@@ -304,14 +304,15 @@ El sistema puede registrar la adherencia del paciente, retroalimentación del nu
 
 ```mermaid
 flowchart TD
-  A[Inicio del proceso] --> B[Evaluación del paciente (peso, edad, sexo, etc.)]
-  B --> C[Selección de fórmulas y cálculo energético (DietoCálculo)]
-  C --> D[Distribución de macronutrientes (proteínas, carbos, grasas)]
-  D --> E[Asignación de porciones por tiempos y grupos de alimentos]
-  E --> F[Generación de platillos automáticos y creación de menús diarios]
-  F --> G[Revisión del nutriólogo y ajustes manuales]
-  G --> H[Seguimiento y mejora continua]
-  H --> I[Fin del proceso]
+  A["Inicio del proceso"] --> B["Evaluación del paciente (peso, edad, sexo, etc.)"]
+  B --> C["Selección de fórmulas y cálculo energético (DietCalculator)"]
+  C --> D["Distribución de macronutrientes (proteínas, carbohidratos, grasas)"]
+  D --> E["Asignación de porciones por tiempos y grupos de alimentos"]
+  E --> F["Generación de platillos automáticos y/o creación de menús diarios"]
+  F --> G["Revisión del nutriólogo y ajustes manuales"]
+  G --> H["Seguimiento y mejora continua"]
+  H --> I["Fin del proceso"]
+
 ```
 
 ---
