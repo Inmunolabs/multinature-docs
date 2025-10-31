@@ -304,52 +304,208 @@ El sistema puede registrar la adherencia del paciente, retroalimentación del nu
 
 ```mermaid
 flowchart TD
-  A[Inicio del proceso] --> B[Evaluación del paciente<br>(peso, edad, sexo, etc.)]
-  B --> C[Selección de fórmulas y cálculo energético<br>(DietoCálculo)]
-  C --> D[Distribución de macronutrientes<br>(proteínas, carbos, grasas)]
-  D --> E[Asignación de porciones por tiempos<br>y grupos de alimentos]
-  E --> F[Generación de platillos automáticos<br>y creación de menús diarios]
-  F --> G[Revisión del nutriólogo<br>y ajustes manuales]
+  A[Inicio del proceso] --> B[Evaluación del paciente (peso, edad, sexo, etc.)]
+  B --> C[Selección de fórmulas y cálculo energético (DietoCálculo)]
+  C --> D[Distribución de macronutrientes (proteínas, carbos, grasas)]
+  D --> E[Asignación de porciones por tiempos y grupos de alimentos]
+  E --> F[Generación de platillos automáticos y creación de menús diarios]
+  F --> G[Revisión del nutriólogo y ajustes manuales]
   G --> H[Seguimiento y mejora continua]
   H --> I[Fin del proceso]
 ```
 
 ---
 
-## 🧩 Integraciones y Endpoints Relacionados (Arquitectura REST Pragmática)
+## 🧩 Endpoints de Dietas — Orquestador sin persistencia (schema actual)
 
-| Funcionalidad                  | Endpoint                                  | Método    | Descripción                                                                                                                                                             |
-| ------------------------------ | ----------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Crear plan (bootstrap)         | `/diet-plans`                             | **POST**  | Crea un **DietPlan** para un `userId` con estado inicial (`stage: initialized`) y devuelve `planId`.                                                                    |
-| Leer plan (estado actual)      | `/diet-plans/{planId}`                    | **GET**   | Obtiene el plan completo normalizado para Frontend (incluye `equivalences.name`, `warnings`, `version`, `stage`).                                                       |
-| Aplicar overrides (no ejecuta) | `/diet-plans/{planId}`                    | **PATCH** | Guarda cambios del usuario (**formulas, CAF, ETA, AF, structure, swaps**)                                                                                               |
-| Ejecutar tramo del flujo       | `/diet-plans/{planId}/actions`            | **POST**  | Ejecuta una **acción** del pipeline: `{ action: "run_agent", startFrom, until, dryRun }` (o `expand_dishes`, `apply_equivalences`, `finalize`). Crea **nueva versión**. |
-| Clonar plan (ramas / A/B)      | `/diet-plans/{planId}/fork`               | **POST**  | Duplica el plan y retorna un **nuevo `planId`** conservando historial como base.                                                                                        |
-| Diff de versiones              | `/diet-plans/{planId}/diff?from=vX&to=vY` | **GET**   | Devuelve comparación entre versiones para auditoría y UI (cambios en menús, macros, equivalences, etc.).                                                                |
-| (Opcional) Bootstrap rápido    | `/diets/generate-automatic/:userId`       | **GET**   | Conveniencia: crea un **DietPlan** y devuelve el estado inicial. Úsalo solo para “empezar en 1 clic”.                                                                   |
+> El **POST /diets/{dietId}/actions** **no guarda** en la BD; solo orquesta y devuelve el render completo en el **mismo formato** que ya estamos consumiendo. El **GET /diets/generate-automatic/:userId** se mantiene igual.
 
 ---
 
-## ⚙️ Acciones del Endpoint `/diet-plans/{planId}/actions`
+## 1) Forma de la respuesta (envelope + objeto de dieta)
 
-| Acción                 | Descripción                                                                                     | Parámetros principales              | Efecto                                                                   |
-| ---------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------- | ------------------------------------------------------------------------ |
-| **run_agent**          | Ejecuta el agente desde un punto (`startFrom`) hasta otro (`until`) del flujo.                  | `startFrom`, `until`, `dryRun`      | Recalcula partes del plan: calorías, menús, equivalences, etc.           |
-| **expand_dishes**      | Genera o actualiza los platillos de cada tiempo de comida.                                      | `day`, `mealType`, `dryRun`         | Inserta `dishes` y `ingredients` detallados en las comidas.              |
-| **apply_equivalences** | Asigna o recalcula equivalencias de porciones con nombre concatenado (`group.name + subgroup`). | `strategy`, `groups[]`              | Actualiza `equivalences` y normaliza nombres.                            |
-| **rebalance_day**      | Reajusta la distribución de macros o calorías en un día específico.                             | `day`, `strategy`, `targetCalories` | Reequilibra porciones y macros del día sin modificar los demás.          |
-| **swap_meal**          | Sustituye un tiempo de comida por otro platillo equivalente.                                    | `day`, `mealType`, `newDishId`      | Intercambia platillo manteniendo los macros aproximados.                 |
-| **finalize**           | Cierra el flujo de generación, marcando el plan como finalizado.                                | —                                   | Marca `stage: finalized`, bloquea modificaciones y genera resumen final. |
+La API **siempre** responde con este envoltorio y con el objeto de dieta dentro de `content.content[0]`:
+
+```json
+{
+  "folio": "uuid-v4",
+  "message": "Automatic diet generated successfully by DietAgent",
+  "content": {
+    "content": [
+      {
+        "dietId": "",
+        "specialistId": "…",
+        "notes": "",
+        "patientObjective": "…",
+        "mealStructure": {
+          "days": 7,
+          "mealsPerDay": ["Desayuno", "Comida", "Cena", "Colacion"],
+          "justifications": { "daysJustification": "…", "mealsJustification": "…" }
+        },
+        "recommendedGET": { "value": 1913.75, "source": "DietCalculator", "rationale": "…", "justification": "…" },
+        "macronutrients": {
+          "proteinsPerDay": 143.53,
+          "lipidsPerDay": 63.79,
+          "carbohydratesPerDay": 191.38,
+          "justification": "…"
+        },
+        "calorieCalculations": {
+          "source": "DietCalculator",
+          "formulaResults": [
+            { "step": "Harris Benedict", "value": 2214.5 },
+            { "step": "Mifflin-St Jeor", "value": 2042.73 },
+            { "step": "Owen General", "value": 1883.15 },
+            { "step": "Promedio basal", "value": 2046.79 },
+            { "step": "ETA (termogenesis)", "value": 204.68 },
+            { "step": "AF (actividad)", "value": 0 },
+            { "step": "Ajuste por deficit objetivo", "value": -337.72 }
+          ],
+          "calculatedGET": 2251.47,
+          "averageCalories": 2046.79,
+          "AFCalories": 0,
+          "ETACalories": 204.68
+        },
+        "menus": [
+          {
+            "assignedDays": [0],
+            "meals": [
+              {
+                "mealType": "desayuno",
+                "mealTime": "07:30:00.000000",
+                "equivalences": [
+                  { "name": "AOA - Bajo en grasa", "quantity": 2 },
+                  { "name": "Leche - Descremada", "quantity": 1 }
+                ],
+                "dishes": [
+                  {
+                    "name": "Panqué de Naranja",
+                    "ingredients": [
+                      { "ingredientName": "Mantequilla sin sal", "displayQuantity": "14.000 cdita", "totalGrams": 154 }
+                    ],
+                    "energyKcal": 903.34,
+                    "proteinGrams": 12.34,
+                    "carbohydratesGrams": 94.26,
+                    "lipidsGrams": 54.34
+                  }
+                ],
+                "macros": {
+                  "energyKcal": 903.34,
+                  "proteinGrams": 12.34,
+                  "carbohydratesGrams": 94.26,
+                  "lipidsGrams": 54.34
+                },
+                "justification": "…"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+**Claves importantes para Frontend:**
+
+- `equivalences` llega **con nombres ya normalizados** (`"name": "Grupo - Subgrupo"`).
+- Cada `dish` trae lista de `ingredients` con `displayQuantity` y `totalGrams`.
+- `calorieCalculations.formulaResults[*].step` usa etiquetas tipo `"Harris Benedict"`, `"Mifflin-St Jeor"`, etc.
 
 ---
 
-### 🧠 Notas para Frontend
+## 2) Endpoints
 
-- **Flujo base:** `POST /diet-plans` → `PATCH` (overrides) → `POST /actions` (ejecutar tramo) → `GET` (render).
-- **Normalización:** `GET /diet-plans/{planId}` entrega `equivalences: [{ name, quantity }]` (IDs quedan internos).
-- Cada etapa puede ser manual o automática, según el comportamiento del nutriólogo.
-- El flujo es modular, por lo que el agente puede iniciar desde cualquier punto (por ejemplo, si el usuario ya tiene las calorías calculadas o quiere actualizar solo los platillos).
+| Funcionalidad                           | Endpoint                            | Método   | Descripción                                                                                             |
+| --------------------------------------- | ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
+| Orquestar tramo del flujo (sin guardar) | `/diets/{dietId}/actions`           | **POST** | Recibe `{ action, startFrom, until, overrides }`. Devuelve **render completo** en el **schema actual**. |
+| Generar base automática                 | `/diets/generate-automatic/:userId` | **GET**  | Bootstrap a partir del último form del usuario. Devuelve el render inicial en el **schema actual**.     |
 
 ---
 
-- **Última actualización:** 2025-10-29
+## 3) Ejemplos por tramo (request mínimos)
+
+> Todas las respuestas mantienen la forma descrita en la sección 1.
+
+### A) dietocalculo → equivalences
+
+```json
+{
+  "overrides": {
+    "dietocalculo": {
+      "formulas": ["mifflinStJeor", "IOM"],
+      "params": { "CAF": 1.4, "ETA": 10, "AF": 0 }
+    },
+    "schedule": {
+      "days": [0, 1, 2, 3, 4, 5, 6],
+      "mealsPerDay": [
+        { "mealType": "desayuno", "time": "07:00" },
+        { "mealType": "colacion", "time": "10:30" },
+        { "mealType": "comida", "time": "13:30" },
+        { "mealType": "cena", "time": "19:30" }
+      ]
+    }
+  },
+  "action": "run_agent",
+  "startFrom": "dietocalculo",
+  "until": "equivalences"
+}
+```
+
+### B) Solo macros (grams)
+
+```json
+{
+  "overrides": { "macronutrients": { "mode": "grams", "proteins": 150, "carbohydrates": 200, "lipids": 60 } },
+  "action": "run_agent",
+  "startFrom": "macros",
+  "until": "macros"
+}
+```
+
+### C) Schedule + equivalences (un meal)
+
+```json
+{
+  "overrides": {
+    "schedule": { "days": [0], "mealsPerDay": [{ "mealType": "desayuno", "time": "07:15" }] },
+    "equivalences": {
+      "byMeal": [
+        {
+          "day": 0,
+          "mealType": "desayuno",
+          "items": [
+            { "equivalencesGroupId": "EG_Cereales", "quantity": 2 },
+            { "equivalencesGroupId": "EG_LPD", "quantity": 1 }
+          ]
+        }
+      ]
+    }
+  },
+  "action": "run_agent",
+  "startFrom": "schedule",
+  "until": "equivalences"
+}
+```
+
+### D) expand_dishes (auto)
+
+```json
+{
+  "overrides": { "dishes": { "mode": "auto", "constraints": { "maxPrepTimeMins": 15 } } },
+  "action": "expand_dishes",
+  "startFrom": "dishes",
+  "until": "dishes"
+}
+```
+
+---
+
+## 4) Consideraciones
+
+- Si no envías algún override, el backend usa datos del **último form** del usuario (peso, talla, sexo, edad, objetivo, CAF/ETA/AF, etc.).
+- **No hay persistencia** desde estos endpoints; son para **previsualizar** y ajustar.
+- Nombres de equivalencias ya vienen resueltos a texto.
+
+---
+
+- **Última actualización:** 2025-10-31
