@@ -1,51 +1,62 @@
-# POST /diets/generate-automatic - Generar Dieta Automática
+# GET /diets/generate-automatic/:userId - Generar Dieta Automática
 
 ## Descripción
 
-Genera una dieta automática completa basada en fórmulas de cálculo dietético, datos clínicos del usuario y objetivos nutricionales. Utiliza IA para crear recomendaciones personalizadas de GET, distribución de macronutrientes, porciones y platillos específicos del SMAE.
+Genera una dieta automática completa de **7 días** basada en el último formulario del usuario. Selecciona automáticamente las fórmulas de cálculo dietético, parámetros energéticos y datos clínicos más apropiados. Utiliza el **pipeline unificado** para crear recomendaciones personalizadas de GET, distribución de macronutrientes, porciones SMAE y platillos específicos.
 
-## Endpoint
+## Endpoint (Recomendado)
 
 ```
-POST /diets/generate-automatic
+GET /diets/generate-automatic/:userId
 ```
+
+**Nota:** También existe compatibilidad con `POST /diets/generate-automatic` (legacy) que requiere body con fórmulas explícitas. Se recomienda usar el método GET para simplicidad.
 
 ## Headers
 
 ```
 Authorization: Bearer <token>
-Content-Type: application/json
 ```
+
+## Path Parameters
+
+- `userId` (string, requerido): ID del usuario/paciente para quien se genera la dieta
 
 ## Request Body
 
-### Campos Requeridos
+**Para GET:** No requiere body. Todos los parámetros se derivan automáticamente del último formulario del usuario.
 
-- `formulas` (array): Array de fórmulas de cálculo dietético a utilizar
-- `userId` (string): ID del usuario/paciente para quien se genera la dieta
+**Para POST (legacy):** Ver sección "Compatibilidad POST" al final de este documento.
 
-### Campos Opcionales
+## Selección Automática
 
-- `CAF` (number): Factor de actividad física (default: 1.2)
-- `ETA` (number): Efecto térmico de los alimentos en % (default: 10, rango: 0-100)
-- `AF` (number): Factor adicional (default: 0)
+El endpoint GET selecciona automáticamente:
 
-### Fórmulas Válidas
+- **Fórmulas energéticas**: Basadas en perfil del paciente (edad, género, IMC, objetivo)
+- **CAF, ETA, AF**: Derivados del formulario clínico del usuario
+- **Tiempos de comida**: Adaptados al estilo de vida (ocupación, horarios de trabajo)
+- **Porciones SMAE**: Calculadas desde macronutrientes objetivo
 
-- `harrisBenedict`: Ecuación Harris-Benedict (1919)
-- `IOM`: Institute of Medicine
-- `mifflinStJeor`: Ecuación Mifflin-St Jeor (1990)
-- `AGA`: American Gastroenterological Association
-- `FAO`: Food and Agriculture Organization
-- `healthCanada`: Health Canada
-- `cunningham`: Ecuación Cunningham (1991)
-- `cunninghamAdjusted`: Cunningham Ajustada
-- `catchMcArdle`: Ecuación Catch-McArdle
-- `catchMcArdleSpecific`: Catch-McArdle Específica
-- `owenGeneral`: Owen General
-- `owenSpecific`: Owen Específica
+## Pipeline Unificado
 
-### Ejemplo de Request
+El endpoint ejecuta los siguientes tramos en secuencia:
+
+1. **computeEnergy**: Calcula GET desde DietCalculator con fórmulas seleccionadas automáticamente
+2. **resolveMacros**: Distribuye macronutrientes según objetivo del paciente
+3. **buildSchedule**: Deriva tiempos de comida desde contexto del paciente
+4. **applyEquivalences**: Calcula porciones SMAE desde macros
+5. **generateDishes**: Construye platillos multi-dish desde porciones (consulta DB real)
+
+Ver detalles del pipeline en: `Guides/2.3.2-diet-pipeline-and-actions.md`
+
+## Ejemplo de Request (GET)
+
+```bash
+curl -X GET https://api.multinature.com/diets/generate-automatic/550e8400-e29b-41d4-a716-446655440000 \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+```
+
+## Ejemplo de Request (POST - Legacy)
 
 ```json
 {

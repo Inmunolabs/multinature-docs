@@ -308,7 +308,7 @@ flowchart TD
   B --> C["Selección de fórmulas<br>y cálculo energético<br>(DietCalculator)"]
   C --> D["Distribución de macronutrientes<br>(proteínas, carbohidratos,<br>grasas)"]
   D --> E["Asignación de porciones<br>por tiempos y grupos<br>de alimentos"]
-  E --> F["Generación de platillos automáticos<br>y/o creación de<br>menús diarios"]
+  E --> F["Generación de platillos<br>automáticos y/o<br>creación de menús<br>diarios"]
   F --> G["Revisión del nutriólogo<br>y ajustes manuales"]
   G --> H["Seguimiento y mejora<br>continua"]
   H --> I["Fin del proceso"]
