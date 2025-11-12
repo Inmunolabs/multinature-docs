@@ -99,6 +99,7 @@ CREATE TABLE `form_templates` (
   `name` varchar(100) DEFAULT NULL,
   `description` text,
   `is_initial_assessment` tinyint(1) NOT NULL DEFAULT '0',
+  `is_dietagent_intake` tinyint(1) NOT NULL DEFAULT '0',
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL,
@@ -139,6 +140,14 @@ CREATE TABLE `form_templates` (
   - Preseleccionar esta plantilla cuando se abre el módulo de “Responder Cuestionario” por primera vez.
   - Regla típica: por especialidad, puede existir una plantilla base de inicio recomendada por Multinature.
 
+- `is_dietagent_intake` (`tinyint(1)`, default `0`)  
+  Flag exclusivo para **dietAgent Intake**.  
+  - `1` → plantilla que nutre el plan de 7 días generado por el agente (etapa A).  
+  - `0` → plantilla usada para valoraciones generales o de seguimiento.  
+  Reglas:
+  - Debe existir al menos una plantilla global `is_dietagent_intake = 1` por especialidad soportada por dietAgent.
+  - Los clones derivados deben heredar el flag y solo se habilitan si mantienen compatibilidad con la plantilla base.
+
 - `created_at`, `updated_at` (`datetime`)  
   Timestamps de auditoría. `updated_at` debería actualizarse desde backend al modificar la plantilla.
 
@@ -160,6 +169,19 @@ CREATE TABLE `form_templates` (
 - Por consistencia histórica con los formularios llenados, lo recomendable es:
   - **No borrar** plantillas que ya tengan formularios ligados.
   - Preferir `deleted_at` para “retirarlas” del uso cotidiano.
+
+### 2.3 Priorización de plantillas (A/B/C)
+
+Para todas las integraciones con **dietAgent** se establece la siguiente jerarquía de selección:
+
+- **A – Intake dietAgent** → `is_dietagent_intake = 1`.  
+  Primera opción en consultas y generación automática. El endpoint `/forms/template?isDietagentIntake=true` debe devolver exclusivamente esta variante.
+- **B – Valoración inicial** → `is_initial_assessment = 1`.  
+  Se usa como plan de respaldo cuando no existe una plantilla Intake específica para la especialidad del paciente.
+- **C – Plantillas regulares** → resto de las plantillas activas.  
+  Aplican para seguimientos o formularios personalizados; no se envían como contexto inicial a dietAgent salvo que las categorías anteriores no estén disponibles.
+
+> La lógica A/B/C debe mantenerse sincronizada entre backend, dietAgent y documentación funcional. Al duplicar o clonar plantillas se copia el flag correspondiente.
 
 ---
 
@@ -226,6 +248,7 @@ El backend combina `form_templates`, `form_template_concepts` y `concepts` para 
   "name": "Formulario base de Nutrición",
   "description": "Plantilla base de preguntas de consulta para nutrición creado y recomendado por multinature.mx",
   "isInitialAssessment": true,
+  "isDietagentIntake": true,
   "questions": [
     {
       "conceptId": "23ba7e84-94ba-11f0-8618-1290daed9e2f",
@@ -379,6 +402,7 @@ CREATE TABLE `filled_form_values` (
      "name": "Formulario base de Nutrición",
      "description": "Plantilla base...",
      "isInitialAssessment": true,
+    "isDietagentIntake": true,
      "questions": [
        {
          "conceptId": "...",
@@ -392,6 +416,8 @@ CREATE TABLE `filled_form_values` (
      ]
    }
    ```
+
+   El endpoint `GET /forms/template?isDietagentIntake=true` retorna únicamente las plantillas de prioridad **A**. Si el flag no se envía, el backend entrega el catálogo completo respetando la jerarquía al serializar la respuesta.
 
 3. El usuario (paciente o especialista) responde las preguntas.
 4. El backend crea un registro en `filled_forms` y luego una fila en `filled_form_values` por cada respuesta, copiando:
@@ -719,3 +745,9 @@ Buenas prácticas para usar estos datos como contexto del **dietAgent**:
 4. **Dar prioridad a plantillas de tipo `is_initial_assessment = 1`**
    - Útiles para construir el “estado base” del paciente.
    - Los formularios de seguimiento pueden verse como “capas” que actualizan o complementan esa línea base.
+
+5. **Validar Intake activo**  
+   - Intentar primero con `is_dietagent_intake = 1` (prioridad A).  
+   - Si no existe, degradar a plantillas `is_initial_assessment = 1` (prioridad B).  
+   - Solo recurrir a prioridad C cuando no haya registros disponibles en las categorías anteriores.  
+   Registrar en `agent_traces` qué nivel se utilizó para mantener trazabilidad.

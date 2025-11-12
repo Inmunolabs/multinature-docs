@@ -74,7 +74,10 @@ Overrides para cada step. Permite personalizar parámetros específicos de cada 
       "dietId": "diet-uuid",
       "specialistId": "specialist-uuid",
       "notes": "",
-      "patientObjective": "...",
+      "patientContext": {
+        "objective": "...",
+        "activityFactor": 1.1
+      },
       // ... resultados según steps ejecutados ...
     }
   }
@@ -127,11 +130,15 @@ curl -X POST https://api.multinature.com/diets/550e8400-e29b-41d4-a716-446655440
       "dietId": "550e8400-e29b-41d4-a716-446655440000",
       "specialistId": "specialist-uuid",
       "notes": "",
-      "patientObjective": "Mantener peso y mejorar composición corporal",
+      "patientContext": {
+        "objective": "Mantener peso y mejorar composición corporal",
+        "activityFactor": 1.25,
+        "activityLabel": "activo moderado"
+      },
       "recommendedGET": {
         "value": 2000,
         "source": "DietCalculator",
-        "rationale": "GET calculado mediante Mifflin-St Jeor y Harris Benedict..."
+        "justification": "Paciente ... alcanza 2000 kcal/dia tras formulas validadas y ajuste clinico segun objetivo."
       },
       "macronutrients": {
         "proteinsPerDay": 150,
@@ -239,7 +246,7 @@ curl -X POST https://api.multinature.com/diets/550e8400-e29b-41d4-a716-446655440
       "recommendedGET": {
         "value": 2000,
         "source": "DietCalculator",
-        "rationale": "..."
+        "justification": "Paciente ... alcanza 2000 kcal/dia tras formulas validadas y ajuste clinico segun objetivo."
       },
       "macronutrients": {
         "proteinsPerDay": 150,

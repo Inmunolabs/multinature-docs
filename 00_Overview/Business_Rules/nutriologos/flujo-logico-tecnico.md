@@ -84,8 +84,7 @@ El sistema o el especialista eligen un nuevo Gasto Energético Total (GET) a par
 "recommendedGET": {
   "value": 1913.75,
   "source": "DietCalculator",
-  "rationale": "GET calculado mediante Harris Benedict y Mifflin-St Jeor para paciente de 25 anos, 102 kg, 183 cm (IMC 30.46), sexo Hombre y factor de actividad 1.00, con ajuste de -15% por objetivo \"Quiero bajar de peso\" según protocolo SMAE, resultando",
-  "justification": "GET calculado mediante Harris Benedict y Mifflin-St Jeor para paciente de 25 anos, 102 kg, 183 cm (IMC 30.46), sexo Hombre y factor de actividad 1.00, con ajuste de -15% por objetivo \"Quiero bajar de peso\" según protocolo SMAE, resultando"
+  "justification": "Paciente sexo M, 25 anos, 102 kg, 183 cm (IMC 30.46) y AF 1.00 alcanza 1913.75 kcal/dia tras Harris Benedict y Mifflin-St Jeor. Se aplica ajuste -15% para objetivo \"Quiero bajar de peso\" segun protocolo SMAE."
 },
 ```
 
@@ -326,83 +325,92 @@ flowchart TD
 
 ## 1) Forma de la respuesta (envelope + objeto de dieta)
 
-La API **siempre** responde con este envoltorio y con el objeto de dieta dentro de `content.content[0]`:
+La API **siempre** responde con este envoltorio y con el objeto de dieta directo en `content`:
 
 ```json
 {
   "folio": "uuid-v4",
   "message": "Automatic diet generated successfully by DietAgent",
   "content": {
-    "content": [
-      {
-        "dietId": "",
-        "specialistId": "…",
-        "notes": "",
-        "patientObjective": "…",
-        "mealStructure": {
-          "days": 7,
-          "mealsPerDay": ["Desayuno", "Comida", "Cena", "Colacion"],
-          "justifications": { "daysJustification": "…", "mealsJustification": "…" }
-        },
-        "recommendedGET": { "value": 1913.75, "source": "DietCalculator", "rationale": "…", "justification": "…" },
-        "macronutrients": {
-          "proteinsPerDay": 143.53,
-          "lipidsPerDay": 63.79,
-          "carbohydratesPerDay": 191.38,
-          "justification": "…"
-        },
-        "calorieCalculations": {
-          "source": "DietCalculator",
-          "formulaResults": [
-            { "step": "Harris Benedict", "value": 2214.5 },
-            { "step": "Mifflin-St Jeor", "value": 2042.73 },
-            { "step": "Owen General", "value": 1883.15 },
-            { "step": "Promedio basal", "value": 2046.79 },
-            { "step": "ETA (termogenesis)", "value": 204.68 },
-            { "step": "AF (actividad)", "value": 0 },
-            { "step": "Ajuste por deficit objetivo", "value": -337.72 }
-          ],
-          "calculatedGET": 2251.47,
-          "averageCalories": 2046.79,
-          "AFCalories": 0,
-          "ETACalories": 204.68
-        },
-        "menus": [
-          {
-            "assignedDays": [0],
-            "meals": [
-              {
-                "mealType": "desayuno",
-                "mealTime": "07:30:00.000000",
-                "equivalences": [
-                  { "name": "AOA - Bajo en grasa", "quantity": 2 },
-                  { "name": "Leche - Descremada", "quantity": 1 }
-                ],
-                "dishes": [
-                  {
-                    "name": "Panqué de Naranja",
-                    "ingredients": [
-                      { "ingredientName": "Mantequilla sin sal", "displayQuantity": "14.000 cdita", "totalGrams": 154 }
-                    ],
-                    "energyKcal": 903.34,
-                    "proteinGrams": 12.34,
-                    "carbohydratesGrams": 94.26,
-                    "lipidsGrams": 54.34
-                  }
-                ],
-                "macros": {
+    "dietId": "",
+    "specialistId": "…",
+    "notes": "",
+    "mealStructure": {
+      "days": 7,
+      "mealsPerDay": ["Desayuno", "Comida", "Cena", "Colacion"],
+      "mealTimes": {
+        "Desayuno": "07:30",
+        "Comida": "13:30",
+        "Cena": "20:00",
+        "Colacion": "17:00"
+      },
+      "justification": "Paciente … organiza tiempos … alineados a objetivo …"
+    },
+    "recommendedGET": {
+      "value": 1913.75,
+      "source": "DietCalculator",
+      "justification": "Paciente … (sexo, edad, peso, talla, IMC, AF) alcanza … kcal/dia tras formulas …; ajuste … segun objetivo …"
+    },
+    "macronutrients": {
+      "proteinsPerDay": 143.53,
+      "lipidsPerDay": 63.79,
+      "carbohydratesPerDay": 191.38,
+      "justification": "Paciente … distribuye energia diaria en … g para sostener objetivo …"
+    },
+    "calorieCalculations": {
+      "source": "DietCalculator",
+      "formulaResults": [
+        { "step": "Harris Benedict", "value": 2214.5 },
+        { "step": "Mifflin-St Jeor", "value": 2042.73 },
+        { "step": "Owen General", "value": 1883.15 },
+        { "step": "Promedio basal", "value": 2046.79 },
+        { "step": "ETA (termogenesis)", "value": 204.68 },
+        { "step": "AF (actividad)", "value": 0 },
+        { "step": "Ajuste por deficit objetivo", "value": -337.72 }
+      ],
+      "calculatedGET": 2251.47,
+      "averageCalories": 2046.79,
+      "AFCalories": 0,
+      "ETACalories": 204.68,
+      "justification": "Paciente … pondera formulas … con ETA … kcal y AF … para llegar a … kcal/dia."
+    },
+    "menus": {
+      "justification": "Paciente … recibe plan de 7 dias con rotacion de platillos y macros … orientado al objetivo …",
+      "items": [
+        {
+          "assignedDays": [0],
+          "meals": [
+            {
+              "mealType": "desayuno",
+              "mealTime": "07:30:00.000000",
+              "equivalences": [
+                { "name": "AOA - Bajo en grasa", "quantity": 2 },
+                { "name": "Leche - Descremada", "quantity": 1 }
+              ],
+              "dishes": [
+                {
+                  "name": "Panque de Naranja",
+                  "ingredients": [
+                    { "ingredientName": "Mantequilla sin sal", "displayQuantity": "14.000 cdita", "totalGrams": 154 }
+                  ],
                   "energyKcal": 903.34,
                   "proteinGrams": 12.34,
                   "carbohydratesGrams": 94.26,
                   "lipidsGrams": 54.34
-                },
-                "justification": "…"
-              }
-            ]
-          }
-        ]
-      }
-    ]
+                }
+              ],
+              "macros": {
+                "energyKcal": 903.34,
+                "proteinGrams": 12.34,
+                "carbohydratesGrams": 94.26,
+                "lipidsGrams": 54.34
+              },
+              "justification": "…"
+            }
+          ]
+        }
+      ]
+    }
   }
 }
 ```

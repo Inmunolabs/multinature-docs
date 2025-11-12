@@ -37,6 +37,17 @@ El endpoint GET selecciona automáticamente:
 - **Tiempos de comida**: Adaptados al estilo de vida (ocupación, horarios de trabajo)
 - **Porciones SMAE**: Calculadas desde macronutrientes objetivo
 
+### Formularios utilizados como contexto
+
+- Se consideran únicamente plantillas con `is_dietagent_intake = 1`.
+- Se ordenan por prioridad **A/B/C**:
+  - **A** → plantillas Intake (`is_dietagent_intake = 1`).
+  - **B** → valoraciones iniciales (`is_initial_assessment = 1`).
+  - **C** → formularios regulares más recientes.
+- Dentro de cada prioridad se prioriza (`is_initial_assessment = 1` → fecha más reciente).  
+  Se incluyen como máximo **3 A**, **2 B** y **1 C**, garantizando el formulario C más reciente.
+- `formsContext.forms[]` expone `priority`, `isInitialAssessment`, `createdAt` y `specialistId` para trazabilidad.
+
 ## Pipeline Unificado
 
 El endpoint ejecuta los siguientes tramos en secuencia:
@@ -74,184 +85,162 @@ curl -X GET https://api.multinature.com/diets/generate-automatic/550e8400-e29b-4
 
 ```json
 {
-  "success": true,
-  "message": "Automatic diet generated successfully",
-  "data": {
-    "patientObjective": "Perder peso de manera saludable manteniendo masa muscular",
-    "calorieCalculations": {
-      "formulaResults": [
-        {
-          "name": "Mifflin-St Jeor",
-          "result": 1650.5
-        },
-        {
-          "name": "Harris Benedict",
-          "result": 1680.2
-        },
-        {
-          "name": "IOM",
-          "result": 1625.8
-        }
-      ],
-      "averageCalories": 1652.17,
-      "calculatedGET": 1817.39,
-      "ETACalories": 165.22,
-      "AFCalories": 0
+  "folio": "aws-request-id",
+  "message": "Automatic diet generated successfully by DietAgent",
+  "content": {
+    "dietId": "9d5f8c83-93d3-4d10-8c27-0a4d91a2df3d",
+    "specialistId": "specialist-uuid",
+    "patientContext": {
+      "sex": "Femenino",
+      "age": 36,
+      "weightKg": 78,
+      "heightCm": 162,
+      "BMI": 29.7,
+      "objective": "Perder grasa corporal",
+      "activityFactor": 1.10,
+      "activityLabel": "ligeramente activo",
+      "activityPercent": 10,
+      "caf": 1.3,
+      "eta": 10,
+      "lifestyle": "oficina",
+      "workSchedule": "09:00-18:00"
     },
     "recommendedGET": {
       "value": 1545,
-      "justification": "Se recomienda un GET de 1545 kcal/día, reduciendo 15% del GET calculado para promover una pérdida de peso saludable de 0.5-1 kg por semana. Esta reducción es apropiada considerando el objetivo del paciente y sus características físicas, manteniendo un déficit calórico moderado que preserve la masa muscular."
+      "source": "DietCalculator",
+      "justification": "Paciente mujer de 36 años, 78 kg y 162 cm (IMC 29.7) orientado a \"Perder grasa corporal\" y actividad ligeramente activa (factor 1.1). El GET basal de 1817 kcal proviene del promedio Harris Benedict y Mifflin-St Jeor con medidas actuales. Se añaden 165 kcal por termogénesis inducida y 0 kcal adicionales porque la actividad ligera registrada no demanda más energía. El ajuste -15% (-272 kcal) calibra la recomendación hacia el objetivo sin comprometer masa magra. La recomendación final queda en 1545 kcal/día equilibrando adherencia y déficit clínico."
+    },
+    "calorieCalculations": {
+      "value": 1545,
+      "baseGet": 1817,
+      "calculatedGET": 1817,
+      "averageCalories": 1628,
+      "etaCalories": 165,
+      "activityCalories": 0,
+      "adjustment": { "percent": -15, "kcal": -272 },
+      "activityFactor": 1.10,
+      "activityLabel": "ligeramente activo",
+      "source": "DietCalculator",
+      "formulaResults": [
+        { "step": "Mifflin-St Jeor", "value": 1650 },
+        { "step": "Harris Benedict", "value": 1605 },
+        { "step": "ETA (termogenesis)", "value": 165 },
+        { "step": "AF (actividad)", "value": 0 },
+        { "step": "Ajuste por deficit objetivo", "value": -272 }
+      ],
+      "justification": "Paciente mujer de 36 años, 78 kg y 162 cm (IMC 29.7) orientado a \"Perder grasa corporal\" y actividad ligeramente activa (factor 1.1). El análisis energético promedia Mifflin-St Jeor (1650 kcal) y Harris Benedict (1605 kcal) para fijar un basal integrado de 1817 kcal. Se suman 165 kcal por termogénesis inducida y 0 kcal adicionales porque la actividad ligera no demanda ajustes extra. El ajuste -15% (-272 kcal) alinea la recomendación con el objetivo manteniendo seguridad metabólica. Así se documenta la transición hasta las 1545 kcal finales que estructuran el resto del plan."
     },
     "macronutrients": {
       "proteinsPerDay": 116,
       "lipidsPerDay": 43,
       "carbohydratesPerDay": 174,
-      "justification": "Distribución de macronutrientes optimizada para pérdida de peso: 30% proteínas (116g) para preservar masa muscular y aumentar saciedad, 25% lípidos (43g) para funciones hormonales esenciales, y 45% carbohidratos (174g) para energía y rendimiento. Esta distribución es saludable y sostenible a largo plazo."
+      "distribution": { "protein": 30, "fat": 25, "carbs": 45 },
+      "calories": { "protein": 464, "fat": 387, "carbs": 696 },
+      "justification": "Paciente mujer de 36 años, 78 kg y 162 cm (IMC 29.7) orientado a \"Perder grasa corporal\" y actividad ligeramente activa (factor 1.1). La energía de 1545 kcal/día se reparte en 30% proteína (~116 g), 25% grasa (~43 g) y 45% carbohidratos (~174 g). El reparto prioriza el objetivo y el IMC 29.7 para sostener masa magra y controlar apetito. Los carbohidratos cubren la actividad ligera reportada (factor 1.1) mientras la proteína corrige déficits previos. La grasa saludable se mantiene moderada para mejorar perfil cardiometabólico."
     },
     "mealStructure": {
       "days": 7,
-      "mealsPerDay": ["Desayuno", "Colación 1", "Comida", "Colación 2", "Cena"],
-      "justifications": {
-        "daysJustification": "Se recomienda un plan de 7 días para establecer una rutina alimentaria completa que permita variedad nutricional y adherencia sostenible al objetivo de pérdida de peso.",
-        "mealsJustification": "Se recomiendan 5 tiempos de comida para mantener niveles estables de glucosa, optimizar el metabolismo y controlar la saciedad durante el proceso de pérdida de peso."
-      }
-    },
-    "portionDistribution": {
-      "totalPortions": {
-        "AOA Muy bajo en grasa": 4,
-        "AOA Bajo en grasa": 5,
-        "AOA Moderado en grasa": 4,
-        "AOA Alto en grasa": 3,
-        "Cereal Sin grasa": 7,
-        "Cereal Con grasa": 2,
-        "Verdura": 5,
-        "Fruta": 3,
-        "Leche Descremada": 2,
-        "Leche Semidescremada": 0,
-        "Leche Entera": 0,
-        "Leche Con azucar": 0,
-        "Grasa Sin proteina": 6,
-        "Grasa Con proteina": 3,
-        "Azucar Sin grasa": 0,
-        "Azucar Con grasa": 0,
-        "Leguminosas": 2,
-        "Libre": 0
+      "mealsPerDay": 5,
+      "mealTimes": {
+        "Desayuno": "07:30",
+        "Colacion 1": "11:00",
+        "Comida": "14:00",
+        "Colacion 2": "17:30",
+        "Cena": "20:00"
       },
-      "dailyDistribution": {
-        "0": {
-          "Desayuno": {
-            "AOA Bajo en grasa": 1,
-            "Cereal Sin grasa": 2,
-            "Fruta": 1,
-            "Leche Descremada": 1
-          },
-          "Colación 1": {
-            "Fruta": 1
-          },
-          "Comida": {
-            "AOA Muy bajo en grasa": 2,
-            "Cereal Sin grasa": 2,
-            "Verdura": 2,
-            "Grasa Sin proteina": 1
-          },
-          "Colación 2": {
-            "Leche Descremada": 1
-          },
-          "Cena": {
-            "AOA Bajo en grasa": 1,
-            "Verdura": 2,
-            "Grasa Sin proteina": 1
-          }
+      "justification": "Paciente mujer de 36 años, 78 kg y 162 cm (IMC 29.7) orientado a \"Perder grasa corporal\" y actividad ligeramente activa (factor 1.1). Se organizan 5 tiempos (07:30, 11:00, 14:00, 17:30, 20:00) para estabilizar apetito durante la jornada 09:00-18:00. La secuencia respeta el horario de oficina evitando ayunos prolongados previos a reuniones. Se integran colaciones dobles para reducir atracones nocturnos y manejar el estrés laboral. La cadencia sostiene el objetivo sin interferir con digestión ni descanso."
+    },
+    "menus": {
+      "justification": "Paciente mujer de 36 años, 78 kg y 162 cm (IMC 29.7) orientado a \"Perder grasa corporal\" y actividad ligeramente activa (factor 1.1). Se rota un plan de 7 días con 5 tiempos diarios y 18 platillos para evitar monotonía semanal. Cada menú mantiene 1545 kcal/día y macros ~116 g P / 174 g C / 43 g G respaldando masa magra y control glucémico. Los platillos priorizan preparaciones sencillas compatibles con rutina de oficina y déficit moderado. Se alternan opciones vegetales y animales para reforzar saciedad y facilidad de preparación.",
+      "items": [
+        {
+          "menuId": "menu-uuid",
+          "assignedDays": [0],
+          "meals": [
+            {
+              "menuMealId": "uuid",
+              "mealType": "Desayuno",
+              "mealTime": "07:30:00",
+              "dishes": [
+                {
+                  "id": "96d2afda-a4fb-4061-8c8b-711363fcc4ba",
+                  "name": "Omelette de espinaca",
+                  "type": "food",
+                  "energyKcal": 320,
+                  "ingredients": [
+                    { "ingredientId": "ing-1", "ingredientName": "Clara de huevo", "unit": "pieza", "displayQuantity": "3.000 pieza", "totalGrams": 150 },
+                    { "ingredientId": "ing-2", "ingredientName": "Espinaca fresca", "unit": "taza", "displayQuantity": "1.000 taza", "totalGrams": 30 },
+                    { "ingredientId": "ing-3", "ingredientName": "Aceite de oliva", "unit": "cda", "displayQuantity": "0.500 cda", "totalGrams": 7 }
+                  ],
+                  "ingredientsTotalGrams": 187
+                }
+              ],
+              "equivalences": [
+                { "id": "db487ac0-640e-11f0-8618-1290daed9e2f", "quantity": 2 },
+                { "id": "db48b6cf-640e-11f0-8618-1290daed9e2f", "quantity": 1 },
+                { "id": "db48da09-640e-11f0-8618-1290daed9e2f", "quantity": 1 }
+              ],
+              "macros": { "energyKcal": 320, "proteinGrams": 24, "carbohydratesGrams": 6, "lipidsGrams": 20 }
+            }
+          ]
         }
-        // ... días 1-6 con distribuciones similares
-      },
-      "justifications": {
-        "totalPortionsJustification": "Distribución calculada basada en objetivo de pérdida de peso. Se priorizaron alimentos de origen animal magros, cereales integrales sin grasa, y abundantes verduras.",
-        "distributionJustification": "Las porciones se distribuyeron priorizando proteínas en comidas principales, carbohidratos en desayuno y pre-entreno, y verduras en todas las comidas para optimizar saciedad y adherencia."
-      }
-    },
-    "mealRecommendations": {
-      "mealPlan": {
-        "0": {
-          "Desayuno": {
-            "foods": [
-              {
-                "id": "smae-001",
-                "name": "Avena cocida",
-                "quantity": 1,
-                "unit": "taza",
-                "main_group": "Cereal",
-                "calories": 150,
-                "protein": 5,
-                "lipids": 3,
-                "carbohydrates": 27,
-                "justification": "Cereal integral rico en fibra"
-              },
-              {
-                "id": "smae-045",
-                "name": "Fresas",
-                "quantity": 1,
-                "unit": "taza",
-                "main_group": "Frutas",
-                "calories": 50,
-                "protein": 1,
-                "lipids": 0,
-                "carbohydrates": 12
-              }
-            ],
-            "totalCalories": 200,
-            "totalProtein": 6,
-            "totalLipids": 3,
-            "totalCarbohydrates": 39
-          },
-          "Colación 1": {
-            "foods": [
-              {
-                "id": "smae-078",
-                "name": "Yogurt griego natural",
-                "quantity": 150,
-                "unit": "gramos",
-                "main_group": "Leche",
-                "calories": 100,
-                "protein": 15,
-                "lipids": 0,
-                "carbohydrates": 6
-              }
-            ],
-            "totalCalories": 100,
-            "totalProtein": 15,
-            "totalLipids": 0,
-            "totalCarbohydrates": 6,
-            "portionValidation": "Los alimentos seleccionados corresponden exactamente a: 1 Leche Descremada según la distribución de porciones asignada"
-          }
-          // ... más comidas para el día 0
-        }
-        // ... días 1-6
-      },
-      "nutritionalSummary": {
-        "averageDailyCalories": 1545,
-        "averageDailyProteins": 116,
-        "averageDailyLipids": 43,
-        "averageDailyCarbohydrates": 174
-      },
-      "coherenceValidation": "Todos los platillos recomendados coinciden exactamente con la distribución de porciones especificada para cada día y tiempo de comida",
-      "generalJustification": "Plan de alimentación de 7 días diseñado específicamente para pérdida de peso saludable. Se seleccionaron alimentos del SMAE que corresponden exactamente a las porciones asignadas, garantizando coherencia nutricional. La distribución de comidas optimiza la saciedad y el metabolismo a lo largo del día."
-    },
-    "savedDiet": {
-      "id": "diet-uuid-here",
-      "userId": "123e4567-e89b-12d3-a456-426614174000",
-      "specialistId": "specialist-uuid-here",
-      "caloriesPerDay": 1545,
-      "proteinsGrams": 116,
-      "lipidsGrams": 43,
-      "carbohydratesGrams": 174,
-      "notes": "Dieta automática generada. GET recomendado: 1545 kcal. Se redujo el GET en 15% para promover la pérdida de peso de manera saludable (0.5-1 kg por semana).",
-      "created": "2024-01-15T10:30:00Z",
-      "updated": "2024-01-15T10:30:00Z"
+      ]
     }
   }
 }
 ```
+
+> La respuesta completa (incluyendo estructuras anidadas) se documenta en `apis/diets-api/doc/response-actual.json`.
+
+- `content` devuelve un único objeto de dieta (sin arreglo intermedio) con IDs tipo UUID generados on-the-fly.
+- `patientContext` concentra sexo, edad, peso, talla, IMC, objetivo y parámetros energéticos; las justificaciones deben referirse a este contexto sin repetir toda la ficha clínica.
+- `calorieCalculations` expone `value`, `baseGet`, `calculatedGET`, `etaCalories`, `activityCalories`, `adjustment`, `activityFactor`, `activityLabel` y `formulaResults`.
+- `macronutrients` incorpora `distribution` (porcentajes) y `calories` (aporte energético por macro).
+- `menusLegacy` fue eliminado; cualquier consumidor debe usar `menus.items`.
+- `menus[].meals[].equivalences` refleja la suma real de `equivalence_groups` de los ingredientes servidos (sin grupos por default).
+- Las unidades en `ingredients.displayQuantity` se normalizan a un catálogo controlado (`gramos`, `kg`, `ml`, `l`, `cdita`, `cda`, `taza`, `pieza`, `rebanada`, `rodaja`, `diente`, `porcion`).
+
+#### Unidades soportadas en `ingredients.displayQuantity`
+
+| Unidad  | Descripción breve                  |
+|---------|------------------------------------|
+| `gramos`| Peso directo en gramos             |
+| `kg`    | Kilogramos (1 kg = 1000 g)         |
+| `ml`    | Mililitros                          |
+| `l`     | Litros (1 l = 1000 ml)             |
+| `cdita` | Cucharadita (≈5 ml)                |
+| `cda`   | Cucharada (≈15 ml)                 |
+| `taza`  | Taza estándar (≈240 ml)            |
+| `pieza` | Unidad individual (peso referencial por ingrediente) |
+| `rebanada` | Porción cortada (panes, quesos) |
+| `rodaja`   | Corte circular (frutas, verduras) |
+| `diente`   | Unidad de ajo                   |
+| `porcion`  | Porción SMAE genérica           |
+
+### Grupos de equivalencias admitidos
+
+| ID | Nombre |
+|----|--------|
+| `db480987-640e-11f0-8618-1290daed9e2f` | AOA / Muy bajo en grasa |
+| `db487ac0-640e-11f0-8618-1290daed9e2f` | AOA / Bajo en grasa |
+| `db48979e-640e-11f0-8618-1290daed9e2f` | AOA / Moderado en grasa |
+| `db489993-640e-11f0-8618-1290daed9e2f` | AOA / Alto en grasa |
+| `db4899fc-640e-11f0-8618-1290daed9e2f` | Cereal / Con grasa |
+| `db489a4f-640e-11f0-8618-1290daed9e2f` | Cereal / Sin grasa |
+| `db48b6cf-640e-11f0-8618-1290daed9e2f` | Verdura |
+| `db48d736-640e-11f0-8618-1290daed9e2f` | Fruta |
+| `db48d84d-640e-11f0-8618-1290daed9e2f` | Leche / Descremada |
+| `db48d8c3-640e-11f0-8618-1290daed9e2f` | Leche / Semidescremada |
+| `db48d92e-640e-11f0-8618-1290daed9e2f` | Leche / Entera |
+| `db48d992-640e-11f0-8618-1290daed9e2f` | Leche / Con azúcar |
+| `db48da09-640e-11f0-8618-1290daed9e2f` | Grasa / Sin proteína |
+| `db48da6b-640e-11f0-8618-1290daed9e2f` | Grasa / Con proteína |
+| `db48dac7-640e-11f0-8618-1290daed9e2f` | Azúcar / Sin grasa |
+| `db48db24-640e-11f0-8618-1290daed9e2f` | Azúcar / Con grasa |
+| `db48db93-640e-11f0-8618-1290daed9e2f` | Leguminosas |
+| `db48dc14-640e-11f0-8618-1290daed9e2f` | Libre |
+
+> El grupo `"Otro"` queda deshabilitado. Cualquier dato histórico se mapea automáticamente a `Libre`.
 
 ### Error Responses
 
