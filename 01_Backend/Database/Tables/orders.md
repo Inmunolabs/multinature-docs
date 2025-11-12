@@ -1,9 +1,9 @@
 # orders
 
 ## DDL (fuente de verdad)
+
 ```sql
 CREATE TABLE `orders` (
-
   `id` varchar(36) NOT NULL,
   `user_id` varchar(36) NOT NULL,
   `user_name` varchar(50) NOT NULL,
@@ -31,11 +31,11 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`id`),
   KEY `orders_ibfk_1` (`user_id`),
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas
+
 ```
 Table: orders
 Columns:
@@ -67,11 +67,13 @@ created_at datetime
 ```
 
 ## Reglas de mapeo
+
 - SQL `snake_case` ↔ JS `camelCase` 1:1.
 - Tipos DECIMAL/NUMERIC → `number` en JS. `TINYINT(1)` ↔ `boolean`.
 - Evitar alias de columnas inexistentes; si no está en DDL, no va en entity/DTO.
 
 ## Queries estándar sugeridos
+
 - SELECT por `id`
 - LIST con filtros comunes y paginación
 - INSERT validando NOT NULL
@@ -79,4 +81,5 @@ created_at datetime
 - DELETE por `id` (si aplica)
 
 ## Notas
+
 - Documenta claves foráneas, índices y `ORDER BY` por defecto si aplica.

@@ -6,10 +6,12 @@ Documentación de specialists.
 
 ## Archivos
 
-- [Formularios para alta de pacientes](./formulariosAltaPacientes.md)
-- [Servicios (service_payments)](./servicios.png)
+- [01 Formularios clínicos — Reglas](./01_formularios_clinicos_rules.md)
+- [01.1 Formularios clínicos — Flujo funcional](./01.1_formularios_clinicos_flujo_funcional.md)
+- [Servicios (service_payments) — Diagrama (PNG)](./servicios.png)
+- [Servicios (service_payments) — Diagrama editable (Excalidraw)](./servicios.excalidraw)
 
 ---
 
 - **Última actualización:** 2025-10-21
-- **Total de archivos:** 3
+- **Total de archivos:** 4

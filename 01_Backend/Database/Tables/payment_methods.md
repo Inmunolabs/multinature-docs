@@ -1,9 +1,9 @@
 # payment_methods
 
 ## DDL (fuente de verdad)
+
 ```sql
 CREATE TABLE `payment_methods` (
-
   `id` varchar(36) NOT NULL,
   `user_id` varchar(36) NOT NULL,
   `alias` varchar(50) DEFAULT NULL,
@@ -25,11 +25,11 @@ CREATE TABLE `payment_methods` (
   PRIMARY KEY (`id`),
   KEY `payment_methods_ibfk_1` (`user_id`),
   CONSTRAINT `payment_methods_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas
+
 ```
 Table: payment_methods
 Columns:
@@ -55,11 +55,13 @@ created_at datetime
 ```
 
 ## Reglas de mapeo
+
 - SQL `snake_case` ↔ JS `camelCase` 1:1.
 - Tipos DECIMAL/NUMERIC → `number` en JS. `TINYINT(1)` ↔ `boolean`.
 - Evitar alias de columnas inexistentes; si no está en DDL, no va en entity/DTO.
 
 ## Queries estándar sugeridos
+
 - SELECT por `id`
 - LIST con filtros comunes y paginación
 - INSERT validando NOT NULL
@@ -67,4 +69,5 @@ created_at datetime
 - DELETE por `id` (si aplica)
 
 ## Notas
+
 - Documenta claves foráneas, índices y `ORDER BY` por defecto si aplica.

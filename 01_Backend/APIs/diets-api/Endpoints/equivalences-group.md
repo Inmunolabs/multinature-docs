@@ -2,7 +2,7 @@
 
 ## Descripción funcional
 
-Obtiene los grupos de equivalencias alimentarias disponibles en el sistema. Permite consultar las categorías de alimentos que pueden intercambiarse entre sí manteniendo valores nutricionales similares. Útil para crear dietas flexibles y permitir sustituciones de alimentos.
+Obtiene los grupos de equivalencias alimentarias disponibles en el sistema. Permite consultar las categorías autorizadas por SMAE que pueden intercambiarse entre sí manteniendo valores nutricionales similares. El catálogo se encuentra cerrado: solo se devuelven los grupos listados abajo, con `Libre` como sustituto universal cuando antes se usaba `"Otro"`.
 
 ## Autorización
 
@@ -24,62 +24,28 @@ No aplica
 
 ```json
 [
-  {
-    "id": "123e4567-e89b-12d3-a456-426614174000",
-    "name": "Proteínas",
-    "description": "Alimentos ricos en proteínas",
-    "equivalences": [
-      {
-        "id": "456e7890-e89b-12d3-a456-426614174000",
-        "name": "Pechuga de pollo",
-        "quantity": 100.0,
-        "unit": "g",
-        "calories": 165,
-        "proteins": 31.0
-      },
-      {
-        "id": "789e0123-e89b-12d3-a456-426614174000",
-        "name": "Salmón",
-        "quantity": 100.0,
-        "unit": "g",
-        "calories": 208,
-        "proteins": 25.0
-      },
-      {
-        "id": "abc123-e89b-12d3-a456-426614174000",
-        "name": "Huevos",
-        "quantity": 2.0,
-        "unit": "unidades",
-        "calories": 140,
-        "proteins": 12.0
-      }
-    ]
-  },
-  {
-    "id": "def456-e89b-12d3-a456-426614174000",
-    "name": "Carbohidratos",
-    "description": "Alimentos ricos en carbohidratos",
-    "equivalences": [
-      {
-        "id": "ghi789-e89b-12d3-a456-426614174000",
-        "name": "Arroz integral",
-        "quantity": 100.0,
-        "unit": "g",
-        "calories": 111,
-        "carbohydrates": 23.0
-      },
-      {
-        "id": "jkl012-e89b-12d3-a456-426614174000",
-        "name": "Avena",
-        "quantity": 100.0,
-        "unit": "g",
-        "calories": 389,
-        "carbohydrates": 66.3
-      }
-    ]
-  }
+  { "id": "db480987-640e-11f0-8618-1290daed9e2f", "name": "AOA", "subgroup": "Muy bajo en grasa" },
+  { "id": "db487ac0-640e-11f0-8618-1290daed9e2f", "name": "AOA", "subgroup": "Bajo en grasa" },
+  { "id": "db48979e-640e-11f0-8618-1290daed9e2f", "name": "AOA", "subgroup": "Moderado en grasa" },
+  { "id": "db489993-640e-11f0-8618-1290daed9e2f", "name": "AOA", "subgroup": "Alto en grasa" },
+  { "id": "db4899fc-640e-11f0-8618-1290daed9e2f", "name": "Cereal", "subgroup": "Con grasa" },
+  { "id": "db489a4f-640e-11f0-8618-1290daed9e2f", "name": "Cereal", "subgroup": "Sin grasa" },
+  { "id": "db48b6cf-640e-11f0-8618-1290daed9e2f", "name": "Verdura", "subgroup": null },
+  { "id": "db48d736-640e-11f0-8618-1290daed9e2f", "name": "Fruta", "subgroup": null },
+  { "id": "db48d84d-640e-11f0-8618-1290daed9e2f", "name": "Leche", "subgroup": "Descremada" },
+  { "id": "db48d8c3-640e-11f0-8618-1290daed9e2f", "name": "Leche", "subgroup": "Semidescremada" },
+  { "id": "db48d92e-640e-11f0-8618-1290daed9e2f", "name": "Leche", "subgroup": "Entera" },
+  { "id": "db48d992-640e-11f0-8618-1290daed9e2f", "name": "Leche", "subgroup": "Con azúcar" },
+  { "id": "db48da09-640e-11f0-8618-1290daed9e2f", "name": "Grasa", "subgroup": "Sin proteína" },
+  { "id": "db48da6b-640e-11f0-8618-1290daed9e2f", "name": "Grasa", "subgroup": "Con proteína" },
+  { "id": "db48dac7-640e-11f0-8618-1290daed9e2f", "name": "Azúcar", "subgroup": "Sin grasa" },
+  { "id": "db48db24-640e-11f0-8618-1290daed9e2f", "name": "Azúcar", "subgroup": "Con grasa" },
+  { "id": "db48db93-640e-11f0-8618-1290daed9e2f", "name": "Leguminosas", "subgroup": null },
+  { "id": "db48dc14-640e-11f0-8618-1290daed9e2f", "name": "Libre", "subgroup": null }
 ]
 ```
+
+> El endpoint nunca devuelve `"Otro"` como grupo válido; cualquier dato histórico se mapea a `Libre`.
 
 ## Códigos de estado y errores
 

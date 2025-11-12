@@ -1,9 +1,9 @@
 # agent_memories
 
 ## DDL (fuente de verdad)
+
 ```sql
 CREATE TABLE `agent_memories` (
-
   `id` varchar(36) NOT NULL,
   `user_id` varchar(36) NOT NULL,
   `specialist_id` varchar(36) NOT NULL,
@@ -25,11 +25,11 @@ CREATE TABLE `agent_memories` (
   KEY `specialist_id` (`specialist_id`),
   CONSTRAINT `agent_memories_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `agent_memories_ibfk_2` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 ```
 
 ## Resumen de columnas
+
 ```
 Table: agent_memories
 Columns:
@@ -48,11 +48,13 @@ updated_at timestamp NULL
 ```
 
 ## Reglas de mapeo
+
 - SQL `snake_case` ↔ JS `camelCase` 1:1.
 - Tipos DECIMAL/NUMERIC → `number` en JS. `TINYINT(1)` ↔ `boolean`.
 - Evitar alias de columnas inexistentes; si no está en DDL, no va en entity/DTO.
 
 ## Queries estándar sugeridos
+
 - SELECT por `id`
 - LIST con filtros comunes y paginación
 - INSERT validando NOT NULL
@@ -60,4 +62,5 @@ updated_at timestamp NULL
 - DELETE por `id` (si aplica)
 
 ## Notas
+
 - Documenta claves foráneas, índices y `ORDER BY` por defecto si aplica.

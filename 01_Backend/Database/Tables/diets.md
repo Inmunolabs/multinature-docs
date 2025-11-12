@@ -1,9 +1,9 @@
 # diets
 
 ## DDL (fuente de verdad)
+
 ```sql
 CREATE TABLE `diets` (
-
   `id` varchar(36) NOT NULL,
   `notes` text NOT NULL,
   `carbohydrates_calories` decimal(8,2) DEFAULT NULL,
@@ -21,12 +21,11 @@ CREATE TABLE `diets` (
   UNIQUE KEY `uq_diets_user_specialist` (`user_id`,`specialist_id`),
   KEY `specialist_id` (`specialist_id`),
   CONSTRAINT `diets_ibfk_1` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `diets_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `diets_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`));
 ```
 
 ## Resumen de columnas
+
 ```
 Table: diets
 Columns:
@@ -47,11 +46,13 @@ created_at timestamp NULL
 ```
 
 ## Reglas de mapeo
+
 - SQL `snake_case` ↔ JS `camelCase` 1:1.
 - Tipos DECIMAL/NUMERIC → `number` en JS. `TINYINT(1)` ↔ `boolean`.
 - Evitar alias de columnas inexistentes; si no está en DDL, no va en entity/DTO.
 
 ## Queries estándar sugeridos
+
 - SELECT por `id`
 - LIST con filtros comunes y paginación
 - INSERT validando NOT NULL
@@ -59,4 +60,5 @@ created_at timestamp NULL
 - DELETE por `id` (si aplica)
 
 ## Notas
+
 - Documenta claves foráneas, índices y `ORDER BY` por defecto si aplica.
