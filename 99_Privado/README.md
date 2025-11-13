@@ -10,7 +10,9 @@ Documentación de 05 privado.
 - [Reportes](./Reportes/README.md)
 - [Testing](./Testing/README.md)
 
+## Archivos
+
 ---
 
-- **Última actualización:** 2025-10-20  
+- **Última actualización:** 2025-11-13
 - **Total de archivos:** 0

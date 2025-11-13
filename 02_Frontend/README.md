@@ -4,11 +4,11 @@ Documentación de 02 frontend.
 
 ---
 
-## Archivos
+## Secciones
 
-- [📱 Documentación del Frontend - Multinature](./README.md)
+## Archivos
 
 ---
 
-- **Última actualización:** 2025-10-20  
-- **Total de archivos:** 1
+- **Última actualización:** 2025-11-13
+- **Total de archivos:** 0

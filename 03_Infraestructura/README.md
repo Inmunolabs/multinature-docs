@@ -8,7 +8,9 @@ Documentación de 03 infraestructura.
 
 - [Scripts](./Scripts/README.md)
 
+## Archivos
+
 ---
 
-- **Última actualización:** 2025-10-20  
+- **Última actualización:** 2025-10-20
 - **Total de archivos:** 0

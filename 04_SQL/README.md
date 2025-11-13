@@ -1,15 +1,16 @@
-# 04_SQL — Queries útiles para el equipo
+# 04_SQL
 
-Este módulo agrupa consultas SQL listas para usar relacionadas con formularios, pacientes y dietAgent.
+Documentación de SQL.
 
-La intención es:
+---
 
-- Tener un lugar único donde vivirán los *queries* más usados.
-- Facilitar su búsqueda e indexación (por nombre, propósito y entidad).
-- Servir como referencia rápida para soporte, análisis y producto.
+## Secciones
 
-## Estructura
+- [Queries](./queries/README.md)
 
-- `queries/` → Consultas organizadas por tema.
+## Archivos
 
-Consulta el README dentro de `queries/` para ver el índice completo.
+---
+
+- **Última actualización:** 2025-11-13
+- **Total de archivos:** 0

@@ -13,9 +13,8 @@ Documentación de 04 negocio.
 
 - [Redacción de tareas y generación de CSV](./promptRedaccionDeTareas.md)
 - [Instrucciones para generar diagramas en Excalidraw](./propmtDiagramasDeExcalidraw.md)
-- [Negocio](./README.md)
 
 ---
 
-- **Última actualización:** 2025-10-20  
-- **Total de archivos:** 3
+- **Última actualización:** 2025-10-20
+- **Total de archivos:** 2

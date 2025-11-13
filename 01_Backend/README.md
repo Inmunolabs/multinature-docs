@@ -1,6 +1,6 @@
 # 01 Backend
 
-Documentación de 01 backend.
+Documentación de backend.
 
 ---
 
@@ -12,9 +12,7 @@ Documentación de 01 backend.
 
 ## Archivos
 
-- [2. BACKEND](./README.md)
-
 ---
 
-- **Última actualización:** 2025-10-20  
-- **Total de archivos:** 1
+- **Última actualización:** 2025-11-13
+- **Total de archivos:** 0
