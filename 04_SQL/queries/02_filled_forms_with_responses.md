@@ -20,9 +20,9 @@ SELECT
   f.form_template_id AS template_id,
   ft.name            AS template_name,
   f.user_id          AS patient_id,
-  p.name             AS patient_name,     -- ajusta según tu modelo de users
+  p.name             AS patient_name,     
   f.specialist_id    AS specialist_id,
-  s.name             AS specialist_name,  -- ajusta según tu modelo de users
+  s.name             AS specialist_name,  
   f.booking_id,
   b.booking_date,
   f.created_at,

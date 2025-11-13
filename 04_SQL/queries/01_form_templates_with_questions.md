@@ -24,7 +24,7 @@ SELECT
   ft.name            AS template_name,
   ft.specialty_id    AS specialty_id,
   ft.specialist_id   AS specialist_id,
-  u.name             AS specialist_name, -- ajusta según tu modelo de users
+  u.name             AS specialist_name, 
   JSON_ARRAYAGG(
     JSON_OBJECT(
       'formTemplateConceptId', ftc.id,
