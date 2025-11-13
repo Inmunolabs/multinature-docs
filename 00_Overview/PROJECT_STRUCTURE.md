@@ -146,23 +146,27 @@ backend/
 ## 📊 Estadísticas del Proyecto
 
 ### Base de Datos
+
 - **Tablas totales**: 87
 - **Tablas documentadas**: 87 (100%)
 - **Entities en código**: 31 (36%)
 - **Queries documentados**: 30+
 
 ### APIs
+
 - **Total de APIs**: 16
 - **Lambdas desplegadas**: ~16-20
 - **Layers compartidas**: 3
 
 ### Documentación
+
 - **Archivos en docs/**: 100+
 - **DDL documentados**: 87
 - **Refactors documentados**: 1 serie (3 docs)
 - **Scripts documentados**: 6
 
 ### Scripts
+
 - **Scripts ejecutables**: 6
 - **Scripts de validación**: 1
 - **Scripts de build/deploy**: 2
@@ -175,42 +179,45 @@ backend/
 
 ### Por Dominio de Negocio
 
-| Dominio | Ubicación Principal |
-|---------|-------------------|
-| **Nutrición** | `apis/diets-api/`, `docs/db/foods.md`, `docs/db/diets.md` |
-| **Ejercicio** | `apis/routines-api/`, `docs/db/routines.md`, `docs/db/exercises.md` |
-| **E-commerce** | `apis/products-api/`, `apis/orders-api/`, `apis/cart-api/` |
-| **Usuarios** | `apis/users-api/`, `docs/db/users.md` |
-| **Citas** | `apis/bookings-api/`, `docs/db/bookings.md` |
-| **Pagos** | `apis/payments-api/`, `apis/payment-methods-api/` |
+| Dominio        | Ubicación Principal                                                 |
+| -------------- | ------------------------------------------------------------------- |
+| **Nutrición**  | `apis/diets-api/`, `docs/db/foods.md`, `docs/db/diets.md`           |
+| **Ejercicio**  | `apis/routines-api/`, `docs/db/routines.md`, `docs/db/exercises.md` |
+| **E-commerce** | `apis/products-api/`, `apis/orders-api/`, `apis/cart-api/`          |
+| **Usuarios**   | `apis/users-api/`, `docs/db/users.md`                               |
+| **Citas**      | `apis/bookings-api/`, `docs/db/bookings.md`                         |
+| **Pagos**      | `apis/payments-api/`, `apis/payment-methods-api/`                   |
 
 ### Por Tipo de Archivo
 
-| Tipo | Ubicación |
-|------|-----------|
-| **Código fuente** | `apis/*/src/`, `layers/*/src/` |
-| **Tests** | `apis/*/tests/` |
+| Tipo              | Ubicación                                 |
+| ----------------- | ----------------------------------------- |
+| **Código fuente** | `apis/*/src/`, `layers/*/src/`            |
+| **Tests**         | `apis/*/tests/`                           |
 | **Configuración** | `apis/*/serverless.yml`, `*/package.json` |
-| **Documentación** | `docs/`, `*/README.md` |
-| **Scripts** | `scripts/` |
-| **DDL** | `docs/db/*.md` |
+| **Documentación** | `docs/`, `*/README.md`                    |
+| **Scripts**       | `scripts/`                                |
+| **DDL**           | `docs/db/*.md`                            |
 
 ---
 
 ## 🎨 Convenciones de Organización
 
 ### Nombres de Carpetas
+
 - APIs: `kebab-case-api/`
 - Layers: `multi-nombre-layer/`
 - Docs: `lowercase/` o `PascalCase/` según sección
 
 ### Nombres de Archivos
+
 - JavaScript: `camelCase.js` o `PascalCase.js`
 - Scripts: `kebab-case.bat/ps1/sh`
 - Docs: `kebab-case.md` o `UPPERCASE.md`
 - DDL: `table_name.md` (snake_case)
 
 ### Estructura de API
+
 ```
 nombre-api/
 ├── src/
@@ -232,21 +239,24 @@ nombre-api/
 ## 🔗 Links de Navegación
 
 ### Documentación Principal
+
 - [📖 Índice General](Business_Rules/README.md)
 - [🤖 Guía de Agentes](AGENTS_GUIDE.md)
 - [🗄️ Modelos de BD](../01_Backend/Database/00_INDEX.md)
 
 ### Guías Específicas
+
 - [🔧 Scripts y Herramientas](Business_Rules/README.md)
 - [📚 Histórico de Refactors](Business_Rules/README.md)
 - [🔍 Validación de Entities](../03_Infraestructura/Scripts/validation-tools.md)
 
 ### Tablas Más Usadas
-- [users](../04_Negocio/Tareas/11-users.md)
+
+- [users](../01_Backend/Database/Tables/users.md)
 - [diets](../01_Backend/Database/Tables/diets.md)
-- [foods](../01_Backend/APIs/diets-api/Endpoints/foods.md)
-- [ingredients](../01_Backend/APIs/diets-api/Endpoints/ingredients.md)
-- [routines](Business_Rules/routines.md)
+- [foods](../01_Backend/Database/Tables/foods.md)
+- [ingredients](../01_Backend/Database/Tables/ingredients.md)
+- [routines](../01_Backend/Database/Tables//routines.md)
 - [bookings](../01_Backend/Database/Tables/bookings.md)
 - [orders](../01_Backend/Database/Tables/orders.md)
 - [products](../01_Backend/Database/Tables/products.md)
@@ -256,6 +266,7 @@ nombre-api/
 ## 💡 Tips de Navegación
 
 ### En VS Code
+
 ```
 Ctrl+P             # Buscar archivo por nombre
 Ctrl+Shift+F       # Buscar en todos los archivos
@@ -264,6 +275,7 @@ Alt+Left/Right     # Navegar historial
 ```
 
 ### En Terminal
+
 ```bash
 # Buscar archivo
 find . -name "foods.js"
@@ -276,6 +288,7 @@ tree -L 2 docs/
 ```
 
 ### En Documentación
+
 - Usa el índice en `docs/README.md`
 - Busca por dominio en `docs/DB_MODELS.md`
 - Sigue los enlaces internos (están todos conectados)
@@ -284,4 +297,3 @@ tree -L 2 docs/
 
 **Última actualización**: 2025-10-15  
 **Mantenedor**: Miguel Valdés
-

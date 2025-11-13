@@ -10,10 +10,11 @@ Documentación de docs.
 - [01 Backend](./01_Backend/README.md)
 - [02 Frontend](./02_Frontend/README.md)
 - [03 Infraestructura](./03_Infraestructura/README.md)
-- [04 Negocio](./04_Negocio/README.md)
-- [05 Privado](./05_Privado/README.md)
+- [04 SQL](./04_SQL/README.md)
+- [05 Negocio](./05_Negocio/README.md)
+- [99 Privado](./99_Privado/README.md)
 
 ---
 
-- **Última actualización:** 2025-10-29
+- **Última actualización:** 2025-11-13
 - **Total de archivos:** 0

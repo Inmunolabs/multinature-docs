@@ -110,6 +110,35 @@ curl -X GET https://api.multinature.com/diets/generate-automatic/550e8400-e29b-4
       "source": "DietCalculator",
       "justification": "Paciente mujer de 36 años, 78 kg y 162 cm (IMC 29.7) orientado a \"Perder grasa corporal\" y actividad ligeramente activa (factor 1.1). El GET basal de 1817 kcal proviene del promedio Harris Benedict y Mifflin-St Jeor con medidas actuales. Se añaden 165 kcal por termogénesis inducida y 0 kcal adicionales porque la actividad ligera registrada no demanda más energía. El ajuste -15% (-272 kcal) calibra la recomendación hacia el objetivo sin comprometer masa magra. La recomendación final queda en 1545 kcal/día equilibrando adherencia y déficit clínico."
     },
+    "macronutrients": {
+      "proteinsPerDay": 116,
+      "lipidsPerDay": 43,
+      "carbohydratesPerDay": 174,
+      "distribution": { "protein": 30, "fat": 25, "carbs": 45 },
+      "calories": { "protein": 464, "fat": 387, "carbs": 696 },
+      "justification": "Paciente mujer de 36 años, 78 kg y 162 cm (IMC 29.7) orientado a \"Perder grasa corporal\" y actividad ligeramente activa (factor 1.1). La energía de 1545 kcal/día se reparte en 30% proteína (~116 g), 25% grasa (~43 g) y 45% carbohidratos (~174 g). El reparto prioriza el objetivo y el IMC 29.7 para sostener masa magra y controlar apetito. Los carbohidratos cubren la actividad ligera reportada (factor 1.1) mientras la proteína corrige déficits previos. La grasa saludable se mantiene moderada para mejorar perfil cardiometabólico."
+    },
+    "dailyEquivalences": [
+      { "name": "AOA - Bajo en grasa", "quantity": 3 },
+      { "name": "Cereal - Sin grasa", "quantity": 2 },
+      { "name": "Fruta", "quantity": 1 },
+      { "name": "Verdura", "quantity": 2 },
+      { "name": "Grasa - Sin proteína", "quantity": 2 },
+      { "name": "Leguminosas", "quantity": 1 },
+      { "name": "Libre", "quantity": 1 }
+    ],
+    "mealStructure": {
+      "days": 7,
+      "mealsPerDay": 5,
+      "mealTimes": {
+        "Desayuno": "07:30",
+        "Colacion 1": "11:00",
+        "Comida": "14:00",
+        "Colacion 2": "17:30",
+        "Cena": "20:00"
+      },
+      "justification": "Paciente mujer de 36 años, 78 kg y 162 cm (IMC 29.7) orientado a \"Perder grasa corporal\" y actividad ligeramente activa (factor 1.1). Se organizan 5 tiempos (07:30, 11:00, 14:00, 17:30, 20:00) para estabilizar apetito durante la jornada 09:00-18:00. La secuencia respeta el horario de oficina evitando ayunos prolongados previos a reuniones. Se integran colaciones dobles para reducir atracones nocturnos y manejar el estrés laboral. La cadencia sostiene el objetivo sin interferir con digestión ni descanso."
+    },
     "calorieCalculations": {
       "value": 1545,
       "baseGet": 1817,
@@ -129,26 +158,6 @@ curl -X GET https://api.multinature.com/diets/generate-automatic/550e8400-e29b-4
         { "step": "Ajuste por deficit objetivo", "value": -272 }
       ],
       "justification": "Paciente mujer de 36 años, 78 kg y 162 cm (IMC 29.7) orientado a \"Perder grasa corporal\" y actividad ligeramente activa (factor 1.1). El análisis energético promedia Mifflin-St Jeor (1650 kcal) y Harris Benedict (1605 kcal) para fijar un basal integrado de 1817 kcal. Se suman 165 kcal por termogénesis inducida y 0 kcal adicionales porque la actividad ligera no demanda ajustes extra. El ajuste -15% (-272 kcal) alinea la recomendación con el objetivo manteniendo seguridad metabólica. Así se documenta la transición hasta las 1545 kcal finales que estructuran el resto del plan."
-    },
-    "macronutrients": {
-      "proteinsPerDay": 116,
-      "lipidsPerDay": 43,
-      "carbohydratesPerDay": 174,
-      "distribution": { "protein": 30, "fat": 25, "carbs": 45 },
-      "calories": { "protein": 464, "fat": 387, "carbs": 696 },
-      "justification": "Paciente mujer de 36 años, 78 kg y 162 cm (IMC 29.7) orientado a \"Perder grasa corporal\" y actividad ligeramente activa (factor 1.1). La energía de 1545 kcal/día se reparte en 30% proteína (~116 g), 25% grasa (~43 g) y 45% carbohidratos (~174 g). El reparto prioriza el objetivo y el IMC 29.7 para sostener masa magra y controlar apetito. Los carbohidratos cubren la actividad ligera reportada (factor 1.1) mientras la proteína corrige déficits previos. La grasa saludable se mantiene moderada para mejorar perfil cardiometabólico."
-    },
-    "mealStructure": {
-      "days": 7,
-      "mealsPerDay": 5,
-      "mealTimes": {
-        "Desayuno": "07:30",
-        "Colacion 1": "11:00",
-        "Comida": "14:00",
-        "Colacion 2": "17:30",
-        "Cena": "20:00"
-      },
-      "justification": "Paciente mujer de 36 años, 78 kg y 162 cm (IMC 29.7) orientado a \"Perder grasa corporal\" y actividad ligeramente activa (factor 1.1). Se organizan 5 tiempos (07:30, 11:00, 14:00, 17:30, 20:00) para estabilizar apetito durante la jornada 09:00-18:00. La secuencia respeta el horario de oficina evitando ayunos prolongados previos a reuniones. Se integran colaciones dobles para reducir atracones nocturnos y manejar el estrés laboral. La cadencia sostiene el objetivo sin interferir con digestión ni descanso."
     },
     "menus": {
       "justification": "Paciente mujer de 36 años, 78 kg y 162 cm (IMC 29.7) orientado a \"Perder grasa corporal\" y actividad ligeramente activa (factor 1.1). Se rota un plan de 7 días con 5 tiempos diarios y 18 platillos para evitar monotonía semanal. Cada menú mantiene 1545 kcal/día y macros ~116 g P / 174 g C / 43 g G respaldando masa magra y control glucémico. Los platillos priorizan preparaciones sencillas compatibles con rutina de oficina y déficit moderado. Se alternan opciones vegetales y animales para reforzar saciedad y facilidad de preparación.",
@@ -196,8 +205,24 @@ curl -X GET https://api.multinature.com/diets/generate-automatic/550e8400-e29b-4
 - `patientContext` concentra sexo, edad, peso, talla, IMC, objetivo y parámetros energéticos; las justificaciones deben referirse a este contexto sin repetir toda la ficha clínica.
 - `calorieCalculations` expone `value`, `baseGet`, `calculatedGET`, `etaCalories`, `activityCalories`, `adjustment`, `activityFactor`, `activityLabel` y `formulaResults`.
 - `macronutrients` incorpora `distribution` (porcentajes) y `calories` (aporte energético por macro).
+- `dailyEquivalences` resume el cuadro dietosintético diario promedio (promedio de 7 días) agrupado por nombre de equivalencia y redondeado a múltiplos de 0.5; omite grupos `< 0.25` porciones.
 - `menusLegacy` fue eliminado; cualquier consumidor debe usar `menus.items`.
 - `menus[].meals[].equivalences` refleja la suma real de `equivalence_groups` de los ingredientes servidos (sin grupos por default).
+
+### Propiedades de `content`
+
+| Campo                 | Tipo            | Descripción                                                                | Notas clave                                                                                           |
+| --------------------- | --------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `dietId`              | string (UUID)   | Identificador único de la dieta generada.                                  | Generado on-the-fly en cada solicitud.                                                                |
+| `specialistId`        | string (UUID)   | Identificador del especialista asignado.                                   | Puede ser cadena vacía si no se proporcionó.                                                          |
+| `patientContext`      | object          | Datos clínicos resumidos del paciente.                                     | Base para todas las justificaciones; no repetir ficha completa.                                       |
+| `recommendedGET`      | object          | GET recomendado diario con fuente y justificación.                         | Valor redondeado; fuente habitual `DietCalculator`.                                                   |
+| `macronutrients`      | object          | Gramos, distribución y calorías por macronutriente.                        | Incluye justificación alineada con el objetivo clínico.                                               |
+| `dailyEquivalences`   | array<object>   | Cuadro dietosintético promedio diario agrupado por equivalencia.           | Promedia los 7 días, redondea a múltiplos de 0.5 y omite grupos `< 0.25` porciones.                   |
+| `mealStructure`       | object          | Días, tiempos de comida y justificación de la estructura.                  | `days` fijo en 7; sincroniza representaciones de horarios entre secciones.                            |
+| `calorieCalculations` | object          | Resumen de cálculos energéticos para transparencia clínica.                | Documenta pasos del pipeline energético y ajustes aplicados.                                          |
+| `menus`               | object          | Colección de menús con meals, dishes e equivalences por día.               | `items` contiene 7 menús; cada meal incluye equivalences ya consolidados (`name`, `quantity`).        |
+
 - Las unidades en `ingredients.displayQuantity` se normalizan a un catálogo controlado (`gramos`, `kg`, `ml`, `l`, `cdita`, `cda`, `taza`, `pieza`, `rebanada`, `rodaja`, `diente`, `porcion`).
 
 #### Unidades soportadas en `ingredients.displayQuantity`

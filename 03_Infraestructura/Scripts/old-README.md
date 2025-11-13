@@ -73,7 +73,7 @@ Genera un reporte en terminal con colores y un archivo JSON detallado.
 
 #### Ver también:
 
-- [Plan de Auditoría](../../05_Privado/Reportes/docs-audit-plan.md) - Reporte completo y plan de acción
+- [Plan de Auditoría](../../99_Privado/Reportes/docs-audit-plan.md) - Reporte completo y plan de acción
 - [Reporte JSON](../../docs-audit-report.json) - Última ejecución
 
 ---
@@ -539,4 +539,4 @@ Se agregó el script **`docs-audit.js`** para validación automatizada de la sal
 node scripts/docs-audit.js
 ```
 
-Ver plan completo en: [docs-audit-plan.md](../../05_Privado/Reportes/docs-audit-plan.md)
+Ver plan completo en: [docs-audit-plan.md](../../99_Privado/Reportes/docs-audit-plan.md)
