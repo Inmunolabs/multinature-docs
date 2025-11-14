@@ -124,8 +124,7 @@ curl -X GET https://api.multinature.com/diets/generate-automatic/550e8400-e29b-4
       { "name": "Fruta", "quantity": 1 },
       { "name": "Verdura", "quantity": 2 },
       { "name": "Grasa - Sin proteína", "quantity": 2 },
-      { "name": "Leguminosas", "quantity": 1 },
-      { "name": "Libre", "quantity": 1 }
+      { "name": "Leguminosas", "quantity": 1 }
     ],
     "mealStructure": {
       "days": 7,
@@ -181,7 +180,12 @@ curl -X GET https://api.multinature.com/diets/generate-automatic/550e8400-e29b-4
                     { "ingredientId": "ing-2", "ingredientName": "Espinaca fresca", "unit": "taza", "displayQuantity": "1.000 taza", "totalGrams": 30 },
                     { "ingredientId": "ing-3", "ingredientName": "Aceite de oliva", "unit": "cda", "displayQuantity": "0.500 cda", "totalGrams": 7 }
                   ],
-                  "ingredientsTotalGrams": 187
+                  "ingredientsTotalGrams": 187,
+                  "dataOrigin": {
+                    "fromDb": true,
+                    "agentAdjusted": true,
+                    "notes": "Porciones SMAE ajustadas (3 grupos)"
+                  }
                 }
               ],
               "equivalences": [
@@ -203,11 +207,13 @@ curl -X GET https://api.multinature.com/diets/generate-automatic/550e8400-e29b-4
 
 - `content` devuelve un único objeto de dieta (sin arreglo intermedio) con IDs tipo UUID generados on-the-fly.
 - `patientContext` concentra sexo, edad, peso, talla, IMC, objetivo y parámetros energéticos; las justificaciones deben referirse a este contexto sin repetir toda la ficha clínica.
-- `calorieCalculations` expone `value`, `baseGet`, `calculatedGET`, `etaCalories`, `activityCalories`, `adjustment`, `activityFactor`, `activityLabel` y `formulaResults`.
-- `macronutrients` incorpora `distribution` (porcentajes) y `calories` (aporte energético por macro).
-- `dailyEquivalences` resume el cuadro dietosintético diario promedio (promedio de 7 días) agrupado por nombre de equivalencia y redondeado a múltiplos de 0.5; omite grupos `< 0.25` porciones.
-- `menusLegacy` fue eliminado; cualquier consumidor debe usar `menus.items`.
-- `menus[].meals[].equivalences` refleja la suma real de `equivalence_groups` de los ingredientes servidos (sin grupos por default).
+- `macronutrients` y `calorieCalculations` mantienen los cálculos técnicos, normalizados a 2 decimales.
+- `dailyEquivalences` proviene directamente de la propuesta del agente (NO se suma del menú); los valores se redondean a múltiplos de 0.5 y se omiten cantidades `< 0.25`.
+- `menus[].meals[].equivalences` se calculan exclusivamente desde los ingredientes reales, sin usar `smaeTags` ni promedios por platillo. Los ingredientes con `impactCategory = "free"` siempre tienen `equivalenceQuantity = 0`.
+- Se eliminaron campos obsoletos (`menus.value`, `unitOfficial`, `freeAdditions`, `smaeTags`).
+- `menus[].meals[].dishes[]` expone `dataOrigin` (`fromDb`, `agentAdjusted`, `consistencyFlag`, `notes`) para trazar la procedencia de cada platillo y detectar anomalías SMAE.
+- El sistema aplica sanity checks automáticos a los datos SMAE: densidad energética irreal (>12 kcal/g), pesos anómalos, y calorías excesivas (>2000 kcal por platillo).
+- Las justificaciones incluyen solo variables relevantes (IMC, objetivo, AF) sin repetir la ficha clínica completa en cada sección.
 
 ### Propiedades de `content`
 
@@ -218,12 +224,14 @@ curl -X GET https://api.multinature.com/diets/generate-automatic/550e8400-e29b-4
 | `patientContext`      | object          | Datos clínicos resumidos del paciente.                                     | Base para todas las justificaciones; no repetir ficha completa.                                       |
 | `recommendedGET`      | object          | GET recomendado diario con fuente y justificación.                         | Valor redondeado; fuente habitual `DietCalculator`.                                                   |
 | `macronutrients`      | object          | Gramos, distribución y calorías por macronutriente.                        | Incluye justificación alineada con el objetivo clínico.                                               |
-| `dailyEquivalences`   | array<object>   | Cuadro dietosintético promedio diario agrupado por equivalencia.           | Promedia los 7 días, redondea a múltiplos de 0.5 y omite grupos `< 0.25` porciones.                   |
+| `dailyEquivalences`   | array<object>   | Cuadro dietosintético promedio diario agrupado por equivalencia.           | Propuesta del agente, redondeada a múltiplos de 0.5 y sin valores `< 0.25`. |
 | `mealStructure`       | object          | Días, tiempos de comida y justificación de la estructura.                  | `days` fijo en 7; sincroniza representaciones de horarios entre secciones.                            |
 | `calorieCalculations` | object          | Resumen de cálculos energéticos para transparencia clínica.                | Documenta pasos del pipeline energético y ajustes aplicados.                                          |
 | `menus`               | object          | Colección de menús con meals, dishes e equivalences por día.               | `items` contiene 7 menús; cada meal incluye equivalences ya consolidados (`name`, `quantity`).        |
 
+- Cada `menus.items[].meals[].dishes[]` agrega `dataOrigin` con los flags `fromDb`/`agentAdjusted`/`consistencyFlag` y una nota opcional para auditoría clínica.
 - Las unidades en `ingredients.displayQuantity` se normalizan a un catálogo controlado (`gramos`, `kg`, `ml`, `l`, `cdita`, `cda`, `taza`, `pieza`, `rebanada`, `rodaja`, `diente`, `porcion`).
+- Los ingredientes con `impactCategory = "free"` siempre tienen `equivalenceQuantity = 0` y no se incluyen en el cálculo de equivalencias del meal.
 
 #### Unidades soportadas en `ingredients.displayQuantity`
 
@@ -256,164 +264,4 @@ curl -X GET https://api.multinature.com/diets/generate-automatic/550e8400-e29b-4
 | `db48d736-640e-11f0-8618-1290daed9e2f` | Fruta |
 | `db48d84d-640e-11f0-8618-1290daed9e2f` | Leche / Descremada |
 | `db48d8c3-640e-11f0-8618-1290daed9e2f` | Leche / Semidescremada |
-| `db48d92e-640e-11f0-8618-1290daed9e2f` | Leche / Entera |
-| `db48d992-640e-11f0-8618-1290daed9e2f` | Leche / Con azúcar |
-| `db48da09-640e-11f0-8618-1290daed9e2f` | Grasa / Sin proteína |
-| `db48da6b-640e-11f0-8618-1290daed9e2f` | Grasa / Con proteína |
-| `db48dac7-640e-11f0-8618-1290daed9e2f` | Azúcar / Sin grasa |
-| `db48db24-640e-11f0-8618-1290daed9e2f` | Azúcar / Con grasa |
-| `db48db93-640e-11f0-8618-1290daed9e2f` | Leguminosas |
-| `db48dc14-640e-11f0-8618-1290daed9e2f` | Libre |
-
-> El grupo `"Otro"` queda deshabilitado. Cualquier dato histórico se mapea automáticamente a `Libre`.
-
-### Error Responses
-
-#### 400 - Bad Request
-
-```json
-{
-  "success": false,
-  "message": "Formulas array is required and must not be empty",
-  "data": {}
-}
-```
-
-#### 404 - Patient Not Found
-
-```json
-{
-  "success": false,
-  "message": "Patient not found",
-  "data": {}
-}
-```
-
-#### 400 - Missing Clinical Data
-
-```json
-{
-  "success": false,
-  "message": "Altura del usuario no encontrada",
-  "data": {}
-}
-```
-
-#### 500 - Server Error
-
-```json
-{
-  "success": false,
-  "message": "Error generating automatic diet",
-  "data": {
-    "error": "Detailed error message"
-  }
-}
-```
-
-## Validaciones
-
-### Middleware Aplicado
-
-- `validateAutomaticDietGeneration`: Valida el request body y obtiene datos del paciente
-
-### Validaciones Específicas
-
-1. **Formulas**: Debe ser un array no vacío con fórmulas válidas
-2. **UserId**: Debe ser un string válido
-3. **CAF**: Si se proporciona, debe ser un número positivo
-4. **ETA**: Si se proporciona, debe estar entre 0 y 100
-5. **AF**: Si se proporciona, debe ser un número no negativo
-6. **Datos del paciente**: Debe existir el usuario con altura y peso registrados
-
-## Flujo del Proceso
-
-1. **Validación**: Se validan los parámetros de entrada (fórmulas, userId, etc.)
-2. **Datos clínicos**: Se obtienen los datos clínicos del usuario desde `getAllFilledFormValuesByUserId`
-3. **Extracción de objetivo**: Se toma el concept más reciente con name = "Objetivo" como texto plano
-4. **Cálculo de GET promedio**: Se calculan las calorías usando las fórmulas seleccionadas y se obtiene el promedio
-5. **GET recomendado con IA**: La IA analiza el objetivo y datos del paciente para recomendar un GET específico con justificación
-6. **Distribución de macronutrientes con IA**: La IA calcula proteínas, lípidos y carbohidratos en gramos enteros con justificación
-7. **Estructura de comidas con IA**: La IA determina dinámicamente el número de días y tiempos de comida basado en datos clínicos
-8. **Distribución de porciones con IA**: La IA genera el cuadro dietosintético completo Y su distribución por día/tiempo de comida
-9. **Recomendaciones de menús con IA**: La IA selecciona alimentos específicos del SMAE que coincidan EXACTAMENTE con las porciones asignadas
-10. **Guardado en BD**: Se almacena toda la información usando la misma lógica de snapshots que las dietas manuales
-11. **Respuesta**: Se devuelve la dieta completa con estructura dinámica, coherencia entre porciones y platillos, y todas las justificaciones
-
-## Consideraciones Técnicas
-
-### Datos Clínicos Requeridos
-
-- El usuario debe tener formularios completados con datos clínicos
-- Se requieren registros de altura y peso
-- Los objetivos se extraen automáticamente de conceptos como "objetivo", "goal", "meta"
-
-### Integración con IA
-
-- Utiliza OpenAI GPT-4o para todas las recomendaciones nutricionales
-- **Prompts configurables**: Los prompts están en `apis/diets-api/src/config/diet-prompts.js` para fácil modificación sin redeploy
-- **Flujo dinámico**: La IA determina estructura de comidas basada en datos clínicos del paciente
-- **Coherencia garantizada**: Los platillos coinciden exactamente con las porciones asignadas
-- Incluye fallbacks robustos si la IA falla en cualquier paso
-- Se basa en alimentos específicos del Sistema Mexicano de Alimentos Equivalentes (SMAE)
-- Temperatura baja (0.3) para respuestas consistentes y profesionales
-- Validación estricta de respuestas JSON de la IA
-- **4 llamadas secuenciales a IA**: Estructura → Macronutrientes → Porciones → Platillos
-
-### Almacenamiento
-
-- Se guarda la dieta principal en la tabla `diets`
-- Se mantiene historial automático (snapshots cada 6 días)
-- Los platillos generados se marcan como `ai_generated = 1`
-
-## Casos de Uso
-
-### Caso 1: Pérdida de Peso
-
-```json
-{
-  "formulas": ["mifflinStJeor", "harrisBenedict"],
-  "userId": "user-id",
-  "CAF": 1.2
-}
-```
-
-- GET se reduce 15%
-- Mayor proporción de proteínas (30%)
-- Menor proporción de grasas y azúcares
-
-### Caso 2: Aumento de Peso
-
-```json
-{
-  "formulas": ["mifflinStJeor", "IOM", "FAO"],
-  "userId": "user-id",
-  "CAF": 1.6
-}
-```
-
-- GET se aumenta 15%
-- Mayor densidad calórica
-- Más grasas saludables (30%)
-
-### Caso 3: Mantenimiento
-
-```json
-{
-  "formulas": ["mifflinStJeor"],
-  "userId": "user-id",
-  "CAF": 1.4
-}
-```
-
-- GET se mantiene calculado
-- Distribución balanceada estándar
-- Enfoque en variedad nutricional
-
-## Notas Importantes
-
-- El endpoint requiere autenticación de especialista
-- Los cálculos se basan en evidencia científica nutricional
-- La IA genera recomendaciones pero siempre con supervisión profesional
-- Se mantiene trazabilidad completa de todos los cálculos
-- El sistema es compatible con el flujo manual existente
+| `db48d92e-640e-11f0-8618-1290daed9e2f`

@@ -19,38 +19,58 @@ El resultado se devuelve en una forma fácil de transformar a JSON en el backend
 ## Query principal (MySQL)
 
 ```sql
+-- Opcional: si tienes muchas preguntas, sube este límite
+SET SESSION group_concat_max_len = 1024 * 1024;
+
+-- Si quieres filtrar por un template concreto:
+SET @templateId    = '1b0ea18d-bd63-42d2-995f-bff9f8094e50';
+SET @templateName  = NULL;
+SET @specialistId  = NULL;
+
 SELECT
-  ft.id              AS template_id,
-  ft.name            AS template_name,
-  ft.specialty_id    AS specialty_id,
-  ft.specialist_id   AS specialist_id,
-  u.name             AS specialist_name, 
-  JSON_ARRAYAGG(
-    JSON_OBJECT(
-      'formTemplateConceptId', ftc.id,
-      'conceptId',             c.id,
-      'question',              COALESCE(ftc.custom_name, c.name),
-      'unit',                  COALESCE(ftc.unit, c.default_unit),
-      'isMandatory',           ftc.is_mandatory,
-      'isGraphable',           ftc.is_graphable,
-      'index',                 ftc.`index`
-    )
-    ORDER BY ftc.`index`
-  ) AS questions_json
+  JSON_OBJECT(
+    'templateId',      ft.id,
+    'templateName',    ft.name,
+    'specialtyId',     ft.specialty_id,
+    'specialistId',    ft.specialist_id,
+    'specialistName',  CONCAT(u.first_name, ' ', u.last_name),
+    'questions',
+      CAST(
+        CONCAT(
+          '[',
+          GROUP_CONCAT(
+            JSON_OBJECT(
+              -- 'formTemplateConceptId', ftc.id,
+              -- 'conceptId',             c.id,
+              'question',              CONCAT(ftc.index, '.- ', COALESCE(ftc.custom_name, c.name)),
+              -- 'unit',                  COALESCE(ftc.unit, c.default_unit),
+              'isMandatory',           ftc.is_mandatory,
+              'isGraphable',           ftc.is_graphable
+              -- 'index',                 ftc.`index`
+            )
+            ORDER BY ftc.`index`
+            SEPARATOR ','
+          ),
+          ']'
+        ) AS JSON
+      )
+  ) AS template_json
 FROM form_templates ft
 JOIN form_template_concepts ftc ON ftc.form_template_id = ft.id
 LEFT JOIN concepts c            ON c.id = ftc.concept_id
 LEFT JOIN users u               ON u.id = ft.specialist_id
 WHERE
-  (:templateId   IS NULL OR ft.id            = :templateId)
-  AND (:templateName IS NULL OR ft.name     LIKE CONCAT('%', :templateName, '%'))
-  AND (:specialistId IS NULL OR ft.specialist_id = :specialistId)
-  AND (ft.deleted_at IS NULL)
-GROUP BY ft.id, ft.name, ft.specialty_id, ft.specialist_id, u.name
-ORDER BY ft.created_at DESC;
+  (@templateId    IS NULL OR ft.id            = @templateId)
+  AND (@templateName IS NULL OR ft.name      LIKE CONCAT('%', @templateName, '%'))
+  AND (@specialistId IS NULL OR ft.specialist_id = @specialistId)
+  AND ft.deleted_at IS NULL
+GROUP BY
+  ft.id, ft.name, ft.specialty_id, ft.specialist_id, u.first_name;
+
 ```
 
 > 🔎 Notas:
+>
 > - `:templateId`, `:templateName`, `:specialistId` son parámetros opcionales (puedes adaptarlos a `?` según tu driver).
 > - El `JSON_ARRAYAGG` construye un arreglo con todas las preguntas del formulario, ya ordenadas por el campo `index`.
 > - Puedes quitar o agregar campos al `JSON_OBJECT` según tus necesidades de UI.
@@ -126,4 +146,4 @@ SET @specialistId  = '742745d3-86fa-46dd-8f6c-7910284dfec6';
 
 - Agregar `isInitialAssessment` y `isDietagentIntake` al SELECT para filtrar templates de intake del dietAgent.
 - Incluir `specialty` haciendo JOIN con la tabla de especialidades.
-- Adaptar este query a una *view* o *stored procedure* si se vuelve de uso muy frecuente.
+- Adaptar este query a una _view_ o _stored procedure_ si se vuelve de uso muy frecuente.

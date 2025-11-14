@@ -20,26 +20,37 @@ Modelo canónico que describe el objeto `content` entregado por DietAgent al gen
 | `menus`               | object          | Menús consolidados con meals, dishes e `equivalences` por día.                | Sí          |
 
 > Todas las justificaciones deben mantenerse ≤ 240 caracteres siguiendo la regla clínica global del proyecto.
+> Los valores numéricos técnicos se normalizan a 2 decimales; campos de UI como `displayQuantity` usan 1 decimal.
+> Las justificaciones se enfocan en la decisión puntual sin repetir la ficha clínica completa.
 
 ## Daily Equivalences
 
 ### Descripción
 
-`dailyEquivalences` representa el cuadro dietosintético diario (promedio de los 7 días planificados). Cada elemento del arreglo expone:
+`dailyEquivalences` es la **propuesta del DietAgent** para el cuadro dietosintético diario objetivo. Cada elemento del arreglo expone:
 
 - `name`: Nombre completo del grupo SMAE (`Grupo - Subgrupo` cuando aplica).
-- `quantity`: Suma diaria promedio de porciones, redondeada al múltiplo de 0.5 más cercano.
+- `quantity`: Porciones sugeridas para ese grupo, redondeadas al múltiplo de 0.5 más cercano.
 
-### Fuente de datos y cálculo
+### Fuente clínica
 
-1. Se recorren todos los menús (`menus.items`) y sus tiempos de comida.
-2. Se suman las equivalencias de cada meal (`meals[].equivalences`) identificadas por ID o nombre.
-3. Cuando las equivalencias están en formato `{ id, quantity }`, se resuelven a nombre usando el catálogo `equivalences_groups`.
-4. Las cantidades se multiplican por los días asignados al menú (`assignedDays`) y se promedian contra los 7 días obligatorios de la dieta.
-5. Se redondea cada total a pasos de 0.5 porción y se descartan resultados `< 0.25`.
-6. El arreglo final se ordena según la jerarquía sugerida: AOA, Cereal, Fruta, Verdura, Grasa, Leguminosas, Libre; valores fuera del catálogo quedan alfabéticamente al final.
+**IMPORTANTE**: `dailyEquivalences` NO se calcula sumando equivalencias del menú. Es una propuesta independiente del agente basada en:
 
-Este cálculo garantiza consistencia con las metas de macronutrientes y con las equivalencias expuestas en cada meal.
+- GET recomendado
+- Objetivo del paciente
+- IMC actual
+- Nivel de actividad
+- Hábitos relevantes
+- Horarios de comida
+- Estructura 30/30/40
+
+El agente determina las porciones tomando en cuenta estos factores clínicos. Estas porciones son la base para diseñar tiempos de comida, platillos y cantidades antes de transformar la propuesta a menús concretos.
+
+**Reglas explícitas**:
+- NO se suman equivalencias del menú
+- NO se incluyen condimentos (impactCategory "free")
+- Se usan equivalencias sanitizadas como referencia inicial, no como resultado final
+- Todas las cantidades se redondean a múltiplos de 0.5
 
 ### Ejemplo
 
@@ -56,39 +67,52 @@ Este cálculo garantiza consistencia con las metas de macronutrientes y con las 
 
 ### Consideraciones
 
-- Siempre existen 7 entradas o menos; no se generan porciones nulas.
-- Los nombres siguen la capitalización oficial del catálogo SMAE.
-- Se debe validar coherencia con `macronutrients` cuando se ajustan porciones manualmente.
-- `dailyEquivalences` es idempotente ante reordenamientos de menús: regenerar la dieta sin cambios en equivalencias produce el mismo resultado promedio.
-
-## Free Additions
-
-Colección paralela que expone ingredientes de impacto energético insignificante (habitualmente clasificados como "Libre").
-
-- `name`: Nombre del ingrediente o preparación libre.
-- `unit`: Unidad oficial inferida dinámicamente (ej. `pieza`, `taza`).
-- `gramsPerUnit`: Conversión a gramos por unidad calculada desde datos reales o promedios por grupo.
-- `averageQuantityPerDay`: Promedio diario (7 días) expresado con un decimal.
-- `averageGramsPerDay`: Promedio diario en gramos, ideal para trazabilidad clínica.
-- `caloriesPerUnit`: Estimación energética por unidad cuando existe información.
-- `occurrences`: Veces que aparece a lo largo de los menús (considerando días asignados).
-
-Este arreglo se construye exclusivamente desde los ingredientes reales servidos en meals. Ningún elemento de `freeAdditions` aporta equivalencias al cuadro dietosintético, pero sí mantiene legibilidad para personal clínico.
+- Se omiten valores `< 0.25` porciones.
+- El orden clínico sugerido es: AOA, Cereal, Fruta, Verdura, Grasa, Leguminosas; cualquier otro grupo queda ordenado alfabéticamente.
+- Cuando el agente entrega identificadores (`id`), el backend los resuelve contra `equivalences_groups` para exponer el nombre.
 
 ## Ingredientes enriquecidos
 
-Cada `ingredient` dentro de `dishes` expone metadata adicional derivada dinámicamente:
+Cada elemento de `dishes[].ingredients[]` mantiene datos inferidos dinámicamente desde la base SMAE:
 
-- `unitOfficial`: unidad normalizada según catálogo SMAE y promedios de la base de datos.
-- `gramsPerUnit`: conversión numérica calculada desde pesos reales o promedios por grupo/unidad.
-- `uncertainWeight`: bandera booleana que indica cuando el peso fue ajustado por guardrails (e.g. >250 g) o por falta de datos.
+- `gramsPerUnit`: conversión calculada desde pesos reales o promedios por grupo/unidad.
+- `uncertainWeight`: bandera booleana cuando el peso se ajusta por guardrails o falta de datos.
 - `caloriesPerUnit`: estimación calórica por unidad cuando existe información suficiente.
-- `impactCategory`: `free` para ingredientes sin equivalencias, `standard` en caso contrario.
+- `impactCategory`: `free` para condimentos o bebidas sin equivalencias, `standard` en caso contrario.
+- `equivalenceQuantity`: cantidad de equivalencias SMAE. **Siempre 0 para ingredientes con `impactCategory = "free"`**.
 
-Estos campos permiten auditoría nutricional, evitan hardcodes y alinean las equivalencias con las porciones reales consumidas.
+Estas propiedades aportan trazabilidad clínica sin exponer campos obsoletos (`unitOfficial`, `smaeTags`, `freeAdditions`). Se calculan equivalencias exclusivamente con ingredientes reales consultados en la base SMAE, excluyendo condimentos y elementos libres.
+
+## `dataOrigin` en cada platillo
+
+Cada `menus.items[].meals[].dishes[]` incluye:
+
+```json
+"dataOrigin": {
+  "fromDb": true,
+  "agentAdjusted": true,
+  "consistencyFlag": true,
+  "notes": "Porciones SMAE ajustadas (3 grupos) | Pesos estimados por falta de datos SMAE"
+}
+```
+
+- `fromDb`: `true` cuando los ingredientes o platillos provienen de registros reales (foods/ingredients).
+- `agentAdjusted`: `true` cuando el DietAgent modificó porciones, pesos o sustituciones respecto a lo almacenado.
+- `consistencyFlag`: `false` cuando se detectaron anomalías en los datos SMAE (densidad energética irreal, pesos sospechosos, calorías excesivas).
+- `notes`: cadena corta opcional que resume el tipo de ajuste aplicado (por ejemplo, uso de SMAE derivado o falta de datos).
+
+Si el platillo se sintetiza por completo (sin `foodId`/`ingredientId`), `fromDb` se marca `false` y se explicita en `notes`.
+
+### Sanity Check de SMAE
+
+El sistema aplica validaciones automáticas a los datos SMAE antes de usarlos:
+
+1. **Densidad energética**: Si `energyDensityKcalPerGram > 12.0`, se marca como sospechoso y no se usa para equivalencias reales.
+2. **Pesos anómalos**: Si `gramsPerUnit < 0.5` y `caloriesPerUnit > 10`, se ajusta a un valor mínimo clínico seguro (5 g).
+3. **Equivalencias libres**: Los ingredientes con `impactCategory = "free"` siempre tienen `equivalenceQuantity = 0`.
+4. **Calorías excesivas**: Si un platillo supera 2000 kcal solo en ingredientes, se marca `consistencyFlag = false`.
 
 ## Referencias relacionadas
 
-- `apis/diets-api/src/services/generate.js` — Implementación del cálculo y agregado del cuadro dietosintético.
-- `docs/01_Backend/APIs/diets-api/Endpoints/generate-automatic.md` — Especificación del endpoint que expone esta respuesta.
-
+- `apis/diets-api/src/services/generate.js` — Implementación del armado de la respuesta.
+- `docs/01_Backend/APIs/diets-api/Endpoints/generate-automatic.md` — Contrato del endpoint que publica este modelo.

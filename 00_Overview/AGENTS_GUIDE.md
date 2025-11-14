@@ -11,6 +11,12 @@
 
 ---
 
+## 0) Preferencias y confirmación de reglas
+- Responde siempre en español neutro; los comentarios nuevos en código deben ir en inglés.
+- Antes de editar, confirma que leíste esta guía y `.cursor/rules/diet-agent.mdc`; menciona la consulta en cada entrega.
+- Aplica los cambios solicitados directamente (evita dejar solo recomendaciones) y resume cómo seguiste estas guías.
+- Documenta cualquier excepción justificada para futuras sesiones.
+
 ## 1) Contexto del proyecto
 - **Stack principal**: NodeJS (JS/TS), Express/Serverless (AWS Lambda), MySQL (RDS) y algo de DynamoDB; frontend en NextJS.
 - **Monorepo**: APIs y capas compartidas:

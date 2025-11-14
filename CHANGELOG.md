@@ -1,12 +1,19 @@
 # Changelog
 
+## 2025-11-14
+
+- [Added] Cada `dish` expone `dataOrigin` (`fromDb`, `agentAdjusted`, `notes`) para trazar si la información proviene directo de la BD o de ajustes del agente.
+- [Changed] `dailyEquivalences` confía exclusivamente en la propuesta del DietAgent; se eliminó el fallback que sumaba equivalencias desde los menús.
+- [Changed] La normalización centralizada elimina `unitOfficial`, `freeAdditions`, `smaeTags` y cualquier `value` que solo refleje `items.length`.
+- [Docs] Se documentó el nuevo campo `dataOrigin`, los redondeos y la depuración de campos en el contrato del endpoint y el modelo.
+
 ## 2025-11-13
 
-- [Updated] `dailyEquivalences` excluye `Libre`; nueva colección `freeAdditions` con unidades y gramos inferidos dinámicamente.
-- [Added] Campos `mealStructure.adaptiveLabels`, `meals[].mealLabel`, `meals[].mealNotes` para etiquetas adaptativas.
-- [Added] Metadata nutricional por ingrediente: `unitOfficial`, `gramsPerUnit`, `uncertainWeight`, `caloriesPerUnit`, `impactCategory`.
-- [Added] Métricas de cumplimiento calórico (`actualAverageKcal`, `actualDailyKcal`, `compliance`) con validación ±5%.
-- [Updated] Documentación del endpoint y modelo para reflejar los nuevos campos.
+- [Updated] `dailyEquivalences` ahora proviene de la propuesta del agente; solo se conserva como fallback el cálculo desde ingredientes.
+- [Removed] Campos `freeAdditions`, `menus.value`, `unitOfficial` y `smaeTags` de la respuesta pública.
+- [Updated] Equivalencias de cada meal se obtienen únicamente con ingredientes reales (sin usar portionDistribution como respaldo).
+- [Updated] Se normalizan los valores numéricos (2 decimales técnicos, 1 decimal en `displayQuantity`) antes de responder.
+- [Docs] Se alinearon los modelos y endpoints con el nuevo contrato simplificado.
 
 ## 2025-11-12
 
