@@ -79,3 +79,11 @@ Genera un archivo CSV con las siguientes tareas, siguiendo el formato que te pas
   Tags: back
 
   Assignee: Samuel
+
+- ✅ [21007] Revisión y Corrección del Cálculo del GET y Variables CAF / AF
+
+  Context: Revisar completamente la lógica actual del cálculo energético (GEB/GET) en el backend, especialmente las fórmulas que usan Health Canada, para validar si el GET está duplicando el impacto del CAF. Definir con precisión cómo debe calcularse el GET, renombrar variables confusas (CAF, AF, ETA), documentar la lógica final y aplicar los ajustes necesarios en backend y frontend para usar únicamente los parámetros correctos. Dejar bien establecido si se requiere uno o dos parámetros relacionados con actividad física, y reflejarlo en la vista del paciente.
+
+  Tags: back, front
+
+  Assignee: Samuel

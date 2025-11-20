@@ -48,4 +48,4 @@ carbohydrates decimal(6
 ## Notas
 
 - Documenta claves foráneas, índices y `ORDER BY` por defecto si aplica.
-- Catálogo cerrado: solo se admiten los IDs de la lista oficial utilizada por DietAgent (AOA, Cereal, Verdura, Fruta, Leche, Grasa, Azúcar, Leguminosas, Libre). El grupo histórico `"Otro"` fue deprecado y se normaliza siempre a `Libre`.
+- Catálogo cerrado: solo se admiten los IDs de la lista oficial utilizada por DietAgent (AOA, Cereal, Verdura, Fruta, Leche, Grasa, Azúcar, Leguminosas, Libre).

@@ -233,7 +233,7 @@ INSERT INTO tmp_keep_templates (id) VALUES
 
 # 📤 1. Export: INSERTs para `concepts`
 
-SET SESSION group_concat_max_len = 1024 * 1024;;
+SET SESSION group_concat_max_len = 1024 * 1024;
 
 SELECT
 GROUP_CONCAT(

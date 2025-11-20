@@ -12,6 +12,7 @@ Documentación de endpoints.
 ## Archivos
 
 - [POST /diets/diet-calculations/:id](./diet-calculations.md)
+- [POST /diets/recommend-formulas - Recomendar Fórmulas](./recommend-formulas.md)
 - [GET /diets/equivalences/group](./equivalences-group.md)
 - [GET /diets/foods](./foods.md)
 - [POST /diets/generate-automatic - Generar Dieta Automática](./generate-automatic.md)
@@ -24,5 +25,5 @@ Documentación de endpoints.
 
 ---
 
-- **Última actualización:** 2025-10-22
-- **Total de archivos:** 12
+- **Última actualización:** 2025-01-27
+- **Total de archivos:** 13

@@ -112,31 +112,43 @@ SET @specialistId  = '742745d3-86fa-46dd-8f6c-7910284dfec6';
 
 ```json
 {
-  "template_id": "58d99460-ef10-40b6-bebd-3233e62279ff",
-  "template_name": "Formulario base de Nutrición",
-  "specialty_id": "9ce67305-eafc-11ef-bd0a-1290daed9e2f",
-  "specialist_id": null,
-  "specialist_name": null,
-  "questions_json": [
+  "questions": [
+    { "question": "0.- ¿Cuál es tu objetivo principal con el plan nutricional?", "isGraphable": 0, "isMandatory": 1 },
+    { "question": "1.- Peso", "isGraphable": 1, "isMandatory": 1 },
+    { "question": "2.- Estatura", "isGraphable": 0, "isMandatory": 1 },
+    { "question": "3.- ¿Eres alérgico o intolerante a algún alimento?", "isGraphable": 0, "isMandatory": 1 },
+    { "question": "4.- ¿Tienes intolerancia al gluten o la lactosa?", "isGraphable": 0, "isMandatory": 1 },
+    { "question": "5.- ¿Tienes aversiones a algún alimento?", "isGraphable": 0, "isMandatory": 1 },
+    { "question": "6.- ¿Tienes antecedentes clínicos relevantes?", "isGraphable": 0, "isMandatory": 1 },
+    { "question": "7.- ¿Tienes antecedentes gastrointestinales?", "isGraphable": 0, "isMandatory": 1 },
     {
-      "formTemplateConceptId": "abc123...",
-      "conceptId": "23ba7e84-94ba-11f0-8618-1290daed9e2f",
-      "question": "¿Cuál es tu horario de sueño durante la semana?",
-      "unit": "",
-      "isMandatory": true,
-      "isGraphable": false,
-      "index": 140
+      "question": "8.- ¿Tienes antecedentes ginecológicos? (No aplica si eres hombre)",
+      "isGraphable": 0,
+      "isMandatory": 1
     },
-    {
-      "formTemplateConceptId": "def456...",
-      "conceptId": "08fb0a58-9791-4f24-b5ee-97c564661b0e",
-      "question": "Peso",
-      "unit": "kg",
-      "isMandatory": true,
-      "isGraphable": true,
-      "index": 100
-    }
-  ]
+    { "question": "9.- ¿Consumes medicamentos, homeopatía o suplementos?", "isGraphable": 0, "isMandatory": 1 },
+    { "question": "10.- ¿Cuál es tu horario de trabajo?", "isGraphable": 0, "isMandatory": 1 },
+    { "question": "11.- ¿Cuáles son tus horarios de comida?", "isGraphable": 0, "isMandatory": 1 },
+    { "question": "12.- ¿Cuál es tu horario de sueño durante la semana?", "isGraphable": 0, "isMandatory": 1 },
+    { "question": "13.- ¿Cuánta cantidad de agua consumes al día?", "isGraphable": 0, "isMandatory": 1 },
+    { "question": "14.- Fórmulas para el dietocálculo", "isGraphable": 0, "isMandatory": 0 },
+    { "question": "15.- Coeficiente de Actividad Física (CAF)", "isGraphable": 0, "isMandatory": 0 },
+    { "question": "16.- ¿Si realizas ejercicio en que horarios lo haces?", "isGraphable": 0, "isMandatory": 0 },
+    { "question": "17.- ¿Si realizas ejercicio en dónde lo haces?", "isGraphable": 0, "isMandatory": 0 },
+    { "question": "18.- ¿Con qué frecuencia consumes frutas al día?", "isGraphable": 0, "isMandatory": 0 },
+    { "question": "19.- ¿Con qué frecuencia consumes verduras al día?", "isGraphable": 0, "isMandatory": 0 },
+    { "question": "20.- ¿Fumas cigarro?", "isGraphable": 0, "isMandatory": 0 },
+    { "question": "21.- ¿Consumes alcohol?", "isGraphable": 0, "isMandatory": 0 },
+    { "question": "22.- ¿Tomas café, refrescos o jugos?", "isGraphable": 0, "isMandatory": 0 },
+    { "question": "23.- ¿Cómo describirías tu nivel de energía durante el día?", "isGraphable": 0, "isMandatory": 0 },
+    { "question": "24.- ¿Cómo calificarías tu nivel de estrés actual (1-10)?", "isGraphable": 0, "isMandatory": 0 },
+    { "question": "25.- ¿Presentas dolores de cabeza, temblores o visión borrosa?", "isGraphable": 0, "isMandatory": 0 }
+  ],
+  "templateId": "1b0ea18d-bd63-42d2-995f-bff9f8094e50",
+  "specialtyId": "9ce67305-eafc-11ef-bd0a-1290daed9e2f",
+  "specialistId": null,
+  "templateName": "Formulario base de Nutrición",
+  "specialistName": null
 }
 ```
 

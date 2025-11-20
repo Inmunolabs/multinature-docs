@@ -8,8 +8,9 @@ Documentación de scripts.
 
 - [🔧 Scripts del Proyecto](./README.md)
 - [🔧 Scripts de Validación y Mantenimiento](./validation-tools.md)
+- [🔧 Healthcheck Runner Script](./healthcheck-runner.md)
 
 ---
 
-- **Última actualización:** 2025-10-20  
-- **Total de archivos:** 2
+- **Última actualización:** 2025-01-21  
+- **Total de archivos:** 3

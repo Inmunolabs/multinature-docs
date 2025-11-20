@@ -8,9 +8,10 @@ Dado el **ID de un `form_template`**, generar los **scripts `INSERT`** necesario
 - `INSERT` para la **plantilla** como tal (`form_templates`).
 - `INSERT` para las relaciones **plantilla ↔ conceptos** (`form_template_concepts`).
 
-La idea es usar este query como una especie de *mini-mysqldump* específico de formularios.
+La idea es usar este query como una especie de _mini-mysqldump_ específico de formularios.
 
 ⚠️ **Importante:**
+
 - Este enfoque respeta los mismos IDs.
 - Asegúrate de que en la base destino no existan registros con esos mismos IDs.
 
@@ -19,14 +20,11 @@ La idea es usar este query como una especie de *mini-mysqldump* específico de f
 ## Variables de entrada
 
 ```sql
+SET SESSION group_concat_max_len = 1024 * 1024;
 SET @templateId = '1b0ea18d-bd63-42d2-995f-bff9f8094e50';
-```
 
----
+-- 1. INSERTs para concepts
 
-## 1. INSERTs para `concepts`
-
-```sql
 SELECT
   GROUP_CONCAT(
     CONCAT(
@@ -44,13 +42,9 @@ SELECT
 FROM concepts c
 JOIN form_template_concepts ftc ON ftc.concept_id = c.id
 WHERE ftc.form_template_id = @templateId;
-```
 
----
+-- 2. INSERT para form_templates
 
-## 2. INSERT para `form_templates`
-
-```sql
 SELECT
   CONCAT(
     'INSERT INTO form_templates (',
@@ -72,13 +66,9 @@ SELECT
   ) AS form_template_insert
 FROM form_templates ft
 WHERE ft.id = @templateId;
-```
 
----
+-- 3. INSERTs para form_template_concepts
 
-## 3. INSERTs para `form_template_concepts`
-
-```sql
 SELECT
   GROUP_CONCAT(
     CONCAT(
@@ -101,6 +91,7 @@ SELECT
   ) AS form_template_concepts_inserts
 FROM form_template_concepts ftc
 WHERE ftc.form_template_id = @templateId;
+
 ```
 
 ---
