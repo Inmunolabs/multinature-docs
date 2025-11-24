@@ -14,6 +14,7 @@ Documentación completa de todas las APIs del backend de Multinature, incluyendo
 - **[constants-api](./constants-api/README.md)** - Constantes y configuraciones
 - **[diets-api](./diets-api/README.md)** - Gestión de dietas y planes nutricionales
 - **[forms-api](./forms-api/README.md)** - Formularios y templates
+- **[integrations-api](./integrations-api/googleauth.md)** - Integraciones
 - **[monthly-purchases-api](./monthly-purchases-api/README.md)** - Compras mensuales
 - **[notifications-api](./notifications-api/README.md)** - Sistema de notificaciones
 - **[orders-api](./orders-api/README.md)** - Gestión de pedidos
