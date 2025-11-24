@@ -227,7 +227,7 @@ jobs:
 
 ---
 
-**Creado**: 2025-01-21  
+**Creado**: 2025-11-24  
 **Autor**: AI Agent (Cursor/Composer)  
 **Mantenedor**: Miguel Valdés
 

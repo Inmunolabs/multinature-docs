@@ -191,6 +191,7 @@ echo.
 if %FAIL_COUNT% GTR 0 (
     echo [!] Failed repositories:
     echo %FAILED_REPOS%
+    echo ]
     echo.
     echo [WARNING] Some repositories failed to update. Check details above.
     echo ============================================================================
@@ -230,7 +231,7 @@ pushd "%REPO_PATH%" 2>nul
 if errorlevel 1 (
     echo   Status: [ERROR] Cannot access directory
     set /a FAIL_COUNT+=1
-    set "FAILED_REPOS=!FAILED_REPOS! %REPO_NAME%"
+    set "FAILED_REPOS=!FAILED_REPOS! %REPO_NAME%,"
     goto :eof
 )
 
@@ -244,7 +245,7 @@ if errorlevel 1 (
     echo   Status: [SKIP] Has uncommitted changes - skipping to avoid conflicts
     popd
     set /a FAIL_COUNT+=1
-    set "FAILED_REPOS=!FAILED_REPOS! %REPO_NAME%"
+    set "FAILED_REPOS=!FAILED_REPOS! %REPO_NAME%,"
     goto :eof
 )
 
@@ -257,7 +258,7 @@ if "%DO_CHECKOUT%"=="true" (
             echo   Status: [ERROR] Failed to checkout branch
             popd
             set /a FAIL_COUNT+=1
-            set "FAILED_REPOS=!FAILED_REPOS! %REPO_NAME%"
+            set "FAILED_REPOS=!FAILED_REPOS! %REPO_NAME%,"
             goto :eof
         )
     )
@@ -270,7 +271,7 @@ if errorlevel 1 (
     echo   Status: [ERROR] Failed to pull changes
     popd
     set /a FAIL_COUNT+=1
-    set "FAILED_REPOS=!FAILED_REPOS! %REPO_NAME%"
+    set "FAILED_REPOS=!FAILED_REPOS! %REPO_NAME%,"
     goto :eof
 )
 

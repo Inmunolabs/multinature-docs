@@ -1,10 +1,10 @@
 # Tables
 
-Documentación de tables.
+Documentación completa de todas las tablas de la base de datos de Multinature, incluyendo DDL, estructura de columnas y relaciones.
 
 ---
 
-## Archivos
+## 📊 Tablas Documentadas
 
 - [addresses](./addresses.md)
 - [agent_evals](./agent_evals.md)
@@ -91,5 +91,22 @@ Documentación de tables.
 
 ---
 
-- **Última actualización:** 2025-10-20  
-- **Total de archivos:** 82
+## 📋 Información
+
+Cada tabla incluye:
+- **DDL completo** - Script CREATE TABLE
+- **Estructura de columnas** - Tipos, restricciones y descripciones
+- **Relaciones** - Foreign keys y dependencias
+- **Índices** - Claves primarias y secundarias
+
+---
+
+## 🔗 Ver También
+
+- **[Índice de Base de Datos](../00_INDEX.md)** - Índice completo de todas las tablas
+- **[Validación Entities vs DDL](../../03_Infraestructura/Scripts/README.md#validate-entities-vs-ddljs)** - Script para validar alineación código vs DDL
+
+---
+
+- **Última actualización:** 2025-11-24
+- **Total de tablas:** 82

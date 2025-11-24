@@ -230,22 +230,30 @@ Despliega todas las APIs Lambda ejecutando `npm run deploy` en cada una.
 
 ### migrate-docs-structure.js
 
-Migra archivos según la matriz de reubicación definida en `migrations-map.json`.
+Migra archivos de documentación según la matriz de reubicación definida en `migrations-map.json`, soportando múltiples acciones como mover, renombrar, fusionar y eliminar.
 
-**Ubicación:** `docs/03_Infraestructura/Scripts/migration/migrate-docs-structure.js`
+**Ubicación:** `docs/03_Infraestructura/Scripts/migrate-docs-structure.js`
 
 **Uso:**
 
 ```bash
 # Simulación (ver cambios sin aplicar)
-node docs/03_Infraestructura/Scripts/migration/migrate-docs-structure.js --dry-run
+node docs/03_Infraestructura/Scripts/migrate-docs-structure.js --dry-run
 
 # Ejecutar migración real
-node docs/03_Infraestructura/Scripts/migration/migrate-docs-structure.js --confirm
+node docs/03_Infraestructura/Scripts/migrate-docs-structure.js --confirm
 
 # Sin backup (no recomendado)
-node docs/03_Infraestructura/Scripts/migration/migrate-docs-structure.js --confirm --skip-backup
+node docs/03_Infraestructura/Scripts/migrate-docs-structure.js --confirm --skip-backup
 ```
+
+**Acciones soportadas:**
+
+- `mover` - Mover archivo a nueva ubicación
+- `renombrar` - Renombrar archivo (alias de mover)
+- `fusionar` - Concatenar múltiples archivos en uno
+- `eliminar` - Eliminar archivo (con confirmación)
+- `mantener` - No hacer nada (documentación)
 
 **Requisitos:**
 
@@ -253,157 +261,231 @@ node docs/03_Infraestructura/Scripts/migration/migrate-docs-structure.js --confi
 
 **Salidas:**
 
-- `logs/migration-YYYYMMDD_HHMMSS.log` - Log completo
-- `logs/rollback-YYYYMMDD_HHMMSS.sh` - Script de rollback
-- `docs_backup_YYYYMMDD_HHMMSS/` - Backup completo
+- `logs/migration-YYYYMMDD_HHMMSS.log` - Log completo de operaciones
+- `logs/rollback-YYYYMMDD_HHMMSS.sh` - Script de rollback automático
+- `docs_backup_YYYYMMDD_HHMMSS/` - Backup completo antes de migración
+
+**Funcionalidad:**
+
+1. Crea backup completo de `docs/` (a menos que se use `--skip-backup`)
+2. Valida existencia de archivos origen
+3. Crea directorios destino si no existen
+4. Ejecuta acciones según tipo:
+   - **Mover/Renombrar:** Mueve archivo y actualiza referencias
+   - **Fusionar:** Concatena múltiples archivos con separadores
+   - **Eliminar:** Solicita confirmación antes de eliminar
+5. Genera script de rollback para revertir cambios
 
 ---
 
 ### validate-docs-links.js
 
-Valida que todos los enlaces relativos en archivos .md existan.
+Valida que todos los enlaces relativos en archivos `.md` existan y apunten a archivos válidos.
 
-**Ubicación:** `docs/03_Infraestructura/Scripts/migration/validate-docs-links.js`
+**Ubicación:** `docs/03_Infraestructura/Scripts/validate-docs-links.js`
 
 **Uso:**
 
 ```bash
 # Validar todos los archivos
-node docs/03_Infraestructura/Scripts/migration/validate-docs-links.js
+node docs/03_Infraestructura/Scripts/validate-docs-links.js
 
-# Solo documentación pública
-node docs/03_Infraestructura/Scripts/migration/validate-docs-links.js --public-only
+# Solo documentación pública (ignora 99_Privado/)
+node docs/03_Infraestructura/Scripts/validate-docs-links.js --public-only
 
 # Ver todos los enlaces validados
-node docs/03_Infraestructura/Scripts/migration/validate-docs-links.js --verbose
+node docs/03_Infraestructura/Scripts/validate-docs-links.js --verbose
 
 # Con sugerencias de corrección
-node docs/03_Infraestructura/Scripts/migration/validate-docs-links.js --fix
+node docs/03_Infraestructura/Scripts/validate-docs-links.js --fix
 ```
+
+**Funcionalidad:**
+
+1. Escanea todos los archivos `.md` en `docs/`
+2. Extrae enlaces relativos (ignora `http://`, `https://`, `mailto:`, `#`)
+3. Resuelve rutas relativas desde el archivo origen
+4. Valida existencia del archivo destino
+5. Genera sugerencias de corrección si se usa `--fix`
 
 **Salidas:**
 
-- Reporte en consola
-- `logs/broken-links-YYYYMMDD_HHMMSS.json` - Si hay enlaces rotos
+- Reporte en consola con enlaces rotos encontrados
+- `logs/broken-links-YYYYMMDD_HHMMSS.json` - Reporte JSON con detalles
 
 **Códigos de salida:**
 
-- `0` - Todo OK
+- `0` - Todo OK, sin enlaces rotos
 - `1` - Enlaces rotos encontrados
+
+**Opciones:**
+
+- `--public-only`: Ignora carpeta `99_Privado/`
+- `--verbose`: Muestra todos los enlaces validados (no solo rotos)
+- `--fix`: Genera sugerencias de corrección basadas en nombres de archivos similares
 
 ---
 
 ### generate-indexes.js
 
-Genera/actualiza archivos `00_README.md` en cada carpeta de documentación.
+Genera/actualiza archivos `00_README.md` o `00_INDEX.md` en cada carpeta de documentación con listas ordenadas de archivos y subdirectorios.
 
-**Ubicación:** `docs/03_Infraestructura/Scripts/migration/generate-indexes.js`
+**Ubicación:** `docs/03_Infraestructura/Scripts/generate-indexes.js`
 
 **Uso:**
 
 ```bash
-# Simulación
-node docs/03_Infraestructura/Scripts/migration/generate-indexes.js --dry-run
+# Simulación (ver qué se generaría)
+node docs/03_Infraestructura/Scripts/generate-indexes.js --dry-run
 
-# Generar índices
-node docs/03_Infraestructura/Scripts/migration/generate-indexes.js
+# Generar índices (preserva contenido personalizado)
+node docs/03_Infraestructura/Scripts/generate-indexes.js
 
-# Sobrescribir índices existentes
-node docs/03_Infraestructura/Scripts/migration/generate-indexes.js --overwrite
+# Sobrescribir índices existentes completamente
+node docs/03_Infraestructura/Scripts/generate-indexes.js --overwrite
 
 # Con frontmatter YAML
-node docs/03_Infraestructura/Scripts/migration/generate-indexes.js --frontmatter
+node docs/03_Infraestructura/Scripts/generate-indexes.js --frontmatter
 ```
 
 **Características:**
 
-- Lista ordenada alfabéticamente
+- Lista ordenada alfabéticamente de archivos `.md`
+- Lista de subdirectorios con enlaces
 - Preserva secciones personalizadas entre `<!-- CUSTOM -->` tags
-- Genera enlaces a subdirectorios y archivos
+- Genera enlaces relativos correctos
+- Extrae títulos principales de archivos cuando es posible
 
----
+**Funcionalidad:**
 
-### apply-moves.js
-
-Aplica movimientos de archivos según un plan de migración.
-
-**Ubicación:** `docs/03_Infraestructura/Scripts/migration/apply-moves.js`
-
-**Uso:**
-
-```bash
-node docs/03_Infraestructura/Scripts/migration/apply-moves.js
-```
-
----
-
-### cleanup-plan.js
-
-Genera un plan de limpieza para la documentación.
-
-**Ubicación:** `docs/03_Infraestructura/Scripts/migration/cleanup-plan.js`
-
-**Uso:**
-
-```bash
-node docs/03_Infraestructura/Scripts/migration/cleanup-plan.js
-```
+1. Recorre recursivamente `docs/`
+2. Identifica archivos índice existentes (`00_README.md`, `00_INDEX.md`)
+3. Analiza contenido de cada directorio
+4. Genera índice con:
+   - Lista de subdirectorios
+   - Lista de archivos `.md` (excluyendo índices)
+   - Preserva secciones personalizadas marcadas
 
 ---
 
 ### fix-broken-links.js
 
-Corrige enlaces rotos en la documentación.
+Corrige enlaces rotos en la documentación analizando el reporte de `validate-docs-links.js` y generando un plan de reparación basado en `migrations-map.json`.
 
-**Ubicación:** `docs/03_Infraestructura/Scripts/migration/fix-broken-links.js`
+**Ubicación:** `docs/03_Infraestructura/Scripts/fix-broken-links.js`
 
 **Uso:**
 
 ```bash
-node docs/03_Infraestructura/Scripts/migration/fix-broken-links.js
+# Generar plan de corrección (sin aplicar)
+node docs/03_Infraestructura/Scripts/fix-broken-links.js
+
+# Aplicar correcciones automáticamente
+node docs/03_Infraestructura/Scripts/fix-broken-links.js --apply
 ```
+
+**Funcionalidad:**
+
+1. Busca el reporte más reciente de `validate-docs-links.js`
+2. Carga `migrations-map.json` para mapear rutas antiguas → nuevas
+3. Analiza cada enlace roto y genera sugerencias:
+   - Busca en migrations-map por nombre de archivo
+   - Busca archivos similares por nombre
+   - Sugiere correcciones basadas en estructura de directorios
+4. Genera plan de corrección con cambios propuestos
+5. Si se usa `--apply`, modifica archivos automáticamente
+
+**Salidas:**
+
+- `logs/fix-links-plan-YYYYMMDD.json` - Plan de corrección detallado
+- `logs/fix-links-summary.md` - Resumen en Markdown
+
+**⚠️ Advertencia:** Usa `--apply` solo después de revisar el plan generado.
 
 ---
 
 ### generate-migrations-map.js
 
-Genera el mapa de migraciones para la documentación.
+Genera automáticamente el archivo `migrations-map.json` completo con todas las migraciones basado en reglas de reestructuración.
 
-**Ubicación:** `docs/03_Infraestructura/Scripts/migration/generate-migrations-map.js`
+**Ubicación:** `docs/03_Infraestructura/Scripts/generate-migrations-map.js`
 
 **Uso:**
 
 ```bash
-node docs/03_Infraestructura/Scripts/migration/generate-migrations-map.js
+# Generar migrations-map.json
+node docs/03_Infraestructura/Scripts/generate-migrations-map.js
 ```
+
+**Funcionalidad:**
+
+1. Define reglas de mapeo por patrones de carpetas
+2. Escanea estructura actual de `docs/`
+3. Aplica reglas para generar rutas destino
+4. Genera archivo JSON con todas las migraciones
+
+**Reglas de mapeo:**
+
+- Archivos raíz → `00_Overview/`
+- `2. BACKEND/2.1-endpoints/` → `01_Backend/APIs/{api}-api/Endpoints/`
+- `2. BACKEND/2.2-users/` → `01_Backend/APIs/users-api/Guides/`
+- `db/` → `01_Backend/Database/Tables/`
+- Y muchas más...
+
+**Salida:**
+
+- `docs/migrations-map.json` - Archivo con todas las migraciones (334+ entradas)
 
 ---
 
 ### sweep-backend-docs.js
 
-Limpia y organiza la documentación del backend.
+Detecta archivos `.md` fuera de `docs/` y propone su ubicación en la nueva estructura de documentación.
 
-**Ubicación:** `docs/03_Infraestructura/Scripts/migration/sweep-backend-docs.js`
+**Ubicación:** `docs/03_Infraestructura/Scripts/sweep-backend-docs.js`
 
 **Uso:**
 
 ```bash
-node docs/03_Infraestructura/Scripts/migration/sweep-backend-docs.js
+# Escanear y generar plan de migración
+node docs/03_Infraestructura/Scripts/sweep-backend-docs.js
 ```
+
+**Funcionalidad:**
+
+1. Escanea todo el backend buscando archivos `.md` fuera de `docs/`
+2. Excluye directorios comunes (`node_modules`, `.git`, `dist`, `build`, `coverage`)
+3. Analiza cada archivo y propone ubicación según estructura nueva
+4. Genera plan de migración con sugerencias
+
+**Salidas:**
+
+- `logs/sweep-plan-YYYYMMDD.json` - Plan de migración detallado
+- `logs/sweep-summary.md` - Resumen en Markdown
 
 ---
 
 ### run-migration.sh
 
-Script shell para ejecutar migraciones completas.
+Script shell para ejecutar migraciones completas de documentación en el orden correcto.
 
-**Ubicación:** `docs/03_Infraestructura/Scripts/migration/run-migration.sh`
+**Ubicación:** `docs/03_Infraestructura/Scripts/run-migration.sh`
 
 **Uso:**
 
 ```bash
-bash docs/03_Infraestructura/Scripts/migration/run-migration.sh
+# Ejecutar migración completa
+bash docs/03_Infraestructura/Scripts/run-migration.sh
 ```
+
+**Flujo de ejecución:**
+
+1. Validar estructura y enlaces
+2. Generar migrations-map si no existe
+3. Ejecutar migración de estructura
+4. Generar índices locales
+5. Validar enlaces después de migración
+6. Corregir enlaces rotos si es necesario
 
 ---
 
@@ -411,63 +493,220 @@ bash docs/03_Infraestructura/Scripts/migration/run-migration.sh
 
 ### docs-audit.js
 
-Realiza una auditoría general de la documentación.
+Realiza una auditoría general de la documentación verificando estructura, enlaces, sincronización entre entities y DDL, y formato de archivos.
 
 **Ubicación:** `docs/03_Infraestructura/Scripts/docs-audit.js`
 
 **Uso:**
 
 ```bash
+# Ejecutar auditoría completa
 node docs/03_Infraestructura/Scripts/docs-audit.js
 ```
+
+**Funcionalidad:**
+
+1. **Validación de estructura:**
+   - Verifica existencia de directorios clave (`docs/db/`, `docs/DB_MODELS.md`)
+   - Valida presencia de directorio de entities
+
+2. **Análisis de tablas documentadas:**
+   - Compara archivos en `docs/db/` con enlaces en `DB_MODELS.md`
+   - Detecta archivos sin indexar y enlaces rotos
+
+3. **Validación de entities vs documentación:**
+   - Compara entities en `layers/multi-mysql-layer/src/entities/` con DDL documentados
+   - Genera variaciones de nombres para matching flexible
+   - Identifica entities sin documentación correspondiente
+
+4. **Validación de enlaces internos:**
+   - Verifica enlaces en archivos principales (`README.md`, `DB_MODELS.md`, `AGENTS.md`, `ESTRUCTURA_PROYECTO.md`)
+   - Detecta enlaces rotos y rutas inválidas
+
+5. **Validación de formato DDL:**
+   - Verifica que archivos DDL tengan `CREATE TABLE`
+   - Valida presencia de sección `## DDL`
+   - Comprueba existencia de resumen de columnas
+
+**Salidas:**
+
+- Reporte en consola con resumen de problemas
+- Archivo JSON: `docs-audit-report.json` con detalles completos
+
+**Códigos de salida:**
+
+- `0` - Todo OK, sin problemas críticos
+- `1` - Se encontraron problemas que requieren atención
 
 ---
 
 ### docs-content-audit.js
 
-Realiza una auditoría del contenido de la documentación.
+Realiza una auditoría del contenido de la documentación identificando archivos vacíos, incompletos o con TODOs pendientes.
 
 **Ubicación:** `docs/03_Infraestructura/Scripts/docs-content-audit.js`
 
 **Uso:**
 
 ```bash
+# Ejecutar auditoría de contenido
 node docs/03_Infraestructura/Scripts/docs-content-audit.js
 ```
+
+**Funcionalidad:**
+
+1. **Detección de archivos vacíos:**
+   - Identifica archivos `.md` completamente vacíos
+
+2. **Detección de contenido incompleto:**
+   - Archivos con menos de 200 caracteres (configurable)
+   - Archivos con contenido mínimo insuficiente
+
+3. **Detección de TODOs/PENDIENTES:**
+   - Busca patrones: `TODO`, `PENDIENTE`, `WIP`, `COMPLETAR`, `AGREGAR`, `FALTA`, `FIXME`, `XXX`
+   - Cuenta cantidad de TODOs por archivo
+
+4. **Cálculo de salud general:**
+   - Porcentaje de archivos completos
+   - Identificación de archivos que necesitan trabajo
+
+**Salidas:**
+
+- Reporte en consola con estadísticas y recomendaciones
+- Archivo JSON: `docs-content-audit-report.json` con detalles
+
+**Códigos de salida:**
+
+- `0` - Salud de documentación ≥ 70%
+- `1` - Salud de documentación < 70%
+
+**Recomendaciones:**
+
+El script genera recomendaciones automáticas basadas en los hallazgos:
+- Prioridad ALTA: Completar archivos vacíos
+- Prioridad MEDIA: Expandir archivos con contenido mínimo
+- Prioridad BAJA: Resolver TODOs pendientes
 
 ---
 
 ### docs-privacy-audit.js
 
-Realiza una auditoría de privacidad en la documentación.
+Realiza una auditoría de privacidad y seguridad en la documentación buscando información sensible como credenciales, datos personales, tokens, etc.
 
 **Ubicación:** `docs/03_Infraestructura/Scripts/docs-privacy-audit.js`
 
 **Uso:**
 
 ```bash
+# Ejecutar auditoría de privacidad
 node docs/03_Infraestructura/Scripts/docs-privacy-audit.js
 ```
+
+**Patrones detectados:**
+
+**CRÍTICO:**
+- Contraseñas en texto plano (`password=...`)
+- API Keys (`api_key=...`, `api-key=...`)
+- AWS Access Keys (`AKIA...`)
+- Claves privadas (`-----BEGIN PRIVATE KEY-----`)
+- JWT Tokens (excluyendo ejemplos marcados)
+
+**ALTA:**
+- Emails reales (excluyendo dominios de ejemplo)
+- Números telefónicos (10 dígitos mexicanos)
+- RFC/CURP mexicanos
+- Session IDs
+- Información médica personal
+
+**MEDIA:**
+- URLs de producción (`multinature.com`, `multinature.mx`)
+- Direcciones IP públicas (excluyendo localhost/privadas)
+
+**Funcionalidad:**
+
+1. Escanea todos los archivos `.md` en `docs/`
+2. Aplica patrones regex para detectar información sensible
+3. Valida exclusiones (ejemplos, placeholders, datos de prueba)
+4. Clasifica hallazgos por severidad
+5. Genera reporte detallado con ubicación exacta
+
+**Salidas:**
+
+- Reporte en consola con problemas encontrados por severidad
+- Archivo JSON: `docs-privacy-audit-report.json` con detalles completos
+
+**Códigos de salida:**
+
+- `0` - Solo problemas menores (MEDIA/BAJA)
+- `1` - Problemas de alta prioridad encontrados
+- `2` - Problemas críticos de seguridad encontrados
+
+**Recomendaciones:**
+
+- **CRÍTICO:** Rotar credenciales expuestas inmediatamente
+- **ALTA:** Anonimizar datos reales de usuarios
+- **MEDIA:** Validar URLs e IPs de producción
 
 ---
 
 ### docs-verify-and-index.js
 
-Verifica e indexa la documentación.
+Verifica la estructura de la documentación y genera un índice maestro completo con estadísticas y navegación.
 
 **Ubicación:** `docs/03_Infraestructura/Scripts/docs-verify-and-index.js`
 
 **Uso:**
 
 ```bash
+# Verificar e indexar documentación
 node docs/03_Infraestructura/Scripts/docs-verify-and-index.js
 ```
+
+**Funcionalidad:**
+
+1. **Escaneo completo:**
+   - Recorre todos los archivos `.md` en `docs/`
+   - Calcula tamaños y estadísticas
+   - Extrae títulos principales de cada archivo
+
+2. **Clasificación por tipo:**
+   - DDL/Database
+   - API Endpoints
+   - Backend Docs
+   - Frontend Docs
+   - Negocio
+   - Definición
+   - Testing
+   - Refactors
+
+3. **Generación de índice maestro:**
+   - Resumen ejecutivo con estadísticas
+   - Documentación agrupada por tipo
+   - Documentación por directorio
+   - Índice alfabético
+   - Guías de navegación por rol
+
+**Salidas:**
+
+- Archivo Markdown: `DOCUMENTATION_INDEX.md` - Índice maestro completo
+- Archivo JSON: `docs-index-report.json` - Datos estructurados
+
+**Estructura del índice generado:**
+
+- Tabla de contenido
+- Resumen ejecutivo (total de documentos, tamaño, categorías)
+- Top 5 documentos más extensos
+- Documentación por tipo con agrupación por API
+- Documentación por directorio
+- Índice alfabético (primeros 100)
+- Estadísticas detalladas (por tipo, distribución por tamaño)
+- Guías de navegación (por rol, por dominio)
 
 ---
 
 ### validate-entities-vs-ddl.js
 
-Valida que las entities en código estén alineadas con los DDL documentados.
+Valida que las entities definidas en código estén alineadas con los DDL documentados, detectando discrepancias en columnas, tipos y estructura.
 
 **Ubicación:** `docs/03_Infraestructura/Scripts/validate-entities-vs-ddl.js`
 
@@ -482,7 +721,34 @@ node docs/03_Infraestructura/Scripts/validate-entities-vs-ddl.js --entity=foods
 
 # Modo verbose (más detalles)
 node docs/03_Infraestructura/Scripts/validate-entities-vs-ddl.js -v
+
+# Modo auto-fix (requiere confirmación)
+node docs/03_Infraestructura/Scripts/validate-entities-vs-ddl.js --fix
 ```
+
+**Funcionalidad:**
+
+1. **Extracción de columnas DDL:**
+   - Parsea archivos `.md` en `docs/db/`
+   - Extrae columnas del bloque `CREATE TABLE`
+   - Ignora constraints, keys y comentarios
+
+2. **Extracción de campos de entities:**
+   - Parsea archivos `.js` en `layers/multi-mysql-layer/src/entities/`
+   - Extrae propiedades de decoradores `@Column`
+   - Identifica tipos y restricciones
+
+3. **Comparación:**
+   - Columnas en DDL pero no en entity
+   - Columnas en entity pero no en DDL
+   - Discrepancias de tipos
+   - Columnas con nombres diferentes
+
+**Opciones:**
+
+- `--entity=NAME`: Validar solo una entity específica
+- `--fix`: Modo auto-fix (requiere confirmación manual)
+- `--verbose` o `-v`: Mostrar detalles adicionales
 
 **Documentación completa:** Ver [validation-tools.md](./validation-tools.md)
 
@@ -490,88 +756,206 @@ node docs/03_Infraestructura/Scripts/validate-entities-vs-ddl.js -v
 
 ### sanitize-docs-security.js
 
-Sanitiza la documentación removiendo información sensible por seguridad.
+Sanitiza la documentación removiendo información sensible por seguridad, reemplazándola con placeholders seguros.
 
 **Ubicación:** `docs/03_Infraestructura/Scripts/sanitize-docs-security.js`
 
 **Uso:**
 
 ```bash
+# Modo simulación (ver cambios sin aplicar)
+node docs/03_Infraestructura/Scripts/sanitize-docs-security.js --dry-run
+
+# Aplicar sanitización con backup
+node docs/03_Infraestructura/Scripts/sanitize-docs-security.js --backup
+
+# Aplicar sanitización sin backup (no recomendado)
 node docs/03_Infraestructura/Scripts/sanitize-docs-security.js
 ```
+
+**Reemplazos realizados:**
+
+1. **JWT Tokens:**
+   - Reemplaza tokens reales por `eyJ...EXAMPLE_TOKEN_PLACEHOLDER_DO_NOT_USE`
+
+2. **Emails reales:**
+   - Reemplaza emails específicos por dominios `.multinature.local`
+   - Ejemplos: `mvaldes988@gmail.com` → `admin.ejemplo@multinature.local`
+
+3. **Números telefónicos:**
+   - Reemplaza números reales por patrones estándar (`+525550001000`)
+
+4. **URLs de producción:**
+   - Reemplaza URLs reales por placeholders
+
+**Opciones:**
+
+- `--dry-run`: Muestra cambios sin aplicarlos
+- `--backup`: Crea backup de archivos antes de modificar
+
+**⚠️ Advertencia:** Este script modifica archivos permanentemente. Siempre usa `--dry-run` primero y `--backup` en producción.
 
 ---
 
 ## 📊 Scripts de Índices
 
-### update-docs-index.ps1
-
-Actualiza el índice de documentación usando PowerShell.
-
-**Ubicación:** `docs/03_Infraestructura/Scripts/update-docs-index.ps1`
-
-**Uso:**
-
-```powershell
-.\docs\03_Infraestructura\Scripts\update-docs-index.ps1
-```
-
----
-
-### update-docs-index.sh
-
-Actualiza el índice de documentación usando Bash.
-
-**Ubicación:** `docs/03_Infraestructura/Scripts/update-docs-index.sh`
-
-**Uso:**
-
-```bash
-bash docs/03_Infraestructura/Scripts/update-docs-index.sh
-```
-
----
-
 ### update-docs-index.ts
 
-Actualiza el índice de documentación usando TypeScript.
+Script principal en TypeScript para actualizar índices de README.md en múltiples ubicaciones de documentación.
 
 **Ubicación:** `docs/03_Infraestructura/Scripts/update-docs-index.ts`
 
 **Uso:**
 
 ```bash
-# Requiere compilación previa o ts-node
-npx ts-node docs/03_Infraestructura/Scripts/update-docs-index.ts
+# Ejecutar actualización (requiere tsx o ts-node)
+npx tsx docs/03_Infraestructura/Scripts/update-docs-index.ts
+
+# Modo simulación
+npx tsx docs/03_Infraestructura/Scripts/update-docs-index.ts --dry-run
+
+# Modo verbose
+npx tsx docs/03_Infraestructura/Scripts/update-docs-index.ts --verbose
 ```
+
+**Funcionalidad:**
+
+1. Actualiza múltiples archivos README.md en ubicaciones específicas:
+   - `docs/README.md`
+   - `docs/00_Overview/README.md`
+   - `docs/01_Backend/README.md`
+   - `docs/02_Frontend/README.md`
+   - `docs/05_Negocio/README.md`
+   - `docs/99_Privado/README.md`
+
+2. Genera listas ordenadas de archivos y directorios
+3. Preserva secciones personalizadas
+4. Maneja prefijos numéricos en nombres de archivos
+
+**Opciones:**
+
+- `--dry-run`: Muestra cambios sin aplicarlos
+- `--verbose`: Muestra información detallada de procesamiento
+
+---
+
+### update-docs-index.ps1
+
+Wrapper PowerShell para ejecutar `update-docs-index.ts`. Detecta automáticamente `tsx`, `ts-node` o `node` disponible.
+
+**Ubicación:** `docs/03_Infraestructura/Scripts/update-docs-index.ps1`
+
+**Uso:**
+
+```powershell
+# Ejecutar actualización
+.\docs\03_Infraestructura\Scripts\update-docs-index.ps1
+
+# Con opciones
+.\docs\03_Infraestructura\Scripts\update-docs-index.ps1 -DryRun
+.\docs\03_Infraestructura\Scripts\update-docs-index.ps1 -Verbose
+```
+
+**Funcionalidad:**
+
+- Detecta automáticamente herramienta disponible (`tsx` > `ts-node` > `node`)
+- Pasa argumentos al script TypeScript principal
+- Maneja errores si no hay herramientas disponibles
+
+---
+
+### update-docs-index.sh
+
+Wrapper Bash/POSIX para ejecutar `update-docs-index.ts`. Detecta automáticamente `tsx`, `ts-node` o `node` disponible.
+
+**Ubicación:** `docs/03_Infraestructura/Scripts/update-docs-index.sh`
+
+**Uso:**
+
+```bash
+# Ejecutar actualización
+bash docs/03_Infraestructura/Scripts/update-docs-index.sh
+
+# Con opciones
+bash docs/03_Infraestructura/Scripts/update-docs-index.sh --dry-run
+bash docs/03_Infraestructura/Scripts/update-docs-index.sh --verbose
+```
+
+**Funcionalidad:**
+
+- Compatible con shells POSIX (bash, zsh, sh)
+- Detecta automáticamente herramienta disponible
+- Pasa argumentos al script TypeScript principal
 
 ---
 
 ### update-db-models-index.js
 
-Actualiza el índice de modelos de base de datos.
+Actualiza el archivo `DB_MODELS.md` con una lista completa de todas las tablas documentadas en `docs/db/`.
 
 **Ubicación:** `docs/03_Infraestructura/Scripts/update-db-models-index.js`
 
 **Uso:**
 
 ```bash
+# Actualizar índice de modelos de BD
 node docs/03_Infraestructura/Scripts/update-db-models-index.js
 ```
+
+**Funcionalidad:**
+
+1. Escanea `docs/db/` buscando archivos `.md`
+2. Excluye `TEMPLATE_TABLE.md`
+3. Ordena alfabéticamente
+4. Genera enlaces en formato Markdown
+5. Actualiza `docs/DB_MODELS.md` solo si hay cambios
+
+**Salida:**
+
+- Actualiza `docs/DB_MODELS.md` con lista completa de tablas
+- Muestra cantidad de tablas indexadas
+
+**Nota:** El script solo actualiza si hay cambios, evitando commits innecesarios.
 
 ---
 
 ### docs-normalize-and-index.js
 
-Normaliza e indexa la documentación.
+Normaliza formato de archivos Markdown y ejecuta scripts de indexación en secuencia.
 
 **Ubicación:** `docs/03_Infraestructura/Scripts/docs-normalize-and-index.js`
 
 **Uso:**
 
 ```bash
+# Normalizar e indexar documentación
 node docs/03_Infraestructura/Scripts/docs-normalize-and-index.js
 ```
+
+**Funcionalidad:**
+
+1. **Normalización de Markdown:**
+   - Asegura heading principal en cada archivo
+   - Normaliza saltos de línea al final
+   - Elimina múltiples líneas vacías consecutivas
+   - Elimina espacios al final de líneas
+   - Normaliza formato de headings (`#` seguido de espacio)
+   - Normaliza formato de listas
+
+2. **Ejecución de scripts de indexación:**
+   - Ejecuta `docs-verify-and-index.js`
+   - Ejecuta `update-db-models-index.js`
+
+**Estadísticas:**
+
+- Archivos escaneados
+- Archivos normalizados
+- Cambios realizados por archivo
+
+**Salidas:**
+
+- Archivos modificados con formato normalizado
+- Índices actualizados automáticamente
 
 ---
 
@@ -579,7 +963,7 @@ node docs/03_Infraestructura/Scripts/docs-normalize-and-index.js
 
 ### healthcheck-runner.js
 
-Ejecuta automáticamente todas las peticiones HTTP a los endpoints healthcheck de la colección de Bruno.
+Ejecuta automáticamente todas las peticiones HTTP a los endpoints healthcheck de la colección de Bruno, validando el estado de todas las APIs.
 
 **Ubicación:** `docs/03_Infraestructura/Scripts/healthcheck-runner.js`
 
@@ -595,6 +979,33 @@ node docs/03_Infraestructura/Scripts/healthcheck-runner.js dev
 # Ejecutar healthchecks usando entorno prod
 node docs/03_Infraestructura/Scripts/healthcheck-runner.js prod
 ```
+
+**Funcionalidad:**
+
+1. **Parseo de archivos Bruno:**
+   - Lee archivos `.bru` de la colección de Bruno
+   - Extrae método HTTP y URL de cada request
+   - Parsea variables de entorno desde archivos `.bru.env`
+
+2. **Ejecución de healthchecks:**
+   - Ejecuta requests HTTP/HTTPS a cada endpoint healthcheck
+   - Maneja timeouts y errores de conexión
+   - Valida códigos de estado HTTP
+
+3. **Reporte de resultados:**
+   - Muestra estado de cada API (✅ OK, ❌ ERROR)
+   - Resumen de APIs saludables vs con problemas
+   - Tiempo de respuesta de cada endpoint
+
+**Requisitos:**
+
+- Colección de Bruno con archivos `.bru` en estructura estándar
+- Archivos de entorno `.bru.env` para cada ambiente
+
+**Salidas:**
+
+- Reporte en consola con estado de cada API
+- Códigos de color para fácil identificación (verde=OK, rojo=ERROR)
 
 **Documentación completa:** Ver [healthcheck-runner.md](./healthcheck-runner.md)
 
@@ -692,7 +1103,7 @@ El archivo SQL contiene:
 ```sql
 -- ============================================================================
 -- Exportación de Form Templates
--- Generado: 2025-01-21T10:30:00.000Z
+-- Generado: 2025-11-24T10:30:00.000Z
 -- Templates exportados: 11
 -- ============================================================================
 
@@ -1022,7 +1433,7 @@ Si encuentras un bug o quieres mejorar estos scripts:
 
 ---
 
-**Creado**: 2025-01-21
+**Creado**: 2025-11-24
 **Autor**: AI Agent (Cursor)
 **Mantenedor**: Miguel Valdés
 **Última actualización:** 2025-11-20

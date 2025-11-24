@@ -26,7 +26,7 @@ GET /specialists/patients/specialist123-e89b-12d3-a456-426614174000/summary/week
 ### Ejemplo
 ```
 GET /specialists/patients/specialist123-e89b-12d3-a456-426614174000/summary/week?week=2024-03
-GET /specialists/patients/specialist123-e89b-12d3-a456-426614174000/summary/week?startDate=2024-01-15&endDate=2024-01-21
+GET /specialists/patients/specialist123-e89b-12d3-a456-426614174000/summary/week?startDate=2024-01-15&endDate=2024-11-24
 ```
 
 ## Body del request
@@ -44,7 +44,7 @@ No aplica
     "week": "2024-03",
     "weekNumber": 3,
     "startDate": "2024-01-15",
-    "endDate": "2024-01-21",
+    "endDate": "2024-11-24",
     "totalDays": 7,
     "workingDays": 5,
     "totalPatients": 25,
@@ -144,7 +144,7 @@ No aplica
         "efficiency": 0.0
       },
       {
-        "date": "2024-01-21",
+        "date": "2024-11-24",
         "dayOfWeek": "sunday",
         "isWorkingDay": false,
         "consultations": 0,

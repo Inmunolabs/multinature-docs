@@ -1,10 +1,10 @@
 # Tareas
 
-Documentación de tareas.
+Documentación de tareas y features del proyecto Multinature, organizadas por dominio y prioridad.
 
 ---
 
-## Archivos
+## 📄 Archivos
 
 - [[01] Actualización por Inmuno](./1-actualizacion-por-inmuno.md)
 - [[10] Rutinas](./10-rutinas.md)
@@ -36,5 +36,26 @@ Documentación de tareas.
 
 ---
 
-- **Última actualización:** 2025-10-20  
+## 📋 Nomenclatura
+
+| Icono | Significado                                                                                       |
+| ----- | ------------------------------------------------------------------------------------------------- |
+| ✅    | Tarea creada en [ClickUp](https://app.clickup.com/9011834369/v/o/5-90115276863-28?pr=90113420950) |
+
+---
+
+## 📚 Organización
+
+Las tareas están organizadas por dominio:
+- **Usuarios y Autenticación** - Gestión de usuarios, perfiles y autenticación
+- **Dietas y Nutrición** - Planes de dieta, menús y cálculo nutricional
+- **Productos y Pedidos** - Catálogo, carrito y gestión de pedidos
+- **Citas y Especialistas** - Sistema de citas y gestión de especialistas
+- **Rutinas y Ejercicios** - Rutinas de ejercicio y planes de entrenamiento
+- **Notificaciones** - Sistema de notificaciones
+- **Infraestructura** - CI/CD, despliegues y herramientas
+
+---
+
+- **Última actualización:** 2025-11-24
 - **Total de archivos:** 27

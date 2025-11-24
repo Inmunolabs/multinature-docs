@@ -1,5 +1,15 @@
 # Changelog
 
+## 2025-11-24
+
+- [Docs] Actualización completa de todos los README.md en `docs/` con formato consistente
+- [Docs] Mejora de documentación de scripts en `docs/03_Infraestructura/Scripts/README.md`
+- [Docs] Actualización de README principales: `docs/README.md`, `docs/00_Overview/README.md`, `docs/01_Backend/README.md`, `docs/02_Frontend/README.md`, `docs/03_Infraestructura/README.md`
+- [Docs] Actualización de README de secciones: `docs/04_SQL/README.md`, `docs/05_Negocio/README.md`, `docs/99_Privado/README.md`
+- [Docs] Mejora de documentación de APIs, Database y Layers en `docs/01_Backend/`
+- [Docs] Consolidación de README.md en `docs/02_Frontend/` (eliminado old-README.md)
+- [Docs] Formato consistente aplicado a todos los README con secciones organizadas, descripciones claras y metadatos actualizados
+
 ## 2025-11-14
 
 - [Added] Cada `dish` expone `dataOrigin` (`fromDb`, `agentAdjusted`, `notes`) para trazar si la información proviene directo de la BD o de ajustes del agente.

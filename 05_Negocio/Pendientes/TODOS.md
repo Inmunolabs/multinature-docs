@@ -8,7 +8,7 @@
 
 ### Dietas Especializadas
 
-1. **Dieta Cetogénica (Keto)**
+1. **Investigación de Dieta Cetogénica (Keto)**
    - Investigar protocolos médicos
    - Definir restricciones de macros
    - Crear calculadora específica
