@@ -561,7 +561,7 @@ De esta forma, nada se rompe en el frontend actual, pero el backend y dietAgent 
 
   ```json
   {
-    "conceptId": "08fb0a58-9791-4f24-b5ee-97c564661b0e",
+    "conceptId": "2c9482da-d46b-486d-b4b4-76482a24f6bd",
     "rawValue": "72.5",
     "numericValue": 72.5,
     "structuredValue": null,

@@ -1,0 +1,14 @@
+{
+  "name": "scripts-infraestructura",
+  "version": "1.0.0",
+  "description": "Dependencias para scripts de infraestructura",
+  "private": true,
+  "scripts": {
+    "export-form-templates": "node export-form-templates.js"
+  },
+  "dependencies": {
+    "mysql2": "^3.5.2",
+    "dotenv": "^16.3.1"
+  }
+}
+

@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Output files
+exported-form-templates.sql
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+
