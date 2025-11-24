@@ -40,7 +40,7 @@ La API está organizada en tres routers principales:
 - **[GET /:id/summary/today](../../specialists-api/Endpoints/get-patients-summary-today.md)** - Resumen del día para un usuario
 - **[GET /:id](get-by-id.md)** - Obtener usuario específico por ID
 - **[GET /tax-info/:id](tax-info.md)** - Información fiscal del usuario
-- **[GET /network/:id](../../../Database/Tables/users_network.md)** - Red de referidos del usuario
+- **[GET /network/:id](../../../../04_SQL/tables/users_network.md)** - Red de referidos del usuario
 - **[GET /network/detail/:id](network-detail.md)** - Detalle de usuario en la red
 - **[GET /summary/:id](../../specialists-api/Endpoints/get-patients-summary.md)** - Resumen de usuario para especialista
 - **[GET /summary/detail/:id](summary-detail.md)** - Detalle diario del resumen
@@ -62,7 +62,7 @@ La API está organizada en tres routers principales:
 ### Actualizaciones (`/users/`)
 - **[PUT /reviews/:id](update-specialist-review.md)** - Actualizar reseña de especialista
 - **[PUT /reviews/teamwork/:id](update-teamwork-review.md)** - Actualizar reseña de equipo
-- **[PATCH /replacements](../../../Database/Tables/user_action_replacements.md)** - Crear/actualizar reemplazos
+- **[PATCH /replacements](../../../../04_SQL/tables/user_action_replacements.md)** - Crear/actualizar reemplazos
 - **[PATCH /password](update-password.md)** - Actualizar contraseña
 - **[PATCH /:id](update.md)** - Actualizar usuario
 - **[PATCH /admin/:id](update-admin.md)** - Actualizar usuario como administrador

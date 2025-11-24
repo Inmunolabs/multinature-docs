@@ -12,7 +12,7 @@ Documentación completa de Multinature, incluyendo APIs, base de datos, infraest
 - **[03 Infraestructura](./03_Infraestructura/README.md)** - Scripts, herramientas y configuración de infraestructura
 - **[04 SQL](./04_SQL/README.md)** - Queries SQL y documentación de base de datos
 - **[05 Negocio](./05_Negocio/README.md)** - Tareas, pendientes y documentación de negocio
-- **[99 Privado](./99_Privado/README.md)** - Documentación privada (testing, reportes, refactors)
+- **[99 Privado](./99_Privado/README.md)** - Documentación privada (testing)
 
 ---
 
@@ -22,14 +22,14 @@ Documentación completa de Multinature, incluyendo APIs, base de datos, infraest
 
 1. **[AGENTS.md](./00_Overview/AGENTS_GUIDE.md)** - Guía completa para trabajar con el monorepo
 2. **[Estructura del Proyecto](./00_Overview/PROJECT_STRUCTURE.md)** - Entiende la organización del código
-3. **[Database](./01_Backend/Database/00_INDEX.md)** - Conoce las 82+ tablas de la base de datos
+3. **[SQL y Base de Datos](./04_SQL/README.md)** - Conoce las 82+ tablas de la base de datos
 4. **[Scripts](./03_Infraestructura/Scripts/README.md)** - Aprende a usar las herramientas de infraestructura
 
 ### Por Rol
 
 **Backend Developer:**
 - [APIs](./01_Backend/APIs/README.md) - Documentación de todas las APIs
-- [Database](./01_Backend/Database/00_INDEX.md) - DDL y estructura de tablas
+- [SQL](./04_SQL/README.md) - DDL, queries y migraciones de base de datos
 - [Layers](./01_Backend/Layers/README.md) - Arquitectura en capas
 
 **DevOps/SRE:**
@@ -49,8 +49,8 @@ Documentación completa de Multinature, incluyendo APIs, base de datos, infraest
 Todos los scripts están documentados en: **[Scripts/README.md](./03_Infraestructura/Scripts/README.md)**
 
 **Scripts principales:**
-- `docs-audit.js` - Auditoría general de documentación
 - `validate-entities-vs-ddl.js` - Validar alineación código vs DDL
+- `validate-docs-links.js` - Validar enlaces en documentación
 - `healthcheck-runner.js` - Ejecutar healthchecks de todas las APIs
 - `export-form-templates.js` - Exportar templates de formularios a SQL
 
@@ -60,7 +60,7 @@ Todos los scripts están documentados en: **[Scripts/README.md](./03_Infraestruc
 
 - **Total de APIs documentadas:** 20+
 - **Total de tablas en BD:** 82+
-- **Scripts de infraestructura:** 25+
+- **Scripts de infraestructura:** 9
 
 ---
 

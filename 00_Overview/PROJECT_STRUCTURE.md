@@ -50,14 +50,16 @@ backend/
 │       │
 │       └── package.json
 │
-├── 📂 scripts/                        # ⭐ Scripts ejecutables
-│   ├── validate-entities-vs-ddl.js    # 🔍 Validación entities vs DDL
-│   ├── update-docs-index.ts           # 📚 Actualiza índices de docs
-│   ├── update-docs-index.ps1
-│   ├── build-layers.bat               # 🏗️ Construir layers
-│   ├── deploy-apis-lambdas.bat        # 🚀 Deploy a AWS
-│   ├── commitAndPush-git-repos.bat    # 🔄 Git commit/push masivo
-│   └── pull-git-repos.bat             # 🔄 Git pull masivo
+├── 📂 docs/03_Infraestructura/Scripts/  # ⭐ Scripts ejecutables
+│   ├── validate-entities-vs-ddl.js      # 🔍 Validación entities vs DDL
+│   ├── validate-docs-links.js            # 🔗 Validación de enlaces
+│   ├── build-layers.bat                  # 🏗️ Construir layers
+│   ├── deploy-apis-lambdas.bat          # 🚀 Deploy a AWS
+│   ├── commitAndPush-git-repos.bat      # 🔄 Git commit/push masivo
+│   ├── pull-git-repos.bat                # 🔄 Git pull masivo
+│   ├── status-git-repos.bat              # 📊 Estado de repos Git
+│   ├── healthcheck-runner.js             # 🏥 Healthchecks de APIs
+│   └── export-form-templates.js          # 🗄️ Exportar templates a SQL
 │
 ├── 📂 docs/                           # ⭐ Documentación completa
 │   │
@@ -109,12 +111,12 @@ backend/
    └── docs/AGENTS.md                  # Lee esto primero
 
 🔍 Durante desarrollo:
-   ├── docs/DB_MODELS.md               # Buscar tablas
-   ├── docs/db/[tabla].md              # Ver DDL específico
+   ├── docs/04_SQL/tables/README.md    # Buscar tablas
+   ├── docs/04_SQL/tables/[tabla].md   # Ver DDL específico
    └── layers/multi-mysql-layer/       # Entities y queries
 
 ✅ Antes de commit:
-   └── scripts/validate-entities-vs-ddl.js  # Validar cambios
+   └── docs/03_Infraestructura/Scripts/validate-entities-vs-ddl.js  # Validar cambios
 ```
 
 ### Para Deploy
@@ -127,18 +129,17 @@ backend/
    └── scripts/deploy-apis-lambdas.bat
 
 📖 Guía:
-   └── docs/scripts/README.md
+   └── docs/03_Infraestructura/Scripts/README.md
 ```
 
 ### Para Documentación
 
 ```
 📝 Crear docs:
-   ├── docs/db/TEMPLATE_TABLE.md       # Template para DDL
-   └── docs/refactors/README.md        # Template para refactors
+   └── docs/04_SQL/tables/_TEMPLATES/table-template.md  # Template para DDL
 
-🔄 Actualizar índices:
-   └── scripts/update-docs-index.ts
+🔄 Validar documentación:
+   └── docs/03_Infraestructura/Scripts/validate-docs-links.js
 ```
 
 ---
@@ -181,11 +182,11 @@ backend/
 
 | Dominio        | Ubicación Principal                                                 |
 | -------------- | ------------------------------------------------------------------- |
-| **Nutrición**  | `apis/diets-api/`, `docs/db/foods.md`, `docs/db/diets.md`           |
-| **Ejercicio**  | `apis/routines-api/`, `docs/db/routines.md`, `docs/db/exercises.md` |
+| **Nutrición**  | `apis/diets-api/`, `docs/04_SQL/tables/foods.md`, `docs/04_SQL/tables/diets.md`           |
+| **Ejercicio**  | `apis/routines-api/`, `docs/04_SQL/tables/routines.md`, `docs/04_SQL/tables/exercises.md` |
 | **E-commerce** | `apis/products-api/`, `apis/orders-api/`, `apis/cart-api/`          |
-| **Usuarios**   | `apis/users-api/`, `docs/db/users.md`                               |
-| **Citas**      | `apis/bookings-api/`, `docs/db/bookings.md`                         |
+| **Usuarios**   | `apis/users-api/`, `docs/04_SQL/tables/users.md`                               |
+| **Citas**      | `apis/bookings-api/`, `docs/04_SQL/tables/bookings.md`                         |
 | **Pagos**      | `apis/payments-api/`, `apis/payment-methods-api/`                   |
 
 ### Por Tipo de Archivo
@@ -197,7 +198,7 @@ backend/
 | **Configuración** | `apis/*/serverless.yml`, `*/package.json` |
 | **Documentación** | `docs/`, `*/README.md`                    |
 | **Scripts**       | `scripts/`                                |
-| **DDL**           | `docs/db/*.md`                            |
+| **DDL**           | `docs/04_SQL/tables/*.md`                            |
 
 ---
 
@@ -242,7 +243,7 @@ nombre-api/
 
 - [📖 Índice General](Business_Rules/README.md)
 - [🤖 Guía de Agentes](AGENTS_GUIDE.md)
-- [🗄️ Modelos de BD](../01_Backend/Database/00_INDEX.md)
+- [🗄️ Modelos de BD](../04_SQL/README.md)
 
 ### Guías Específicas
 
@@ -252,14 +253,14 @@ nombre-api/
 
 ### Tablas Más Usadas
 
-- [users](../01_Backend/Database/Tables/users.md)
-- [diets](../01_Backend/Database/Tables/diets.md)
-- [foods](../01_Backend/Database/Tables/foods.md)
-- [ingredients](../01_Backend/Database/Tables/ingredients.md)
-- [routines](../01_Backend/Database/Tables//routines.md)
-- [bookings](../01_Backend/Database/Tables/bookings.md)
-- [orders](../01_Backend/Database/Tables/orders.md)
-- [products](../01_Backend/Database/Tables/products.md)
+- [users](../04_SQL/tables/users.md)
+- [diets](../04_SQL/tables/diets.md)
+- [foods](../04_SQL/tables/foods.md)
+- [ingredients](../04_SQL/tables/ingredients.md)
+- [routines](../04_SQL/tables/routines.md)
+- [bookings](../04_SQL/tables/bookings.md)
+- [orders](../04_SQL/tables/orders.md)
+- [products](../04_SQL/tables/products.md)
 
 ---
 

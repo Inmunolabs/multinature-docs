@@ -8,6 +8,7 @@ Documentación de diets-api.
 
 - [Endpoints](./Endpoints/README.md) // TODO En general falta completar la documentación de los Endpoints
 - [Guides](./Guides/README.md)
+- [Models](./Models/dietResponse.md) - Modelos de datos y estructuras de respuesta
 
 ---
 
@@ -43,5 +44,13 @@ Documentación de diets-api.
 
 ---
 
-- **Última actualización:** 2025-10-22
-- **Total de archivos:** 0
+---
+
+## 📄 Modelos de Datos
+
+- **[dietResponse](./Models/dietResponse.md)** - Modelo canónico de respuesta del DietAgent para dietas automáticas
+
+---
+
+- **Última actualización:** 2025-11-24
+- **Total de archivos:** 1

@@ -8,7 +8,7 @@ Este directorio contiene scripts para validar y mantener la alineación entre la
 
 ### 1. **validate-entities-vs-ddl.js**
 
-Valida que las entities en `multi-mysql-layer/src/entities/` estén alineadas con los DDL documentados en `docs/db/*.md`.
+Valida que las entities en `multi-mysql-layer/src/entities/` estén alineadas con los DDL documentados en `docs/04_SQL/tables/*.md`.
 
 #### Uso:
 
@@ -80,7 +80,7 @@ node scripts/generate-entity-from-ddl.js --table=foods --dry-run
 1. **Documenta el DDL**:
    ```bash
    # Crear archivo DDL
-   cp docs/db/TEMPLATE_TABLE.md docs/db/nueva_tabla.md
+   cp docs/04_SQL/tables/_TEMPLATES/table-template.md docs/04_SQL/tables/nueva_tabla.md
    # Editar y agregar el DDL real
    ```
 
@@ -98,7 +98,7 @@ node scripts/generate-entity-from-ddl.js --table=foods --dry-run
 
 1. **Actualizar DDL**:
    ```bash
-   # Editar docs/db/tabla.md con los cambios
+   # Editar docs/04_SQL/tables/tabla.md con los cambios
    ```
 
 2. **Validar diferencias**:
@@ -256,7 +256,7 @@ export class User {
 
 ### Error: "No se encontró DDL para X"
 
-**Causa**: La entity existe en código pero no hay `docs/db/X.md`
+**Causa**: La entity existe en código pero no hay `docs/04_SQL/tables/X.md`
 
 **Solución**:
 1. Crear el archivo DDL correspondiente
@@ -285,7 +285,7 @@ export class User {
 ## 📖 Referencias
 
 - [Guía de Agentes](../../00_Overview/AGENTS_GUIDE.md)
-- [Modelos de BD](../../01_Backend/Database/00_INDEX.md)
+- [Modelos de BD](../../04_SQL/README.md)
 - [Reporte de Refactor Completo](../COMPLETE_REFACTOR_REPORT.md)
 
 ---

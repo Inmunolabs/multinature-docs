@@ -1,10 +1,10 @@
 # AGENTS.md — Guía para agentes (Codex, Cursor, etc) en el monorepo de Multinature
 
 > **Índice rápido**
-> - [Modelos de BD (índice)](../01_Backend/Database/00_INDEX.md)
+> - [Modelos de BD (índice)](../04_SQL/README.md)
 > - [Histórico de Refactors](Business_Rules/README.md)
 > - [Scripts de Validación](Business_Rules/README.md)
-> - Tablas: revisa `docs/db/*.md` antes de tocar queries/repos/entities.
+> - Tablas: revisa `docs/04_SQL/tables/*.md` antes de tocar queries/repos/entities.
 
 
 > **Propósito**: Este documento le dice al agente (Codex – OpenAI’s coding agent en VS Code, Cursor, etc.) **cómo trabajar dentro de este repo**: estructura, comandos, convenciones, límites y plantillas de tareas. La idea es que puedas pedirle features o arreglos y que el agente ejecute, pruebe y entregue cambios listos para revisión.
@@ -286,10 +286,16 @@ C:\...\backend\layers
 
 **scripts/**
 ```
-C:\...\backend\scripts
-├── update-docs-index.ps1
-├── update-docs-index.sh
-└── update-docs-index.ts
+C:\...\backend\docs\03_Infraestructura\Scripts
+├── build-layers.bat
+├── commitAndPush-git-repos.bat
+├── deploy-apis-lambdas.bat
+├── export-form-templates.js
+├── healthcheck-runner.js
+├── pull-git-repos.bat
+├── status-git-repos.bat
+├── validate-docs-links.js
+└── validate-entities-vs-ddl.js
 ```
 
 **tools/**
@@ -380,11 +386,11 @@ const entity = MonthlyPurchase.createEntity(data);
 
 | Tabla SQL | Entity File | Entity Class | Documentación |
 |-----------|-------------|--------------|---------------|
-| `addresses` | `address.js` | `Address` | `docs/db/addresses.md` |
-| `monthly_purchases` | `monthlyPurchase.js` | `MonthlyPurchase` | `docs/db/monthly_purchases.md` |
-| `payment_methods` | `paymentMethod.js` | `PaymentMethod` | `docs/db/payment_methods.md` |
-| `specialist_support_material` | `supportMaterial.js` | `SupportMaterial` | `docs/db/specialist_support_material.md` |
-| `verification_codes` | `verificationCode.js`* | `VerificationCode` | `docs/db/verification_codes.md` |
+| `addresses` | `address.js` | `Address` | `docs/04_SQL/tables/addresses.md` |
+| `monthly_purchases` | `monthlyPurchase.js` | `MonthlyPurchase` | `docs/04_SQL/tables/monthly_purchases.md` |
+| `payment_methods` | `paymentMethod.js` | `PaymentMethod` | `docs/04_SQL/tables/payment_methods.md` |
+| `specialist_support_material` | `supportMaterial.js` | `SupportMaterial` | `docs/04_SQL/tables/specialist_support_material.md` |
+| `verification_codes` | `verificationCode.js`* | `VerificationCode` | `docs/04_SQL/tables/verification_codes.md` |
 
 *Nota: Actualmente existe typo `verficationCode.js` (sin 'i') - pendiente corrección.
 
@@ -407,11 +413,11 @@ Algunas entities mapean a múltiples tablas relacionadas:
 ### Herramientas de Validación
 
 ```bash
-# Auditar mapeos entity ↔ documentación
-node scripts/docs-audit.js
-
 # Validar que entity coincida con DDL
-node scripts/validate-entities-vs-ddl.js --entity=foods
+node docs/03_Infraestructura/Scripts/validate-entities-vs-ddl.js --entity=foods
+
+# Validar enlaces en documentación
+node docs/03_Infraestructura/Scripts/validate-docs-links.js
 ```
 
 ---

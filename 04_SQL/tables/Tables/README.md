@@ -103,7 +103,6 @@ Cada tabla incluye:
 
 ## 🔗 Ver También
 
-- **[Índice de Base de Datos](../00_INDEX.md)** - Índice completo de todas las tablas
 - **[Validación Entities vs DDL](../../03_Infraestructura/Scripts/README.md#validate-entities-vs-ddljs)** - Script para validar alineación código vs DDL
 
 ---

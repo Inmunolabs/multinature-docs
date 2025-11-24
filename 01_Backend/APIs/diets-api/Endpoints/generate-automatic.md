@@ -203,7 +203,7 @@ curl -X GET https://api.multinature.com/diets/generate-automatic/550e8400-e29b-4
 }
 ```
 
-> La respuesta completa (incluyendo estructuras anidadas) se documenta en `apis/diets-api/doc/response-actual.json`.
+> La respuesta completa (incluyendo estructuras anidadas) se documenta en [Models/dietResponse.md](../Models/dietResponse.md).
 
 - `content` devuelve un único objeto de dieta (sin arreglo intermedio) con IDs tipo UUID generados on-the-fly.
 - `patientContext` concentra sexo, edad, peso, talla, IMC, objetivo y parámetros energéticos; las justificaciones deben referirse a este contexto sin repetir toda la ficha clínica.

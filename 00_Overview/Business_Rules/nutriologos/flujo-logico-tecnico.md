@@ -21,7 +21,7 @@ El proceso inicia con la recopilación de información relevante:
 - **Datos clínicos:** diagnósticos, historial médico, medicamentos, síntomas.
 - **Datos de estilo de vida:** nivel de actividad física, hábitos alimenticios, objetivos.
 
-> Esta información se registra previemente en el sistema (en las tablas [filled_form_values](../../../01_Backend/Database/Tables/filled_form_values.md) y [filled_forms](../../../01_Backend/Database/Tables/filled_forms.md)) y queda asociada al `user_id` del paciente.
+> Esta información se registra previemente en el sistema (en las tablas [filled_form_values](../../../04_SQL/tables/filled_form_values.md) y [filled_forms](../../../04_SQL/tables/filled_forms.md)) y queda asociada al `user_id` del paciente.
 
 ---
 

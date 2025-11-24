@@ -2,13 +2,38 @@
 
 ## 2025-11-24
 
+### Reorganización de Documentación
+
+- [Moved] Movida carpeta `docs/01_Backend/Database/` → `docs/04_SQL/tables/` para centralizar toda la documentación SQL
+- [Moved] Movido `MIGRATIONS.md` → `docs/04_SQL/migrations.md`
+- [Moved] Movido `docs/models/dietResponse.md` → `docs/01_Backend/APIs/diets-api/Models/dietResponse.md`
+- [Removed] Eliminadas carpetas `docs/99_Privado/Reportes/` y `docs/99_Privado/Refactors/` (contenido obsoleto)
+- [Removed] Eliminada carpeta `docs/models/` (vacía después de mover dietResponse.md)
+- [Removed] Eliminados scripts obsoletos de `docs/03_Infraestructura/Scripts/` (migración de documentación, auditorías, índices)
+
+### Actualización de Documentación
+
 - [Docs] Actualización completa de todos los README.md en `docs/` con formato consistente
-- [Docs] Mejora de documentación de scripts en `docs/03_Infraestructura/Scripts/README.md`
+- [Docs] Reorganización y limpieza de `docs/03_Infraestructura/Scripts/README.md` - Solo scripts activos documentados (9 scripts)
 - [Docs] Actualización de README principales: `docs/README.md`, `docs/00_Overview/README.md`, `docs/01_Backend/README.md`, `docs/02_Frontend/README.md`, `docs/03_Infraestructura/README.md`
 - [Docs] Actualización de README de secciones: `docs/04_SQL/README.md`, `docs/05_Negocio/README.md`, `docs/99_Privado/README.md`
 - [Docs] Mejora de documentación de APIs, Database y Layers en `docs/01_Backend/`
 - [Docs] Consolidación de README.md en `docs/02_Frontend/` (eliminado old-README.md)
+- [Docs] Creado `docs/01_Backend/APIs/ENDPOINTS_INDEX.md` - Índice centralizado de todos los endpoints (150+ endpoints)
+- [Docs] Creado `docs/01_Backend/Database/README.md` → Movido a `docs/04_SQL/README.md`
+- [Docs] Creado `docs/01_Backend/APIs/diets-api/Models/` - Carpeta para modelos de datos de APIs
 - [Docs] Formato consistente aplicado a todos los README con secciones organizadas, descripciones claras y metadatos actualizados
+
+### Actualización de Enlaces y Referencias
+
+- [Fixed] Actualizados todos los enlaces de `01_Backend/Database/` → `04_SQL/tables/` en toda la documentación
+- [Fixed] Actualizados enlaces en `docs/README.md`, `docs/00_Overview/`, `docs/01_Backend/`, `docs/03_Infraestructura/Scripts/`
+- [Fixed] Actualizada referencia en `docs/01_Backend/APIs/diets-api/Endpoints/generate-automatic.md` al nuevo path del modelo
+- [Fixed] Actualizados README de `docs/99_Privado/` para reflejar solo la sección Testing (eliminadas referencias a Reportes y Refactors)
+- [Fixed] Actualizadas rutas en scripts: `validate-entities-vs-ddl.js` ahora apunta a `docs/04_SQL/tables/`
+- [Fixed] Actualizadas referencias en `docs/00_Overview/AGENTS_GUIDE.md` y `docs/00_Overview/PROJECT_STRUCTURE.md`
+- [Fixed] Actualizada documentación en `docs/03_Infraestructura/Scripts/validation-tools.md` con nuevas rutas
+- [Fixed] Actualizados índices principales para reflejar solo scripts activos (9 scripts en lugar de 25+)
 
 ## 2025-11-14
 

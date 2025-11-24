@@ -7,7 +7,6 @@ Documentación técnica completa del backend de Multinature, incluyendo APIs, ba
 ## 📑 Secciones
 
 - **[APIs](./APIs/README.md)** - Documentación de todas las APIs del backend
-- **[Database](./Database/00_INDEX.md)** - DDL, estructura de tablas y modelos de base de datos
 - **[Layers](./Layers/README.md)** - Arquitectura en capas y organización del código
 
 ---
@@ -34,8 +33,7 @@ Cada API es un servicio Lambda independiente con su propia documentación:
 ## 🗄️ Base de Datos
 
 - **Total de tablas:** 82+
-- **Índice completo:** [Database/00_INDEX.md](./Database/00_INDEX.md)
-- **DDL de cada tabla:** [Database/Tables/](./Database/Tables/)
+- **DDL y documentación:** [04_SQL/tables/](../04_SQL/tables/README.md)
 
 ---
 

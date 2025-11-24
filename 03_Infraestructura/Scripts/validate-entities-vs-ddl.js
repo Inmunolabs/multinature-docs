@@ -18,9 +18,9 @@ const path = require('path');
 // CONFIGURACIÓN
 // ============================================================================
 
-const ENTITIES_DIR = path.join(__dirname, '../layers/multi-mysql-layer/src/entities');
-const DDL_DIR = path.join(__dirname, '../docs/db');
-const DB_MODELS_FILE = path.join(__dirname, '../docs/DB_MODELS.md');
+const ENTITIES_DIR = path.join(__dirname, '../../layers/multi-mysql-layer/src/entities');
+const DDL_DIR = path.join(__dirname, '../../04_SQL/tables');
+const DB_MODELS_FILE = path.join(__dirname, '../../04_SQL/tables/README.md');
 
 // Colores para terminal
 const colors = {

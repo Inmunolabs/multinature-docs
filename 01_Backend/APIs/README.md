@@ -43,6 +43,12 @@ Cada API incluye:
 
 ---
 
+## 🔗 Índice Centralizado
+
+- **[ENDPOINTS_INDEX.md](./ENDPOINTS_INDEX.md)** - Índice centralizado de todos los endpoints de todas las APIs
+
+---
+
 - **Última actualización:** 2025-11-24
 - **Total de APIs:** 17
 - **Total de archivos:** 3

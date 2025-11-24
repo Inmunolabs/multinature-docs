@@ -115,4 +115,9 @@ El sistema aplica validaciones automáticas a los datos SMAE antes de usarlos:
 ## Referencias relacionadas
 
 - `apis/diets-api/src/services/generate.js` — Implementación del armado de la respuesta.
-- `docs/01_Backend/APIs/diets-api/Endpoints/generate-automatic.md` — Contrato del endpoint que publica este modelo.
+- [Contrato del endpoint](../Endpoints/generate-automatic.md) — Documentación del endpoint que publica este modelo.
+
+---
+
+- **Última actualización:** 2025-11-24
+- **API:** diets-api
