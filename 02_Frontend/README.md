@@ -4,12 +4,6 @@ Documentación del frontend de Multinature, incluyendo stack tecnológico, estru
 
 ---
 
-## 📑 Secciones
-
-## Archivos
-
----
-
 ## 🎨 Stack Tecnológico
 
 - **Framework**: Next.js 13+ (App Router)

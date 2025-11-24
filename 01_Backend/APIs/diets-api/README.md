@@ -44,8 +44,6 @@ Documentación de diets-api.
 
 ---
 
----
-
 ## 📄 Modelos de Datos
 
 - **[dietResponse](./Models/dietResponse.md)** - Modelo canónico de respuesta del DietAgent para dietas automáticas
@@ -53,4 +51,3 @@ Documentación de diets-api.
 ---
 
 - **Última actualización:** 2025-11-24
-- **Total de archivos:** 1

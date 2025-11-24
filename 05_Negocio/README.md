@@ -37,4 +37,4 @@ Las tareas están organizadas por dominio y prioridad. Cada tarea incluye:
 ---
 
 - **Última actualización:** 2025-11-24
-- **Total de archivos:** 2
+- **Total de archivos:** 3

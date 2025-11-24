@@ -23,7 +23,6 @@ Documentación de endpoints.
 - [GET /specialists](./list-specialists.md)
 - [GET /](./list.md)
 - [POST /login](./login.md)
-- [API Users](./README.md)
 - [PATCH /:id](./update.md)
 - [POST /verification-code](./verification-code.md)
 - [GET /verify-account](./verify-account.md)
@@ -31,4 +30,4 @@ Documentación de endpoints.
 ---
 
 - **Última actualización:** 2025-10-20  
-- **Total de archivos:** 15
+- **Total de archivos:** 14

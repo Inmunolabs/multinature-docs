@@ -11,6 +11,7 @@ Documentación de endpoints.
 
 ## Archivos
 
+- [POST /diets/diet-actions](./diet-actions.md)
 - [POST /diets/diet-calculations/:id](./diet-calculations.md)
 - [POST /diets/recommend-formulas - Recomendar Fórmulas](./recommend-formulas.md)
 - [GET /diets/equivalences/group](./equivalences-group.md)
@@ -26,4 +27,4 @@ Documentación de endpoints.
 ---
 
 - **Última actualización:** 2025-01-27
-- **Total de archivos:** 13
+- **Total de archivos:** 12
