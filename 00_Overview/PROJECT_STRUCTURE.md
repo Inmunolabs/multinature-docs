@@ -180,14 +180,14 @@ backend/
 
 ### Por Dominio de Negocio
 
-| Dominio        | Ubicación Principal                                                 |
-| -------------- | ------------------------------------------------------------------- |
+| Dominio        | Ubicación Principal                                                                       |
+| -------------- | ----------------------------------------------------------------------------------------- |
 | **Nutrición**  | `apis/diets-api/`, `docs/04_SQL/tables/foods.md`, `docs/04_SQL/tables/diets.md`           |
 | **Ejercicio**  | `apis/routines-api/`, `docs/04_SQL/tables/routines.md`, `docs/04_SQL/tables/exercises.md` |
-| **E-commerce** | `apis/products-api/`, `apis/orders-api/`, `apis/cart-api/`          |
-| **Usuarios**   | `apis/users-api/`, `docs/04_SQL/tables/users.md`                               |
-| **Citas**      | `apis/bookings-api/`, `docs/04_SQL/tables/bookings.md`                         |
-| **Pagos**      | `apis/payments-api/`, `apis/payment-methods-api/`                   |
+| **E-commerce** | `apis/products-api/`, `apis/orders-api/`, `apis/cart-api/`                                |
+| **Usuarios**   | `apis/users-api/`, `docs/04_SQL/tables/users.md`                                          |
+| **Citas**      | `apis/bookings-api/`, `docs/04_SQL/tables/bookings.md`                                    |
+| **Pagos**      | `apis/payments-api/`, `apis/payment-methods-api/`                                         |
 
 ### Por Tipo de Archivo
 
@@ -198,7 +198,7 @@ backend/
 | **Configuración** | `apis/*/serverless.yml`, `*/package.json` |
 | **Documentación** | `docs/`, `*/README.md`                    |
 | **Scripts**       | `scripts/`                                |
-| **DDL**           | `docs/04_SQL/tables/*.md`                            |
+| **DDL**           | `docs/04_SQL/tables/*.md`                 |
 
 ---
 

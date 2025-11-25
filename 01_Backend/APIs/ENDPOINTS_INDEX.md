@@ -6,23 +6,23 @@
 
 ## 📋 APIs Disponibles
 
-- [addresses-api](#addresses-api)
-- [bookings-api](#bookings-api)
-- [cart-api](#cart-api)
-- [chatbot](#chatbot)
-- [commissions-api](#commissions-api)
-- [constants-api](#constants-api)
-- [diets-api](#diets-api)
-- [forms-api](#forms-api)
-- [monthly-purchases-api](#monthly-purchases-api)
-- [notifications-api](#notifications-api)
-- [orders-api](#orders-api)
-- [payment-methods-api](#payment-methods-api)
-- [products-api](#products-api)
-- [public-resources-api](#public-resources-api)
-- [routines-api](#routines-api)
-- [specialists-api](#specialists-api)
-- [users-api](#users-api)
+- [addresses-api](#addresses-api) ✅
+- [bookings-api](#bookings-api) ✅
+- [cart-api](#cart-api) ✅
+- [chatbot](#chatbot) ❌
+- [commissions-api](#commissions-api) ❌
+- [constants-api](#constants-api) ✅
+- [diets-api](#diets-api) 🔄️
+- [forms-api](#forms-api) ✅
+- [monthly-purchases-api](#monthly-purchases-api) ✅
+- [notifications-api](#notifications-api) ✅
+- [orders-api](#orders-api) ✅
+- [payment-methods-api](#payment-methods-api) ✅
+- [products-api](#products-api) ✅
+- [public-resources-api](#public-resources-api) ❌
+- [routines-api](#routines-api) 🔄️
+- [specialists-api](#specialists-api) ✅
+- [users-api](#users-api) ✅
 
 ---
 
@@ -347,4 +347,3 @@
 - [README.md](./README.md) - Documentación completa de todas las APIs
 - [Convenciones de Documentación](./CONVENTIONS.md) - Reglas para documentar endpoints
 - [Guía de Diseño de Rutas REST](./ROUTES_GUIDE.md) - Convenciones para diseño de rutas
-

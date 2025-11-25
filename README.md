@@ -12,6 +12,7 @@ Documentación completa de Multinature, incluyendo APIs, base de datos, infraest
 - **[03 Infraestructura](./03_Infraestructura/README.md)** - Scripts, herramientas y configuración de infraestructura
 - **[04 SQL](./04_SQL/README.md)** - Queries SQL y documentación de base de datos
 - **[05 Negocio](./05_Negocio/README.md)** - Tareas, pendientes y documentación de negocio
+- **[06 Management](./06_Management/README.md)** - Gestión del proyecto, procesos operativos, planificación y equipo
 - **[99 Privado](./99_Privado/README.md)** - Documentación privada (testing)
 
 ---
@@ -28,15 +29,18 @@ Documentación completa de Multinature, incluyendo APIs, base de datos, infraest
 ### Por Rol
 
 **Backend Developer:**
+
 - [APIs](./01_Backend/APIs/README.md) - Documentación de todas las APIs
 - [SQL](./04_SQL/README.md) - DDL, queries y migraciones de base de datos
 - [Layers](./01_Backend/Layers/README.md) - Arquitectura en capas
 
 **DevOps/SRE:**
+
 - [Scripts de Infraestructura](./03_Infraestructura/Scripts/README.md) - Herramientas de automatización
 - [Healthchecks](./03_Infraestructura/Scripts/healthcheck-runner.md) - Monitoreo de APIs
 
 **Product Owner/Business:**
+
 - [Reglas de Negocio](./00_Overview/Business_Rules/README.md) - Lógica de negocio
 - [Tareas](./05_Negocio/Tareas/README.md) - Gestión de tareas y features
 
@@ -49,6 +53,7 @@ Documentación completa de Multinature, incluyendo APIs, base de datos, infraest
 Todos los scripts están documentados en: **[Scripts/README.md](./03_Infraestructura/Scripts/README.md)**
 
 **Scripts principales:**
+
 - `validate-entities-vs-ddl.js` - Validar alineación código vs DDL
 - `validate-docs-links.js` - Validar enlaces en documentación
 - `healthcheck-runner.js` - Ejecutar healthchecks de todas las APIs
