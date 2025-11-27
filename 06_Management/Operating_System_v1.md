@@ -1,5 +1,7 @@
 # Multinature Operating System v1
 
+> ARCHIVO EN REVISIÓN
+
 ## 1. Visión del Producto
 
 Multinature es un ecosistema integral para especialistas en salud que unifica IA, nutrición, rutinas, evolución clínica, app móvil y herramientas administrativas. La meta es reducir carga a especialistas, mejorar precisión de planes y ofrecer seguimiento real al paciente.
@@ -92,12 +94,14 @@ El sistema está diseñado para ser modular, escalable y centrado en la experien
 ## 5. Decisiones por Rol
 
 ### Miguel – CTO / Product Owner
+
 - **Prioridades**: Define qué se construye y en qué orden.
 - **Visión**: Define la dirección del producto y nuevas funcionalidades.
 - **Arquitectura Crítica**: Aprueba cambios arquitectónicos significativos junto con Samuel.
 - **IA**: Toma decisiones sobre prompts, modelos y mejoras al DietAgent.
 
 ### René – PM / Scrum Master
+
 - **Procesos**: Define y mantiene procesos operativos del equipo.
 - **Backlog**: Es dueño del backlog, lo organiza y prioriza según dirección de Miguel.
 - **Sprints**: Maneja la planificación y ejecución de sprints.
@@ -105,27 +109,32 @@ El sistema está diseñado para ser modular, escalable y centrado en la experien
 - **Coordinación Externa**: Punto de contacto con Andrés y Pandalatec.
 
 ### Samuel – Backend / Arquitectura
+
 - **Microservicios**: Diseña y desarrolla la arquitectura de microservicios.
 - **Pagos**: Lidera el desarrollo del sistema de pagos y sus integraciones.
 - **Notificaciones**: Diseña e implementa el sistema de notificaciones.
 - **DietAgent Cálculos**: Mejora y mantiene los cálculos críticos del agente de dietas.
 
 ### Diego – Frontend Lead
+
 - **Code Review**: Revisa código frontend y mantiene estándares.
 - **Diseño Técnico Frontend**: Define arquitectura y patrones del frontend.
 - **i18n**: Gestiona internacionalización y traducciones.
 - **Estándares UI**: Mantiene consistencia en la interfaz de usuario.
 
 ### Antoine – UX Especialista / IA
+
 - **Flujos del Especialista**: Diseña la experiencia de uso para especialistas.
 - **Prompts IA**: Mejora y optimiza los prompts del DietAgent.
 - **Diseño Clínico**: Asegura que los formularios y flujos cumplan con necesidades clínicas.
 
 ### Leo – QA / Tester
+
 - **Pruebas**: Ejecuta pruebas manuales y automatizadas.
 - **Selenium**: Desarrolla y mantiene automatización de pruebas.
 - **Matrices**: Crea y mantiene matrices de prueba para funcionalidades críticas.
 
 ### Erick y Cristopher – Full Stack Junior
+
 - **Tareas Asignadas**: Trabajan en tareas asignadas por René según prioridades del sprint.
 - **Soporte General**: Apoyan en desarrollo frontend y backend según necesidad.

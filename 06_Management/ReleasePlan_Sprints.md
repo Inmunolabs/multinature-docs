@@ -98,6 +98,12 @@ Avanzar hacia la versión 1.0 implementando funcionalidades clave que diferencie
 
 ### Funcionalidades Nuevas
 
+- **Completar módulo de Rutinas**
+
+  - Generar PDFs de rutinas para los pacientes
+  - CRUD Rutina por semana
+  - Migración de sistema antiguo a nuevo
+
 - **Agente de Rutinas (RoutinesAgent) (generación + edición)**
 
   - Implementar generación automática de rutinas de ejercicio usando IA
@@ -151,6 +157,7 @@ Avanzar hacia la versión 1.0 implementando funcionalidades clave que diferencie
 - **Definición clara de prompts IA**: Los prompts para rutinas IA y chatbot deben estar definidos y validados antes de desarrollo
 - **Endpoints completados en backend**: Backend debe estar completo antes de integración con app móvil
 - **Coordinación con Pandalatec**: App móvil requiere coordinación estrecha con proveedor externo
+- **Validación de especialistas**: PDFs de rutinas deben ser validados con especialistas en ejercicio antes de producción
 
 ## Riesgos
 
@@ -166,17 +173,23 @@ Avanzar hacia la versión 1.0 implementando funcionalidades clave que diferencie
 
   - _Mitigación_: Testing exhaustivo, integración incremental y monitoreo continuo
 
+- **Performance de generación de PDFs**: Generar PDFs puede ser costoso en términos de recursos
+
+  - _Mitigación_: Implementar caching, procesamiento asíncrono, optimización de templates
+
 ## Métricas de Éxito
 
 - **Funcionalidad**: 100% de funcionalidades del alcance completadas
 - **Calidad**: < 5 bugs de severidad media al final del sprint
-- **Performance**: Tiempo de respuesta < 60s para endpoints de IA
+- **Performance**: Tiempo de respuesta < 60s para endpoints de IA, tiempo de generación de PDF < 5s, tiempo de respuesta de endpoints de rutinas < 2s
 - **Adopción**: 70%+ de especialistas beta usando nuevas funcionalidades
 - **Satisfacción**: Score de satisfacción > 4/5 en feedback de beta testers
 
 ## Entregables
 
 - Versión 1.0 funcional con todas las funcionalidades del alcance
+- Módulo de rutinas completo con PDFs, CRUD semanal y migración completada
+- Generador de PDFs de rutinas funcional
 - App móvil con rutinas completamente funcional
 - Plan de lanzamiento público
 
@@ -202,6 +215,11 @@ Avanzar hacia la versión 1.1 implementando funcionalidades clave que diferencie
   - Implementar resumenes de pacientes para facilitarle la consulta al especialista
 
 ### Mejoras y Refinamientos
+
+- **Mejoras a PDFs de rutinas**
+
+  - Personalización con datos del paciente y especialista
+  - Opción de descarga y envío por email/WhatsApp
 
 - **Mejoras al RoutinesAgent**
 
