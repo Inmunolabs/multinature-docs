@@ -69,5 +69,5 @@ Todos los scripts están documentados en: **[Scripts/README.md](./03_Infraestruc
 
 ---
 
-- **Última actualización:** 2025-11-24
+- **Última actualización:** 2025-11-27
 - **Mantenedor:** Miguel Valdés

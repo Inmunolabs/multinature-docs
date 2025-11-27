@@ -4,6 +4,22 @@
 
 ### Actualización de Documentación - Management
 
+- [Updated] Actualizado `docs/06_Management/ReleasePlan_Sprints.md` - Integradas funcionalidades de Rutinas en Sprint 2:
+  - Generar PDFs de rutinas para los pacientes
+  - CRUD Rutina por semana
+  - Migración de sistema antiguo a nuevo
+  - Agregadas dependencias, riesgos y métricas relacionadas
+- [Updated] Reorganizado `docs/06_Management/Backlog_Refinado.md` - Estructura completamente reorganizada por sprints:
+  - Backlog ahora organizado por Sprint 1, Sprint 2, Sprint 3, Sprint 4 y Backlog General
+  - Cada sprint mantiene categorías: Bugs, Mejora, Funcionalidad Nueva, Débito Técnico, Experiencia del Paciente, Experiencia del Especialista, IA – Diet Agent
+  - Todas las funcionalidades del Release Plan mapeadas al backlog correspondiente
+  - Ítems sin sprint asignado conservados en sección "Backlog General"
+- [Docs] Actualizado `docs/06_Management/README.md` - Referencias actualizadas a ReleasePlan_Sprints.md, descripción del Backlog Refinado mejorada para reflejar organización por sprints
+
+## 2025-11-26
+
+### Actualización de Documentación - Management
+
 - [Added] Agregado `docs/06_Management/Management_Calendar.md` - Documentación del calendario de dirección para planeación estratégica y toma de decisiones
 - [Added] Agregado `docs/06_Management/Team_Vacations.md` - Documentación de gestión de vacaciones y permisos del equipo
 - [Added] Agregado `docs/06_Management/Team_Capacity_and_Availability.md` - Documentación de capacidad real, modalidad de trabajo, restricciones y disponibilidad semanal del equipo

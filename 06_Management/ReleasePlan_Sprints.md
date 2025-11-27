@@ -1,4 +1,4 @@
-# Release Plan v1 – Sprint 1 y Sprint 2
+# Release Plan v1 – Sprints
 
 ## Objetivo General
 

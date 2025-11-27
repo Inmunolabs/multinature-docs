@@ -12,8 +12,8 @@ Documentación de gestión del proyecto Multinature, incluyendo procesos operati
 
 ### Planificación
 
-- **[Release Plan Sprint 1 y Sprint 2](./ReleasePlan_Sprint1_Sprint2.md)** - Plan de release para los primeros dos sprints con alcance, riesgos y dependencias
-- **[Backlog Refinado](./Backlog_Refinado.md)** - Backlog organizado por categorías: bugs, mejoras, funcionalidades nuevas, débito técnico y experiencia
+- **[Release Plan Sprints](./ReleasePlan_Sprints.md)** - Plan de release para Sprint 1, Sprint 2, Sprint 3 y Sprint 4 con alcance, riesgos, dependencias y métricas de éxito
+- **[Backlog Refinado](./Backlog_Refinado.md)** - Backlog organizado por sprints y categorías: bugs, mejoras, funcionalidades nuevas, débito técnico y experiencia. Incluye Sprint 1-4 y backlog general sin asignar
 
 ### Equipo
 
@@ -44,7 +44,7 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 
 1. **Empieza aquí:** [Operating System v1](./Operating_System_v1.md) - Entiende cómo funciona el proyecto
 2. **Conoce al equipo:** [Roles Reales](./Roles_Reales.md) y [Team Capacity and Availability](./Team_Capacity_and_Availability.md)
-3. **Revisa el plan:** [Release Plan](./ReleasePlan_Sprint1_Sprint2.md) y [Backlog Refinado](./Backlog_Refinado.md)
+3. **Revisa el plan:** [Release Plan Sprints](./ReleasePlan_Sprints.md) y [Backlog Refinado](./Backlog_Refinado.md)
 4. **Consulta vacaciones:** [Team Vacations](./Team_Vacations.md) - Para conocer cómo gestionar permisos y vacaciones
 
 ### Para Project Managers y Líderes
@@ -56,8 +56,8 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 
 ### Para Product Owners
 
-- [Backlog Refinado](./Backlog_Refinado.md) - Estado actual del backlog por categorías
-- [Release Plan](./ReleasePlan_Sprint1_Sprint2.md) - Planificación de sprints y releases
+- [Backlog Refinado](./Backlog_Refinado.md) - Estado actual del backlog organizado por sprints y categorías
+- [Release Plan Sprints](./ReleasePlan_Sprints.md) - Planificación de sprints y releases (Sprint 1-4)
 - [Management Calendar](./Management_Calendar.md) - Eventos de planeación estratégica
 
 ---
