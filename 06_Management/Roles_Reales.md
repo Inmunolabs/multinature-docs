@@ -17,6 +17,15 @@
 - Dominio: Node.js, SQL, AWS, microservicios (Pagos, Notificaciones, Citas, Dieto-cálculos).
 - Rol técnico: puede proponer mejoras de arquitectura; responsable de innovaciones backend.
 
+### Nota Operativa de Disponibilidad
+
+- Actualmente cursa estudios universitarios.
+- Durante periodos de clases trabaja **4 horas por día**, horario flexible autogestionado.
+- Durante vacaciones trabaja **8 horas por día (09:00 – 17:00)**.
+- **Único miembro del equipo con Home Office permanente**, aprobado por dirección.
+- Sus próximas vacaciones inician el lunes 15 de diciembre y terminan...
+- René debe considerar su disponibilidad real al planear la capacidad del sprint, priorizar tareas backend core y evitar asignar tareas largas o críticas en semanas universitarias.
+
 ## Erick Robles
 
 > Full Stack Junior (Especializado en Rutinas)

@@ -18,6 +18,7 @@ Documentación de gestión del proyecto Multinature, incluyendo procesos operati
 ### Equipo
 
 - **[Roles Reales](./Roles_Reales.md)** - Definición de roles y responsabilidades de cada miembro del equipo
+- **[Team Capacity and Availability](./Team_Capacity_and_Availability.md)** - Capacidad real, modalidad de trabajo, restricciones y disponibilidad semanal de cada integrante del equipo
 
 ### Calendarios y Coordinación
 
@@ -32,7 +33,7 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 
 - **Procesos**: Cómo funciona el equipo, reglas del juego y flujos de trabajo
 - **Planificación**: Sprints, releases y organización del backlog
-- **Equipo**: Roles y responsabilidades de los miembros
+- **Equipo**: Roles, responsabilidades, capacidad y disponibilidad de los miembros
 - **Coordinación**: Calendarios de dirección y gestión de vacaciones y permisos
 
 ---
@@ -42,7 +43,7 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 ### Para Nuevos Miembros del Equipo
 
 1. **Empieza aquí:** [Operating System v1](./Operating_System_v1.md) - Entiende cómo funciona el proyecto
-2. **Conoce al equipo:** [Roles Reales](./Roles_Reales.md)
+2. **Conoce al equipo:** [Roles Reales](./Roles_Reales.md) y [Team Capacity and Availability](./Team_Capacity_and_Availability.md)
 3. **Revisa el plan:** [Release Plan](./ReleasePlan_Sprint1_Sprint2.md) y [Backlog Refinado](./Backlog_Refinado.md)
 4. **Consulta vacaciones:** [Team Vacations](./Team_Vacations.md) - Para conocer cómo gestionar permisos y vacaciones
 
@@ -50,6 +51,7 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 
 - [Management Calendar](./Management_Calendar.md) - Calendario de dirección para eventos estratégicos y de alto nivel
 - [Operating System v1](./Operating_System_v1.md) - Reglas del juego y procesos operativos
+- [Team Capacity and Availability](./Team_Capacity_and_Availability.md) - Capacidad y disponibilidad del equipo para planificación de sprints
 - [Team Vacations](./Team_Vacations.md) - Gestión de vacaciones y permisos del equipo
 
 ### Para Product Owners
@@ -61,5 +63,5 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 ---
 
 - **Última actualización:** 2025-01-21
-- **Total de archivos:** 7
+- **Total de archivos:** 8
 

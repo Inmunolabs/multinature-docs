@@ -6,9 +6,10 @@
 
 - [Added] Agregado `docs/06_Management/Management_Calendar.md` - Documentación del calendario de dirección para planeación estratégica y toma de decisiones
 - [Added] Agregado `docs/06_Management/Team_Vacations.md` - Documentación de gestión de vacaciones y permisos del equipo
+- [Added] Agregado `docs/06_Management/Team_Capacity_and_Availability.md` - Documentación de capacidad real, modalidad de trabajo, restricciones y disponibilidad semanal del equipo
 - [Removed] Eliminado `docs/06_Management/Team_Cards.md` (archivo obsoleto)
 - [Removed] Eliminado `docs/06_Management/Onboarding_Rene_Professional.md` (archivo obsoleto)
-- [Docs] Actualizado `docs/06_Management/README.md` - Reorganizada estructura para reflejar archivos actuales, agregada sección de "Calendarios y Coordinación", actualizado conteo de archivos (7 archivos)
+- [Docs] Actualizado `docs/06_Management/README.md` - Reorganizada estructura para reflejar archivos actuales, agregada sección de "Calendarios y Coordinación", agregada referencia a Team Capacity and Availability en sección de Equipo, actualizado conteo de archivos (8 archivos)
 
 ## 2025-11-24
 
