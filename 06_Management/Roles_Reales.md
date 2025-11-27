@@ -13,7 +13,7 @@
 
 > Full Stack Semisenior (Backend, Arquitectura y AWS)
 
-- Aporta: backend sólido, arquitectura, estabilidad y evolución técnica del sistema.
+- Aporta: backend sólido, arquitectura, estabilidad, evolución técnica del sistema y da seguimiento (incluye soporte) a Pandalatec (Partner Tecnológico Externo (App Móvil)).
 - Dominio: Node.js, SQL, AWS, microservicios (Pagos, Notificaciones, Citas, Dieto-cálculos).
 - Rol técnico: puede proponer mejoras de arquitectura; responsable de innovaciones backend.
 
@@ -21,7 +21,7 @@
 
 > Full Stack Junior (Especializado en Rutinas)
 
-- Aporta: velocidad en tareas puntuales.
+- Aporta: velocidad en tareas puntuales y da seguimiento (incluye soporte) a Leo (QA / Automatización).
 - Dominio: lógica de rutinas, soporte general en backend y frontend.
 
 ## Cristopher Reveles
