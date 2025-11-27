@@ -1,6 +1,6 @@
 # 06 Management
 
-Documentación de gestión del proyecto Multinature, incluyendo procesos operativos, planificación de sprints, roles del equipo y onboarding.
+Documentación de gestión del proyecto Multinature, incluyendo procesos operativos, planificación de sprints, roles del equipo, calendarios y gestión de vacaciones.
 
 ---
 
@@ -18,11 +18,11 @@ Documentación de gestión del proyecto Multinature, incluyendo procesos operati
 ### Equipo
 
 - **[Roles Reales](./Roles_Reales.md)** - Definición de roles y responsabilidades de cada miembro del equipo
-- **[Team Cards](./Team_Cards.md)** - Perfiles del equipo: fortalezas, aportes y cómo trabajar con cada miembro
 
-### Onboarding
+### Calendarios y Coordinación
 
-- **[Onboarding René Professional](./Onboarding_Rene_Professional.md)** - Plan de onboarding para el PM/Scrum Master: semana 1, semana 2 y mes 1
+- **[Management Calendar](./Management_Calendar.md)** - Calendario de dirección para planeación estratégica, seguimiento ejecutivo y toma de decisiones (visible para Andrés, René y Miguel)
+- **[Team Vacations](./Team_Vacations.md)** - Gestión y documentación de vacaciones y permisos del equipo
 
 ---
 
@@ -32,8 +32,8 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 
 - **Procesos**: Cómo funciona el equipo, reglas del juego y flujos de trabajo
 - **Planificación**: Sprints, releases y organización del backlog
-- **Equipo**: Roles, responsabilidades y perfiles de los miembros
-- **Onboarding**: Guías para incorporar nuevos miembros al equipo
+- **Equipo**: Roles y responsabilidades de los miembros
+- **Coordinación**: Calendarios de dirección y gestión de vacaciones y permisos
 
 ---
 
@@ -42,21 +42,24 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 ### Para Nuevos Miembros del Equipo
 
 1. **Empieza aquí:** [Operating System v1](./Operating_System_v1.md) - Entiende cómo funciona el proyecto
-2. **Conoce al equipo:** [Roles Reales](./Roles_Reales.md) y [Team Cards](./Team_Cards.md)
+2. **Conoce al equipo:** [Roles Reales](./Roles_Reales.md)
 3. **Revisa el plan:** [Release Plan](./ReleasePlan_Sprint1_Sprint2.md) y [Backlog Refinado](./Backlog_Refinado.md)
+4. **Consulta vacaciones:** [Team Vacations](./Team_Vacations.md) - Para conocer cómo gestionar permisos y vacaciones
 
-### Para Project Managers
+### Para Project Managers y Líderes
 
-- [Onboarding René Professional](./Onboarding_Rene_Professional.md) - Ejemplo de plan de onboarding estructurado
+- [Management Calendar](./Management_Calendar.md) - Calendario de dirección para eventos estratégicos y de alto nivel
 - [Operating System v1](./Operating_System_v1.md) - Reglas del juego y procesos operativos
+- [Team Vacations](./Team_Vacations.md) - Gestión de vacaciones y permisos del equipo
 
 ### Para Product Owners
 
 - [Backlog Refinado](./Backlog_Refinado.md) - Estado actual del backlog por categorías
 - [Release Plan](./ReleasePlan_Sprint1_Sprint2.md) - Planificación de sprints y releases
+- [Management Calendar](./Management_Calendar.md) - Eventos de planeación estratégica
 
 ---
 
 - **Última actualización:** 2025-01-21
-- **Total de archivos:** 6
+- **Total de archivos:** 7
 
