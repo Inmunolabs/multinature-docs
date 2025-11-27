@@ -62,6 +62,6 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 
 ---
 
-- **Última actualización:** 2025-01-21
+- **Última actualización:** 2025-11-27
 - **Total de archivos:** 8
 

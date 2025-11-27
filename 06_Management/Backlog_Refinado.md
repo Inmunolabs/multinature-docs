@@ -1,6 +1,16 @@
 # Backlog Refinado
 
-Backlog organizado por categorías para facilitar la planificación y ejecución de sprints. Cada ítem incluye contexto suficiente para que el equipo pueda trabajar sin necesidad de consultas adicionales.
+Backlog general organizado por categorías para facilitar la planificación y ejecución de sprints. Este backlog incluye tareas y funcionalidades de todo tipo:
+
+- **Propuestas del equipo**: Ideas y mejoras sugeridas por miembros del equipo
+- **Feedback de usuarios/especialistas/Andrés**: Requerimientos y sugerencias basadas en uso real
+- **Deuda técnica**: Mejoras técnicas, refactorizaciones y optimizaciones pendientes
+- **Innovaciones**: Nuevas funcionalidades y características que mejoran el producto
+- **Nuevas funcionalidades**: Features solicitadas o identificadas como necesarias
+- **Bugs**: Problemas identificados que requieren corrección
+- **Mejoras**: Optimizaciones de funcionalidades existentes
+
+Cada ítem incluye contexto suficiente para que el equipo pueda trabajar sin necesidad de consultas adicionales.
 
 ---
 
@@ -12,8 +22,11 @@ El sistema SMAE (Sistema de Menús y Alimentos Equivalentes) presenta inconsiste
 ### Porciones incorrectas en dietas IA
 Las porciones calculadas por el DietAgent no siempre son correctas, generando discrepancias entre lo planificado y lo recomendado. Requiere revisión de los algoritmos de cálculo de porciones.
 
-### Emails con campos incorrectos
-Los emails del sistema presentan campos incorrectos, especialmente en el correo del especialista y otros datos relacionados. Necesita corrección de plantillas y validación de datos.
+### Emails: corrección de contenido + estilo unificado
+- Corregir campos incorrectos en plantillas de email
+- Unificar estilo y formato de todos los emails
+- Validar datos antes de envío
+- Asegurar consistencia visual y de contenido en todas las comunicaciones por email
 
 ### MealTimes inconsistentes
 Los horarios de comida (mealTimes) presentan inconsistencias en diferentes partes del sistema, afectando la visualización y organización de menús.
@@ -139,12 +152,14 @@ Integrar Kuesky como medio de pago adicional en el ecosistema:
 
 ## 4. Débito Técnico
 
-### Gitflow completo
+### Gitflow completo + workflows automáticos
 Implementar gitflow completo y estricto en todo el proyecto:
 - Definir y documentar flujo de ramas (main, develop, feature, hotfix)
-- Configurar protecciones de rama en GitHub/GitLab
-- Automatizar workflows de CI/CD
+- Configurar protecciones de rama en GitHub
+- Configurar workflows de CI/CD completos
+- Automatizar testing y validaciones en pipelines
 - Establecer proceso de code review obligatorio
+- Integrar validaciones automáticas (linting, tests, builds) en cada push/PR
 
 ### Dockerización backend
 Dockerizar el backend completo para facilitar desarrollo local y despliegues:

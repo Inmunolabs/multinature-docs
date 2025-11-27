@@ -1,6 +1,6 @@
 # Changelog
 
-## 2025-01-21
+## 2025-11-27
 
 ### Actualización de Documentación - Management
 
