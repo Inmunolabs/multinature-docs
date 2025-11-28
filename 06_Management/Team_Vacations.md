@@ -57,6 +57,7 @@ Ejemplos:
 | Cristopher | -                            | -          | -          | -            | -                                                                                       |
 | Antoine    | -                            | -          | -          | -            | -                                                                                       |
 | Miguel     | 2025-12-19                   | Vacaciones | 😬         | 1 día        | -                                                                                       |
+| Miguel     | 2025-12-29 - 2026-12-31      | Vacaciones | 😬         | 3 días       | -                                                                                       |
 | Miguel     | 2026-06-12 - 2026-06-17      | Vacaciones | 😬         | 4 días       | Regresa el jueves 18 de junio                                                           |
 | Leo        | -                            | -          | -          | -            | -                                                                                       |
 | Pandalatec | -                            | -          | N/A        | -            | Se maneja por contrato                                                                  |
