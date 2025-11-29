@@ -6,6 +6,21 @@ Documentación de gestión del proyecto Multinature, incluyendo procesos operati
 
 ## 📑 Archivos
 
+### Visión y Planificación Estratégica
+
+- **[Visión Futuro](./0.0_Vision_Futuro.md)** - Visión estratégica del proyecto: microservicios, médico general, Kuesky y chatbot avanzado
+- **[Backlog Operativo Actual](./0.1_Backlog_Operativo_Actual.md)** - Backlog operativo enfocado en lo alcanzable hacia Beta Final → 1.0 → 1.1
+
+### Roadmap por Módulos
+
+- **[1.0 Estabilidad Nutricional](./1.0_Estabilidad_Nutricional.md)** - Garantizar estabilidad total del módulo nutricional: SMAE, normalización, corrección de porciones, unificación GET/CAF/AF y DietAgent clínicamente coherente
+- **[2.0 Operatividad del Especialista](./2.0_Operatividad_Especialista.md)** - CRUD completo de menús, formularios y datos clínicos para especialistas. Soporta versión 1.0 y prepara 1.1
+- **[3.0 App, Rutinas y Seguimiento](./3.0_App_Rutinas_Seguimiento.md)** - Estabilización de rutinas, PDFs profesionales, seguimiento del paciente y RoutinesAgent
+- **[4.0 Infraestructura, Pagos y Deuda Técnica](./4.0_Infra_Pagos_Deuda_Tecnica.md)** - Infraestructura estable, integración completa de pagos (MercadoPago, Openpay) y reducción de deuda técnica
+- **[5.0 Notificaciones, Chatbot y Documentación](./5.0_Notificaciones_Chatbot_Documentacion.md)** - Sistema unificado de notificaciones, chatbot funcional y documentación técnica completa
+- **[6.0 Expansión de Producto](./6.0_Expansion_Producto.md)** - Expansión hacia médicos generales, microservicios, recetario médico y mejoras de producto
+- **[7.0 Consolidación Final](./7.0_Consolidacion_Final.md)** - Cierre de módulos pendientes para consolidar versión 1.1 hacia febrero
+
 ### Procesos y Operación
 
 - **[Operating System v1](./Operating_System_v1.md)** - Sistema operativo del proyecto: visión, mapa del sistema, reglas del juego, estado actual y decisiones por rol
@@ -31,6 +46,7 @@ Documentación de gestión del proyecto Multinature, incluyendo procesos operati
 
 Esta sección contiene documentación relacionada con la gestión operativa del proyecto, incluyendo:
 
+- **Visión y Roadmap**: Visión estratégica del proyecto y planificación detallada por módulos (1.0 a 7.0)
 - **Procesos**: Cómo funciona el equipo, reglas del juego y flujos de trabajo
 - **Planificación**: Sprints, releases y organización del backlog
 - **Equipo**: Roles, responsabilidades, capacidad y disponibilidad de los miembros
@@ -43,9 +59,11 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 ### Para Nuevos Miembros del Equipo
 
 1. **Empieza aquí:** [Operating System v1](./Operating_System_v1.md) - Entiende cómo funciona el proyecto
-2. **Conoce al equipo:** [Roles Reales](./Roles_Reales.md) y [Team Capacity and Availability](./Team_Capacity_and_Availability.md)
-3. **Revisa el plan:** [Release Plan Sprints](./ReleasePlan_Sprints.md) y [Backlog Refinado](./Backlog_Refinado.md)
-4. **Consulta vacaciones:** [Team Vacations](./Team_Vacations.md) - Para conocer cómo gestionar permisos y vacaciones
+2. **Conoce la visión:** [Visión Futuro](./0.0_Vision_Futuro.md) - Entiende hacia dónde va el proyecto
+3. **Revisa el roadmap:** Documentos 1.0 a 7.0 - Planificación detallada por módulos del proyecto
+4. **Conoce al equipo:** [Roles Reales](./Roles_Reales.md) y [Team Capacity and Availability](./Team_Capacity_and_Availability.md)
+5. **Revisa el plan:** [Release Plan Sprints](./ReleasePlan_Sprints.md) y [Backlog Refinado](./Backlog_Refinado.md)
+6. **Consulta vacaciones:** [Team Vacations](./Team_Vacations.md) - Para conocer cómo gestionar permisos y vacaciones
 
 ### Para Project Managers y Líderes
 
@@ -56,12 +74,15 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 
 ### Para Product Owners
 
+- [Visión Futuro](./0.0_Vision_Futuro.md) - Visión estratégica del proyecto
+- [Backlog Operativo Actual](./0.1_Backlog_Operativo_Actual.md) - Backlog enfocado en Beta Final → 1.0 → 1.1
+- Roadmap por módulos (1.0 a 7.0) - Planificación detallada de cada área del producto
 - [Backlog Refinado](./Backlog_Refinado.md) - Estado actual del backlog organizado por sprints y categorías
 - [Release Plan Sprints](./ReleasePlan_Sprints.md) - Planificación de sprints y releases (Sprint 1-4)
 - [Management Calendar](./Management_Calendar.md) - Eventos de planeación estratégica
 
 ---
 
-- **Última actualización:** 2025-11-27
-- **Total de archivos:** 8
+- **Última actualización:** 2025-01-27
+- **Total de archivos:** 17
 
