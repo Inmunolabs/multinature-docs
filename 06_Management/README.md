@@ -10,6 +10,8 @@ Documentación de gestión del proyecto Multinature, incluyendo procesos operati
 
 - **[Visión Futuro](./0.0_Vision_Futuro.md)** - Visión estratégica del proyecto: microservicios, médico general, Kuesky y chatbot avanzado
 - **[Backlog Operativo Actual](./0.1_Backlog_Operativo_Actual.md)** - Backlog operativo enfocado en lo alcanzable hacia Beta Final → 1.0 → 1.1
+- **[Master Project Summary](./Master_Project_Summary.md)** - Resumen maestro del proyecto con estado general, módulos completados y riesgos mayores
+- **[Executive Dashboard – Andrés](./Executive_Dashboard_Andres.md)** - Dashboard ejecutivo con estado actual de módulos, riesgos críticos y fechas clave
 
 ### Roadmap por Módulos
 
@@ -28,7 +30,9 @@ Documentación de gestión del proyecto Multinature, incluyendo procesos operati
 ### Planificación
 
 - **[Release Plan Sprints](./ReleasePlan_Sprints.md)** - Plan de release para Sprint 1, Sprint 2, Sprint 3 y Sprint 4 con alcance, riesgos, dependencias y métricas de éxito
+- **[Release Plan Sprints 7, 8 y 9](./ReleasePlan_Sprint7_8_9.md)** - Plan de release para Sprint 7, Sprint 8 y Sprint 9 con alcance y entregables hacia Release 1.1
 - **[Backlog Refinado](./Backlog_Refinado.md)** - Backlog organizado por sprints y categorías: bugs, mejoras, funcionalidades nuevas, débito técnico y experiencia. Incluye Sprint 1-4 y backlog general sin asignar
+- **[Sprint 1.0 Estabilidad Nutricional – Tareas](./Sprint_1.0_Estabilidad_Nutricional/tasks.md)** - Tareas detalladas del Sprint 1.0 con épicas, contextos, estimaciones y asignaciones
 
 ### Equipo
 
@@ -67,10 +71,13 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 
 ### Para Project Managers y Líderes
 
+- [Executive Dashboard – Andrés](./Executive_Dashboard_Andres.md) - Dashboard ejecutivo con estado actual de módulos, riesgos críticos y fechas clave
+- [Master Project Summary](./Master_Project_Summary.md) - Resumen maestro del proyecto con estado general y visión consolidada
 - [Management Calendar](./Management_Calendar.md) - Calendario de dirección para eventos estratégicos y de alto nivel
 - [Operating System v1](./Operating_System_v1.md) - Reglas del juego y procesos operativos
 - [Team Capacity and Availability](./Team_Capacity_and_Availability.md) - Capacidad y disponibilidad del equipo para planificación de sprints
 - [Team Vacations](./Team_Vacations.md) - Gestión de vacaciones y permisos del equipo
+- [Release Plan Sprints 7, 8 y 9](./ReleasePlan_Sprint7_8_9.md) - Planificación de sprints hacia Release 1.1
 
 ### Para Product Owners
 
@@ -79,10 +86,12 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 - Roadmap por módulos (1.0 a 7.0) - Planificación detallada de cada área del producto
 - [Backlog Refinado](./Backlog_Refinado.md) - Estado actual del backlog organizado por sprints y categorías
 - [Release Plan Sprints](./ReleasePlan_Sprints.md) - Planificación de sprints y releases (Sprint 1-4)
+- [Release Plan Sprints 7, 8 y 9](./ReleasePlan_Sprint7_8_9.md) - Planificación de sprints hacia Release 1.1
+- [Sprint 1.0 Estabilidad Nutricional – Tareas](./Sprint_1.0_Estabilidad_Nutricional/tasks.md) - Tareas detalladas del Sprint 1.0
 - [Management Calendar](./Management_Calendar.md) - Eventos de planeación estratégica
 
 ---
 
 - **Última actualización:** 2025-01-27
-- **Total de archivos:** 17
+- **Total de archivos:** 21 (incluye subdirectorios)
 
