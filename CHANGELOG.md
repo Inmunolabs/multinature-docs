@@ -1,5 +1,21 @@
 # Changelog
 
+## 2025-12-01 - 2025-12-03
+
+### Actualización de Documentación - Management y READMEs
+
+- [Added] Agregado `docs/06_Management/Master_Project_Summary.md` - Resumen maestro del proyecto con estado general, módulos completados y riesgos mayores
+- [Added] Agregado `docs/06_Management/Executive_Dashboard_Andres.md` - Dashboard ejecutivo con estado actual de módulos, riesgos críticos y fechas clave
+- [Added] Agregado `docs/06_Management/ReleasePlan_Sprint7_8_9.md` - Plan de release para Sprint 7, Sprint 8 y Sprint 9 con alcance y entregables hacia Release 1.1
+- [Added] Agregado `docs/06_Management/Sprint_1.0_Estabilidad_Nutricional/tasks.md` - Tareas detalladas del Sprint 1.0 con épicas, contextos, estimaciones y asignaciones
+- [Updated] Actualizado `docs/06_Management/README.md` - Integrados nuevos archivos ejecutivos y de planificación:
+  - Agregada sección de "Master Project Summary" y "Executive Dashboard" en Visión y Planificación Estratégica
+  - Agregado "Release Plan Sprints 7, 8 y 9" en Planificación
+  - Agregado "Sprint 1.0 Estabilidad Nutricional – Tareas" en Planificación
+  - Agregado "Guía Clickup" en Planificación
+  - Actualizadas secciones de uso para Project Managers y Product Owners
+  - Actualizado conteo de archivos a 22 (incluye subdirectorios)
+
 ## 2025-11-27
 
 ### Actualización de Documentación - Management

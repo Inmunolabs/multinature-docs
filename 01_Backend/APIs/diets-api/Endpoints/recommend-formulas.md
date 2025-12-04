@@ -225,6 +225,6 @@ Content-Type: application/json
 
 ---
 
-- **Última actualización:** 2025-01-27
+- **Última actualización:** 2025-11-20
 - **Endpoint independiente:** No modifica `/diets/generate-automatic`
 

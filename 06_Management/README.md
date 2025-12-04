@@ -26,6 +26,7 @@ Documentación de gestión del proyecto Multinature, incluyendo procesos operati
 ### Procesos y Operación
 
 - **[Operating System v1](./Operating_System_v1.md)** - Sistema operativo del proyecto: visión, mapa del sistema, reglas del juego, estado actual y decisiones por rol
+- **[Guía ClickUp](./guia_clickup.md)** - Guía rápida de trabajo en ClickUp: división de tareas, creación de subtareas, manejo de PRs y principios clave para el Sprint Nutricional
 
 ### Planificación
 
@@ -67,7 +68,8 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 3. **Revisa el roadmap:** Documentos 1.0 a 7.0 - Planificación detallada por módulos del proyecto
 4. **Conoce al equipo:** [Roles Reales](./Roles_Reales.md) y [Team Capacity and Availability](./Team_Capacity_and_Availability.md)
 5. **Revisa el plan:** [Release Plan Sprints](./ReleasePlan_Sprints.md) y [Backlog Refinado](./Backlog_Refinado.md)
-6. **Consulta vacaciones:** [Team Vacations](./Team_Vacations.md) - Para conocer cómo gestionar permisos y vacaciones
+6. **Guía de trabajo:** [Guía ClickUp](./guia_clickup.md) - Cómo documentar y trabajar con tareas en ClickUp
+7. **Consulta vacaciones:** [Team Vacations](./Team_Vacations.md) - Para conocer cómo gestionar permisos y vacaciones
 
 ### Para Project Managers y Líderes
 
@@ -75,9 +77,11 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 - [Master Project Summary](./Master_Project_Summary.md) - Resumen maestro del proyecto con estado general y visión consolidada
 - [Management Calendar](./Management_Calendar.md) - Calendario de dirección para eventos estratégicos y de alto nivel
 - [Operating System v1](./Operating_System_v1.md) - Reglas del juego y procesos operativos
+- [Guía ClickUp](./guia_clickup.md) - Estándares de trabajo en ClickUp para el equipo
 - [Team Capacity and Availability](./Team_Capacity_and_Availability.md) - Capacidad y disponibilidad del equipo para planificación de sprints
 - [Team Vacations](./Team_Vacations.md) - Gestión de vacaciones y permisos del equipo
 - [Release Plan Sprints 7, 8 y 9](./ReleasePlan_Sprint7_8_9.md) - Planificación de sprints hacia Release 1.1
+- [Sprint 1.0 Estabilidad Nutricional – Tareas](./Sprint_1.0_Estabilidad_Nutricional/tasks.md) - Tareas detalladas del Sprint 1.0
 
 ### Para Product Owners
 
@@ -92,6 +96,6 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 
 ---
 
-- **Última actualización:** 2025-01-27
-- **Total de archivos:** 21 (incluye subdirectorios)
+- **Última actualización:** 2025-12-04
+- **Total de archivos:** 22 (incluye subdirectorios)
 
