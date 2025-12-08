@@ -19,7 +19,7 @@
 
   - **Tags:** back
 
-- ✅ SN-01.2 Construir SMAE Cache (estructura final)
+- ✅ _(Nice-to-have)_ SN-01.2 Construir SMAE Cache (estructura final)
 
   - **Context:** Mapear SMAE en un objeto optimizado para DietAgent: accesos O(1), normalizado, validado, sin valores rotos.
 
@@ -623,3 +623,13 @@ Consolidación de actividades necesarias para asegurar el funcionamiento continu
   - **Assignee:** Diego Martin Ponce
 
   - **Tags:** back
+
+- SN-09.4 Infinitas peticiones al editar un platillo y reparación de loading de los filtros de comidas personales y Multinature.
+
+  - **Context:** El dialog de edición de platillo estaba haciendo peticiones infinitas, y los filtros de platillos "Mis platillos" estaba realizando peticiones infinitas porque el scroll infinito de imágenes no detectaba donde era el fin
+
+  - **Estimación:** 4h
+
+  - **Assignee:** Erick Robles
+
+  - **Tags:** front

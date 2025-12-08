@@ -34,7 +34,7 @@ Documentación de infraestructura, scripts, herramientas y automatización del b
 
 ### Scripts de Base de Datos
 
-- `export-form-templates.js` - Exportar form templates a SQL
+- `export-form-templates.js` - Exportar form templates (Plantillas de Formularios de Pacientes) de SQL
 
 ---
 
