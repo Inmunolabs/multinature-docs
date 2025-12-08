@@ -6,6 +6,7 @@ Este documento contiene un índice completo de todas las épicas documentadas en
 
 - ✅: Significa que ya está documentado en ClickUp
 - _(Nice-to-have)_: No necesario para entregables del Sprint
+- ❄️: Significa que es una tarea congelada, que aún no se sabe si debe ser llevada a cabo
 
 ---
 

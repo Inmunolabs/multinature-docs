@@ -293,7 +293,7 @@ El sistema actual genera menús IA con estructura inconsistente:
 - errores en transformadores,
 - incompatibilidad con la edición granular del SN-06.
 
-Este núcleo define la **estructura estandarizada del menú IA completo**, base para edición, visualización y almacenamiento JSON.
+Este núcleo define la **estructura estandarizada del menú IA completo**, base para edición, visualización y almacenamiento JSON; así como permite la administración de menus y platillos
 
 ## TAREAS
 
@@ -379,6 +379,68 @@ Este núcleo define la **estructura estandarizada del menú IA completo**, base 
   - **Assignee:** Diego Martin Ponce
 
   - **Tags:** front
+
+- ✅ SN-05.7 Crear interfaz para ver, crear, actualizar y eliminar menus
+
+  - **Context:** Actualmente los especialistas no cuentan con una interfaz para administrar los menus que crean durante el desarrollo de las dietas de sus pacientes. Crear un espacio que les permita llevar a cabo dicha administración. Considerar agregarlo como una pestaña más desde la vista de "Configuración de Especialidad" (https://www.multinature.mx/specialist/settings/); algo como la pestaña de "Cuestionarios" (https://www.multinature.mx/specialist/settings/?tab=questionnaires). Considerar que la lista del GET será un endpoint páginado que responde con los menus del especialista y después los de Multinature.
+
+  - **Estimación:** 3h
+
+  - **Assignee:** Diego Martin Ponce
+
+  - **Tags:** front
+
+- ✅ SN-05.8 Crear interfaz para ver, crear, actualizar y eliminar alimentos (foods)
+
+  - **Context:** Actualmente los especialistas no cuentan con una interfaz para administrar los alimentos (foods o comidas) que crean durante el desarrollo de las dietas de sus pacientes. Crear un espacio que les permita llevar a cabo dicha administración. Considerar agregarlo como una pestaña más desde la vista de "Configuración de Especialidad" (https://www.multinature.mx/specialist/settings/); algo como la pestaña de "Cuestionarios" (https://www.multinature.mx/specialist/settings/?tab=questionnaires). Considerar que la lista del GET será un endpoint páginado que responde con los menus del especialista y después los de Multinature.
+
+  - **Estimación:** 3h
+
+  - **Assignee:** Diego Martin Ponce
+
+  - **Tags:** front
+
+- ✅ SN-05.9 Agregar variable is_global a menus y foods
+
+  - **Context:** Agregar variable is_global a menus y foods para que estos puedan ser elegidos como menus y alimentos globales por especialistas
+
+  - **Estimación:** 4h
+
+  - **Assignee:** Erick Robles
+
+  - **Tags:** back
+
+- ✅ SN-05.10 Desarrollar CRUD de menus
+
+  - **Context:** Permitir al usuario:
+
+    - Listar menus por specialistId, esta lista debe tener también los menus globales de Multinature (aquellos con specilistId = null). Deben estar ordenados, primero deben aparecer los menus del especialista, después los Multinature. El endpoint debe manejar paginado.
+    - Crear menus por especialista
+    - Actualizar menus del especialista
+    - Eliminar menus del especialista
+
+  - **Estimación:** 4h
+
+  - **Assignee:** Erick Robles
+
+  - **Tags:** back
+
+- ✅ SN-05.11 Desarrollar CRUD de foods (platillos / comidas)
+
+  - **Context:** Permitir al usuario:
+
+    - Listar platillos por specialistId, esta lista debe tener también los platillos globales de Multinature (aquellos con specilistId = null). Deben estar ordenados, primero deben aparecer los foods del especialista, después los Multinature. El endpoint debe manejar paginado.
+    - Crear foods por especialista. Actualmente solo se permiten ingredientes cargados en el sistema (Ingredientes Multinature)
+    - Actualizar foods del especialista. Actualmente solo se permiten ingredientes cargados en el sistema (Ingredientes Multinature)
+    - Eliminar foods del especialista
+
+    _**NOTA**: Si la tabla foods no tiene una columna para distinguir entre platillos por usuario, esta debe ser creada con el fin de sostener la logica solicitada._
+
+  - **Estimación:** 4h
+
+  - **Assignee:** Erick Robles
+
+  - **Tags:** back
 
 # [SN-06 Edición de Menús IA](../2.0_Operatividad_Especialista.md#12-edición-de-menús-ia)
 
@@ -624,12 +686,59 @@ Consolidación de actividades necesarias para asegurar el funcionamiento continu
 
   - **Tags:** back
 
-- SN-09.4 Infinitas peticiones al editar un platillo y reparación de loading de los filtros de comidas personales y Multinature.
+- ✅ SN-09.4 Infinitas peticiones al editar un platillo y reparación de loading de los filtros de comidas personales y Multinature.
 
   - **Context:** El dialog de edición de platillo estaba haciendo peticiones infinitas, y los filtros de platillos "Mis platillos" estaba realizando peticiones infinitas porque el scroll infinito de imágenes no detectaba donde era el fin
 
   - **Estimación:** 4h
 
   - **Assignee:** Erick Robles
+
+  - **Tags:** front
+
+- ✅ SN-09.5 Permitir gestión de “Configuración de Especialidad” por especialidad
+
+  - **Context:** Actualmente las “Configuraciones de Especialidad” se manejan de forma global y no están asociadas a una especialidad específica.
+    Se requiere extender el modelo de datos y los endpoints para que cada configuración pueda asignarse explícitamente a una o varias especialidades, permitiendo su creación, edición, consulta y eliminación conforme a dicha relación.
+
+  Alcance técnico:
+
+  - Asociar Configuración de Especialidad ↔ Especialidad en base de datos.
+  - Ajustar endpoints para:
+
+    - Crear configuración ligada a especialidad.
+    - Editar configuración y su especialidad asociada.
+    - Listar configuraciones para que el cliente pueda filtradas por especialidad.
+    - Eliminar configuraciones respetando su relación.
+
+  - **Estimación**: 4h
+
+  - **Assignee:** Erick Robles
+
+  - **Tags:** back
+
+- ✅ SN-09.6 Visualizar y administrar “Configuración de Especialidad” por especialidad
+
+  - **Context:** Con la nueva lógica de asignación por especialidad, la interfaz debe reflejar claramente que las “Configuraciones de Especialidad” ya no son globales, sino dependientes de la especialidad seleccionada. El usuario debe entender qué configuración pertenece a qué especialidad, y operar sobre ellas sin ambigüedad.
+
+  Alcance funcional:
+
+  - Permitir seleccionar una especialidad activa (dropdown / selector).
+  - Mostrar únicamente las configuraciones asociadas a la especialidad seleccionada.
+  - Ajustar flujos de:
+    - Alta (crear configuración ligada a especialidad).
+    - Edición (mostrar especialidad actual y permitir cambio si aplica).
+    - Eliminación.
+  - Evitar operaciones “globales” ambiguas (no mezclar configuraciones de distintas especialidades).
+  - Reflejar estados vacíos claros (“esta especialidad no tiene configuraciones”).
+
+  El usuario nunca debe tener duda de:
+
+  - Para qué especialidad está viendo configuraciones.
+  - Para cuál especialidad está creando o editando una configuración.
+
+  - **Estimación**: 4h
+
+  - **Assignee:** Diego Martin Ponce
 
   - **Tags:** front

@@ -93,7 +93,7 @@ Estas reglas aplican **ÚNICAMENTE** a la documentación de endpoints de este pr
 
 ---
 
-## ✅ Criterios de Aceptación
+## Criterios de Aceptación
 
 Cada documentación generada debe cumplir:
 

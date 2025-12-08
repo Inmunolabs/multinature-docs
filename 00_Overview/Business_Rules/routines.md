@@ -120,7 +120,7 @@ flowchart TD
 
 ---
 
-## ✅ Consideraciones Finales
+## Consideraciones Finales
 
 - La interacción debe ser **intuitiva, fluida y visualmente clara**.  
 - Toda la lógica de cronómetro y registro de tiempos debe ser precisa y entendible.  
