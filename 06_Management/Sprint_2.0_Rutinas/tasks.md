@@ -1,7 +1,7 @@
-# [S2-04 Registro de Métricas y Tiempos del Paciente](../3.0_App_Rutinas_Seguimiento.md#exploratorio--por-confirmar-14-registro-de-métricas-y-tiempos-del-paciente)
+# [_(Exploratorio / Por confirmar)_ S2-04 Registro de Métricas y Tiempos del Paciente](../3.0_App_Rutinas_Seguimiento.md#exploratorio--por-confirmar-14-registro-de-métricas-y-tiempos-del-paciente)
 
-**Context:**  
-Este módulo está en fase exploratoria. La intención es permitir registrar métricas como pesos, tiempos, descansos y desempeño por serie/ejercicio, con miras a progresión automática futura.
+- **Context:**  
+  Este módulo está en fase exploratoria. La intención es permitir registrar métricas como pesos, tiempos, descansos y desempeño por serie/ejercicio, con miras a progresión automática futura.
 
 En este sprint **NO se implementa el sistema completo**, solo se define:
 
@@ -11,198 +11,198 @@ En este sprint **NO se implementa el sistema completo**, solo se define:
 
 ## TAREAS
 
-- S2-04.1 Revisar y confirmar alcance de métricas con dirección
+### ✅ S2-04.1 Revisar y confirmar alcance de métricas con dirección
 
-  **Context:**  
+- **Context:**
+
   Definir junto con Andrés:
 
   - si el módulo se implementa,
   - qué métricas reales se capturarán,
   - si aplica solo a rutinas IA, manuales o ambas.
 
-  **Estimación:** 3h
+- **Estimación:** 3h
 
-  **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdes
 
-  **Tags:** ops
+- **Tags:** ops
 
-- ❄️ S2-04.2 Diseñar modelo de datos base para métricas de entrenamiento
+### ❄️ S2-04.2 Diseñar modelo de datos base para métricas de entrenamiento
 
-  **Context:**  
-  Proponer entidades mínimas (sessions, sets, metrics) y su relación con:
+- **Context:**  
+   Proponer entidades mínimas (sessions, sets, metrics) y su relación con:
   rutina, día, ejercicio, paciente y especialista.
 
-  **Estimación:** 4h
+- **Estimación:** 4h
 
-  **Assignee:** Erick Robles
+- **Assignee:** Erick Robles
 
-  **Tags:** back
+- **Tags:** back
 
-- ❄️ S2-04.3 Definir endpoints mínimos para registro y consulta de métricas
+### ❄️ S2-04.3 Definir endpoints mínimos para registro y consulta de métricas
 
-  **Context:**  
+- **Context:**  
   Boceto de endpoints para:
 
-  - iniciar sesión,
-  - registrar métricas,
-  - consultar resumen por paciente.
+- iniciar sesión,
+- registrar métricas,
+- consultar resumen por paciente.
 
-  **Estimación:** 4h
+- **Estimación:** 4h
 
-  **Assignee:** Samuel Reveles
+- **Assignee:** Samuel Reveles
 
-  **Tags:** back
+- **Tags:** back
 
-- ❄️ S2-04.4 Wireframe conceptual de visualización de métricas para especialista
+### ❄️ S2-04.4 Wireframe conceptual de visualización de métricas para especialista
 
-  **Context:**  
+- **Context:**  
   Diseñar cómo vería el especialista el progreso del paciente (resumen simple, no dashboard completo).
 
-  **Estimación:** 3h
+- **Estimación:** 3h
 
-  **Assignee:** Antoine Ganem
+- **Assignee:** Antoine Ganem
 
-  **Tags:** ux
+- **Tags:** ux
 
 ---
 
-## 1.5 Entrenamiento Guiado (APP / posible Web)
+## [_(Por confirmar)_ 1.5 Entrenamiento Guiado (APP / posible Web)](../3.0_App_Rutinas_Seguimiento.md#por-confirmar-15-entrenamiento-guiado-app--posible-web)
 
-**Context:**  
-El entrenamiento guiado se desarrollará principalmente en la APP por Pandalatec.  
-Este sprint debe dejar **reglas claras, flujos y contratos técnicos**, no la implementación visual.
+- **Context:**  
+  El entrenamiento guiado se desarrollará principalmente en la APP por Pandalatec.  
+  Este sprint debe dejar **reglas claras, flujos y contratos técnicos**, no la implementación visual.
 
 ## TAREAS
 
-- ❄️ S2-05.1 Diseñar endpoints para entrenamiento guiado (APP)
+### ❄️ S2-05.1 Diseñar endpoints para entrenamiento guiado (APP)
 
-  **Context:**  
+- **Context:**  
   Propuesta de endpoints:
 
-  - iniciar sesión,
-  - iniciar/finalizar serie,
-  - marcar completado,
-  - sustituir ejercicio.
+- iniciar sesión,
+- iniciar/finalizar serie,
+- marcar completado,
+- sustituir ejercicio.
 
-  **Estimación:** 5h
+- **Estimación:** 5h
 
-  **Assignee:** Samuel Reveles
+- **Assignee:** Samuel Reveles
 
-  **Tags:** back
+- **Tags:** back
 
-- ❄️ S2-05.2 Documento técnico de integración para Pandalatec
+### ❄️ S2-05.2 Documento técnico de integración para Pandalatec
 
-  **Context:**  
+- **Context:**  
   Documento con:
 
-  - endpoints,
-  - payloads,
-  - reglas que la app no puede romper,
-  - notas para futuras métricas.
+- endpoints,
+- payloads,
+- reglas que la app no puede romper,
+- notas para futuras métricas.
 
-  **Estimación:** 4h
+- **Estimación:** 4h
 
-  **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdes
 
-  **Tags:** ops, back
+- **Tags:** ops, back
 
 ---
 
-## 1.6 RoutinesAgent (Generación + Edición)
+# [S2-06 RoutinesAgent (Generación + Edición)](../3.0_App_Rutinas_Seguimiento.md#16-routinesagent-generación--edición)
 
-**Context:**  
-Se requiere un agente IA capaz de generar rutinas coherentes por objetivo y permitir edición granular.  
-El objetivo de este sprint es dejar **un esqueleto funcional serio**, no el agente definitivo.
+- **Context:**  
+  Se requiere un agente IA capaz de generar rutinas coherentes por objetivo y permitir edición granular.  
+  El objetivo de este sprint es dejar **un esqueleto funcional serio**, no el agente definitivo.
 
 ## TAREAS
 
-- T-09 Diseñar modelo conceptual del RoutinesAgent
+### ✅ S2-06.1 Diseñar modelo conceptual del RoutinesAgent
 
-  **Context:**  
-  Definir inputs, outputs, limitaciones iniciales y supuestos clínicos.
+**Context:**
 
-  **Estimación:** 4h
+- Definir inputs, outputs, limitaciones iniciales y supuestos clínicos.
+- Diseño por Samuel Reveles
+- Validación requerida por Miguel Angel Valdes
 
-  **Assignee:** Miguel Angel Valdes
+- **Estimación:** 4h
 
-  **Tags:** back, ia
+- **Assignee:** Samuel Reveles, Miguel Angel Valdes
 
-- T-10 Definir esquema JSON estándar para rutinas IA
+- **Tags:** back, ia
 
-  **Context:**  
+### ✅ S2-06.2 Definir esquema JSON estándar para rutinas IA
+
+- **Context:**  
   Schema único para backend, IA y APP: días, ejercicios, series, reps, descansos.
 
-  **Estimación:** 4h
+- **Estimación:** 4h
 
-  **Assignee:** Samuel Reveles
+- **Assignee:** Samuel Reveles
 
-  **Tags:** back
+- **Tags:** back
 
-- T-11 Implementar endpoint de generación automática de rutinas
+### ✅ S2-06.3 Implementar endpoint de generación automática de rutinas
 
-  **Context:**  
+- **Context:**  
   Endpoint que reciba datos del paciente y devuelva la rutina generada por IA.
 
-  **Estimación:** 6h
+- **Estimación:** 6h
 
-  **Assignee:** Samuel Reveles
+- **Assignee:** Samuel Reveles
 
-  **Tags:** back, ia
+- **Tags:** back, ia
 
-- T-12 Definir modelo de acciones para edición granular de rutinas
+### ✅ S2-06.4 Definir modelo de acciones para edición granular de rutinas
 
-  **Context:**  
+- **Context:**  
   Especificar acciones: agregar/quitar ejercicio, mover, cambiar series, descansos.
 
-  **Estimación:** 4h
+- **Estimación:** 4h
 
-  **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdes
 
-  **Tags:** back, ia
+- **Tags:** back, ia
 
-- T-13 Implementar endpoint de acciones para edición de rutinas
+### ✅ S2-06.5 Implementar endpoint de acciones para edición de rutinas
 
-  **Context:**  
+- **Context:**  
   Endpoint que aplique `actions` sobre una rutina existente, con validaciones.
 
-  **Estimación:** 6h
+- **Estimación:** 6h
 
-  **Assignee:** Samuel Reveles
+- **Assignee:** Samuel Reveles
 
-  **Tags:** back
+- **Tags:** back
 
-- T-14 Boceto UX del editor de rutinas (conceptual)
+### ✅ S2-06.6 Boceto UX del editor de rutinas (conceptual)
 
-  **Context:**  
+- **Context:**  
   Diseño base del editor visual para que frontend lo ejecute en siguientes sprints.
 
-  **Estimación:** 4h
+- **Estimación:** 4h
 
-  **Assignee:** Antoine Ganem
+- **Assignee:** Diego Martin Ponce
 
-  **Tags:** ux
+- **Tags:** ux
 
-- T-15 QA inicial del flujo mínimo del RoutinesAgent
+### ✅ S2-06.7 Desarrollar el editor de rutinas
 
-  **Context:**  
+**Context:** Desarrollar el editor visual en frontend para que el especialista pueda actualizar las rutinas ya sea desde la creación del flujo automatico con el RoutinesAgent o desde una Rutina ya creada en la base de datos
+
+- **Estimación:** 4h
+
+- **Assignee:** Diego Martin Ponce
+
+- **Tags:** ux
+
+### ✅ S2-06.8 QA inicial del flujo mínimo del RoutinesAgent
+
+- **Context:**  
   Probar: generación → edición → validación estructural de rutina.
 
-  **Estimación:** 4h
+- **Estimación:** 4h
 
-  **Assignee:** Leo
+- **Assignee:** Leo
 
-  **Tags:** qa
-
----
-
-## Nota Final
-
-Este sprint deja **bases técnicas y de negocio**, no features “bonitas”.  
-Todo lo aquí definido habilita:
-
-- entrenamiento guiado,
-- métricas reales,
-- edición avanzada de rutinas,
-- y progresión futura del agente.
-
-Forzar más alcance en este sprint rompe calidad y foco.
+- **Tags:** qa
