@@ -758,3 +758,13 @@ El usuario nunca debe tener duda de:
 - **Assignee:** Diego Martin Ponce
 
 - **Tags:** front
+
+---
+
+### ✅ SN-10.1 Añadir la lógica para editar platillos en el endpoint de save-diet
+
+> Tarea creada por Antoine
+
+- **Estimación:** Sin estimación
+
+- **Assignee:** Antoine Ganem
