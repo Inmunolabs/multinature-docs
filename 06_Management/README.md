@@ -96,6 +96,6 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 
 ---
 
-- **Última actualización:** 2025-12-04
-- **Total de archivos:** 22 (incluye subdirectorios)
+- **Última actualización:** 2025-12-15
+- **Total de archivos:** 23 (incluye subdirectorios)
 

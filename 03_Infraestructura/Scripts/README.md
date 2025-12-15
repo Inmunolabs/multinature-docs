@@ -490,5 +490,6 @@ Las dependencias se instalarán en `docs/03_Infraestructura/Scripts/node_modules
 
 ---
 
-- **Última actualización:** 2025-11-24
+- **Última actualización:** 2025-12-15
+- **Total de archivos:** 7 (incluye subdirectorios)
 - **Total de scripts:** 9

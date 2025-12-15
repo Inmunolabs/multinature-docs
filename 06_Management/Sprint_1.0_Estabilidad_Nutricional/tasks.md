@@ -467,7 +467,7 @@ Esta épica construye el editor completo.
 
 - **Tags:** front
 
-### ✅ SN-06.2 Implementar UI de edición granular (v2 – AgentDiet Actions)
+### ✅ SN-06.2 Implementar UI de edición granular (v2 – DietAgent Actions)
 
 - **Context:**
 

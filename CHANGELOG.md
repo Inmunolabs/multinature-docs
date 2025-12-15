@@ -1,5 +1,12 @@
 # Changelog
 
+## 2025-12-15
+
+### Actualización automática de índices de documentación
+
+- [Updated] Actualizados índices y metadatos (`Última actualización`, totales de archivos e índices de secciones) en `docs/`.
+
+
 ## 2025-12-01 - 2025-12-03
 
 ### Actualización de Documentación - Management y READMEs

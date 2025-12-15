@@ -6,6 +6,9 @@ Documentación de infraestructura, scripts, herramientas y automatización del b
 
 ## 📑 Secciones
 
+- **[Scripts](./Scripts/README.md)**
+
+
 - **[Scripts](./Scripts/README.md)** - Colección completa de scripts de infraestructura
 
 ---
@@ -46,5 +49,6 @@ Para información detallada sobre cada script, incluyendo uso, opciones, ejemplo
 
 ---
 
-- **Última actualización:** 2025-11-24
+- **Última actualización:** 2025-12-15
+- **Total de archivos:** 7 (incluye subdirectorios)
 - **Total de scripts:** 9

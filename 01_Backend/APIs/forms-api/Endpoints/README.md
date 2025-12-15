@@ -17,5 +17,5 @@ Documentación de endpoints.
 
 ---
 
-- **Última actualización:** 2025-10-22
-- **Total de archivos:** 4
+- **Última actualización:** 2025-12-15
+- **Total de archivos:** 11
