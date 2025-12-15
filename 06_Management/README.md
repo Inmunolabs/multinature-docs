@@ -82,6 +82,7 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 - [Team Vacations](./Team_Vacations.md) - Gestión de vacaciones y permisos del equipo
 - [Release Plan Sprints 7, 8 y 9](./ReleasePlan_Sprint7_8_9.md) - Planificación de sprints hacia Release 1.1
 - [Sprint 1.0 Estabilidad Nutricional – Tareas](./Sprint_1.0_Estabilidad_Nutricional/tasks.md) - Tareas detalladas del Sprint 1.0
+- [Sprint 2.0 Rutinas - Tareas](./Sprint_2.0_Rutinas/tasks.md) - Tareas detalladas del Sprint 2.0
 
 ### Para Product Owners
 
@@ -92,10 +93,10 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 - [Release Plan Sprints](./ReleasePlan_Sprints.md) - Planificación de sprints y releases (Sprint 1-4)
 - [Release Plan Sprints 7, 8 y 9](./ReleasePlan_Sprint7_8_9.md) - Planificación de sprints hacia Release 1.1
 - [Sprint 1.0 Estabilidad Nutricional – Tareas](./Sprint_1.0_Estabilidad_Nutricional/tasks.md) - Tareas detalladas del Sprint 1.0
+- [Sprint 2.0 Rutinas - Tareas](./Sprint_2.0_Rutinas/tasks.md) - Tareas detalladas del Sprint 2.0
 - [Management Calendar](./Management_Calendar.md) - Eventos de planeación estratégica
 
 ---
 
 - **Última actualización:** 2025-12-15
 - **Total de archivos:** 23 (incluye subdirectorios)
-

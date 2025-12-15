@@ -6,9 +6,6 @@ Documentación de infraestructura, scripts, herramientas y automatización del b
 
 ## 📑 Secciones
 
-- **[Scripts](./Scripts/README.md)**
-
-
 - **[Scripts](./Scripts/README.md)** - Colección completa de scripts de infraestructura
 
 ---
