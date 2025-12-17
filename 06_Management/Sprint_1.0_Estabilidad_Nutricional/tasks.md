@@ -122,7 +122,7 @@ Este bloque define la lógica robusta que sostendrá todos los menús IA y la ed
 
 - **Estimación:** 6h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** back
 
@@ -136,7 +136,7 @@ Este bloque define la lógica robusta que sostendrá todos los menús IA y la ed
 
 - **Estimación:** 6h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** back
 
@@ -150,7 +150,7 @@ Este bloque define la lógica robusta que sostendrá todos los menús IA y la ed
 
 - **Estimación:** 3h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** back
 
@@ -164,7 +164,7 @@ Este bloque define la lógica robusta que sostendrá todos los menús IA y la ed
 
 - **Estimación:** 4h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** back
 
@@ -178,7 +178,7 @@ Este bloque define la lógica robusta que sostendrá todos los menús IA y la ed
 
 - **Estimación:** 6h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** back
 
@@ -264,7 +264,7 @@ Este módulo define el **cálculo clínico correcto del GET**, estandariza CAF/A
 
 - **Estimación:** 6h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** back
 
@@ -309,7 +309,7 @@ Este núcleo define la **estructura estandarizada del menú IA completo**, base 
 
 - **Estimación:** 4h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** back
 
@@ -323,7 +323,7 @@ Este núcleo define la **estructura estandarizada del menú IA completo**, base 
 
 - **Estimación:** 4h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** back
 
@@ -337,7 +337,7 @@ Este núcleo define la **estructura estandarizada del menú IA completo**, base 
 
 - **Estimación:** 4h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** back
 
@@ -365,7 +365,7 @@ Este núcleo define la **estructura estandarizada del menú IA completo**, base 
 
 - **Estimación:** h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** back
 
@@ -688,7 +688,7 @@ Consolidación de actividades necesarias para asegurar el funcionamiento continu
 
 - **Estimación:** 1h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** back
 

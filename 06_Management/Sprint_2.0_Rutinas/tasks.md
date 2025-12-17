@@ -11,7 +11,7 @@ En este sprint **NO se implementa el sistema completo**, solo se define:
 
 ## TAREAS
 
-### ✅ S2-04.1 Revisar y confirmar alcance de métricas con dirección
+### ✅ S2-34.1 Revisar y confirmar alcance de métricas con dirección
 
 - **Context:**
 
@@ -23,11 +23,11 @@ En este sprint **NO se implementa el sistema completo**, solo se define:
 
 - **Estimación:** 3h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** ops
 
-### ❄️ S2-04.2 Diseñar modelo de datos base para métricas de entrenamiento
+### ❄️ S2-34.2 Diseñar modelo de datos base para métricas de entrenamiento
 
 - **Context:**  
    Proponer entidades mínimas (sessions, sets, metrics) y su relación con:
@@ -39,7 +39,7 @@ En este sprint **NO se implementa el sistema completo**, solo se define:
 
 - **Tags:** back
 
-### ❄️ S2-04.3 Definir endpoints mínimos para registro y consulta de métricas
+### ❄️ S2-34.3 Definir endpoints mínimos para registro y consulta de métricas
 
 - **Context:**  
   Boceto de endpoints para:
@@ -54,7 +54,7 @@ En este sprint **NO se implementa el sistema completo**, solo se define:
 
 - **Tags:** back
 
-### ❄️ S2-04.4 Wireframe conceptual de visualización de métricas para especialista
+### ❄️ S2-34.4 Wireframe conceptual de visualización de métricas para especialista
 
 - **Context:**  
   Diseñar cómo vería el especialista el progreso del paciente (resumen simple, no dashboard completo).
@@ -75,7 +75,7 @@ En este sprint **NO se implementa el sistema completo**, solo se define:
 
 ## TAREAS
 
-### ❄️ S2-05.1 Diseñar endpoints para entrenamiento guiado (APP)
+### ❄️ S2-35.1 Diseñar endpoints para entrenamiento guiado (APP)
 
 - **Context:**  
   Propuesta de endpoints:
@@ -91,7 +91,7 @@ En este sprint **NO se implementa el sistema completo**, solo se define:
 
 - **Tags:** back
 
-### ❄️ S2-05.2 Documento técnico de integración para Pandalatec
+### ❄️ S2-35.2 Documento técnico de integración para Pandalatec
 
 - **Context:**  
   Documento con:
@@ -103,7 +103,7 @@ En este sprint **NO se implementa el sistema completo**, solo se define:
 
 - **Estimación:** 4h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** ops, back
 
@@ -117,21 +117,21 @@ En este sprint **NO se implementa el sistema completo**, solo se define:
 
 ## TAREAS
 
-### ✅ S2-06.1 Diseñar modelo conceptual del RoutinesAgent
+### ✅ S2-36.1 Diseñar modelo conceptual del RoutinesAgent
 
 **Context:**
 
 - Definir inputs, outputs, limitaciones iniciales y supuestos clínicos.
 - Diseño por Samuel Reveles
-- Validación requerida por Miguel Angel Valdes
+- Validación requerida por Miguel Angel Valdés García
 
 - **Estimación:** 4h
 
-- **Assignee:** Samuel Reveles, Miguel Angel Valdes
+- **Assignee:** Samuel Reveles, Miguel Angel Valdés García
 
 - **Tags:** back, ia
 
-### ✅ S2-06.2 Definir esquema JSON estándar para rutinas IA
+### ✅ S2-36.2 Definir esquema JSON estándar para rutinas IA
 
 - **Context:**  
   Schema único para backend, IA y APP: días, ejercicios, series, reps, descansos.
@@ -142,7 +142,7 @@ En este sprint **NO se implementa el sistema completo**, solo se define:
 
 - **Tags:** back
 
-### ✅ S2-06.3 Implementar endpoint de generación automática de rutinas
+### ✅ S2-36.3 Implementar endpoint de generación automática de rutinas
 
 - **Context:**  
   Endpoint que reciba datos del paciente y devuelva la rutina generada por IA.
@@ -153,18 +153,18 @@ En este sprint **NO se implementa el sistema completo**, solo se define:
 
 - **Tags:** back, ia
 
-### ✅ S2-06.4 Definir modelo de acciones para edición granular de rutinas
+### ✅ S2-36.4 Definir modelo de acciones para edición granular de rutinas
 
 - **Context:**  
   Especificar acciones: agregar/quitar ejercicio, mover, cambiar series, descansos.
 
 - **Estimación:** 4h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** back, ia
 
-### ✅ S2-06.5 Implementar endpoint de acciones para edición de rutinas
+### ✅ S2-36.5 Implementar endpoint de acciones para edición de rutinas
 
 - **Context:**  
   Endpoint que aplique `actions` sobre una rutina existente, con validaciones.
@@ -175,7 +175,7 @@ En este sprint **NO se implementa el sistema completo**, solo se define:
 
 - **Tags:** back
 
-### ✅ S2-06.6 Boceto UX del editor de rutinas (conceptual)
+### ✅ S2-36.6 Boceto UX del editor de rutinas (conceptual)
 
 - **Context:**  
   Diseño base del editor visual para que frontend lo ejecute en siguientes sprints.
@@ -186,7 +186,7 @@ En este sprint **NO se implementa el sistema completo**, solo se define:
 
 - **Tags:** ux
 
-### ✅ S2-06.7 Desarrollar el editor de rutinas
+### ✅ S2-36.7 Desarrollar el editor de rutinas
 
 **Context:** Desarrollar el editor visual en frontend para que el especialista pueda actualizar las rutinas ya sea desde la creación del flujo automatico con el RoutinesAgent o desde una Rutina ya creada en la base de datos
 
@@ -196,7 +196,7 @@ En este sprint **NO se implementa el sistema completo**, solo se define:
 
 - **Tags:** ux
 
-### ✅ S2-06.8 QA inicial del flujo mínimo del RoutinesAgent
+### ✅ S2-36.8 QA inicial del flujo mínimo del RoutinesAgent
 
 - **Context:**  
   Probar: generación → edición → validación estructural de rutina.

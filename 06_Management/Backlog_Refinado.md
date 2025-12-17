@@ -56,7 +56,7 @@ Backlog reorganizado en bloques.
 
 - **Estimación:** 6h
 
-- **Assignee:** Antoine Ganem, Miguel Angel Valdes
+- **Assignee:** Antoine Ganem, Miguel Angel Valdés García
 
 - **Tags:** ops
 
@@ -74,7 +74,7 @@ Backlog reorganizado en bloques.
 
 - **Estimación:** 6h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** ops
 
@@ -86,7 +86,7 @@ Backlog reorganizado en bloques.
 
 - **Estimación:** 4h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** back
 
@@ -96,13 +96,125 @@ Backlog reorganizado en bloques.
 
 - **Estimación:** 4h
 
-- **Assignee:** Miguel Angel Valdes
+- **Assignee:** Miguel Angel Valdés García
 
 - **Tags:** back
 
-## [Sprint - Infraestructura, Pagos y Deuda Técnica](./4.0_Infra_Pagos_Deuda_Tecnica.md#14-deuda-técnica-crítica)
+# [4 - Infraestructura, Pagos y Deuda Técnica](./4.0_Infra_Pagos_Deuda_Tecnica.md)
 
-### ✅ S_Infra_Pagos_Deuda_Tecnica-04.1 Crear las tablas de ejercicios para rutinas en español
+### S2-40.1 Auditoría técnica de `PaymentMethods.js`
+
+- **Context:** Revisar la implementación actual de `PaymentMethods.js` para identificar flujos incompletos, dependencias implícitas, lógica duplicada y puntos de fallo silenciosos en los métodos de pago.
+
+- **Estimación:** 4h
+
+- **Tags:** back
+
+### S2-40.2 Implementación del flujo `createOrderURL` para MercadoPago
+
+- **Context:** Implementar el flujo completo de creación de órdenes en MercadoPago, asegurando la correcta generación de URLs de pago y el manejo explícito de estados intermedios.
+
+- **Estimación:** 4h
+
+- **Tags:** back
+
+### S2-40.3 Normalización de estados de pago
+
+- **Context:** Definir y estandarizar los estados de pago (pending, approved, rejected, cancelled) para que todos los proveedores sigan el mismo contrato interno.
+
+- **Estimación:** 4h
+
+- **Tags:** back
+
+### S2-40.4 Manejo robusto de errores en flujos de pago
+
+- **Context:** Implementar manejo explícito de errores en pagos: timeouts, callbacks tardíos, pagos duplicados y fallos de red, evitando estados inconsistentes.
+
+- **Estimación:** 6h
+
+- **Tags:** back
+
+### _(Nice-to-have)_ S2-40.5 Persistencia y auditoría de intentos de pago
+
+- **Context:** Registrar cada intento de pago en base de datos para permitir trazabilidad, conciliación y análisis de errores posteriores.
+
+- **Estimación:** 4h
+
+- **Tags:** back
+
+## [41 - MercadoPago – Integración Completa](./4.0_Infra_Pagos_Deuda_Tecnica.md#11-mercadopago--integración-completa)
+
+### S2-41.1 Definición del contrato único de webhooks (MercadoPago)
+
+- **Context:** Definir un contrato estándar para webhooks que permita procesar eventos de pago de forma consistente y segura.
+
+- **Estimación:** 3h
+
+- **Tags:** back
+
+### S2-41.2 Validación de firma y origen de webhooks
+
+- **Context:** Implementar validaciones de seguridad para garantizar que los webhooks provienen realmente del proveedor de pagos.
+
+- **Estimación:** 4h
+
+- **Tags:** back
+
+### S2-41.3 Manejo de idempotencia en eventos de pago
+
+- **Context:** Actualmente Mercado Pago hace varias llamadas a la vez a nuestro backend. Evitar procesamiento duplicado de eventos de pago mediante validaciones de idempotencia por `payment_id`.
+
+- **Estimación:** 4h
+
+- **Tags:** back
+
+## [42 - Openpay – Auditoría y Limpieza](./4.0_Infra_Pagos_Deuda_Tecnica.md#12-openpay--auditoría-y-limpieza)
+
+### S2-42.1 Auditoría técnica del módulo Openpay (`openpay.js`)
+
+- **Context:** Auditar la implementación actual de Openpay para detectar validaciones duplicadas, lógica innecesaria y datos inconsistentes por usuario.
+
+- **Estimación:** 4h
+
+- **Tags:** back
+
+### S2-42.2 Eliminación de validaciones y consultas duplicadas en Openpay
+
+- **Context:** Limpiar la implementación de Openpay eliminando validaciones redundantes y consultas innecesarias.
+
+- **Estimación:** 4h
+
+- **Tags:** back
+
+### S2-42.3 Unificación de Openpay bajo el contrato `paymentProvider`
+
+- **Context:** Adaptar Openpay al contrato común de proveedores de pago para reducir lógica condicional y deuda técnica.
+
+- **Estimación:** 6h
+
+- **Tags:** back
+
+## [43 - Wire4 – Validaciones y Cuentas](./4.0_Infra_Pagos_Deuda_Tecnica.md#13-wire4--validaciones-y-cuentas)
+
+### S2-43.1 Auditoría de validaciones de cuentas bancarias (`accounts.js`)
+
+- **Context:** Revisar la lógica actual de validación de cuentas bancarias para detectar fallos en la validación de CLABE.
+
+- **Estimación:** 3h
+
+- **Tags:** back
+
+### S2-43.2 Implementación de Wire4 en el proyecto
+
+- **Context:** Implementar Wire4 en Multinature. Aplicar las credenciales correctas, consultar con Miguel
+
+- **Estimación:** 5h
+
+- **Tags:** back
+
+## [44- Deuda Técnica](./4.0_Infra_Pagos_Deuda_Tecnica.md#14-deuda-técnica-crítica)
+
+### ✅ S2-44.1 Crear las tablas de ejercicios para rutinas en español
 
 - **Context:** Actualmente solo se tienen los ejercicios y todos sus registros relacionados con rutinas en inglés, traducir todos estos registros y crear las tablas en base de datos de los mismos pero en español
 
@@ -112,7 +224,7 @@ Backlog reorganizado en bloques.
 
 - **Tags:** back
 
-### ✅ S_Infra_Pagos_Deuda_Tecnica-04.2 Implementar soporte de idioma (i18n) EN/ES para api de rutinas
+### ✅ S2-44.2 Implementar soporte de idioma (i18n) EN/ES para api de rutinas
 
 - **Context:** Actualmente el sistema no tiene una forma estándar de distinguir el idioma (EN/ES) en los contenidos y respuestas. Se requiere definir un mecanismo en backend para:
 
@@ -126,7 +238,7 @@ Backlog reorganizado en bloques.
 
 - **Tags:** back
 
-### ✅ S_Infra_Pagos_Deuda_Tecnica-04.3 Implementación en backend de inventario de productos
+### ✅ S2-44.3 Implementación en backend de inventario de productos
 
 - **Context:**
 
@@ -141,7 +253,7 @@ Backlog reorganizado en bloques.
 
 - **Tags:** back
 
-### ✅ S_Infra_Pagos_Deuda_Tecnica-04.4 Implementación en frontend de inventario de productos
+### ✅ S2-44.4 Implementación en frontend de inventario de productos
 
 - **Context:**
 
@@ -156,7 +268,7 @@ Backlog reorganizado en bloques.
 
 - **Tags:** front
 
-### ✅ S_Infra_Pagos_Deuda_Tecnica-04.5 Quitar "specialistSettings" de la respuesta del login
+### ✅ S2-44.5 Quitar "specialistSettings" de la respuesta del login
 
 - **Context:**
 
@@ -169,7 +281,7 @@ Backlog reorganizado en bloques.
 
 - **Tags:** back
 
-### ✅ S_Infra_Pagos_Deuda_Tecnica-04.6 Dejar de utilizar "specialistSettings" desde la respuesta del login y consultarlo de manera individual
+### ✅ S2-44.6 Dejar de utilizar "specialistSettings" desde la respuesta del login y consultarlo de manera individual
 
 - **Context:**
 
@@ -192,7 +304,7 @@ Backlog reorganizado en bloques.
 
 - **Tags:** back
 
-### ✅ S_Infra_Pagos_Deuda_Tecnica-04.7 Limpieza de endpoints sin utilizar y del api-collection de Bruno
+### ✅ S2-44.7 Limpieza de endpoints sin utilizar y del api-collection de Bruno
 
 - **Context:**
 
@@ -202,5 +314,29 @@ Backlog reorganizado en bloques.
 - **Estimación:** 4h
 
 - **Assignee:** Cristopher Reveles
+
+- **Tags:** back
+
+### S2-44.8 Refactor estructural del módulo `diets.js`
+
+- **Context:** Separar responsabilidades, eliminar código legacy y reducir complejidad del módulo `diets.js`, uno de los núcleos del sistema.
+
+- **Estimación:** 6h
+
+- **Tags:** back
+
+### S2-44.9 Limpieza de código legacy no utilizado
+
+- **Context:** Identificar módulos legacy sin uso activo y eliminarlos para reducir carga cognitiva y riesgo futuro.
+
+- **Estimación:** 4h
+
+- **Tags:** back
+
+### S2-44.10 Auditoría de logs y trazabilidad de pagos
+
+- **Context:** Revisar y homogeneizar la estructura de logs para asegurar trazabilidad completa por request y por evento de pago.
+
+- **Estimación:** 4h
 
 - **Tags:** back
