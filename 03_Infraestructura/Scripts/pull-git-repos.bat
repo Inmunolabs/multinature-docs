@@ -187,6 +187,7 @@ echo Successful updates:    %SUCCESS_COUNT%
 echo Failed updates:        %FAIL_COUNT%
 echo ============================================================================
 echo.
+echo FAILED_REPOS:
 
 if %FAIL_COUNT% GTR 0 (
     echo [!] Failed repositories:
