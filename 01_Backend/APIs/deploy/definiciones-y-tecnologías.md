@@ -1,4 +1,4 @@
-# Guía de Despliegue - Definiciones de Servicios
+# Definiciones de Servicios
 
 Esta guía contiene las definiciones de los servicios y tecnologías utilizadas en la arquitectura de las APIs de Multinature.
 
