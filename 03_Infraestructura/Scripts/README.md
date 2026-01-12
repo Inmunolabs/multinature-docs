@@ -12,6 +12,7 @@ Colección de scripts para gestión, mantenimiento y automatización de tareas e
 - [commitAndPush-git-repos.bat](#commitandpush-git-reposbat) - Commit y push a múltiples repositorios
 - [pull-git-repos.bat](#pull-git-reposbat) - Actualizar todos los repositorios Git
 - [status-git-repos.bat](#status-git-reposbat) - Estado de todos los repositorios Git
+- [create-prs-from-develop.bat](#create-prs-from-developbat) - Crear Pull Requests desde develop a master/main
 
 ### 🚀 Scripts de Despliegue
 
@@ -171,6 +172,139 @@ Muestra el estado detallado de todos los repositorios Git del workspace.
 
 - Contadores de repos limpios, con cambios, adelantados, atrasados, divergidos
 - Lista de repos que necesitan atención
+
+---
+
+### create-prs-from-develop.bat
+
+Crea Pull Requests automáticamente desde la rama `develop` hacia `master` o `main` (según exista) para todos los repositorios Git del workspace.
+
+**Ubicación:** `docs/03_Infraestructura/Scripts/create-prs-from-develop.bat`
+
+**Uso:**
+
+```bash
+# Crear PRs para todos los repositorios
+.\create-prs-from-develop.bat
+
+# Modo dry-run (ver qué se haría sin crear PRs)
+.\create-prs-from-develop.bat --dry-run
+
+# Con título personalizado
+.\create-prs-from-develop.bat --title="Release v1.0.0"
+
+# Con título y descripción personalizados
+.\create-prs-from-develop.bat --title="Release v1.0.0" --body="Descripción del release"
+
+# Ayuda
+.\create-prs-from-develop.bat --help
+```
+
+**Opciones:**
+
+- `--dry-run`: Muestra qué PRs se crearían sin crearlos realmente
+- `--title=TITLE`: Título personalizado para los PRs (default: "Merge develop into {target-branch}")
+- `--body=BODY`: Descripción personalizada para los PRs (default: "Automated PR from develop branch")
+- `--help` o `-h`: Mostrar ayuda
+
+**Requisitos:**
+
+1. **GitHub Personal Access Token:**
+   - Debe tener permisos para crear PRs en los repositorios
+   - Configurar como variable de entorno `GITHUB_TOKEN`:
+   
+   ```bash
+   # En CMD
+   set GITHUB_TOKEN=tu_token_aqui
+   
+   # En PowerShell
+   $env:GITHUB_TOKEN='tu_token_aqui'
+   ```
+
+2. **PowerShell 5.1 o superior** (requerido para ejecutar el script interno)
+
+3. **Repositorios Git configurados** con remotes de GitHub válidos
+
+**Funcionalidad:**
+
+1. **Detección de repositorios:**
+   - Escanea todos los directorios en `apis/`
+   - Escanea todos los directorios en `layers/`
+   - Procesa `api-collection` y `docs` si son repositorios Git
+
+2. **Validaciones:**
+   - Verifica que cada directorio sea un repositorio Git
+   - Extrae información del repositorio desde el remote `origin`
+   - Verifica que la rama `develop` exista
+   - Detecta automáticamente si el repositorio usa `master` o `main` como rama principal
+   - Verifica si ya existe un PR abierto con las mismas ramas
+
+3. **Creación de PRs:**
+   - Crea un PR desde `develop` hacia `master` o `main` (según exista)
+   - Usa la API de GitHub para crear los PRs
+   - Muestra el enlace del PR creado
+
+4. **Manejo de errores:**
+   - Salta repositorios que no son de GitHub
+   - Salta repositorios sin la rama `develop`
+   - Salta repositorios sin rama `master` o `main`
+   - Salta si ya existe un PR abierto con las mismas ramas
+   - Muestra errores detallados si falla la creación
+
+**Salidas:**
+
+- Reporte en consola con estado de cada repositorio
+- Resumen con contadores de éxitos, fallos y saltados
+- Enlaces directos a los PRs creados
+- Lista de repositorios que fallaron con detalles del error
+
+**Ejemplo de salida:**
+
+```
+============================================================================
+                    CREATE PULL REQUESTS FROM DEVELOP
+============================================================================
+Root Directory: C:\Users\...\backend
+Source Branch: develop
+Target Branches: master main
+Dry Run: False
+============================================================================
+
+[1/4] PROCESSING LAYERS...
+---------------------------------------------------------------------------
+
+----------------------------------------
+multi-commons-layer
+----------------------------------------
+  Repository: Inmunolabs/multinature-commons-layer
+  Branches: develop -> master
+  Action: Creating PR...
+  Status: [OK] PR created successfully
+  URL: https://github.com/Inmunolabs/multinature-commons-layer/pull/123
+
+...
+
+============================================================================
+                             SUMMARY
+============================================================================
+Successful: 15
+Failed: 0
+Skipped: 3
+============================================================================
+```
+
+**Notas:**
+
+- El script usa la API de GitHub directamente (no requiere GitHub CLI)
+- Los PRs se crean con estado "open" por defecto
+- El script respeta las protecciones de rama configuradas en GitHub
+- Si un PR ya existe, el script lo detecta y lo salta automáticamente
+- El script funciona con repositorios bajo la organización `Inmunolabs` o cualquier otra organización/usuario
+
+**Códigos de salida:**
+
+- `0` - Éxito (todos los PRs creados o todos saltados por razones válidas)
+- `1` - Error (fallos al crear PRs o problemas de configuración)
 
 ---
 
@@ -490,6 +624,6 @@ Las dependencias se instalarán en `docs/03_Infraestructura/Scripts/node_modules
 
 ---
 
-- **Última actualización:** 2025-12-15
-- **Total de archivos:** 7 (incluye subdirectorios)
-- **Total de scripts:** 9
+- **Última actualización:** 2025-01-21
+- **Total de archivos:** 9 (incluye subdirectorios)
+- **Total de scripts:** 11
