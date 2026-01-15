@@ -27,11 +27,21 @@ function Write-ColorOutput {
 
 # Check for GitHub token
 $GITHUB_TOKEN = $env:GITHUB_TOKEN
-if (-not $GITHUB_TOKEN) {
+if (-not $GITHUB_TOKEN -or $GITHUB_TOKEN.Trim() -eq "") {
     Write-ColorOutput "[ERROR] GITHUB_TOKEN environment variable is not set." "Red"
-    Write-ColorOutput "Please set it with: set GITHUB_TOKEN=your_token_here" "Yellow"
-    Write-ColorOutput "Or in PowerShell: `$env:GITHUB_TOKEN='your_token_here'" "Yellow"
+    Write-ColorOutput "Please set it with:" "Yellow"
+    Write-ColorOutput "  PowerShell: `$env:GITHUB_TOKEN='your_token_here'" "Yellow"
+    Write-ColorOutput "  CMD: set GITHUB_TOKEN=your_token_here" "Yellow"
+    Write-ColorOutput "" "White"
+    Write-ColorOutput "The token must be a GitHub Personal Access Token (classic) with 'repo' scope." "Yellow"
+    Write-ColorOutput "Create one at: https://github.com/settings/tokens" "Yellow"
     exit 1
+}
+
+# Validate token format (GitHub tokens start with ghp_ for classic tokens)
+if ($GITHUB_TOKEN -notmatch '^ghp_[A-Za-z0-9]{36}$' -and $GITHUB_TOKEN -notmatch '^gho_' -and $GITHUB_TOKEN -notmatch '^ghu_' -and $GITHUB_TOKEN -notmatch '^ghs_' -and $GITHUB_TOKEN -notmatch '^ghr_') {
+    Write-ColorOutput "[WARNING] Token format doesn't look like a valid GitHub token." "Yellow"
+    Write-ColorOutput "GitHub tokens typically start with 'ghp_' for classic tokens." "Yellow"
 }
 
 # Parse target branches
@@ -161,6 +171,10 @@ function New-GitHubPR {
     
     try {
         $url = "$GITHUB_API_BASE/repos/$Owner/$Repo/pulls"
+        
+        # Agregar pequeño delay para evitar rate limiting
+        Start-Sleep -Milliseconds 500
+        
         $response = Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $prData -ErrorAction Stop
         
         return @{
@@ -171,19 +185,78 @@ function New-GitHubPR {
     }
     catch {
         $errorMessage = $_.Exception.Message
+        $statusCode = $null
+        $errorDetails = @()
+        
         if ($_.Exception.Response) {
+            $statusCode = $_.Exception.Response.StatusCode.value__
             $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream())
             $responseBody = $reader.ReadToEnd()
+            
             try {
                 $errorJson = $responseBody | ConvertFrom-Json
-                $errorMessage = $errorJson.message
+                
+                # Capturar mensaje principal
+                if ($errorJson.message) {
+                    $errorMessage = $errorJson.message
+                }
+                
+                # Capturar errores adicionales si existen
+                if ($errorJson.errors) {
+                    foreach ($err in $errorJson.errors) {
+                        if ($err.message) {
+                            $errorDetails += $err.message
+                        }
+                        elseif ($err.code) {
+                            $errorDetails += "$($err.code): $($err.field)"
+                        }
+                    }
+                }
+                
+                # Capturar documentación URL si existe
+                if ($errorJson.documentation_url) {
+                    $errorDetails += "Docs: $($errorJson.documentation_url)"
+                }
+                
+                # Manejo especial para rate limiting
+                if ($statusCode -eq 403 -and $errorJson.message -match "rate limit") {
+                    $errorMessage = "Rate limit excedido. Espera antes de intentar de nuevo."
+                    if ($_.Exception.Response.Headers['X-RateLimit-Reset']) {
+                        $resetTime = [DateTimeOffset]::FromUnixTimeSeconds([int]$_.Exception.Response.Headers['X-RateLimit-Reset']).LocalDateTime
+                        $errorDetails += "El límite se restablecerá a las: $resetTime"
+                    }
+                }
             }
-            catch { }
+            catch {
+                # Si no se puede parsear JSON, usar el body completo
+                if ($responseBody) {
+                    $errorMessage = "$errorMessage`nResponse: $responseBody"
+                }
+            }
+            
+            # Verificar rate limit headers incluso si no hay JSON
+            if ($statusCode -eq 403 -and $_.Exception.Response.Headers['X-RateLimit-Remaining'] -eq '0') {
+                $errorMessage = "Rate limit excedido"
+                if ($_.Exception.Response.Headers['X-RateLimit-Reset']) {
+                    $resetTime = [DateTimeOffset]::FromUnixTimeSeconds([int]$_.Exception.Response.Headers['X-RateLimit-Reset']).LocalDateTime
+                    $errorDetails += "El límite se restablecerá a las: $resetTime"
+                }
+            }
+        }
+        
+        # Construir mensaje de error completo
+        $fullErrorMessage = $errorMessage
+        if ($statusCode) {
+            $fullErrorMessage = "[HTTP $statusCode] $errorMessage"
+        }
+        if ($errorDetails.Count -gt 0) {
+            $fullErrorMessage += "`n" + ($errorDetails -join "`n")
         }
         
         return @{
             Success = $false
-            Error = $errorMessage
+            Error = $fullErrorMessage
+            StatusCode = $statusCode
         }
     }
 }
@@ -272,9 +345,29 @@ function Process-Repository {
     }
     else {
         Write-ColorOutput "  Status: [ERROR] Failed to create PR" "Red"
-        Write-ColorOutput "  Error: $($result.Error)" "Red"
+        
+        # Mostrar error de forma más detallada
+        $errorMsg = $result.Error
+        if ($result.StatusCode) {
+            Write-ColorOutput "  HTTP Status: $($result.StatusCode)" "Red"
+        }
+        
+        if ($errorMsg -and $errorMsg.Trim() -ne "") {
+            # Dividir el mensaje en líneas para mejor legibilidad
+            $errorLines = $errorMsg -split "`n"
+            foreach ($line in $errorLines) {
+                if ($line.Trim() -ne "") {
+                    Write-ColorOutput "  Error: $line" "Red"
+                }
+            }
+        }
+        else {
+            Write-ColorOutput "  Error: No se pudo obtener información del error" "Red"
+        }
+        
         $script:FailCount++
-        $script:FailedRepos += "$RepoName ($($result.Error))"
+        $shortError = if ($errorMsg) { ($errorLines[0] -replace "`n", " ").Trim() } else { "Unknown error" }
+        $script:FailedRepos += "$RepoName ($shortError)"
     }
 }
 
