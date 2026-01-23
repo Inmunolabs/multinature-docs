@@ -35,7 +35,6 @@ No aplica
   "data": {
     "id": "user123-e89b-12d3-a456-426614174000",
     "email": "juan.perez@email.com",
-    "isValid": true,
     "verificationDate": "2024-01-25T15:30:00Z"
   }
 }
@@ -66,7 +65,7 @@ No aplica
 - **Middleware:** Aplica `verificationCode` y `getUserByBodysEmail`
 - **Validaciones:** Verifica que el email exista y el código sea válido
 - **Expiración:** Los códigos de verificación tienen tiempo límite
-- **Base de datos:** Actualiza el campo `isValid` del usuario
+- **Base de datos:** Actualiza el campo `is_active` del usuario a `true`
 - **Seguridad:** No requiere autenticación para permitir verificación inicial
-- **Estado:** Cambia el estado de la cuenta de no verificada a verificada
+- **Estado:** Activa la cuenta del usuario estableciendo `is_active = true`
 - **Auditoría:** Registra la fecha de verificación

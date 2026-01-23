@@ -18,7 +18,6 @@ CREATE TABLE `users` (
   `subscription_date` date DEFAULT NULL,
   `openpay_user_id` varchar(20) DEFAULT NULL,
   `balance` double NOT NULL DEFAULT '0',
-  `is_valid` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '1',
   `updated_at` datetime DEFAULT (now()),
   `created_at` datetime DEFAULT (now()),
@@ -48,7 +47,6 @@ has_plan tinyint(1)
 subscription_date date
 openpay_user_id varchar(20)
 balance double NOT NULL
-is_valid tinyint(1)
 is_active tinyint(1)
 updated_at datetime
 created_at datetime

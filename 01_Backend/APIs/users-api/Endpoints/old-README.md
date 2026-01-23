@@ -134,7 +134,6 @@ La API está organizada en tres routers principales:
 - **`specialists`:** Array de especialistas asignados al usuario
 - **`specialties`:** Especialidades médicas del especialista
 - **`network`:** Información de referidos y niveles
-- **`isValid`:** Estado de verificación de la cuenta
 - **`hasPlan`:** Si el usuario tiene plan activo
 
 ### Estados de autorización

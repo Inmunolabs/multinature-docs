@@ -2,7 +2,8 @@
 
 **Fecha:** 2026-01-12
 **Hora:** 12:35 - 13:15
-**Participantes:** Daira, Antoine y Miguel
+**Participantes:** Daira, Alejandro, Andrés, Antoine y Miguel
+**Área / Contexto:** Ventas
 **Objetivo de la reunión:** Resolver inquietudes a Daira y revisar errores que se le han presentado desde el sistema
 
 ---
