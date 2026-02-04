@@ -4,7 +4,9 @@
   "description": "Dependencias para scripts de infraestructura",
   "private": true,
   "scripts": {
-    "export-form-templates": "node export-form-templates.js"
+    "export-form-templates": "node export-form-templates.js",
+    "create-prs": "node create-prs.js",
+    "commit-and-push": "node commit-and-push.js"
   },
   "dependencies": {
     "mysql2": "^3.5.2",

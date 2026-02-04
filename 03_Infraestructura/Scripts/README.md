@@ -9,10 +9,10 @@ Colección de scripts para gestión, mantenimiento y automatización de tareas e
 ### 🔧 Scripts de Git y Build
 
 - [build-layers.bat](#build-layersbat) - Construir todas las layers
-- [commitAndPush-git-repos.bat](#commitandpush-git-reposbat) - Commit y push a múltiples repositorios
+- [commit-and-push.js](#commit-and-pushjs) - Commit y push a múltiples repositorios (Node.js, multiplataforma)
 - [pull-git-repos.bat](#pull-git-reposbat) - Actualizar todos los repositorios Git
 - [status-git-repos.bat](#status-git-reposbat) - Estado de todos los repositorios Git
-- [create-prs-from-develop.bat](#create-prs-from-developbat) - Crear Pull Requests desde develop a master/main
+- [create-prs.js](#create-prsjs) - Crear Pull Requests (Node.js, multiplataforma)
 
 ### 🚀 Scripts de Despliegue
 
@@ -59,37 +59,79 @@ Construye todas las layers del proyecto ejecutando `npm run build` en cada una.
 
 ---
 
-### commitAndPush-git-repos.bat
+### commit-and-push.js
 
-Script interactivo para hacer commit y push a múltiples repositorios Git (APIs y/o Layers).
+Script interactivo y multiplataforma (Node.js) para hacer commit y push a múltiples repositorios Git (APIs y/o Layers).
 
-**Ubicación:** `docs/03_Infraestructura/Scripts/commitAndPush-git-repos.bat`
+**Ubicación:** `docs/03_Infraestructura/Scripts/commit-and-push.js`
 
 **Uso:**
 
 ```bash
-# Desde backend/
-.\commitAndPush-git-repos.bat
+# Modo interactivo (desde backend/)
+node docs/03_Infraestructura/Scripts/commit-and-push.js
+
+# Con parámetros (modo no interactivo)
+node docs/03_Infraestructura/Scripts/commit-and-push.js -m="Fix bug" --process=apis
+
+# Con exclusiones
+node docs/03_Infraestructura/Scripts/commit-and-push.js -m="Update" --process=both --exclude-apis=bookings-api
+
+# Saltar confirmación
+node docs/03_Infraestructura/Scripts/commit-and-push.js -m="Release" --process=apis --yes
 ```
+
+**Opciones:**
+
+| Opción | Descripción |
+|--------|-------------|
+| `-m, --message=MSG` | Mensaje de commit (requerido, o se pregunta interactivamente) |
+| `--pull=BRANCH` | Rama origen para pull (default: `develop`) |
+| `--push=BRANCH` | Rama destino para push (default: igual a pull) |
+| `--process=TYPE` | Qué procesar: `apis`, `layers`, o `both` |
+| `--exclude-apis=REPOS` | APIs a excluir (separadas por coma) |
+| `--exclude-layers=REPOS` | Layers a excluir (separadas por coma) |
+| `-y, --yes` | Saltar confirmación |
+| `--help, -h` | Mostrar ayuda |
 
 **Características:**
 
-- Solicita mensaje de commit interactivamente
+- **Multiplataforma**: Funciona en Windows, Linux y macOS
+- Solicita mensaje de commit interactivamente (si no se proporciona)
 - Permite especificar rama origen (source branch) para pull
 - Permite especificar rama destino (destination branch) para push
 - Opción para procesar solo APIs, solo Layers, o ambos
-- Confirmación antes de ejecutar
+- **Permite excluir repositorios específicos** de forma interactiva o por parámetro
+- Confirmación antes de ejecutar (omitible con `--yes`)
 - Manejo automático de checkout y creación de ramas
 - Validación de repositorios Git
+- Resumen con estadísticas al finalizar
 
-**Flujo:**
+**Flujo interactivo:**
 
 1. Solicita mensaje de commit
 2. Solicita rama origen (default: `develop`)
 3. Solicita rama destino (default: igual a origen)
 4. Selecciona qué procesar (APIs/Layers/Ambos)
-5. Muestra resumen y solicita confirmación
-6. Ejecuta checkout, pull, add, commit y push en cada repo
+5. Muestra lista de repositorios disponibles y permite excluir algunos
+6. Muestra resumen (incluyendo repos excluidos) y solicita confirmación
+7. Ejecuta checkout, pull, add, commit y push en cada repo (excepto los excluidos)
+
+**Ejemplo de exclusión interactiva:**
+
+```
+================================================================================
+Available APIs:
+================================================================================
+  [1] bookings-api
+  [2] commissions-api
+  [3] users-api
+  ...
+
+Enter the names of APIs to EXCLUDE (comma-separated, or press Enter to include all):
+Example: bookings-api,users-api
+APIs to exclude: bookings-api
+```
 
 ---
 
@@ -175,99 +217,142 @@ Muestra el estado detallado de todos los repositorios Git del workspace.
 
 ---
 
-### create-prs-from-develop.bat
+### create-prs.js
 
-Crea Pull Requests automáticamente desde la rama `develop` hacia `master` o `main` (según exista) para todos los repositorios Git del workspace.
+Script multiplataforma (Node.js) para crear Pull Requests automáticamente desde una rama origen hacia una rama destino para todos los repositorios Git del workspace.
 
-**Ubicación:** `docs/03_Infraestructura/Scripts/create-prs-from-develop.bat`
+**Ubicación:** `docs/03_Infraestructura/Scripts/create-prs.js`
 
 **Uso:**
 
 ```bash
-# Crear PRs para todos los repositorios
-.\create-prs-from-develop.bat
+# Modo interactivo (desde backend/)
+node docs/03_Infraestructura/Scripts/create-prs.js
 
 # Modo dry-run (ver qué se haría sin crear PRs)
-.\create-prs-from-develop.bat --dry-run
+node docs/03_Infraestructura/Scripts/create-prs.js --dry-run
 
 # Con título personalizado
-.\create-prs-from-develop.bat --title="Release v1.0.0"
+node docs/03_Infraestructura/Scripts/create-prs.js --title="Release v1.0.0"
 
 # Con título y descripción personalizados
-.\create-prs-from-develop.bat --title="Release v1.0.0" --body="Descripción del release"
+node docs/03_Infraestructura/Scripts/create-prs.js --title="Release v1.0.0" --body="Descripción del release"
+
+# Excluyendo repositorios específicos (sin selección interactiva)
+node docs/03_Infraestructura/Scripts/create-prs.js --exclude=bookings-api,users-api
+
+# Desde una rama diferente a develop
+node docs/03_Infraestructura/Scripts/create-prs.js --source=feature/new-feature --target=develop
 
 # Ayuda
-.\create-prs-from-develop.bat --help
+node docs/03_Infraestructura/Scripts/create-prs.js --help
 ```
 
 **Opciones:**
 
-- `--dry-run`: Muestra qué PRs se crearían sin crearlos realmente
-- `--title=TITLE`: Título personalizado para los PRs (default: "Merge develop into {target-branch}")
-- `--body=BODY`: Descripción personalizada para los PRs (default: "Automated PR from develop branch")
-- `--help` o `-h`: Mostrar ayuda
+| Opción | Descripción |
+|--------|-------------|
+| `--dry-run` | Muestra qué PRs se crearían sin crearlos realmente |
+| `--title=TITLE` | Título personalizado para los PRs (default: "Merge {source} into {target}") |
+| `--body=BODY` | Descripción personalizada para los PRs |
+| `--source=BRANCH` | Rama origen para los PRs (default: `develop`) |
+| `--target=BRANCH` | Rama destino para los PRs (default: `master main`) |
+| `--exclude=REPOS` | Lista de repositorios a excluir separados por comas |
+| `--help, -h` | Mostrar ayuda |
+
+**Exclusión de repositorios:**
+
+Si no se proporciona el parámetro `--exclude`, el script mostrará una lista interactiva de todos los repositorios disponibles:
+
+```
+============================================================================
+                    REPOSITORY SELECTION
+============================================================================
+
+Available Layers:
+--------------------------------------------------------------------------------
+  [1] multi-commons-layer
+  [2] multi-mysql-layer
+
+Available APIs:
+--------------------------------------------------------------------------------
+  [3] bookings-api
+  [4] commissions-api
+  [5] users-api
+
+Other Repositories:
+--------------------------------------------------------------------------------
+  [6] api-collection
+  [7] docs
+
+--------------------------------------------------------------------------------
+Enter the names of repositories to EXCLUDE (comma-separated)
+Press Enter to include ALL repositories
+Example: bookings-api,users-api,multi-commons-layer
+--------------------------------------------------------------------------------
+Repositories to exclude: bookings-api,users-api
+```
 
 **Requisitos:**
 
 1. **GitHub Personal Access Token:**
-   - Debe tener permisos para crear PRs en los repositorios
+   - Debe tener permisos para crear PRs en los repositorios (`repo` scope)
    - Configurar como variable de entorno `GITHUB_TOKEN`:
    
    ```bash
-   # En CMD
+   # Windows CMD
    set GITHUB_TOKEN=tu_token_aqui
    
-   # En PowerShell
-   $env:GITHUB_TOKEN='tu_token_aqui'
+   # Windows PowerShell
+   $env:GITHUB_TOKEN="tu_token_aqui"
+   
+   # Linux/macOS
+   export GITHUB_TOKEN=tu_token_aqui
    ```
 
-2. **PowerShell 5.1 o superior** (requerido para ejecutar el script interno)
+2. **Node.js** instalado (ya lo tienes si usas este proyecto)
 
 3. **Repositorios Git configurados** con remotes de GitHub válidos
 
 **Funcionalidad:**
 
-1. **Detección de repositorios:**
-   - Escanea todos los directorios en `apis/`
-   - Escanea todos los directorios en `layers/`
+1. **Selección de repositorios:**
+   - Muestra lista interactiva de todos los repositorios disponibles
+   - Permite excluir repositorios específicos antes de procesar
+   - Escanea todos los directorios en `apis/` y `layers/`
    - Procesa `api-collection` y `docs` si son repositorios Git
 
 2. **Validaciones:**
    - Verifica que cada directorio sea un repositorio Git
    - Extrae información del repositorio desde el remote `origin`
-   - Verifica que la rama `develop` exista
+   - Verifica que la rama origen exista
    - Detecta automáticamente si el repositorio usa `master` o `main` como rama principal
    - Verifica si ya existe un PR abierto con las mismas ramas
 
 3. **Creación de PRs:**
-   - Crea un PR desde `develop` hacia `master` o `main` (según exista)
+   - Crea un PR desde la rama origen hacia la rama destino especificada
    - Usa la API de GitHub para crear los PRs
    - Muestra el enlace del PR creado
 
 4. **Manejo de errores:**
+   - Salta repositorios excluidos por el usuario
    - Salta repositorios que no son de GitHub
-   - Salta repositorios sin la rama `develop`
-   - Salta repositorios sin rama `master` o `main`
+   - Salta repositorios sin la rama origen
+   - Salta repositorios sin rama destino (master/main)
    - Salta si ya existe un PR abierto con las mismas ramas
    - Muestra errores detallados si falla la creación
-
-**Salidas:**
-
-- Reporte en consola con estado de cada repositorio
-- Resumen con contadores de éxitos, fallos y saltados
-- Enlaces directos a los PRs creados
-- Lista de repositorios que fallaron con detalles del error
 
 **Ejemplo de salida:**
 
 ```
 ============================================================================
-                    CREATE PULL REQUESTS FROM DEVELOP
+                    CREATE PULL REQUESTS
 ============================================================================
-Root Directory: C:\Users\...\backend
+Root Directory: /home/user/backend
 Source Branch: develop
 Target Branches: master main
-Dry Run: False
+Dry Run: false
+Excluded Repos: bookings-api, users-api
 ============================================================================
 
 [1/4] PROCESSING LAYERS...
@@ -282,24 +367,32 @@ multi-commons-layer
   Status: [OK] PR created successfully
   URL: https://github.com/Inmunolabs/multinature-commons-layer/pull/123
 
+[2/4] PROCESSING APIs...
+---------------------------------------------------------------------------
+
+----------------------------------------
+bookings-api
+----------------------------------------
+  Status: [SKIP] Excluded by user
+
 ...
 
 ============================================================================
                              SUMMARY
 ============================================================================
-Successful: 15
+Successful: 13
 Failed: 0
-Skipped: 3
+Skipped: 5
 ============================================================================
 ```
 
 **Notas:**
 
+- **Multiplataforma**: Funciona en Windows, Linux y macOS
 - El script usa la API de GitHub directamente (no requiere GitHub CLI)
 - Los PRs se crean con estado "open" por defecto
-- El script respeta las protecciones de rama configuradas en GitHub
 - Si un PR ya existe, el script lo detecta y lo salta automáticamente
-- El script funciona con repositorios bajo la organización `Inmunolabs` o cualquier otra organización/usuario
+- Incluye rate-limiting automático para evitar problemas con la API de GitHub
 
 **Códigos de salida:**
 
