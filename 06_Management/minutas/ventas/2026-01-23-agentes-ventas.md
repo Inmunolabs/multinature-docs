@@ -2,9 +2,9 @@
 
 **Fecha:** 2026-01-23  
 **Hora:** 16:05 - 17:10  
-**Participantes:** Daira, Alejandro, Andrés, Antoine y Miguel
-**Área / Contexto:** Ventas
-**Objetivo de la reunión:** Feedback de Alejandro y Daira
+**Participantes:** Daira, Alejandro, Andrés, Antoine y Miguel  
+**Área / Contexto:** Ventas  
+**Objetivo de la reunión:** Feedback de Alejandro y Daira  
 
 ---
 

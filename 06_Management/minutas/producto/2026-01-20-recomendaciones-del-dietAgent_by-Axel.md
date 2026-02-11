@@ -1,10 +1,10 @@
 # 📝 Minuta – Diagnóstico y recomendaciones del DietAgent (by Axel)
 
-**Fecha:** 2026-01-20
-**Hora:** 15:05 - ≈ 16:30
-**Participantes:** Daira, Alejandro, Andrés, Antoine y Miguel
-**Área / Contexto:** Soporte
-**Objetivo de la reunión:** Revisar el diagnóstico y las recomendaciones del DietAgent propuestas por Axel, resolver nuestras inquietudes y definir acciones
+**Fecha:** 2026-01-20  
+**Hora:** 15:05 - ≈ 16:30  
+**Participantes:** Daira, Alejandro, Andrés, Antoine y Miguel  
+**Área / Contexto:** Soporte  
+**Objetivo de la reunión:** Revisar el diagnóstico y las recomendaciones del DietAgent propuestas por Axel, resolver nuestras inquietudes y definir acciones  
 
 ---
 
