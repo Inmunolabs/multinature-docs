@@ -11,9 +11,11 @@ Documentación completa de Multinature, incluyendo APIs, base de datos, infraest
 - **[02 Frontend](./02_Frontend/README.md)** - Documentación del frontend
 - **[03 Infraestructura](./03_Infraestructura/README.md)** - Scripts, herramientas y configuración de infraestructura
 - **[04 SQL](./04_SQL/README.md)** - Queries SQL y documentación de base de datos
-- **[05 Negocio](./05_Negocio/README.md)** - Tareas, pendientes y documentación de negocio
-- **[06 Management](./06_Management/README.md)** - Gestión del proyecto, procesos operativos, planificación y equipo
+- **[05 Negocio](./05_Negocio/README.md)** - Decisiones de negocio, pendientes y recursos
+- **[06 Management](./06_Management/README.md)** - Gestión del proyecto, épicas, roadmap, equipo y minutas
+- **[PM](./PM/)** - Plantillas de ClickUp y políticas operativas
 - **[99 Privado](./99_Privado/README.md)** - Documentación privada (testing)
+- **[CHANGELOG](./CHANGELOG.md)** - Registro de cambios
 
 ---
 
@@ -42,7 +44,7 @@ Documentación completa de Multinature, incluyendo APIs, base de datos, infraest
 **Product Owner/Business:**
 
 - [Reglas de Negocio](./00_Overview/Business_Rules/README.md) - Lógica de negocio
-- [Tareas](./05_Negocio/Tareas/README.md) - Gestión de tareas y features
+- [Decisiones de Negocio](./05_Negocio/decision-records.md) - Registro de decisiones
 
 ---
 
@@ -63,12 +65,12 @@ Todos los scripts están documentados en: **[Scripts/README.md](./03_Infraestruc
 
 ## 📊 Estadísticas
 
-- **Total de APIs documentadas:** 20+
+- **Total de APIs documentadas:** 18+
 - **Total de tablas en BD:** 82+
-- **Scripts de infraestructura:** 9
+- **Scripts de infraestructura:** 13
 
 ---
 
-- **Última actualización:** 2025-12-15
-- **Total de archivos:** 349 (incluye subdirectorios)
+- **Última actualización:** 2026-02-11
+- **Total de archivos:** ~390 (incluye subdirectorios)
 - **Mantenedor:** Miguel Valdés

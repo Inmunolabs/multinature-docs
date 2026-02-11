@@ -6,9 +6,6 @@ Documentación privada del proyecto Multinature, incluyendo casos de prueba, est
 
 ## 📑 Secciones
 
-- **[Testing](./Testing/README.md)**
-
-
 - **[Testing](./Testing/README.md)** - Documentación de pruebas, casos de test y estrategias de QA
 
 ---
@@ -27,5 +24,5 @@ Esta documentación es de uso interno y puede contener información sensible o e
 
 ---
 
-- **Última actualización:** 2025-12-15
-- **Total de archivos:** 1
+- **Última actualización:** 2026-02-11
+- **Total de archivos:** 2 (incluye subdirectorios)

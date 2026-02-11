@@ -14,6 +14,7 @@ Visión general del proyecto Multinature, incluyendo reglas de negocio, estructu
 
 - **[AGENTS.md](./AGENTS_GUIDE.md)** - Guía completa para agentes de IA (Codex, Cursor, etc) trabajando en el monorepo de Multinature
 - **[Estructura del Proyecto](./PROJECT_STRUCTURE.md)** - Mapa visual y descripción de la organización del código backend
+- **[Descripciones de Negocio](./business-descriptions.md)** - Descripciones generales del negocio y contexto del proyecto
 
 ---
 
@@ -35,5 +36,5 @@ Visión general del proyecto Multinature, incluyendo reglas de negocio, estructu
 
 ---
 
-- **Última actualización:** 2025-12-15
-- **Total de archivos:** 12
+- **Última actualización:** 2026-02-11
+- **Total de archivos:** 20 (incluye subdirectorios)

@@ -14,6 +14,21 @@ No es documentación de producto ni reglas de negocio es registro estructurado d
 
 ---
 
+## 📂 Subcarpetas
+
+### [producto/](./producto/)
+
+- [2026-01-20 — Recomendaciones del DietAgent (por Axel)](./producto/2026-01-20-recomendaciones-del-dietAgent_by-Axel.md)
+
+### [ventas/](./ventas/)
+
+- [2026-01-12 — Agentes de Ventas](./ventas/2026-01-12-agentes-ventas.md)
+- [2026-01-23 — Agentes de Ventas](./ventas/2026-01-23-agentes-ventas.md)
+- [2026-02-04 — Agentes de Ventas](./ventas/2026-01-02-04-agentes-ventas.md)
+- [2026-02-10 — Lorena](./ventas/2026-02-10-Lorena.md)
+
+---
+
 ## Reglas
 
 - Las decisiones se migran a su sección correspondiente

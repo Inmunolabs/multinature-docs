@@ -59,7 +59,6 @@ Ver [queries/README.md](./queries/README.md) para la lista completa de queries d
 ### Scripts de Validación
 
 - **[validate-entities-vs-ddl.js](../03_Infraestructura/Scripts/README.md#validate-entities-vs-ddljs)** - Valida que las entities en código estén alineadas con los DDL documentados
-- **[update-db-models-index.js](../03_Infraestructura/Scripts/README.md#update-db-models-indexjs)** - Actualiza el índice de modelos de base de datos
 
 ### Migraciones
 
@@ -78,7 +77,7 @@ Ver [migrations.md](./migrations.md) para:
 
 ---
 
-- **Última actualización:** 2025-12-15
-- **Total de archivos:** 89 (incluye subdirectorios)
+- **Última actualización:** 2026-02-11
+- **Total de archivos:** 92 (incluye subdirectorios)
 - **Total de tablas:** 82+
-- **Total de queries:** 5+
+- **Total de queries:** 5

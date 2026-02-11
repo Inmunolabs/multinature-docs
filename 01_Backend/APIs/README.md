@@ -32,6 +32,7 @@ Documentación completa de todas las APIs del backend de Multinature, incluyendo
 - **[Reglas de Documentación](./CONVENTIONS.md)** - Convenciones para documentar APIs en MultiNature Backend
 - **[Guía de Documentación de Endpoints](./DOCUMENTATION_GUIDE.md)** - Reglas y memorias del proyecto para documentación
 - **[Guía de Diseño de Rutas REST](./ROUTES_GUIDE.md)** - Convenciones para diseño de rutas REST
+- **[Áreas para Cache](./areas-para-cache.md)** - Identificación de áreas candidatas para implementar caché
 - **[Guía de Despliegue de nueva API](./deploy/preparacion-delpoy.md)** - Configuraciones para desplegar una nueva API en ECS o Lambda
 - **[Definiciones de arquitectura y problemas comunes al hacer deploys](./deploy/definiciones-y-tecnologías.md)** - Errores comunes al desplegar y definiciones de los servicios que se usan en la arquitectura
 
@@ -52,6 +53,6 @@ Cada API incluye:
 
 ---
 
-- **Última actualización:** 2025-12-15
-- **Total de APIs:** 17
-- **Total de archivos:** 183
+- **Última actualización:** 2026-02-11
+- **Total de APIs:** 18
+- **Total de archivos:** 185+

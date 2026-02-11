@@ -1,21 +1,21 @@
 # 05 Negocio
 
-Documentación de negocio, tareas, pendientes y recursos relacionados con la gestión del proyecto Multinature.
-
----
-
-## 📑 Secciones
-
-- **[Pendientes](./Pendientes/README.md)** - Lista de tareas pendientes y TODOs
-- **[Tareas](./Tareas/README.md)** - Documentación de tareas y features del proyecto
+Documentación de negocio, decisiones, pendientes y recursos relacionados con el proyecto Multinature.
 
 ---
 
 ## 📄 Archivos
 
-- **[Redacción de tareas y generación de CSV](./promptRedaccionDeTareas.md)** - Guía para redactar tareas y generar CSVs
-- **[Instrucciones para generar diagramas en Excalidraw](./propmtDiagramasDeExcalidraw.md)** - Guía para crear diagramas
-- **[Red de usuarios de Prueba](./redDeUsuariosDePrueba.png)** - Diagrama de la red de usuarios de prueba
+- **[Decision Records](./decision-records.md)** - Registro de decisiones de negocio y producto
+- **[Pendientes de Baja Prioridad](./TODOS.md)** - Lista de tareas pendientes, investigaciones futuras y mejoras
+- **[Vacante Ejecutivo de Ventas](./vacante-ejecutivo-ventas.md)** - Descripción de vacante para ejecutivo de ventas
+
+---
+
+## 📊 Recursos Visuales
+
+- **[Red de Usuarios de Prueba (PNG)](./redDeUsuariosDePrueba.png)** - Diagrama de la red de usuarios de prueba
+- **[Red de Usuarios de Prueba (Excalidraw)](./redDeUsuariosDePrueba.excalidraw)** - Diagrama editable
 
 ---
 
@@ -26,15 +26,5 @@ Documentación de negocio, tareas, pendientes y recursos relacionados con la ges
 
 ---
 
-## 📋 Gestión de Tareas
-
-Las tareas están organizadas por dominio y prioridad. Cada tarea incluye:
-- Descripción detallada
-- Requisitos y criterios de aceptación
-- Estado de implementación
-- Enlaces a ClickUp cuando aplica
-
----
-
-- **Última actualización:** 2025-12-15
-- **Total de archivos:** 33
+- **Última actualización:** 2026-02-11
+- **Total de archivos:** 5

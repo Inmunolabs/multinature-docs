@@ -8,6 +8,7 @@ Documentación técnica completa del backend de Multinature, incluyendo APIs, ba
 
 - **[APIs](./APIs/README.md)** - Documentación de todas las APIs del backend
 - **[Layers](./Layers/README.md)** - Arquitectura en capas y organización del código
+- **[Prompts](./prompts/)** - Prompts y plantillas para generación de documentación
 
 ---
 
@@ -49,5 +50,5 @@ Ver [APIs/README.md](./APIs/README.md) para la lista completa.
 
 ---
 
-- **Última actualización:** 2025-12-15
-- **Total de archivos:** 184 (incluye subdirectorios)
+- **Última actualización:** 2026-02-11
+- **Total de archivos:** 185+ (incluye subdirectorios)
