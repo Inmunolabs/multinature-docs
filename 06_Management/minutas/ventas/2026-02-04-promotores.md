@@ -41,7 +41,7 @@ Acciones concretas derivadas de la reunión.
   Prioridad: Alta
 
 - **[ACT-002]** Reparar rutinas.
-  Owner:  
+  Owner: Erick
   Prioridad: Alta
 
 ---
