@@ -5,6 +5,7 @@
 ```sql
 CREATE TABLE `foods` (
   `id` varchar(36) NOT NULL,
+  `specialist_id` varchar(36) DEFAULT NULL,
   `name` text NOT NULL,
   `image_key` varchar(255) DEFAULT NULL,
   `image_url` varchar(512) DEFAULT NULL,
@@ -13,11 +14,16 @@ CREATE TABLE `foods` (
   `proteins_total` decimal(6,2) DEFAULT NULL,
   `carbohydrates_total` decimal(6,2) DEFAULT NULL,
   `lipids_total` decimal(6,2) DEFAULT NULL,
+  `food_type` enum('official','custom','cloned') NOT NULL DEFAULT 'custom',
+  `is_global` tinyint(1) DEFAULT '0',
   `ai_generated` tinyint(1) DEFAULT '0',
-  `specialist_id` varchar(36) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `is_active` tinyint(1) NOT NULL DEFAULT '1',
+  `tags_json` json DEFAULT NULL,
+  `tags_version` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
-  KEY `specialist_id` (`specialist_id`),
+  KEY `foods_ibfk_1` (`specialist_id`),
+  FULLTEXT KEY `ft_foods_name` (`name`),
   CONSTRAINT `foods_ibfk_1` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`));
 ```
 
@@ -26,19 +32,23 @@ CREATE TABLE `foods` (
 ```
 Table: foods
 Columns:
-CREATE TABLE `foods` (
 id varchar(36) NOT NULL PK
+specialist_id varchar(36)
 name text NOT NULL
 image_key varchar(255)
 image_url varchar(512)
 recipe text
-calories_total decimal(6
-proteins_total decimal(6
-carbohydrates_total decimal(6
-lipids_total decimal(6
-ai_generated tinyint(1)
-specialist_id varchar(36)
-created_at timestamp NULL
+calories_total decimal(6,2)
+proteins_total decimal(6,2)
+carbohydrates_total decimal(6,2)
+lipids_total decimal(6,2)
+food_type enum('official','custom','cloned') NOT NULL DEFAULT 'custom'
+is_global tinyint(1) DEFAULT '0'
+ai_generated tinyint(1) DEFAULT '0'
+created_at timestamp NULL DEFAULT CURRENT_TIMESTAMP
+is_active tinyint(1) NOT NULL DEFAULT '1'
+tags_json json
+tags_version int NOT NULL DEFAULT '1'
 ```
 
 ## Reglas de mapeo

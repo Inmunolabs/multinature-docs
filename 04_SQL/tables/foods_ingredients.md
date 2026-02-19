@@ -8,6 +8,12 @@ CREATE TABLE `foods_ingredients` (
   `ingredient_id` varchar(36) NOT NULL,
   `quantity` decimal(6,2) NOT NULL,
   `equivalence_quantity` decimal(6,2) NOT NULL DEFAULT '0.00',
+  `net_g` decimal(10,2) DEFAULT NULL,
+  `kcal` decimal(10,2) DEFAULT NULL,
+  `protein_g` decimal(10,2) DEFAULT NULL,
+  `lipid_g` decimal(10,2) DEFAULT NULL,
+  `carb_g` decimal(10,2) DEFAULT NULL,
+  `computed_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`food_id`,`ingredient_id`),
   KEY `foods_ingredients_ibfk_2` (`ingredient_id`),
   CONSTRAINT `foods_ingredients_ibfk_1` FOREIGN KEY (`food_id`) REFERENCES `foods` (`id`),
@@ -19,11 +25,16 @@ CREATE TABLE `foods_ingredients` (
 ```
 Table: foods_ingredients
 Columns:
-CREATE TABLE `foods_ingredients` (
 food_id varchar(36) NOT NULL PK
 ingredient_id varchar(36) NOT NULL PK
-quantity decimal(6
-equivalence_quantity decimal(6
+quantity decimal(6,2) NOT NULL
+equivalence_quantity decimal(6,2) NOT NULL DEFAULT '0.00'
+net_g decimal(10,2)
+kcal decimal(10,2)
+protein_g decimal(10,2)
+lipid_g decimal(10,2)
+carb_g decimal(10,2)
+computed_at timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ```
 
 ## Reglas de mapeo
