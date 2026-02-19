@@ -35,8 +35,11 @@ CREATE TABLE `ingredients` (
   `glycemic_load` varchar(10) DEFAULT NULL,
   `equivalences_group_id` varchar(36) NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `tags_json` json DEFAULT NULL,
+  `tags_version` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `equivalences_group_id` (`equivalences_group_id`),
+  FULLTEXT KEY `ft_ingredients_name` (`name`),
   CONSTRAINT `ingredients_ibfk_1` FOREIGN KEY (`equivalences_group_id`) REFERENCES `equivalences_groups` (`id`));
 ```
 
@@ -45,38 +48,39 @@ CREATE TABLE `ingredients` (
 ```
 Table: ingredients
 Columns:
-CREATE TABLE `ingredients` (
 id char(36) NOT NULL PK
 name text NOT NULL
 image_key varchar(255)
 image_url varchar(512)
-base_quantity decimal(6
+base_quantity decimal(6,2) NOT NULL
 unit text NOT NULL
-calories decimal(6
-proteins decimal(6
-lipids decimal(6
-carbohydrates decimal(6
-gross_weight_g decimal(8
-net_weight_g decimal(8
-saturated_fats_g decimal(6
-monounsaturated_fats_g decimal(6
-polyunsaturated_fats_g decimal(6
-cholesterol_mg decimal(6
-sugar_g decimal(6
-fiber_g decimal(6
-vitamin_a_ug decimal(6
-vitamin_c_mg decimal(6
-folic_acid_mg decimal(6
-calcium_mg decimal(6
-iron_mg decimal(6
-potassium_mg decimal(6
-sodium_mg decimal(6
-phosphorus_mg decimal(6
-ethanol_g decimal(6
+calories decimal(6,2)
+proteins decimal(6,2)
+lipids decimal(6,2)
+carbohydrates decimal(6,2)
+gross_weight_g decimal(8,2)
+net_weight_g decimal(8,2)
+saturated_fats_g decimal(6,2)
+monounsaturated_fats_g decimal(6,2)
+polyunsaturated_fats_g decimal(6,2)
+cholesterol_mg decimal(6,2)
+sugar_g decimal(6,2)
+fiber_g decimal(6,2)
+vitamin_a_ug decimal(6,2)
+vitamin_c_mg decimal(6,2)
+folic_acid_mg decimal(6,2)
+calcium_mg decimal(6,2)
+iron_mg decimal(6,2)
+potassium_mg decimal(6,2)
+sodium_mg decimal(6,2)
+phosphorus_mg decimal(6,2)
+ethanol_g decimal(6,2)
 glycemic_index varchar(10)
 glycemic_load varchar(10)
 equivalences_group_id varchar(36) NOT NULL
-created_at timestamp NULL
+created_at timestamp NULL DEFAULT CURRENT_TIMESTAMP
+tags_json json
+tags_version int NOT NULL DEFAULT '1'
 ```
 
 ## Reglas de mapeo

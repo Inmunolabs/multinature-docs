@@ -7,6 +7,7 @@ CREATE TABLE `google_calendar_credentials` (
   `user_id` varchar(36) NOT NULL,
   `refresh_token` text NOT NULL,
   `email` text NOT NULL,
+  PRIMARY KEY (`user_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `google_calendar_credentials_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 );
@@ -17,8 +18,7 @@ CREATE TABLE `google_calendar_credentials` (
 ```
 Table: google_calendar_credentials
 Columns:
-CREATE TABLE `google_calendar_credentials` (
-user_id varchar(36) NOT NULL
+user_id varchar(36) NOT NULL PK
 refresh_token text NOT NULL
 email text NOT NULL
 ```

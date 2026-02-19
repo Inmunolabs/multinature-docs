@@ -10,6 +10,7 @@ CREATE TABLE `form_templates` (
   `name` varchar(100) DEFAULT NULL,
   `description` text,
   `is_initial_assessment` tinyint(1) NOT NULL DEFAULT '0',
+  `is_dietagent_intake` tinyint(1) NOT NULL DEFAULT '0',
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL,
@@ -26,13 +27,13 @@ CREATE TABLE `form_templates` (
 ```
 Table: form_templates
 Columns:
-CREATE TABLE `form_templates` (
 id varchar(36) NOT NULL PK
 specialty_id varchar(36)
 specialist_id varchar(36)
 name varchar(100)
 description text
-is_initial_assessment tinyint(1) NOT NULL
+is_initial_assessment tinyint(1) NOT NULL DEFAULT '0'
+is_dietagent_intake tinyint(1) NOT NULL DEFAULT '0'
 updated_at datetime
 created_at datetime
 deleted_at datetime

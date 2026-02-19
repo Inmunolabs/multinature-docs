@@ -5,18 +5,20 @@
 ```sql
 CREATE TABLE `workout_exercises` (
   `id` char(36) NOT NULL,
-  `day_split_id` char(36) NOT NULL,
+  `workout_day_id` char(36) NOT NULL,
   `exercise_id` char(36) NOT NULL,
   `muscle_id` varchar(50) NOT NULL,
   `order_in_day` int NOT NULL,
   `rest_after_exercise_seconds` int DEFAULT '60',
   `notes` text,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  KEY `day_split_id` (`day_split_id`),
-  KEY `exercise_id` (`exercise_id`),
+  KEY `workout_day_id` (`workout_day_id`),
   KEY `muscle_id` (`muscle_id`),
-  CONSTRAINT `workout_exercises_ibfk_1` FOREIGN KEY (`day_split_id`) REFERENCES `workout_day_splits` (`id`),
-  CONSTRAINT `workout_exercises_ibfk_2` FOREIGN KEY (`exercise_id`) REFERENCES `exercises2` (`id`),
+  KEY `workout_exercises_ibfk_2` (`exercise_id`),
+  CONSTRAINT `workout_exercises_ibfk_1` FOREIGN KEY (`workout_day_id`) REFERENCES `workout_days` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `workout_exercises_ibfk_2` FOREIGN KEY (`exercise_id`) REFERENCES `exercises` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `workout_exercises_ibfk_3` FOREIGN KEY (`muscle_id`) REFERENCES `muscles` (`id`)
 );
 ```
@@ -26,14 +28,15 @@ CREATE TABLE `workout_exercises` (
 ```
 Table: workout_exercises
 Columns:
-CREATE TABLE `workout_exercises` (
 id char(36) NOT NULL PK
-day_split_id char(36) NOT NULL
+workout_day_id char(36) NOT NULL
 exercise_id char(36) NOT NULL
 muscle_id varchar(50) NOT NULL
 order_in_day int NOT NULL
-rest_after_exercise_seconds int
+rest_after_exercise_seconds int DEFAULT '60'
 notes text
+created_at timestamp NULL DEFAULT CURRENT_TIMESTAMP
+updated_at timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ```
 
 ## Reglas de mapeo

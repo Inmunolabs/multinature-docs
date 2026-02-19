@@ -5,15 +5,13 @@
 ```sql
 CREATE TABLE `exercises` (
   `id` varchar(36) NOT NULL,
+  `exercisedbapi_id` varchar(36) DEFAULT NULL,
+  `exercise_type` enum('official','custom') NOT NULL DEFAULT 'official',
   `specialist_id` varchar(36) DEFAULT NULL,
-  `title` text NOT NULL,
-  `description` text,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `specialistId` (`specialist_id`),
-  CONSTRAINT `exercises_ibfk_1` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`)
-);
+  `name` text NOT NULL,
+  `gif_url` text,
+  `instructions` json DEFAULT NULL,
+  PRIMARY KEY (`id`));
 ```
 
 ## Resumen de columnas
@@ -21,13 +19,13 @@ CREATE TABLE `exercises` (
 ```
 Table: exercises
 Columns:
-CREATE TABLE `exercises` (
 id varchar(36) NOT NULL PK
+exercisedbapi_id varchar(36)
+exercise_type enum('official','custom') NOT NULL DEFAULT 'official'
 specialist_id varchar(36)
-title text NOT NULL
-description text
-updated_at timestamp NULL
-created_at timestamp NULL
+name text NOT NULL
+gif_url text
+instructions json
 ```
 
 ## Reglas de mapeo

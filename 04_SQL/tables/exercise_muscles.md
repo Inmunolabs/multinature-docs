@@ -9,9 +9,8 @@ CREATE TABLE `exercise_muscles` (
   `type` varchar(20) NOT NULL,
   PRIMARY KEY (`exercise_id`,`muscle_id`,`type`),
   KEY `muscle_id` (`muscle_id`),
-  CONSTRAINT `exercise_muscles_ibfk_1` FOREIGN KEY (`exercise_id`) REFERENCES `exercises2` (`id`),
-  CONSTRAINT `exercise_muscles_ibfk_2` FOREIGN KEY (`muscle_id`) REFERENCES `muscles` (`id`),
-  CONSTRAINT `exercise_muscles_chk_1` CHECK ((`type` in (_utf8mb4'primary',_utf8mb4'secondary')))
+  CONSTRAINT `exercise_muscles_ibfk_1` FOREIGN KEY (`exercise_id`) REFERENCES `exercises` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `exercise_muscles_ibfk_2` FOREIGN KEY (`muscle_id`) REFERENCES `muscles` (`id`)
 );
 ```
 
@@ -20,7 +19,6 @@ CREATE TABLE `exercise_muscles` (
 ```
 Table: exercise_muscles
 Columns:
-CREATE TABLE `exercise_muscles` (
 exercise_id varchar(36) NOT NULL PK
 muscle_id varchar(50) NOT NULL PK
 type varchar(20) NOT NULL PK
