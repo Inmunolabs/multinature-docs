@@ -7,6 +7,7 @@ CREATE TABLE `bookings` (
   `id` varchar(36) NOT NULL,
   `specialist_id` varchar(36) NOT NULL,
   `user_id` varchar(36) NOT NULL,
+  `form_request_id` varchar(36) DEFAULT NULL,
   `address` text,
   `video_call_url` varchar(255) DEFAULT NULL,
   `specialty_id` varchar(36) NOT NULL,
@@ -22,9 +23,11 @@ CREATE TABLE `bookings` (
   KEY `bookings_ibfk_1` (`specialist_id`),
   KEY `bookings_ibfk_2` (`user_id`),
   KEY `specialtyId` (`specialty_id`),
+  KEY `bookings_ibfk_5` (`form_request_id`),
   CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`),
   CONSTRAINT `bookings_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `bookings_ibfk_4` FOREIGN KEY (`specialty_id`) REFERENCES `specialties` (`id`)
+  CONSTRAINT `bookings_ibfk_4` FOREIGN KEY (`specialty_id`) REFERENCES `specialties` (`id`),
+  CONSTRAINT `bookings_ibfk_5` FOREIGN KEY (`form_request_id`) REFERENCES `form_templates` (`id`)
 );
 ```
 
@@ -33,15 +36,15 @@ CREATE TABLE `bookings` (
 ```
 Table: bookings
 Columns:
-CREATE TABLE `bookings` (
 id varchar(36) NOT NULL PK
 specialist_id varchar(36) NOT NULL
 user_id varchar(36) NOT NULL
+form_request_id varchar(36)
 address text
 video_call_url varchar(255)
 specialty_id varchar(36) NOT NULL
 calendar_event_id text NOT NULL
-status enum('Por confirmar'
+status enum('Por confirmar','Confirmada','Cancelada','Actualizada','Atendida') NOT NULL DEFAULT 'Por confirmar'
 date date NOT NULL
 start_hour time
 end_hour time

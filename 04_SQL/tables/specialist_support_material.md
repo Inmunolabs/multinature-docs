@@ -11,6 +11,7 @@ CREATE TABLE `specialist_support_material` (
   `url` text NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `s3_key` varchar(255) DEFAULT NULL,
+  `specialty_id` varchar(36) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `specialist_id` (`specialist_id`),
   CONSTRAINT `specialist_support_material_ibfk_1` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
@@ -22,14 +23,14 @@ CREATE TABLE `specialist_support_material` (
 ```
 Table: specialist_support_material
 Columns:
-CREATE TABLE `specialist_support_material` (
 id varchar(36) NOT NULL PK
 specialist_id varchar(36) NOT NULL
 name varchar(60) NOT NULL
 notes text
 url text NOT NULL
-created_at timestamp NULL
+created_at timestamp NULL DEFAULT CURRENT_TIMESTAMP
 s3_key varchar(255)
+specialty_id varchar(36) NOT NULL
 ```
 
 ## Reglas de mapeo

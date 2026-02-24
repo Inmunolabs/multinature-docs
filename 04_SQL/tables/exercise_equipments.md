@@ -8,7 +8,7 @@ CREATE TABLE `exercise_equipments` (
   `equipment_id` varchar(50) NOT NULL,
   PRIMARY KEY (`exercise_id`,`equipment_id`),
   KEY `equipment_id` (`equipment_id`),
-  CONSTRAINT `exercise_equipments_ibfk_1` FOREIGN KEY (`exercise_id`) REFERENCES `exercises2` (`id`),
+  CONSTRAINT `exercise_equipments_ibfk_1` FOREIGN KEY (`exercise_id`) REFERENCES `exercises` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `exercise_equipments_ibfk_2` FOREIGN KEY (`equipment_id`) REFERENCES `equipments` (`id`)
 );
 ```
@@ -18,7 +18,6 @@ CREATE TABLE `exercise_equipments` (
 ```
 Table: exercise_equipments
 Columns:
-CREATE TABLE `exercise_equipments` (
 exercise_id varchar(36) NOT NULL PK
 equipment_id varchar(50) NOT NULL PK
 ```

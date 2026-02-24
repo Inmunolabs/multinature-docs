@@ -12,8 +12,8 @@ CREATE TABLE `patient_team_shares` (
   `is_active` tinyint(1) DEFAULT '1',
   `revoked_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_patient_team_share` (`patient_id`,`teamwork_id`,`from_specialist_id`),
   KEY `from_specialist_id` (`from_specialist_id`),
-  KEY `patient_id` (`patient_id`),
   KEY `teamwork_id` (`teamwork_id`),
   CONSTRAINT `patient_team_shares_ibfk_1` FOREIGN KEY (`from_specialist_id`) REFERENCES `users` (`id`),
   CONSTRAINT `patient_team_shares_ibfk_2` FOREIGN KEY (`patient_id`) REFERENCES `users` (`id`),
@@ -26,13 +26,12 @@ CREATE TABLE `patient_team_shares` (
 ```
 Table: patient_team_shares
 Columns:
-CREATE TABLE `patient_team_shares` (
 id varchar(36) NOT NULL PK
 from_specialist_id varchar(36) NOT NULL
 patient_id varchar(36) NOT NULL
 teamwork_id varchar(36) NOT NULL
-shared_at timestamp NULL
-is_active tinyint(1)
+shared_at timestamp NULL DEFAULT CURRENT_TIMESTAMP
+is_active tinyint(1) DEFAULT '1'
 revoked_at timestamp NULL
 ```
 

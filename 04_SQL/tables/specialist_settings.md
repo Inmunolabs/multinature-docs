@@ -11,7 +11,8 @@ CREATE TABLE `specialist_settings` (
   `receive_emails` tinyint(1) DEFAULT '1',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`specialist_id`),
+  `specialty_id` varchar(36) NOT NULL,
+  PRIMARY KEY (`specialist_id`,`specialty_id`),
   CONSTRAINT `specialist_settings_ibfk_1` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 );
 ```
@@ -21,14 +22,14 @@ CREATE TABLE `specialist_settings` (
 ```
 Table: specialist_settings
 Columns:
-CREATE TABLE `specialist_settings` (
 specialist_id varchar(36) NOT NULL PK
-charge_advance_payment double
-charge_per_consultation double NOT NULL
-monthly_charge double NOT NULL
-receive_emails tinyint(1)
-updated_at timestamp NULL
-created_at timestamp NULL
+charge_advance_payment double DEFAULT '0'
+charge_per_consultation double NOT NULL DEFAULT '0'
+monthly_charge double NOT NULL DEFAULT '0'
+receive_emails tinyint(1) DEFAULT '1'
+updated_at timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+created_at timestamp NULL DEFAULT CURRENT_TIMESTAMP
+specialty_id varchar(36) NOT NULL PK
 ```
 
 ## Reglas de mapeo

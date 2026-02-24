@@ -17,7 +17,9 @@ CREATE TABLE `users` (
   `has_plan` tinyint(1) DEFAULT '0',
   `subscription_date` date DEFAULT NULL,
   `openpay_user_id` varchar(20) DEFAULT NULL,
+  `expo_token` text,
   `balance` double NOT NULL DEFAULT '0',
+  `is_valid` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '1',
   `updated_at` datetime DEFAULT (now()),
   `created_at` datetime DEFAULT (now()),
@@ -32,22 +34,23 @@ CREATE TABLE `users` (
 ```
 Table: users
 Columns:
-CREATE TABLE `users` (
 id varchar(36) NOT NULL PK
 email varchar(50) NOT NULL
 first_name varchar(50) NOT NULL
 last_name varchar(50) NOT NULL
 birthdate date
-gender enum('Hombre'
+gender enum('Hombre','Mujer') NOT NULL DEFAULT 'Hombre'
 password text
 phone varchar(10)
-profile enum('Administrador General'
+profile enum('Administrador General','Administrador de Productos','Administrador de Logística','Especialista','Usuario')
 recommender_id varchar(36) NOT NULL
-has_plan tinyint(1)
+has_plan tinyint(1) DEFAULT '0'
 subscription_date date
 openpay_user_id varchar(20)
-balance double NOT NULL
-is_active tinyint(1)
+expo_token text
+balance double NOT NULL DEFAULT '0'
+is_valid tinyint(1) DEFAULT '0'
+is_active tinyint(1) DEFAULT '1'
 updated_at datetime
 created_at datetime
 ```

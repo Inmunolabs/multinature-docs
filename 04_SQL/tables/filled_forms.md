@@ -16,7 +16,6 @@ CREATE TABLE `filled_forms` (
   KEY `formTemplateId` (`form_template_id`),
   KEY `userId` (`user_id`),
   KEY `specialistId` (`specialist_id`),
-  CONSTRAINT `filled_forms_ibfk_1` FOREIGN KEY (`booking_id`) REFERENCES `bookings` (`id`),
   CONSTRAINT `filled_forms_ibfk_2` FOREIGN KEY (`form_template_id`) REFERENCES `form_templates` (`id`),
   CONSTRAINT `filled_forms_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `filled_forms_ibfk_4` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`));
@@ -27,7 +26,6 @@ CREATE TABLE `filled_forms` (
 ```
 Table: filled_forms
 Columns:
-CREATE TABLE `filled_forms` (
 id varchar(36) NOT NULL PK
 booking_id varchar(36)
 form_template_id varchar(36) NOT NULL

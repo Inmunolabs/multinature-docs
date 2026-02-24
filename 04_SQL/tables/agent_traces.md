@@ -10,11 +10,12 @@ CREATE TABLE `agent_traces` (
   `agent_name` varchar(100) NOT NULL DEFAULT 'DietAgent',
   `operation` varchar(100) NOT NULL,
   `status` enum('started','completed','error','cancelled') NOT NULL DEFAULT 'started',
-  `input_summary` json DEFAULT NULL,
-  `output_summary` json DEFAULT NULL,
   `error_message` text,
   `execution_time_ms` int unsigned DEFAULT NULL,
-  `tokens_used` int unsigned DEFAULT NULL,
+  `total_tokens` int unsigned DEFAULT NULL,
+  `input_tokens` int unsigned DEFAULT NULL,
+  `output_tokens` int unsigned DEFAULT NULL,
+  `cached_tokens` int unsigned DEFAULT NULL,
   `cost_estimate` decimal(10,6) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -35,21 +36,21 @@ CREATE TABLE `agent_traces` (
 ```
 Table: agent_traces
 Columns:
-CREATE TABLE `agent_traces` (
 id varchar(36) NOT NULL PK
 user_id varchar(36) NOT NULL
 specialist_id varchar(36) NOT NULL
-agent_name varchar(100) NOT NULL
+agent_name varchar(100) NOT NULL DEFAULT 'DietAgent'
 operation varchar(100) NOT NULL
-status enum('started'
-input_summary json
-output_summary json
+status enum('started','completed','error','cancelled') NOT NULL DEFAULT 'started'
 error_message text
 execution_time_ms int unsigned
-tokens_used int unsigned
-cost_estimate decimal(10
-created_at timestamp NULL
-updated_at timestamp NULL
+total_tokens int unsigned
+input_tokens int unsigned
+output_tokens int unsigned
+cached_tokens int unsigned
+cost_estimate decimal(10,6)
+created_at timestamp NULL DEFAULT CURRENT_TIMESTAMP
+updated_at timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ```
 
 ## Reglas de mapeo

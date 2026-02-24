@@ -9,9 +9,11 @@ CREATE TABLE `filled_form_values` (
   `concept_id` varchar(36) NOT NULL,
   `concept_name` varchar(100) DEFAULT NULL,
   `value` text,
+  `options_answer` json DEFAULT NULL,
   `unit` varchar(20) DEFAULT NULL,
   `observation` text,
   `is_graphable` tinyint(1) DEFAULT '0',
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `filledFormId` (`filled_form_id`),
   KEY `conceptId` (`concept_id`),
@@ -24,15 +26,16 @@ CREATE TABLE `filled_form_values` (
 ```
 Table: filled_form_values
 Columns:
-CREATE TABLE `filled_form_values` (
 id varchar(36) NOT NULL PK
 filled_form_id varchar(36) NOT NULL
 concept_id varchar(36) NOT NULL
 concept_name varchar(100)
 value text
+options_answer json
 unit varchar(20)
 observation text
-is_graphable tinyint(1)
+is_graphable tinyint(1) DEFAULT '0'
+created_at datetime DEFAULT CURRENT_TIMESTAMP
 ```
 
 ## Reglas de mapeo

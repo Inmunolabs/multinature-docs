@@ -4,16 +4,16 @@
 
 ```sql
 CREATE TABLE `routines` (
-  `id` varchar(36) NOT NULL,
-  `specialist_id` varchar(36) NOT NULL,
-  `user_id` varchar(36) NOT NULL,
+  `id` char(36) NOT NULL,
+  `specialist_id` char(36) NOT NULL,
+  `user_id` char(36) NOT NULL,
   `notes` text,
   `is_ai` tinyint(1) NOT NULL DEFAULT '0',
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  KEY `userId` (`user_id`),
-  KEY `specialistId` (`specialist_id`),
+  UNIQUE KEY `uq_routines2_user_specialist` (`user_id`,`specialist_id`),
+  KEY `specialist_id` (`specialist_id`),
   CONSTRAINT `routines_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `routines_ibfk_2` FOREIGN KEY (`specialist_id`) REFERENCES `users` (`id`)
 );
@@ -24,14 +24,13 @@ CREATE TABLE `routines` (
 ```
 Table: routines
 Columns:
-CREATE TABLE `routines` (
-id varchar(36) NOT NULL PK
-specialist_id varchar(36) NOT NULL
-user_id varchar(36) NOT NULL
+id char(36) NOT NULL PK
+specialist_id char(36) NOT NULL
+user_id char(36) NOT NULL
 notes text
-is_ai tinyint(1) NOT NULL
-updated_at timestamp NULL
-created_at timestamp NULL
+is_ai tinyint(1) NOT NULL DEFAULT '0'
+updated_at timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+created_at timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ```
 
 ## Reglas de mapeo
