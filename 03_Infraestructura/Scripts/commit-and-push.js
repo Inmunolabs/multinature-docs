@@ -266,8 +266,8 @@ async function interactiveConfig(backendRoot) {
     log('\n================================================================================', 'cyan');
     log('Configuration:', 'cyan');
     log(`  Commit message: ${config.message}`, 'white');
-    log(`  Source branch:  ${config.pullBranch}`, 'white');
-    log(`  Destination branch: ${config.pushBranch}`, 'white');
+    log(`  Source branch (pull branch):  ${config.pullBranch}`, 'white');
+    log(`  Destination branch (push branch): ${config.pushBranch}`, 'white');
     log(`  Remote: origin`, 'white');
     log(`  Process:`, 'white');
     if (config.process === 'apis') log('    - APIs only', 'white');

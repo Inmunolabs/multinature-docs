@@ -4,7 +4,7 @@
 ```sql
 CREATE TABLE `{table_name}` (
   -- columnas...
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 ```
 
 ## Resumen de columnas

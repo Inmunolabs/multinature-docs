@@ -6,7 +6,8 @@
   "scripts": {
     "export-form-templates": "node export-form-templates.js",
     "create-prs": "node create-prs.js",
-    "commit-and-push": "node commit-and-push.js"
+    "commit-and-push": "node commit-and-push.js",
+    "update-layers": "node update-lambda-layers.js"
   },
   "dependencies": {
     "mysql2": "^3.5.2",

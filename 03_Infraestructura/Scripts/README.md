@@ -17,6 +17,7 @@ Colección de scripts para gestión, mantenimiento y automatización de tareas e
 ### 🚀 Scripts de Despliegue
 
 - [deploy-apis-lambdas.bat](#deploy-apis-lambdasbat) - Desplegar todas las APIs Lambda
+- [update-lambda-layers.js](#update-lambda-layersjs) - Actualizar capas (layers) en funciones Lambda (Node.js, multiplataforma)
 
 ### 🔍 Scripts de Validación y Auditoría
 
@@ -240,9 +241,11 @@ node docs/03_Infraestructura/Scripts/create-prs.js --title="Release v1.0.0" --bo
 
 # Excluyendo repositorios específicos (sin selección interactiva)
 node docs/03_Infraestructura/Scripts/create-prs.js --exclude=bookings-api,users-api
+# node docs/03_Infraestructura/Scripts/create-prs.js --exclude=api-collection,docs,multi-commons-layer,multi-emails-layer,multi-mysql-layer
 
 # Desde una rama diferente a develop
 node docs/03_Infraestructura/Scripts/create-prs.js --source=feature/new-feature --target=develop
+# node docs/03_Infraestructura/Scripts/create-prs.js --source=fix-email-esocket-and-security-groups --target=develop
 
 # Ayuda
 node docs/03_Infraestructura/Scripts/create-prs.js --help
@@ -426,6 +429,129 @@ Despliega todas las APIs Lambda ejecutando `npm run deploy` en cada una.
 - Muestra progreso de cada despliegue
 
 **⚠️ Advertencia:** Este script despliega a producción. Asegúrate de revisar los cambios antes de ejecutar.
+
+---
+
+### update-lambda-layers.js
+
+Script multiplataforma (Node.js) para actualizar las capas (layers) en múltiples funciones Lambda de AWS que comienzan con `multi`.
+
+**Ubicación:** `docs/03_Infraestructura/Scripts/update-lambda-layers.js`
+
+**Uso:**
+
+```bash
+# Solo listar funciones y sus capas actuales
+node docs/03_Infraestructura/Scripts/update-lambda-layers.js --list-only
+
+# Modo interactivo (pregunta versiones, muestra la última disponible)
+node docs/03_Infraestructura/Scripts/update-lambda-layers.js
+
+# Dry-run: ver qué cambios se harían sin ejecutarlos
+node docs/03_Infraestructura/Scripts/update-lambda-layers.js --dry-run
+
+# Especificar versiones directamente
+node docs/03_Infraestructura/Scripts/update-lambda-layers.js --layers=multi-commons-layer:310,multi-mysql-layer:370
+
+# Filtrar solo funciones de desarrollo
+node docs/03_Infraestructura/Scripts/update-lambda-layers.js --filter=dev --layers=multi-commons-layer:310
+
+# Filtrar solo funciones de producción, sin confirmación
+node docs/03_Infraestructura/Scripts/update-lambda-layers.js --filter=prod --layers=multi-commons-layer:310 --yes
+
+# Ayuda
+node docs/03_Infraestructura/Scripts/update-lambda-layers.js --help
+```
+
+**Opciones:**
+
+| Opción | Descripción |
+|--------|-------------|
+| `--list-only` | Solo listar funciones y sus capas actuales, sin modificar nada |
+| `--dry-run` | Mostrar qué cambios se harían sin aplicarlos |
+| `--filter=KEYWORD` | Filtrar funciones por palabra clave (e.g. `dev`, `prod`) |
+| `--layers=LAYER:VER,...` | Especificar versiones directamente (e.g. `multi-commons-layer:310,multi-mysql-layer:370`) |
+| `-y, --yes` | Saltar confirmación |
+| `--help, -h` | Mostrar ayuda |
+
+**Características:**
+
+- **Multiplataforma**: Funciona en Windows, Linux y macOS
+- **Autodetección**: Lista automáticamente todas las funciones Lambda con prefijo `multi`
+- **Versión más reciente**: En modo interactivo, muestra la última versión disponible de cada capa
+- **Dry-run**: Previsualiza los cambios sin aplicarlos
+- **Filtrado**: Filtra funciones por entorno (`dev`, `prod`) u otro texto
+- **Resumen detallado**: Muestra estadísticas de funciones actualizadas, omitidas y con error
+- **Rate-limiting**: Incluye delay entre actualizaciones para evitar throttling de AWS
+
+**Capas principales:**
+
+- `multi-mysql-layer` - Capa con entidades y utilidades de MySQL/TypeORM
+- `multi-commons-layer` - Capa con utilidades comunes compartidas
+- `multi-emails-layer` - Capa con funcionalidades de envío de emails
+
+**Requisitos:**
+
+- AWS CLI configurado con credenciales apropiadas (`aws configure`)
+- Permisos IAM: `lambda:ListFunctions`, `lambda:GetFunctionConfiguration`, `lambda:UpdateFunctionConfiguration`, `lambda:ListLayerVersions`, `sts:GetCallerIdentity`
+
+**Ejemplo de salida:**
+
+```
+============================================================================
+                    UPDATE LAMBDA LAYERS
+============================================================================
+  Region:          us-east-1
+  Function Prefix: multi
+  Filter:          dev
+  Dry Run:         YES
+============================================================================
+
+[1/5] Obteniendo Account ID de AWS...
+  Account ID: 123456789012
+
+[2/5] Listando funciones Lambda...
+  Filtradas por "dev": 9 funciones
+
+[3/5] Obteniendo capas actuales de cada funcion...
+
+  [1/9] multi-addresses-dev-api
+         multi-mysql-layer:369
+         multi-commons-layer:308
+  [2/9] multi-bookings-dev-api
+         multi-commons-layer:308
+         multi-mysql-layer:369
+         multi-emails-layer:60
+  ...
+
+[4/5] Determinando nuevas versiones de capas...
+  Versiones especificadas por parametro:
+    multi-commons-layer: 310
+    multi-mysql-layer: 370
+
+[5/5] Calculando y aplicando cambios...
+
+          CAMBIOS PLANIFICADOS
+
+  Nuevas versiones a aplicar:
+    multi-commons-layer -> 310
+    multi-mysql-layer -> 370
+
+  multi-addresses-dev-api
+    multi-mysql-layer: 369 -> 370
+    multi-commons-layer: 308 -> 310
+  multi-bookings-dev-api
+    multi-commons-layer: 308 -> 310
+    multi-mysql-layer: 369 -> 370
+  ...
+
+  [DRY-RUN] No se aplicaron cambios.
+```
+
+**Códigos de salida:**
+
+- `0` - Éxito (todas las actualizaciones exitosas o sin cambios)
+- `1` - Error (al menos una función falló al actualizar)
 
 ---
 
@@ -717,6 +843,6 @@ Las dependencias se instalarán en `docs/03_Infraestructura/Scripts/node_modules
 
 ---
 
-- **Última actualización:** 2025-01-21
-- **Total de archivos:** 9 (incluye subdirectorios)
-- **Total de scripts:** 11
+- **Última actualización:** 2026-02-18
+- **Total de archivos:** 10 (incluye subdirectorios)
+- **Total de scripts:** 12

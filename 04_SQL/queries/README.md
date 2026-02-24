@@ -21,6 +21,7 @@ Este módulo agrupa consultas SQL listas para usar y documentadas para el proyec
 | [03_foods_mismatched_nutritional_values.md](./03_foods_mismatched_nutritional_values.md) | Identifica **platillos** con valores nutricionales descuadrados, comparando los totales guardados vs. la suma calculada de sus ingredientes. | Auditoría de calidad y detección de inconsistencias en datos nutricionales. |
 | [04_export_form_template_as_inserts.md](./04_export_form_template_as_inserts.md) | Genera los scripts **INSERT** necesarios para replicar un `form_template`, sus conceptos y relaciones manteniendo los IDs originales. | Clonar cuestionarios en otro entorno o realizar migraciones puntuales. |
 | [05_clean_keep_selected_forms.md](./05_clean_keep_selected_forms.md) | Conserva solo los templates definidos, exporta sus INSERTs y limpia el resto de la base (forms y respuestas) con un flujo seguro para triggers. | Preparar entornos reducidos o sanitizar data manteniendo formularios específicos. |
+| [06_delete_form_template_full_cleanup.md](./06_delete_form_template_full_cleanup.md) | Elimina uno o varios `form_templates` junto con sus relaciones, filled forms, respuestas y conceptos exclusivos no referenciados por otros templates. | Limpieza completa de formularios obsoletos o de prueba. |
 
 ---
 
@@ -34,6 +35,6 @@ Cada query incluye:
 
 ---
 
-- **Última actualización:** 2026-02-11
-- **Total de archivos:** 6 (incluye subdirectorios)
-- **Total de queries:** 5
+- **Última actualización:** 2026-02-21
+- **Total de archivos:** 7 (incluye subdirectorios)
+- **Total de queries:** 6
