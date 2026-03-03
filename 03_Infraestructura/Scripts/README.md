@@ -28,6 +28,10 @@ Colección de scripts para gestión, mantenimiento y automatización de tareas e
 
 - [healthcheck-runner.js](#healthcheck-runnerjs) - Ejecutar healthchecks automáticamente (ver [healthcheck-runner.md](./healthcheck-runner.md))
 
+### 🔐 Scripts de Seguridad
+
+- [encrypt-decrypt.js](#encrypt-decryptjs) - Encriptar y comparar contraseñas con bcryptjs
+
 ### 🗄️ Scripts de Base de Datos
 
 - [export-form-templates.js](#export-form-templatesjs) - Exportar form templates y registros relacionados a SQL
@@ -234,7 +238,7 @@ node docs/03_Infraestructura/Scripts/create-prs.js
 node docs/03_Infraestructura/Scripts/create-prs.js --dry-run
 
 # Con título personalizado
-node docs/03_Infraestructura/Scripts/create-prs.js --title="Release v1.0.0"
+node docs/03_Infraestructura/Scripts/create-prs.js --title="v1.1.0"
 
 # Con título y descripción personalizados
 node docs/03_Infraestructura/Scripts/create-prs.js --title="Release v1.0.0" --body="Descripción del release"
@@ -707,6 +711,96 @@ node docs/03_Infraestructura/Scripts/healthcheck-runner.js prod
 
 ---
 
+## 🔐 Scripts de Seguridad
+
+### encrypt-decrypt.js
+
+Script interactivo y multiplataforma (Node.js) para encriptar (hash) contraseñas y comparar un texto plano contra un hash existente usando bcryptjs.
+
+**Ubicación:** `docs/03_Infraestructura/Scripts/encrypt-decrypt.js`
+
+**Uso:**
+
+```bash
+# Modo interactivo (desde backend/)
+node docs/03_Infraestructura/Scripts/encrypt-decrypt.js
+
+# Encriptar una contraseña
+node docs/03_Infraestructura/Scripts/encrypt-decrypt.js --encrypt="MiPassword123"
+
+# Encriptar con salt rounds personalizado
+node docs/03_Infraestructura/Scripts/encrypt-decrypt.js --encrypt="MiPassword123" --rounds=12
+
+# Comparar contraseña contra hash
+node docs/03_Infraestructura/Scripts/encrypt-decrypt.js --compare="MiPassword123" --hash="$2a$10$hashedValue..."
+
+# Ayuda
+node docs/03_Infraestructura/Scripts/encrypt-decrypt.js --help
+```
+
+**Opciones:**
+
+| Opción | Descripción |
+|--------|-------------|
+| `--encrypt=TEXT` | Encripta el texto proporcionado |
+| `--compare=TEXT` | Texto plano a comparar contra un hash |
+| `--hash=HASH` | Hash contra el cual comparar (requiere `--compare`) |
+| `--rounds=N` | Salt rounds para encriptación (default: `10`) |
+| `--help, -h` | Mostrar ayuda |
+
+**Características:**
+
+- **Multiplataforma**: Funciona en Windows, Linux y macOS
+- **Modo interactivo**: Menú guiado para encriptar o comparar
+- **Modo CLI**: Parámetros directos para uso en scripts o pipelines
+- Soporte para salt rounds configurables
+- Validación de parámetros
+
+**Modo interactivo:**
+
+```
+================================================================================
+  ENCRYPT / COMPARE - Herramienta de contraseñas con bcryptjs
+================================================================================
+
+  Selecciona una acción:
+    [1] Encriptar texto
+    [2] Comparar texto contra hash
+
+  Opción (1/2): 1
+
+  Texto a encriptar: MiPassword123
+  Salt rounds (Enter para 10):
+
+----------------------------------------
+  ENCRIPTAR
+----------------------------------------
+  Texto:        MiPassword123
+  Salt Rounds:  10
+----------------------------------------
+
+  Hash generado:
+
+  $2a$10$N9qo8uLOickgx2ZMRZoMye...
+
+----------------------------------------
+```
+
+**Requisitos previos:**
+
+```bash
+cd docs/03_Infraestructura/Scripts
+npm install
+```
+
+**Dependencias:**
+
+- `bcryptjs` - Implementación en JavaScript puro de bcrypt
+
+**Nota:** bcrypt es un algoritmo de hashing unidireccional. No es posible "desencriptar" un hash. Solo se puede comparar un texto plano contra un hash existente para verificar si coinciden.
+
+---
+
 ## 🗄️ Scripts de Base de Datos
 
 ### export-form-templates.js
@@ -843,6 +937,6 @@ Las dependencias se instalarán en `docs/03_Infraestructura/Scripts/node_modules
 
 ---
 
-- **Última actualización:** 2026-02-18
-- **Total de archivos:** 10 (incluye subdirectorios)
-- **Total de scripts:** 12
+- **Última actualización:** 2026-02-27
+- **Total de archivos:** 11 (incluye subdirectorios)
+- **Total de scripts:** 13
