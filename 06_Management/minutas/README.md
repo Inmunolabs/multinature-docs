@@ -22,10 +22,11 @@ No es documentación de producto ni reglas de negocio es registro estructurado d
 
 ### [ventas/](./ventas/)
 
-- [2026-01-12 — Agentes de Ventas](./ventas/2026-01-12-agentes-ventas.md)
-- [2026-01-23 — Agentes de Ventas](./ventas/2026-01-23-agentes-ventas.md)
-- [2026-02-04 — Agentes de Ventas](./ventas/2026-01-02-04-agentes-ventas.md)
-- [2026-02-10 — Lorena](./ventas/2026-02-10-Lorena.md)
+- [2026-01-12 — Soporte](./ventas/2026-01-12-promotores.md)
+- [2026-01-23 — Seguimiento a Agentes de Ventas I](./ventas/2026-01-23-promotores.md)
+- [2026-02-04 — Seguimiento a Agentes de Ventas I](./ventas/2026-02-04-promotores.md)
+- [2026-02-10 — Seguimiento a Lorena 5ta visita](./ventas/2026-02-10-Lorena.md)
+- [2026-02-12 — Seguimiento a Agentes de Ventas I](./ventas/2026-02-12-promotores.md)
 
 ---
 

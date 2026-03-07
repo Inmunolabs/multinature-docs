@@ -25,6 +25,10 @@ Documentación de gestión del proyecto Multinature, incluyendo épicas, roadmap
 - **[Management Calendar](./Management_Calendar.md)** - Calendario de dirección para planeación estratégica, seguimiento ejecutivo y toma de decisiones
 - **[Team Vacations](./Team_Vacations.md)** - Gestión y documentación de vacaciones y permisos del equipo
 
+### Planificación
+
+- **[Nuevo Plan Pandalatec](./nuevo-plan-pandalatec.md)** - Plan de actividades y cambios pendientes con Pandalatec
+
 ### Formación
 
 - **[Guía de Formación Técnica - Practicantes](./Guia_Formación_Tecnica-Practicantes.md)** - Guía de formación técnica para practicantes nuevos
@@ -67,5 +71,5 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 
 ---
 
-- **Última actualización:** 2026-02-11
-- **Total de archivos:** 16 (incluye subdirectorios)
+- **Última actualización:** 2026-03-07
+- **Total de archivos:** 21 (incluye subdirectorios)

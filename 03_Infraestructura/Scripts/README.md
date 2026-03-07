@@ -238,7 +238,7 @@ node docs/03_Infraestructura/Scripts/create-prs.js
 node docs/03_Infraestructura/Scripts/create-prs.js --dry-run
 
 # Con título personalizado
-node docs/03_Infraestructura/Scripts/create-prs.js --title="v1.1.0"
+node docs/03_Infraestructura/Scripts/create-prs.js --title="v1.2.0"
 
 # Con título y descripción personalizados
 node docs/03_Infraestructura/Scripts/create-prs.js --title="Release v1.0.0" --body="Descripción del release"

@@ -80,4 +80,4 @@ Ver [migrations.md](./migrations.md) para:
 - **Última actualización:** 2026-02-11
 - **Total de archivos:** 92 (incluye subdirectorios)
 - **Total de tablas:** 82+
-- **Total de queries:** 5
+- **Total de queries:** 6

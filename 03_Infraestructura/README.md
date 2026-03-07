@@ -23,6 +23,11 @@ Documentación de infraestructura, scripts, herramientas y automatización del b
 ### Scripts de Despliegue
 
 - `deploy-apis-lambdas.bat` - Desplegar todas las APIs Lambda
+- `update-lambda-layers.js` - Actualizar layers de Lambda en AWS
+
+### Scripts de Seguridad
+
+- `encrypt-decrypt.js` - Encriptar y desencriptar archivos sensibles
 
 ### Scripts de Validación y Diagnóstico
 
@@ -50,6 +55,6 @@ Para información detallada sobre cada script, incluyendo uso, opciones, ejemplo
 
 ---
 
-- **Última actualización:** 2026-02-11
+- **Última actualización:** 2026-03-07
 - **Total de archivos:** 19 (incluye subdirectorios)
 - **Total de scripts:** 13
