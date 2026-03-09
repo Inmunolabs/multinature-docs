@@ -20,6 +20,7 @@ const config = {
     message: getArgValue('--message') || getArgValue('-m') || '',
     pullBranch: getArgValue('--pull') || 'develop',
     pushBranch: getArgValue('--push') || '',
+    useCurrentBranch: args.includes('--current') || args.includes('-C'),
     process: getArgValue('--process') || '', // apis, layers, both
     excludeApis: (getArgValue('--exclude-apis') || '').split(',').filter(r => r.trim()).map(r => r.trim()),
     excludeLayers: (getArgValue('--exclude-layers') || '').split(',').filter(r => r.trim()).map(r => r.trim()),
@@ -75,8 +76,14 @@ OPTIONS:
   -m, --message=MSG            Commit message (required, or will prompt)
 
   --pull=BRANCH                Source branch to pull from (default: develop)
+                               Ignored when --current is used
 
   --push=BRANCH                Destination branch to push to (default: same as pull)
+                               Ignored when --current is used
+
+  --current, -C                Use the current branch of each repo for commit
+                               and push (no checkout, no pull). Each repo pushes
+                               to whatever branch it is currently on.
 
   --process=TYPE               What to process: apis, layers, or both
                                If not provided, will prompt interactively
@@ -103,6 +110,9 @@ EXAMPLES:
 
   node commit-and-push.js -m="Release" --pull=develop --push=main --yes
     Non-interactive mode with custom branches
+
+  node commit-and-push.js -m="WIP" --current --process=apis
+    Commit and push each API to its own current branch
 
 ============================================================================
 `);
@@ -190,16 +200,29 @@ async function interactiveConfig(backendRoot) {
         }
     }
     
-    // Pull branch
-    if (!getArgValue('--pull')) {
-        const pullInput = await askQuestion(rl, 'Enter source branch (pull branch) (default: develop): ');
-        config.pullBranch = pullInput.trim() || 'develop';
+    // Current branch mode
+    if (!config.useCurrentBranch && !getArgValue('--pull') && !getArgValue('--push')) {
+        log('\nBranch strategy:', 'white');
+        log('[1] Specify pull/push branches (classic mode)', 'white');
+        log('[2] Use current branch of each repo (no checkout, no pull)', 'white');
+        const branchChoice = await askQuestion(rl, 'Enter your choice (1-2, default: 1): ');
+        if (branchChoice.trim() === '2') {
+            config.useCurrentBranch = true;
+        }
     }
-    
-    // Push branch
-    if (!config.pushBranch) {
-        const pushInput = await askQuestion(rl, `Enter destination branch (push branch) (default: ${config.pullBranch}): `);
-        config.pushBranch = pushInput.trim() || config.pullBranch;
+
+    if (!config.useCurrentBranch) {
+        // Pull branch
+        if (!getArgValue('--pull')) {
+            const pullInput = await askQuestion(rl, 'Enter source branch (pull branch) (default: develop): ');
+            config.pullBranch = pullInput.trim() || 'develop';
+        }
+        
+        // Push branch
+        if (!config.pushBranch) {
+            const pushInput = await askQuestion(rl, `Enter destination branch (push branch) (default: ${config.pullBranch}): `);
+            config.pushBranch = pushInput.trim() || config.pullBranch;
+        }
     }
     
     // What to process
@@ -266,8 +289,12 @@ async function interactiveConfig(backendRoot) {
     log('\n================================================================================', 'cyan');
     log('Configuration:', 'cyan');
     log(`  Commit message: ${config.message}`, 'white');
-    log(`  Source branch (pull branch):  ${config.pullBranch}`, 'white');
-    log(`  Destination branch (push branch): ${config.pushBranch}`, 'white');
+    if (config.useCurrentBranch) {
+        log(`  Branch mode: CURRENT BRANCH (each repo uses its own branch)`, 'yellow');
+    } else {
+        log(`  Source branch (pull branch):  ${config.pullBranch}`, 'white');
+        log(`  Destination branch (push branch): ${config.pushBranch}`, 'white');
+    }
     log(`  Remote: origin`, 'white');
     log(`  Process:`, 'white');
     if (config.process === 'apis') log('    - APIs only', 'white');
@@ -297,36 +324,43 @@ async function interactiveConfig(backendRoot) {
 function processRepository(repoPath, repoName) {
     log(`\n=============================== Updating ${repoName} ===============================`, 'cyan');
     
-    // Check if it's a git repository
     if (!fs.existsSync(path.join(repoPath, '.git'))) {
         log(`Warning: ${repoName} is not a git repository, skipping...`, 'yellow');
         skippedCount++;
         return;
     }
     
-    // Checkout branch
-    log(`  Checking out ${config.pushBranch}...`, 'gray');
-    let result = execGitSilent(`git checkout ${config.pushBranch}`, repoPath);
-    if (result === null) {
-        // Try to create the branch
-        log(`  Branch doesn't exist, creating ${config.pushBranch}...`, 'gray');
-        execGitSilent(`git checkout -b ${config.pushBranch}`, repoPath);
+    let pushBranch;
+
+    if (config.useCurrentBranch) {
+        const currentBranch = execGitSilent('git rev-parse --abbrev-ref HEAD', repoPath);
+        if (!currentBranch) {
+            log(`  [ERROR] Could not determine current branch for ${repoName}`, 'red');
+            failCount++;
+            return;
+        }
+        pushBranch = currentBranch;
+        log(`  Current branch: ${pushBranch}`, 'gray');
+    } else {
+        pushBranch = config.pushBranch;
+        log(`  Checking out ${pushBranch}...`, 'gray');
+        let result = execGitSilent(`git checkout ${pushBranch}`, repoPath);
+        if (result === null) {
+            log(`  Branch doesn't exist, creating ${pushBranch}...`, 'gray');
+            execGitSilent(`git checkout -b ${pushBranch}`, repoPath);
+        }
+
+        log(`  Pulling from origin/${config.pullBranch}...`, 'gray');
+        execGitSilent(`git pull origin ${config.pullBranch}`, repoPath);
     }
     
-    // Pull from remote
-    log(`  Pulling from origin/${config.pullBranch}...`, 'gray');
-    execGitSilent(`git pull origin ${config.pullBranch}`, repoPath);
-    
-    // Add all changes
     log(`  Staging changes...`, 'gray');
     execGitSilent('git add .', repoPath);
     
-    // Commit
     log(`  Committing...`, 'gray');
-    result = execGitSilent(`git commit -m "${config.message.replace(/"/g, '\\"')}"`, repoPath);
+    let result = execGitSilent(`git commit -m "${config.message.replace(/"/g, '\\"')}"`, repoPath);
     
     if (result === null) {
-        // Check if there were changes to commit
         const status = execGitSilent('git status --porcelain', repoPath);
         if (!status || status.trim() === '') {
             log(`  No changes to commit in ${repoName}`, 'yellow');
@@ -339,9 +373,8 @@ function processRepository(repoPath, repoName) {
         }
     }
     
-    // Push
-    log(`  Pushing to origin/${config.pushBranch}...`, 'gray');
-    const pushResult = execGit(`git push origin ${config.pushBranch}`, repoPath, true);
+    log(`  Pushing to origin/${pushBranch}...`, 'gray');
+    const pushResult = execGit(`git push origin ${pushBranch}`, repoPath, true);
     
     if (pushResult.success) {
         log(`  Successfully updated ${repoName}`, 'green');

@@ -79,6 +79,9 @@ node docs/03_Infraestructura/Scripts/commit-and-push.js
 # Con parámetros (modo no interactivo)
 node docs/03_Infraestructura/Scripts/commit-and-push.js -m="Fix bug" --process=apis
 
+# Commit y push en la rama actual de cada repo (sin checkout ni pull)
+node docs/03_Infraestructura/Scripts/commit-and-push.js -m="WIP" --current --process=apis
+
 # Con exclusiones
 node docs/03_Infraestructura/Scripts/commit-and-push.js -m="Update" --process=both --exclude-apis=bookings-api
 
@@ -91,8 +94,9 @@ node docs/03_Infraestructura/Scripts/commit-and-push.js -m="Release" --process=a
 | Opción | Descripción |
 |--------|-------------|
 | `-m, --message=MSG` | Mensaje de commit (requerido, o se pregunta interactivamente) |
-| `--pull=BRANCH` | Rama origen para pull (default: `develop`) |
-| `--push=BRANCH` | Rama destino para push (default: igual a pull) |
+| `--pull=BRANCH` | Rama origen para pull (default: `develop`). Ignorado con `--current` |
+| `--push=BRANCH` | Rama destino para push (default: igual a pull). Ignorado con `--current` |
+| `--current, -C` | **Usar la rama actual de cada repo** (sin checkout, sin pull). Cada repo hace commit y push a la rama en la que ya se encuentra |
 | `--process=TYPE` | Qué procesar: `apis`, `layers`, o `both` |
 | `--exclude-apis=REPOS` | APIs a excluir (separadas por coma) |
 | `--exclude-layers=REPOS` | Layers a excluir (separadas por coma) |
@@ -103,24 +107,25 @@ node docs/03_Infraestructura/Scripts/commit-and-push.js -m="Release" --process=a
 
 - **Multiplataforma**: Funciona en Windows, Linux y macOS
 - Solicita mensaje de commit interactivamente (si no se proporciona)
-- Permite especificar rama origen (source branch) para pull
-- Permite especificar rama destino (destination branch) para push
+- **Modo rama actual (`--current`)**: Hace commit y push en la rama en que se encuentra cada repo, sin hacer checkout ni pull. Ideal cuando cada repo está en una rama de trabajo diferente
+- **Modo clásico** (default): Permite especificar rama origen (pull) y destino (push), con checkout automático
 - Opción para procesar solo APIs, solo Layers, o ambos
 - **Permite excluir repositorios específicos** de forma interactiva o por parámetro
 - Confirmación antes de ejecutar (omitible con `--yes`)
-- Manejo automático de checkout y creación de ramas
+- Manejo automático de checkout y creación de ramas (modo clásico)
 - Validación de repositorios Git
 - Resumen con estadísticas al finalizar
 
 **Flujo interactivo:**
 
 1. Solicita mensaje de commit
-2. Solicita rama origen (default: `develop`)
-3. Solicita rama destino (default: igual a origen)
-4. Selecciona qué procesar (APIs/Layers/Ambos)
-5. Muestra lista de repositorios disponibles y permite excluir algunos
-6. Muestra resumen (incluyendo repos excluidos) y solicita confirmación
-7. Ejecuta checkout, pull, add, commit y push en cada repo (excepto los excluidos)
+2. Pregunta estrategia de ramas:
+   - **Modo clásico**: Solicita rama origen (pull) y rama destino (push)
+   - **Modo rama actual**: Usa la rama en que está cada repo (sin checkout, sin pull)
+3. Selecciona qué procesar (APIs/Layers/Ambos)
+4. Muestra lista de repositorios disponibles y permite excluir algunos
+5. Muestra resumen (incluyendo repos excluidos) y solicita confirmación
+6. Ejecuta las operaciones en cada repo (excepto los excluidos)
 
 **Ejemplo de exclusión interactiva:**
 
@@ -238,7 +243,7 @@ node docs/03_Infraestructura/Scripts/create-prs.js
 node docs/03_Infraestructura/Scripts/create-prs.js --dry-run
 
 # Con título personalizado
-node docs/03_Infraestructura/Scripts/create-prs.js --title="v1.2.0"
+node docs/03_Infraestructura/Scripts/create-prs.js --title="v1.2.1"
 
 # Con título y descripción personalizados
 node docs/03_Infraestructura/Scripts/create-prs.js --title="Release v1.0.0" --body="Descripción del release"
@@ -937,6 +942,6 @@ Las dependencias se instalarán en `docs/03_Infraestructura/Scripts/node_modules
 
 ---
 
-- **Última actualización:** 2026-02-27
+- **Última actualización:** 2026-03-08
 - **Total de archivos:** 11 (incluye subdirectorios)
 - **Total de scripts:** 13

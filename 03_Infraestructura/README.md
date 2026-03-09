@@ -15,9 +15,9 @@ Documentación de infraestructura, scripts, herramientas y automatización del b
 ### Scripts de Git y Build
 
 - `build-layers.bat` - Construir todas las layers
-- `commit-and-push.js` - Commit y push a múltiples repositorios (Node.js, multiplataforma)
+- `commit-and-push.js` - Commit y push a múltiples repositorios. Soporta push a rama específica o a la rama actual de cada repo (`--current`)
 - `create-prs.js` - Crear Pull Requests automáticamente (Node.js, multiplataforma)
-- `pull-git-repos.bat` - Actualizar todos los repositorios Git
+- `pull-git-repos.bat` - Actualizar todos los repositorios Git. Soporta checkout a rama destino antes de pull (`--checkout`)
 - `status-git-repos.bat` - Estado de todos los repositorios Git
 
 ### Scripts de Despliegue
@@ -55,6 +55,6 @@ Para información detallada sobre cada script, incluyendo uso, opciones, ejemplo
 
 ---
 
-- **Última actualización:** 2026-03-07
+- **Última actualización:** 2026-03-08
 - **Total de archivos:** 19 (incluye subdirectorios)
 - **Total de scripts:** 13
