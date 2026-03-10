@@ -11,7 +11,7 @@ CREATE TABLE `addresses` (
   `int_number` int DEFAULT NULL,
   `neighborhood` varchar(100) NOT NULL,
   `city` varchar(60) NOT NULL,
-  `zip_code` int NOT NULL,
+  `zip_code` varchar(5) NOT NULL,
   `federal_entity` varchar(30) NOT NULL,
   `country` varchar(60) NOT NULL DEFAULT 'México',
   `refer` text,
