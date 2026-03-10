@@ -56,6 +56,7 @@ Todos los scripts están documentados en: **[Scripts/README.md](./03_Infraestruc
 
 **Scripts principales:**
 
+- `clone-workspace-repos.js` - Clonar repos del workspace (onboarding)
 - `validate-entities-vs-ddl.js` - Validar alineación código vs DDL
 - `validate-docs-links.js` - Validar enlaces en documentación
 - `healthcheck-runner.js` - Ejecutar healthchecks de todas las APIs
@@ -67,7 +68,7 @@ Todos los scripts están documentados en: **[Scripts/README.md](./03_Infraestruc
 
 - **Total de APIs documentadas:** 18+
 - **Total de tablas en BD:** 82+
-- **Scripts de infraestructura:** 13
+- **Scripts de infraestructura:** 14
 
 ---
 

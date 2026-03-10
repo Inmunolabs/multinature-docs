@@ -13,6 +13,7 @@ Colección de scripts para gestión, mantenimiento y automatización de tareas e
 - [pull-git-repos.bat](#pull-git-reposbat) - Actualizar todos los repositorios Git
 - [status-git-repos.bat](#status-git-reposbat) - Estado de todos los repositorios Git
 - [create-prs.js](#create-prsjs) - Crear Pull Requests (Node.js, multiplataforma)
+- [clone-workspace-repos.js](#clone-workspace-reposjs) - Clonar todos los repos del workspace (onboarding)
 
 ### 🚀 Scripts de Despliegue
 
@@ -410,6 +411,40 @@ Skipped: 5
 
 - `0` - Éxito (todos los PRs creados o todos saltados por razones válidas)
 - `1` - Error (fallos al crear PRs o problemas de configuración)
+
+---
+
+### clone-workspace-repos.js
+
+Clona todos los repositorios remotos de Multinature en la estructura del workspace: APIs en `backend/apis/`, layers en `backend/layers/`, api-collection y docs en `backend/`. Crea `apis/` y `layers/` si no existen. Nombres aplicados: APIs sin prefijo "multinature", layers con "multi-", api-collection y docs en la raíz de backend.
+
+**Ubicación:** `docs/03_Infraestructura/Scripts/clone-workspace-repos.js`
+
+**Uso:**
+
+```bash
+# Desde workspace/backend/
+node docs/03_Infraestructura/Scripts/clone-workspace-repos.js
+
+# Especificar raíz (si no ejecutas desde backend)
+node docs/03_Infraestructura/Scripts/clone-workspace-repos.js --root=C:\ruta\workspace\backend
+
+# Si la carpeta ya existe, hacer pull desde develop
+node docs/03_Infraestructura/Scripts/clone-workspace-repos.js --pull-if-exists
+
+# Simular sin clonar
+node docs/03_Infraestructura/Scripts/clone-workspace-repos.js --dry-run
+```
+
+**Opciones:**
+
+| Opción | Descripción |
+|--------|-------------|
+| `--root=PATH` | Raíz del backend (default: directorio actual; ejecutar desde workspace/backend) |
+| `--branch=BRANCH` | Rama a clonar (default: develop) |
+| `--pull-if-exists` | Si el directorio existe y es repo git, hacer `git pull origin develop` |
+| `--dry-run` | Solo mostrar acciones, no clonar |
+| `-h, --help` | Mostrar ayuda |
 
 ---
 
