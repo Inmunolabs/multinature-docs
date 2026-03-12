@@ -1,4 +1,4 @@
-# AGENTS.md — Guía para agentes (Codex, Cursor, etc) en el monorepo de Multinature
+# AGENTS.md — Guía para agentes (Codex, Cursor, etc) en el workspace Multinature
 
 > **Índice rápido**
 >
@@ -7,31 +7,26 @@
 > - [Scripts de Validación](Business_Rules/README.md)
 > - Tablas: revisa `docs/04_SQL/tables/*.md` antes de tocar queries/repos/entities.
 
-> **Propósito**: Este documento le dice al agente (Codex – OpenAI’s coding agent en VS Code, Cursor, etc.) **cómo trabajar dentro de este repo**: estructura, comandos, convenciones, límites y plantillas de tareas. La idea es que puedas pedirle features o arreglos y que el agente ejecute, pruebe y entregue cambios listos para revisión.
+> **Propósito**: Este documento le dice al agente (Codex – OpenAI’s coding agent en VS Code, Cursor, etc.) **cómo trabajar dentro de este workspace**: estructura, comandos, convenciones, límites y plantillas de tareas. La idea es que puedas pedirle features o arreglos y que el agente ejecute, pruebe y entregue cambios listos para revisión.
 
 ---
 
 ## 0) Preferencias y confirmación de reglas
 
 - Responde siempre en español neutro; los comentarios nuevos en código deben ir en inglés.
-- Antes de editar, confirma que leíste esta guía y `.cursor/rules/diet-agent.mdc`; menciona la consulta en cada entrega.
+- Antes de editar, confirma que leíste esta guía; menciona la consulta en cada entrega.
 - Aplica los cambios solicitados directamente (evita dejar solo recomendaciones) y resume cómo seguiste estas guías.
 - Documenta cualquier excepción justificada para futuras sesiones.
 
 ## 1) Contexto del proyecto
 
 - **Stack principal**: NodeJS (JS/TS), Express/Serverless (AWS Lambda), MySQL (RDS) y algo de DynamoDB; frontend en NextJS.
-- **Monorepo**: APIs y capas compartidas:
-  - `apis/addresses-api`
-  - `apis/diets-api`
-  - `apis/routines-api`
-  - `apis/payments-api`
-  - `multi-mysql-layer` (queries y utilidades de base de datos)
-  - `multi-commons-layer` (utilidades comunes)
-  - (Opcional) `multi-emails-layer`, `multi-knowledge-vault`, etc.
-- **Dominios clave**: nutrición (cálculo de GEB/GET/macros), rutinas, recomendaciones, pagos e integraciones.
+- **Workspace multi-repo**: Cada API y cada layer tienen **su propio repositorio remoto**; en el workspace se clonan juntos para desarrollar. Lo que comparten es **una misma base de datos** (MySQL/RDS).
+  - `apis/*`: por ejemplo `addresses-api`, `diets-api`, `routines-api`, `users-api`, `orders-api`, etc. (cada uno = un repo).
+  - `layers/multi-mysql-layer` (queries y utilidades de BD), `layers/multi-commons-layer`, opcionalmente `layers/multi-emails-layer`, etc. (cada layer = un repo).
+- **Dominios clave**: nutrición (GEB/GET/macros), rutinas, recomendaciones, pagos e integraciones.
 
-> **Nota**: Las rutas, nombres y capas listadas reflejan la organización actual. Si el repo difiere, **el agente debe detectar la estructura real** (`tree -L 2`) y ajustarse sin romper convenciones.
+> **Nota**: Las rutas y nombres reflejan la organización actual. Si el workspace difiere, **el agente debe detectar la estructura real** (`tree -L 2`) y ajustarse sin romper convenciones.
 
 ---
 
@@ -83,7 +78,7 @@
 ## 5) multi-mysql-layer (guía rápida)
 
 - Existen funciones utilitarias como `executeQuery`, `insertEntity`, `updateEntity` y otros métodos **vigentes**.
-- **Regla del agente**: Antes de eliminar/renombrar **verificar uso** global (búsqueda en monorepo). Si un método se usa (p. ej., `getSpecialtiesByUserId`), **no eliminar**; si se refactoriza, **actualizar todos los call sites**.
+- **Regla del agente**: Antes de eliminar/renombrar **verificar uso** en todo el workspace (búsqueda en apis/ y layers/). Si un método se usa (p. ej., `getSpecialtiesByUserId`), **no eliminar**; si se refactoriza, **actualizar todos los call sites** en los repos que lo consumen.
 - **Migraciones**: Mantener `up` y `down` atómicos y seguros. Nunca hacer cambios destructivos sin respaldo o sin `down` equivalente.
 
 ### Ejemplo de migración segura
@@ -165,7 +160,7 @@ ALTER TABLE `form_templates`
 **Áreas permitidas** (por defecto):
 
 - Directorios `apis/*`, `multi-commons-layer`, `multi-mysql-layer`, `tests`, `scripts`, `infrastructure`.
-- Prohibido modificar: credenciales, pipelines sensibles sin confirmación, o archivos fuera del repo.
+- Prohibido modificar: credenciales, pipelines sensibles sin confirmación, o archivos fuera del workspace/repo en el que se trabaja.
 
 **Acciones peligrosas** (requieren confirmación del usuario):
 
@@ -265,31 +260,25 @@ Agrega JSDoc con ejemplos de uso.
 
 ---
 
-## 17) Estructura detectada del monorepo (depth 2)
+## 17) Estructura detectada del workspace (depth 2)
 
 **Raíz (backend)**
 
 ```
-C:\Users\mvald\OneDrive\Desktop\workspace\multinature\backend
-├── .cursor
-├── .prettierrc.json
-├── api-collection
-├── apis
-├── build-layers.bat
-├── commitAndPush-git-repos.bat
-├── deploy-apis-lambdas.bat
-├── docs
-├── layers
-├── package-lock.json
-├── pull-git-repos.bat
-├── scripts
-└── tools
+backend/
+├── .cursor/              # Reglas de Cursor (p. ej. agents-guide → docs/00_Overview/AGENTS_GUIDE.md)
+├── api-collection/       # Colecciones Bruno/Postman
+├── apis/                 # Servicios (ver lista abajo)
+├── docs/                 # Documentación (incl. docs/03_Infraestructura/Scripts para DX)
+└── layers/               # multi-commons-layer, multi-emails-layer, multi-mysql-layer
 ```
+
+> Si en tu clone existen también `scripts/`, `tools/`, `*.bat` o `.prettierrc.json` en raíz, el agente debe respetar la estructura real (`tree` o listado).
 
 **apis/**
 
 ```
-C:\...\backend\apis
+apis/
 ├── addresses-api
 ├── bookings-api
 ├── cart-api
@@ -297,14 +286,14 @@ C:\...\backend\apis
 ├── constants-api
 ├── diets-api
 ├── forms-api
+├── integrations-api
 ├── monthly-purchases-api
 ├── notifications-api
 ├── orders-api
 ├── payment-methods-api
-├── payments-api
 ├── products-api
-├── public-resources-api
 ├── routines-api
+├── user-files-api
 └── users-api
 ```
 
@@ -317,36 +306,20 @@ C:\...\backend\layers
 └── multi-mysql-layer
 ```
 
-**scripts/**
+**Scripts de infraestructura / DX**
 
-```
-C:\...\backend\docs\03_Infraestructura\Scripts
-├── build-layers.bat
-├── commitAndPush-git-repos.bat
-├── deploy-apis-lambdas.bat
-├── export-form-templates.js
-├── healthcheck-runner.js
-├── pull-git-repos.bat
-├── status-git-repos.bat
-├── validate-docs-links.js
-└── validate-entities-vs-ddl.js
-```
+Ubicación: `docs/03_Infraestructura/Scripts/` (y en algunas APIs, p. ej. `apis/diets-api/scripts/`).
 
-**tools/**
-
-```
-C:\...\backend\tools
-└── reports
-```
+Ejemplos: `validate-entities-vs-ddl.js`, `validate-docs-links.js`, `healthcheck-runner.js`, `build-layers.bat`, `deploy-apis-lambdas.bat`, etc. Ver `docs/03_Infraestructura/Scripts/README.md`.
 
 ### Alcance del agente por carpeta
 
 - **apis/**: núcleo de servicios. Aquí hará la mayor parte de lecturas/ediciones/tests.
 - **layers/**: librerías compartidas. Cambios aquí impactan a múltiples APIs → _revisar usos globales y actualizar call sites + tests_.
-- **scripts/**: utilitarios de DX y docs. Mantenerlos idempotentes y documentados si se agregan nuevos.
-- **tools/reports**: generación de reportes. No tocar sin instrucción.
-- **api-collection**: colecciones (Bruno/Postman). Sincronizar cuando se cambien endpoints.
-- **.prettierrc.json**: respetar formato del repo.
+- **docs/03_Infraestructura/Scripts/**: utilitarios de DX y docs. Mantenerlos idempotentes y documentados si se agregan nuevos.
+- **tools/** (si existe): p. ej. generación de reportes. No tocar sin instrucción.
+- **api-collection/**: colecciones (Bruno/Postman). Sincronizar cuando se cambien endpoints.
+- Formato: respetar Prettier/ESLint del repo en el que se trabaja (`.prettierrc.json` si existe en su raíz).
 
 ---
 
@@ -361,22 +334,9 @@ C:\...\backend\tools
 
 **APIs detectadas** (plantilla de trabajo por cada una):
 
-- `apis/addresses-api`
-- `apis/bookings-api`
-- `apis/cart-api`
-- `apis/commissions-api`
-- `apis/constants-api`
-- `apis/diets-api`
-- `apis/forms-api`
-- `apis/monthly-purchases-api`
-- `apis/notifications-api`
-- `apis/orders-api`
-- `apis/payment-methods-api`
-- `apis/payments-api`
-- `apis/products-api`
-- `apis/public-resources-api`
-- `apis/routines-api`
-- `apis/users-api`
+- `apis/addresses-api`, `apis/bookings-api`, `apis/cart-api`, `apis/commissions-api`, `apis/constants-api`
+- `apis/diets-api`, `apis/forms-api`, `apis/integrations-api`, `apis/monthly-purchases-api`, `apis/notifications-api`
+- `apis/orders-api`, `apis/payment-methods-api`, `apis/products-api`, `apis/routines-api`, `apis/user-files-api`, `apis/users-api`
 
 Para **cada API**:
 
@@ -483,7 +443,7 @@ node docs/03_Infraestructura/Scripts/validate-docs-links.js
    - Mantener variables de entorno en `.env`/CI, **no** en código.
 
 4. **Formato/estilo**
-   - Prettier y ESLint del repo mandan.
+   - Prettier y ESLint del repo en cuestión mandan.
    - TypeScript en lo nuevo; JS solo para mantener compatibilidad en módulos legados.
 
 ---
