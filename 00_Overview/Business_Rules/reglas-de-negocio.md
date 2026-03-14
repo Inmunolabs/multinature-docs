@@ -52,11 +52,21 @@
 
 ## 👥 Gestión de Usuarios
 
-### Registro y Verificación
+### Registro e identificación (email y teléfono)
 
-- **Emails únicos**: Validación `uniqueEmailValidation` para evitar duplicados
-- **Verificación de cuentas**: Sistema de códigos de verificación por email
-- **Recuperación de contraseñas**: Códigos temporales con expiración
+- **Al menos un identificador**: En registro (POST /users, POST /specialists/patient) el usuario debe enviar **email** o **teléfono** (o ambos). No se permite registro sin ninguno.
+- **Email único cuando se envía**: Si el body trae email, se valida que no esté registrado (`uniqueEmailValidation`).
+- **Teléfono único cuando se registra solo con teléfono**: Si el usuario se registra sin email y solo con teléfono, se valida que el teléfono no esté registrado (`uniquePhoneValidation`).
+- **Registro solo con teléfono**: Si no se envía email y sí teléfono válido (10 dígitos), se genera un **correo ficticio** (`{phone}-{sufijoUnico}@gmail.com`), la cuenta se crea con `registered_with_phone = 1`, **activa** (`is_active = 1`), y **no** se envía código de verificación por email.
+- **Registro con email**: Si se envía email, flujo habitual: cuenta con `registered_with_phone = 0`, `is_active = 0`, generación y envío de código de verificación; el usuario debe verificar para activar.
+- **Login con email o teléfono**: El inicio de sesión acepta en el campo `email` un **email válido** o un **teléfono de 10 dígitos**, siempre con contraseña. El sistema resuelve por `getByEmail` o `getByPhone` según el formato.
+- **Edición de email/teléfono**: Si el usuario se registró con **teléfono** (`registered_with_phone = 1`), no puede editar el teléfono pero sí el email (p. ej. sustituir el ficticio por uno real). Si se registró con **email** (`registered_with_phone = 0`), no puede editar el email pero sí el teléfono.
+- **Diagrama y detalle**: [Registro e identidad: email y teléfono](./users/registro-identidad-email-telefono.md).
+
+### Registro y Verificación (complementario)
+
+- **Verificación de cuentas**: Sistema de códigos de verificación por email (solo para usuarios que se registraron con email).
+- **Recuperación de contraseñas**: Códigos temporales por email con expiración; usuarios solo-teléfono no pueden recuperar por email hasta que editen y pongan un email real.
 - **Perfiles obligatorios**: Todos los usuarios deben tener un perfil definido
 
 ### Asignación de Especialistas
@@ -529,7 +539,7 @@
 - **TODO**: Definir comportamiento cuando falla un pago en OpenPay
 - **TODO**: Establecer reglas para cancelaciones de citas con menos de 24h de anticipación
 - **TODO**: Definir manejo de productos sin stock en compras mensuales
-- **TODO**: Establecer reglas para usuarios que no completan verificación de email
+- **Parcial**: Usuarios que se registran **solo con teléfono** no requieren verificación de email (cuenta activa de entrada). Los que se registran con email siguen requiriendo verificación; definir política para usuarios que no completan verificación (reintentos, expiración, etc.).
 
 ### Privacidad y Manejo de Datos Sensibles
 
@@ -577,3 +587,5 @@
 ---
 
 _Este documento debe mantenerse actualizado con cualquier cambio en las reglas de negocio del sistema. Para modificaciones, contactar al equipo de desarrollo._
+
+**Última actualización del documento:** 2026-03-11 (reglas de registro/identidad email-teléfono).

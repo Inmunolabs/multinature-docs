@@ -4,9 +4,13 @@ Documento para Product Owner: por qué **no** se puede ofrecer registro/login so
 
 ---
 
+> **Actualización (2026-03-11):** El registro e inicio de sesión **con teléfono** (y opcionalmente email) ya está implementado. Los usuarios que se registran solo con teléfono reciben un **correo ficticio** en BD; la cuenta queda activa sin verificación por email. Login acepta email o teléfono + contraseña. Detalle de reglas y flujo: **[Registro e identidad: email y teléfono](../00_Overview/Business_Rules/users/registro-identidad-email-telefono.md)**. El presente documento sigue siendo válido como contexto de **impacto en el resto de funcionalidades** (notificaciones, pedidos, recuperación de contraseña, etc.) para usuarios que aún no tienen un email real.
+
+---
+
 ## Resumen ejecutivo
 
-Hoy el sistema trata el **correo electrónico como identificador único del usuario** en registro, login, recuperación de contraseña y en casi todas las notificaciones y flujos de negocio. Permitir usuarios “solo con teléfono” implica tocar muchas funcionalidades de producto, no solo “cambiar un campo en la base de datos”.
+El sistema trata el **correo electrónico como identificador** en registro, login, recuperación de contraseña y en la mayoría de notificaciones y flujos de negocio. Para soportar usuarios “solo con teléfono” se implementó: correo ficticio por usuario, registro y login por teléfono, y restricciones de edición. Las secciones siguientes describen el **impacto en el resto de funcionalidades** cuando el usuario no tiene un email real (solo el ficticio).
 
 ---
 

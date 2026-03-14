@@ -21,6 +21,7 @@ CREATE TABLE `users` (
   `balance` double NOT NULL DEFAULT '0',
   `is_valid` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '1',
+  `registered_with_phone` tinyint(1) NOT NULL DEFAULT '0',
   `updated_at` datetime DEFAULT (now()),
   `created_at` datetime DEFAULT (now()),
   PRIMARY KEY (`id`),
@@ -51,6 +52,7 @@ expo_token text
 balance double NOT NULL DEFAULT '0'
 is_valid tinyint(1) DEFAULT '0'
 is_active tinyint(1) DEFAULT '1'
+registered_with_phone tinyint(1) NOT NULL DEFAULT '0'
 updated_at datetime
 created_at datetime
 ```
