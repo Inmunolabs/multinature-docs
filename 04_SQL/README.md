@@ -77,7 +77,7 @@ Ver [migrations.md](./migrations.md) para:
 
 ---
 
-- **Última actualización:** 2026-02-11
+- **Última actualización:** 2026-03-15
 - **Total de archivos:** 92 (incluye subdirectorios)
 - **Total de tablas:** 82+
 - **Total de queries:** 6

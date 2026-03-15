@@ -74,6 +74,11 @@ created_at datetime
 - UPDATE parcial por `id`
 - DELETE por `id` (si aplica)
 
+## Uso en bookings-api
+
+- **Tipos de nombre (`name`):** *Anticipo de consulta*, *Consulta* (pagos por cita), *Mensualidad* (suscripción mensual, no ligada a una cita; `booking_id` puede ser NULL según implementación).
+- **Variable de entorno `PAYMENTS_ENABLED`:** Si en la bookings-api está en `'false'`, no se crean registros en esta tabla al crear una cita; la gestión de pagos queda desactivada. Ver [Pagos de citas y PAYMENTS_ENABLED](../../00_Overview/Business_Rules/citas/pagos-citas-y-PAYMENTS_ENABLED.md).
+
 ## Notas
 
 - Documenta claves foráneas, índices y `ORDER BY` por defecto si aplica.

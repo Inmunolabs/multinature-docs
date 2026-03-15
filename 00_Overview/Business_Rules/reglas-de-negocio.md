@@ -109,12 +109,20 @@
 - **Dirección física**: Si la cita es física, la dirección debe pertenecer al especialista
 - **Consultorio**: La dirección debe ser de un consultorio del especialista (`address.isClinic === true`)
 
-### Sistema de Pagos por Citas
+### Interruptor global de pagos (bookings-api)
 
-- **Cobro por consulta**: Si `chargePerConsultation > 0`, se genera `service_payment` por consulta
-- **Anticipo**: Si `chargeAdvancePayment > 0`, se genera complemento de anticipo
-- **Sin cobro**: Si ambos valores son 0, no se genera ningún `service_payment`
-- **Liquidación**: El sistema permite liquidar pagos pendientes considerando anticipos
+- **Variable de entorno `PAYMENTS_ENABLED`**: Actúa como interruptor de toda la gestión de pagos en la API de citas.
+  - **`true`** (o no definida): Comportamiento normal; se exigen y crean pagos según la configuración del especialista.
+  - **`false`**: La gestión de pagos queda desactivada: no se crea `service_payment`, no se exige `amount` ni tipo de pago; especialistas y pacientes pueden agendar citas sin cobros. Los endpoints de liquidación y suscripción mensual responden 503 (La gestión de pagos está desactivada).
+- Definida en la API (p. ej. `serverless.yml`, `configDeploy`). Ver [Pagos de citas y PAYMENTS_ENABLED](citas/pagos-citas-y-PAYMENTS_ENABLED.md).
+
+### Sistema de Pagos por Citas (cuando PAYMENTS_ENABLED = true)
+
+- **Cobro por consulta**: Si `chargePerConsultation > 0`, se genera `service_payment` por consulta (nombre: *Consulta* o *Anticipo de consulta* según monto).
+- **Anticipo**: Si `chargeAdvancePayment > 0`, el paciente puede pagar solo el anticipo; luego se puede liquidar el resto (generando `service_payment_complements`).
+- **Sin cobro en configuración**: Si ambos valores son 0, no se genera ningún `service_payment` y la cita puede confirmarse sin pago.
+- **Liquidación**: El sistema permite liquidar pagos pendientes considerando anticipos ya pagados.
+- **Tipos de pago (ServicePaymentNames)**: *Anticipo de consulta*, *Consulta*, *Mensualidad* (esta última solo en suscripción mensual, no ligada a una cita).
 
 ### Estados de Citas
 
@@ -434,6 +442,10 @@
 - **Tolerancia nutricional**: Porcentaje de tolerancia para equivalencias
 - **Períodos de corte**: Fechas configurables para liquidación de comisiones
 
+### Variables de entorno por API
+
+- **bookings-api – `PAYMENTS_ENABLED`**: Interruptor global de la gestión de pagos. Si es `'false'`, no se crean cobros ni se exigen datos de pago al agendar; liquidación y suscripción mensual responden 503. Ver [Pagos de citas](citas/pagos-citas-y-PAYMENTS_ENABLED.md).
+
 ### Integraciones Externas
 
 - **OpenPay**: Pagos con tarjeta y suscripciones
@@ -588,4 +600,4 @@
 
 _Este documento debe mantenerse actualizado con cualquier cambio en las reglas de negocio del sistema. Para modificaciones, contactar al equipo de desarrollo._
 
-**Última actualización del documento:** 2026-03-11 (reglas de registro/identidad email-teléfono).
+**Última actualización del documento:** 2026-03-15 (interruptor PAYMENTS_ENABLED en bookings-api y reglas de pagos por citas).

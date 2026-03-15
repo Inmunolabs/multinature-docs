@@ -44,6 +44,7 @@ Documentación completa de Multinature, incluyendo APIs, base de datos, infraest
 **Product Owner/Business:**
 
 - [Reglas de Negocio](./00_Overview/Business_Rules/README.md) - Lógica de negocio
+- [Citas y pagos (bookings-api)](./00_Overview/Business_Rules/citas/README.md) - Agendamiento, pagos por cita y variable **PAYMENTS_ENABLED**
 - [Decisiones de Negocio](./05_Negocio/decision-records.md) - Registro de decisiones
 
 ---
@@ -72,6 +73,6 @@ Todos los scripts están documentados en: **[Scripts/README.md](./03_Infraestruc
 
 ---
 
-- **Última actualización:** 2026-02-11
-- **Total de archivos:** ~390 (incluye subdirectorios)
+- **Última actualización:** 2026-03-15
+- **Total de archivos:** ~390+ (incluye subdirectorios)
 - **Mantenedor:** Miguel Valdés

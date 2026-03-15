@@ -53,6 +53,6 @@ Cada API incluye:
 
 ---
 
-- **Última actualización:** 2026-02-11
+- **Última actualización:** 2026-03-15
 - **Total de APIs:** 18
 - **Total de archivos:** 185+

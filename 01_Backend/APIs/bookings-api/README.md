@@ -1,22 +1,35 @@
 # bookings-api
 
-Documentación de bookings-api.
+Documentación de bookings-api (sistema de citas y reservas).
 
 ---
 
 ## Secciones
 
 - [Endpoints](./Endpoints/README.md)
+- **Reglas de negocio (citas y pagos):** [docs/00_Overview/Business_Rules/citas/](../../../00_Overview/Business_Rules/citas/README.md) — Agendamiento, [Pagos de citas y PAYMENTS_ENABLED](../../../00_Overview/Business_Rules/citas/pagos-citas-y-PAYMENTS_ENABLED.md)
+
+---
+
+## Variable de entorno: PAYMENTS_ENABLED
+
+Interruptor global de la gestión de pagos en esta API:
+
+- **`true`** (o no definida): Comportamiento normal; se exigen y crean pagos según la configuración del especialista (anticipo, consulta, liquidación, mensualidad).
+- **`false`**: Toda la gestión de pagos queda desactivada: no se crea `service_payment`, no se exige `amount` ni tipo de pago; especialistas y pacientes pueden agendar citas sin cobros. Los endpoints de liquidación y suscripción mensual responden **503** (*La gestión de pagos está desactivada*).
+
+Definida en `serverless.yml` y en `configDeploy/serverless*.yaml`. Detalle en [Pagos de citas y PAYMENTS_ENABLED](../../../00_Overview/Business_Rules/citas/pagos-citas-y-PAYMENTS_ENABLED.md).
 
 ---
 
 ## Reglas importantes y contexto del proyecto
 
-- El paciente puede agendar con cualquier especialista disponible y asignado a el.
-- Si el especialista tiene configurado que la cita **no requiere pago anticipado**, y la cita es agendada por el paciente, esta queda **confirmada** automáticamente.
-- Si se requiere pago, se crea una orden de servicio que debe liquidarse (OpenPay (pago con tarjeta o pago en tienda) / MercadoPago).
+- El paciente puede agendar con cualquier especialista disponible y asignado a él.
+- Si **PAYMENTS_ENABLED = false**, las citas se crean sin cobro y pueden confirmarse sin pago; liquidación y suscripción mensual responden 503.
+- Si el especialista tiene configurado que la cita **no requiere pago** (`chargePerConsultation = 0` y `chargeAdvancePayment = 0`) y la cita es agendada por el paciente, esta queda **confirmada** automáticamente.
+- Si se requiere pago (y PAYMENTS_ENABLED = true), se crea una orden de servicio (`service_payment`) que debe liquidarse (OpenPay tarjeta/tienda, MercadoPago o efectivo).
 - Si la cita es virtual y no se asigna dirección, se genera un enlace de videollamada genérico.
-- Se envían notificaciones por correo con datos de la cita y del pago.
+- Se envían notificaciones por correo con datos de la cita y del pago cuando aplica.
 
 ---
 
@@ -34,5 +47,5 @@ Documentación de bookings-api.
 
 ---
 
-- **Última actualización:** 2025-12-15
-- **Total de archivos:** 13
+- **Última actualización:** 2026-03-15
+- **Total de archivos:** 13+

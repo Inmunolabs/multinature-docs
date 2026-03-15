@@ -31,10 +31,10 @@ Visión general del proyecto Multinature, incluyendo reglas de negocio, estructu
 - [Usuarios](./Business_Rules/users/README.md)
 - [Nutriólogos](./Business_Rules/nutriologos/README.md)
 - [Especialistas](./Business_Rules/specialists/README.md)
-- [Citas](./Business_Rules/citas/README.md)
+- [Citas](./Business_Rules/citas/README.md) — Incl. pagos por cita y variable PAYMENTS_ENABLED (bookings-api)
 - [Nosotros](./Business_Rules/nosotros/README.md)
 
 ---
 
-- **Última actualización:** 2026-02-11
+- **Última actualización:** 2026-03-15
 - **Total de archivos:** 20 (incluye subdirectorios)

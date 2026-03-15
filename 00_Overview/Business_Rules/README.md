@@ -6,7 +6,7 @@ Documentación de business rules.
 
 ## Secciones
 
-- [citas](./citas/README.md)
+- [citas](./citas/README.md) — Agendamiento, pagos por cita y variable PAYMENTS_ENABLED (bookings-api)
 - [medicos_generales](./medicos_generales/recetasMedicas.md)
 - [nosotros](./nosotros/README.md)
 - [nutriologos](./nutriologos/README.md)
@@ -24,5 +24,5 @@ Documentación de business rules.
 
 ---
 
-- **Última actualización:** 2026-02-11  
-- **Total de archivos:** 16 (incluye subdirectorios)
+- **Última actualización:** 2026-03-15  
+- **Total de archivos:** 17 (incluye subdirectorios)

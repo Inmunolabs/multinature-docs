@@ -40,6 +40,7 @@
   - AWS: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`.
   - OpenAI: `OPENAI_API_KEY`.
   - Otros: `JWT_SECRET`, `FRONTEND_ORIGIN`, etc.
+  - **bookings-api:** `PAYMENTS_ENABLED` — si es `'false'`, se desactiva toda la gestión de pagos (citas sin cobro). Ver [Reglas de negocio — Citas y pagos](Business_Rules/citas/pagos-citas-y-PAYMENTS_ENABLED.md).
 
 > **Regla**: Nunca commitear secretos. Usar `.env.local` / `dotenv` / variables de entorno en CI/CD.
 
