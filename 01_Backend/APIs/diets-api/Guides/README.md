@@ -12,5 +12,5 @@ Documentación de guides.
 
 ---
 
-- **Última actualización:** 2026-03-07
+- **Última actualización:** 2026-03-28
 - **Total de archivos:** 3

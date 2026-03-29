@@ -59,3 +59,7 @@ Este formato permite:
 - Vincular reuniones con backlog y ejecución
 
 Sin estructura, no hay automatización.
+
+---
+
+- **Última actualización:** 2026-03-28

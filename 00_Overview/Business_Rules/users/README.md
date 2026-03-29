@@ -11,4 +11,4 @@ Documentación de reglas de negocio y flujos de usuarios.
 
 ---
 
-- **Última actualización:** 2026-03-11
+- **Última actualización:** 2026-03-28

@@ -10,7 +10,7 @@ Documentación completa de Multinature, incluyendo APIs, base de datos, infraest
 - **[01 Backend](./01_Backend/README.md)** - Documentación técnica del backend (APIs, Database, Layers)
 - **[02 Frontend](./02_Frontend/README.md)** - Documentación del frontend
 - **[03 Infraestructura](./03_Infraestructura/README.md)** - Scripts, herramientas y configuración de infraestructura
-- **[04 SQL](./04_SQL/README.md)** - Queries SQL y documentación de base de datos
+- **[04 SQL](./04_SQL/README.md)** - DDL de tablas, queries documentados, reportes SQL y migraciones
 - **[05 Negocio](./05_Negocio/README.md)** - Decisiones de negocio, pendientes y recursos
 - **[06 Management](./06_Management/README.md)** - Gestión del proyecto, épicas, roadmap, equipo y minutas
 - **[PM](./PM/)** - Plantillas de ClickUp y políticas operativas
@@ -25,7 +25,7 @@ Documentación completa de Multinature, incluyendo APIs, base de datos, infraest
 
 1. **[AGENTS.md](./00_Overview/AGENTS_GUIDE.md)** - Guía completa para trabajar con el monorepo
 2. **[Estructura del Proyecto](./00_Overview/PROJECT_STRUCTURE.md)** - Entiende la organización del código
-3. **[SQL y Base de Datos](./04_SQL/README.md)** - Conoce las 82+ tablas de la base de datos
+3. **[SQL y Base de Datos](./04_SQL/README.md)** - Tablas (DDL), queries, carpeta de reportes y migraciones
 4. **[Scripts](./03_Infraestructura/Scripts/README.md)** - Aprende a usar las herramientas de infraestructura
 
 ### Por Rol
@@ -33,7 +33,7 @@ Documentación completa de Multinature, incluyendo APIs, base de datos, infraest
 **Backend Developer:**
 
 - [APIs](./01_Backend/APIs/README.md) - Documentación de todas las APIs
-- [SQL](./04_SQL/README.md) - DDL, queries y migraciones de base de datos
+- [SQL](./04_SQL/README.md) - DDL, queries, [reportes](./04_SQL/reportes/README.md) y migraciones
 - [Layers](./01_Backend/Layers/README.md) - Arquitectura en capas
 
 **DevOps/SRE:**
@@ -73,6 +73,6 @@ Todos los scripts están documentados en: **[Scripts/README.md](./03_Infraestruc
 
 ---
 
-- **Última actualización:** 2026-03-15
-- **Total de archivos:** ~390+ (incluye subdirectorios)
+- **Última actualización:** 2026-03-28
+- **Total de archivos:** ~440 (incluye subdirectorios)
 - **Mantenedor:** Miguel Valdés

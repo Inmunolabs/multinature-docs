@@ -13,5 +13,5 @@ Documentación de citas (bookings-api) y reglas de negocio asociadas.
 
 ---
 
-- **Última actualización:** 2026-03-15
+- **Última actualización:** 2026-03-28
 - **Total de archivos:** 4

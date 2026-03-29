@@ -11,5 +11,5 @@ Documentación de 2.2.3-specialists.
 
 ---
 
-- **Última actualización:** 2025-12-15  
+- **Última actualización:** 2026-03-28
 - **Total de archivos:** 2

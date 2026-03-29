@@ -47,5 +47,5 @@ Definida en `serverless.yml` y en `configDeploy/serverless*.yaml`. Detalle en [P
 
 ---
 
-- **Última actualización:** 2026-03-15
+- **Última actualización:** 2026-03-28
 - **Total de archivos:** 13+

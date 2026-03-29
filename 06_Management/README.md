@@ -71,5 +71,5 @@ Esta sección contiene documentación relacionada con la gestión operativa del 
 
 ---
 
-- **Última actualización:** 2026-03-07
+- **Última actualización:** 2026-03-28
 - **Total de archivos:** 21 (incluye subdirectorios)

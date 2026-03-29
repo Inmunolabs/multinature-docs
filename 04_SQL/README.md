@@ -8,6 +8,7 @@ Documentación completa de SQL para Multinature, incluyendo estructura de tablas
 
 - **[Tables](./tables/README.md)** - Documentación completa de todas las tablas (82+ tablas) con DDL
 - **[Queries](./queries/README.md)** - Consultas SQL listas para usar y documentadas
+- **[Reportes](./reportes/README.md)** - Reportes de negocio y exportación (definiciones y SQL orientados a salida recurrente)
 - **[Migrations](./migrations.md)** - Estrategia y guía para migraciones de base de datos
 
 ---
@@ -49,8 +50,9 @@ El módulo de queries agrupa consultas SQL listas para usar con documentación c
 - **Auditoría de Datos** - Queries para validar consistencia de datos nutricionales
 - **Exportación y Migración** - Scripts para exportar e importar datos específicos
 - **Limpieza y Mantenimiento** - Queries para sanitizar y preparar entornos
+- **Comisiones y pagos** - Ej. detalle de comisiones con acreedor, método Cobro y datos fiscales (`queries/07_...`)
 
-Ver [queries/README.md](./queries/README.md) para la lista completa de queries disponibles.
+Ver [queries/README.md](./queries/README.md) para la lista completa de queries disponibles. Los reportes nombrados y su convención están en [reportes/README.md](./reportes/README.md).
 
 ---
 
@@ -73,11 +75,12 @@ Ver [migrations.md](./migrations.md) para:
 
 - **DDL y Estructura:** Consulta [tables/](./tables/) para ver la estructura completa de cada tabla
 - **Queries Útiles:** Revisa [queries/](./queries/) para consultas SQL listas para usar
+- **Reportes:** Revisa [reportes/](./reportes/) para reportes documentados de negocio
 - **Migraciones:** Lee [migrations.md](./migrations.md) antes de hacer cambios en producción
 
 ---
 
-- **Última actualización:** 2026-03-15
-- **Total de archivos:** 92 (incluye subdirectorios)
+- **Última actualización:** 2026-03-28
+- **Total de archivos:** 97 (incluye subdirectorios)
 - **Total de tablas:** 82+
-- **Total de queries:** 6
+- **Total de queries documentados:** 7 (ver [queries/README.md](./queries/README.md))

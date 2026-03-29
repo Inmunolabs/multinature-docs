@@ -36,5 +36,5 @@ Visión general del proyecto Multinature, incluyendo reglas de negocio, estructu
 
 ---
 
-- **Última actualización:** 2026-03-15
+- **Última actualización:** 2026-03-28
 - **Total de archivos:** 20 (incluye subdirectorios)

@@ -24,5 +24,5 @@ Esta documentación es de uso interno y puede contener información sensible o e
 
 ---
 
-- **Última actualización:** 2026-02-11
+- **Última actualización:** 2026-03-28
 - **Total de archivos:** 2 (incluye subdirectorios)

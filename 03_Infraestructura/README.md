@@ -56,6 +56,6 @@ Para información detallada sobre cada script, incluyendo uso, opciones, ejemplo
 
 ---
 
-- **Última actualización:** 2026-03-08
+- **Última actualización:** 2026-03-28
 - **Total de archivos:** 19 (incluye subdirectorios)
 - **Total de scripts:** 14

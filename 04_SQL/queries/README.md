@@ -22,6 +22,7 @@ Este módulo agrupa consultas SQL listas para usar y documentadas para el proyec
 | [04_export_form_template_as_inserts.md](./04_export_form_template_as_inserts.md) | Genera los scripts **INSERT** necesarios para replicar un `form_template`, sus conceptos y relaciones manteniendo los IDs originales. | Clonar cuestionarios en otro entorno o realizar migraciones puntuales. |
 | [05_clean_keep_selected_forms.md](./05_clean_keep_selected_forms.md) | Conserva solo los templates definidos, exporta sus INSERTs y limpia el resto de la base (forms y respuestas) con un flujo seguro para triggers. | Preparar entornos reducidos o sanitizar data manteniendo formularios específicos. |
 | [06_delete_form_template_full_cleanup.md](./06_delete_form_template_full_cleanup.md) | Elimina uno o varios `form_templates` junto con sus relaciones, filled forms, respuestas y conceptos exclusivos no referenciados por otros templates. | Limpieza completa de formularios obsoletos o de prueba. |
+| [07_commissions_detail_with_creditor_and_tax.md](./07_commissions_detail_with_creditor_and_tax.md) | **Comisiones**: transacciones, total por comisión, usuario acreedor (nombre, correo, teléfono), método `payment_methods` con `card_use = 'Cobro'` (CLABE y datos del registro) y `tax_information` con `tax_type = 'commission'` (CURP, RFC, `address_id`). | Pagos de comisiones, soporte fiscal y conciliación. |
 
 ---
 
@@ -35,6 +36,6 @@ Cada query incluye:
 
 ---
 
-- **Última actualización:** 2026-02-21
-- **Total de archivos:** 7 (incluye subdirectorios)
-- **Total de queries:** 6
+- **Última actualización:** 2026-03-28
+- **Total de archivos:** 8 (incluye subdirectorios)
+- **Total de queries:** 7

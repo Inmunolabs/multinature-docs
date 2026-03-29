@@ -13,5 +13,5 @@ Documentación de specialists.
 
 ---
 
-- **Última actualización:** 2026-02-11
+- **Última actualización:** 2026-03-28
 - **Total de archivos:** 4

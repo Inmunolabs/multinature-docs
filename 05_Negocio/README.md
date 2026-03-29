@@ -27,4 +27,4 @@ Documentación de negocio, decisiones, pendientes y recursos relacionados con el
 
 ---
 
-- **Última actualización:** 2026-03-11
+- **Última actualización:** 2026-03-28

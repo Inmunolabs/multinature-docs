@@ -35,5 +35,5 @@ Documentación de constants-api.
 
 ---
 
-- **Última actualización:** 2025-12-15
+- **Última actualización:** 2026-03-28
 - **Total de archivos:** 3
