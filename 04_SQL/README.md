@@ -49,7 +49,7 @@ El módulo de queries agrupa consultas SQL listas para usar con documentación c
 - **Formularios y Templates** - Consultas para gestionar formularios y sus respuestas
 - **Auditoría de Datos** - Queries para validar consistencia de datos nutricionales
 - **Exportación y Migración** - Scripts para exportar e importar datos específicos
-- **Limpieza y Mantenimiento** - Queries para sanitizar y preparar entornos
+- **Limpieza y Mantenimiento** - Queries para sanitizar y preparar entornos; purga dura de usuarios ([08_purge_users_safe.md](./queries/08_purge_users_safe.md))
 - **Comisiones y pagos** - Ej. detalle de comisiones con acreedor, método Cobro y datos fiscales (`queries/07_...`)
 
 Ver [queries/README.md](./queries/README.md) para la lista completa de queries disponibles. Los reportes nombrados y su convención están en [reportes/README.md](./reportes/README.md).
@@ -80,7 +80,7 @@ Ver [migrations.md](./migrations.md) para:
 
 ---
 
-- **Última actualización:** 2026-03-28
-- **Total de archivos:** 97 (incluye subdirectorios)
+- **Última actualización:** 2026-04-03
+- **Total de archivos:** 97+ (incluye subdirectorios)
 - **Total de tablas:** 82+
-- **Total de queries documentados:** 7 (ver [queries/README.md](./queries/README.md))
+- **Total de queries documentados:** 8 (ver [queries/README.md](./queries/README.md))
