@@ -24,6 +24,7 @@ Este módulo agrupa consultas SQL listas para usar y documentadas para el proyec
 | [06_delete_form_template_full_cleanup.md](./06_delete_form_template_full_cleanup.md) | Elimina uno o varios `form_templates` junto con sus relaciones, filled forms, respuestas y conceptos exclusivos no referenciados por otros templates. | Limpieza completa de formularios obsoletos o de prueba. |
 | [07_commissions_detail_with_creditor_and_tax.md](./07_commissions_detail_with_creditor_and_tax.md) | **Comisiones**: transacciones, total por comisión, usuario acreedor (nombre, correo, teléfono), método `payment_methods` con `card_use = 'Cobro'` (CLABE y datos del registro) y `tax_information` con `tax_type = 'commission'` (CURP, RFC, `address_id`). | Pagos de comisiones, soporte fiscal y conciliación. |
 | [08_purge_users_safe.md](./08_purge_users_safe.md) | **Purga dura de usuarios** por lista de UUID: transacción, omisión de recomendadores aún referenciados, deletes ordenados, auto-FK desde `information_schema`, limpieza de `recommender_id` (script SQL incluido en el documento). | Staging / QA / local: eliminar cuentas de prueba o lotes controlados (no producción sin revisión). |
+| [09_delete_orders_by_folio_and_commission_cleanup.md](./09_delete_orders_by_folio_and_commission_cleanup.md) | **Órdenes por folio**: borra `commission_transactions`, `users_consumption` por `order_id`, filas en `orders` y opcionalmente encabezados `commissions` huérfanos; variante solo con CASCADE documentada. | Limpieza de pedidos de prueba o corrección puntual con comisiones y consumo coherentes. |
 
 ---
 
@@ -37,6 +38,6 @@ Cada query incluye:
 
 ---
 
-- **Última actualización:** 2026-04-03
-- **Archivos en este directorio:** 9 (README + 8 documentos de query `.md`)
-- **Queries documentadas (índice):** 8
+- **Última actualización:** 2026-04-07
+- **Archivos en este directorio:** 10 (README + 9 documentos de query `.md`)
+- **Queries documentadas (índice):** 9
