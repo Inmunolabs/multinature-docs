@@ -53,3 +53,4 @@ level tinyint NOT NULL
 ## Notas
 
 - Documenta claves foráneas, índices y `ORDER BY` por defecto si aplica.
+- Inserción típica vía procedimiento `InsertCommissionTransaction` (ver migraciones en `multi-mysql-layer`). Documentación del flujo: [orders_commissions_and_consumption.md](../flows/orders_commissions_and_consumption.md).

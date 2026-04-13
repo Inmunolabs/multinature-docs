@@ -3,6 +3,7 @@
 > **Índice rápido**
 >
 > - [Modelos de BD (índice)](../04_SQL/README.md)
+> - [Flujos SQL (ej. órdenes → comisiones)](../04_SQL/flows/README.md)
 > - [Histórico de Refactors](Business_Rules/README.md)
 > - [Scripts de Validación](Business_Rules/README.md)
 > - Tablas: revisa `docs/04_SQL/tables/*.md` antes de tocar queries/repos/entities.

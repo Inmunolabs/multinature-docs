@@ -52,3 +52,4 @@ created_at datetime NOT NULL
 ## Notas
 
 - Documenta claves foráneas, índices y `ORDER BY` por defecto si aplica.
+- Registro por línea de producto al completar compra: [orders_commissions_and_consumption.md](../flows/orders_commissions_and_consumption.md).

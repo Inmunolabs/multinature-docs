@@ -7,6 +7,7 @@ Documentación completa de SQL para Multinature, incluyendo estructura de tablas
 ## 📑 Secciones
 
 - **[Tables](./tables/README.md)** - Documentación completa de todas las tablas (82+ tablas) con DDL
+- **[Flows](./flows/README.md)** - Flujos que cruzan varias tablas (ej. órdenes pagadas → consumos y comisiones)
 - **[Queries](./queries/README.md)** - Consultas SQL listas para usar y documentadas
 - **[Reportes](./reportes/README.md)** - Reportes de negocio y exportación (definiciones y SQL orientados a salida recurrente)
 - **[Migrations](./migrations.md)** - Estrategia y guía para migraciones de base de datos
@@ -27,7 +28,7 @@ La base de datos de Multinature contiene **82+ tablas** organizadas por dominio:
 - **Rutinas y Ejercicios** - `routines`, `exercises`, `workout_plans`
 - **Formularios** - `form_templates`, `filled_forms`, `concepts`
 - **Notificaciones** - `notifications`
-- **Comisiones** - `commissions`, `commission_transactions`
+- **Comisiones** - `commissions`, `commission_transactions` (flujo end-to-end: [flows/orders_commissions_and_consumption.md](./flows/orders_commissions_and_consumption.md))
 - **Y más...**
 
 ### Documentación de Tablas

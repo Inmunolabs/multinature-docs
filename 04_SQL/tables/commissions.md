@@ -52,3 +52,4 @@ updated_at datetime
 ## Notas
 
 - Documenta claves foráneas, índices y `ORDER BY` por defecto si aplica.
+- Encabezado por acreedor y periodo; el detalle por orden está en `commission_transactions`. Flujo completo: [orders_commissions_and_consumption.md](../flows/orders_commissions_and_consumption.md).

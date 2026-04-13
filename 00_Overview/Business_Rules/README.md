@@ -6,6 +6,7 @@ Documentación de business rules.
 
 ## Secciones
 
+- [Pedidos, comisiones y consumo](../../04_SQL/flows/orders_commissions_and_consumption.md) — Flujo cuando una orden queda pagada (`orders-api` + tablas SQL; casos de prueba y backlog en la misma carpeta `04_SQL/flows/`)
 - [citas](./citas/README.md) — Agendamiento, pagos por cita y variable PAYMENTS_ENABLED (bookings-api)
 - [medicos_generales](./medicos_generales/recetasMedicas.md)
 - [nosotros](./nosotros/README.md)
