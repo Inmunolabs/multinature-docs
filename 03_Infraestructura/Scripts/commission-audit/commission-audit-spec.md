@@ -20,6 +20,11 @@ Campos relevantes:
 - `orders.subtotal`
 - `orders.total`
 - `orders.iva`
+- `orders.monthly_purchase_id` (enlace a compra recurrente / `monthly_purchases`, si aplica)
+- `orders.openpay_subscription_id` (suscripción OpenPay, si aplica)
+- `orders.type` (enum; valor `subscription` indica cargo por suscripción)
+- `orders.payment_provider` (JSON; campo `mode` igual a `subscription` indica modo suscripción)
+- `orders.purchase_type` (opcional; si existe en el esquema, valor `monthly_purchase` indica recurrente)
 
 ### Consumos
 Los consumos representan los productos registrados para la orden.
@@ -83,30 +88,52 @@ Solo las órdenes pagadas pueden:
 - Nivel 2 esperado = `L1.recommender_id`
 - Nivel 3 esperado = `L2.recommender_id`
 
-### Excepción
-- El administrador general puede ser recomendador de sí mismo.
+### Auto-referencia (self-reference)
+Si el `user_id` esperado de un nivel es **igual** al del nivel inmediatamente anterior en la cadena cruda (`recommender_id`):
+- ese nivel se trata como **NOT_APPLICABLE** para auditoría (no se espera comisión ni destinatario en ese nivel duplicado)
+- aplica a **cualquier** usuario, no solo administrador
+- no deben generarse errores por ausencia de comisión o destinatario en ese nivel (p. ej. no `MISSING_EXPECTED_LEVEL_*` / `MISSING_RECIPIENT_*` por ese motivo)
+
+Comparación:
+- L2 no aplica si `expected_level_2_user_id == expected_level_1_user_id`
+- L3 no aplica si `expected_level_3_user_id == expected_level_2_user_id` (IDs tal como vienen de BD antes del colapso)
 
 ### Reglas de existencia
 - L1 siempre debe existir si la orden pagada genera comisiones.
-- L2 solo debe existir si el usuario de nivel 1 tiene recommender.
-- L3 solo debe existir si el usuario de nivel 2 tiene recommender.
+- L2 solo debe existir si el usuario de nivel 1 tiene recommender **y** el nivel no queda descartado por auto-referencia.
+- L3 solo debe existir si el usuario de nivel 2 tiene recommender **y** el nivel no queda descartado por auto-referencia.
 - No puede existir L3 sin L2.
 - Puede faltar L2 por diseño.
 - Puede faltar L3 por diseño.
 
 ### Regla clave
-No se debe marcar como error la ausencia de L2 o L3 si ese nivel no era esperado según la red.
+No se debe marcar como error la ausencia de L2 o L3 si ese nivel no era esperado según la red (incluye niveles colapsados por auto-referencia).
 
 ---
 
 ## 4. Regla de montos
 
 ### Base de cálculo
-La comisión se calcula sobre el total neto de la orden:
+Primero se obtiene el neto a partir del consumo:
 
-`net_total = consumption_total_sum / 1.16`
+`net_from_consumption = consumption_total_sum / 1.16`
 
-### Porcentajes
+**Compra estándar:** la base sobre la que aplican los porcentajes es `net_from_consumption`.
+
+**Compra recurrente (monthly purchase):** la base es `net_from_consumption * 0.90`.
+
+Una orden se considera **recurrente** (compra ligada a suscripción / monthly purchase) si cumple **cualquiera** de estas señales explícitas (no se infiere por un patrón ~−10%):
+- `orders.monthly_purchase_id` tiene valor distinto de `NULL` y distinto de cadena vacía (tras `TRIM`)
+- `orders.openpay_subscription_id` tiene valor distinto de `NULL` y distinto de cadena vacía (tras `TRIM`)
+- `orders.purchase_type = 'monthly_purchase'` (solo si la columna existe en el esquema)
+- `orders.type` (order type) es `subscription` (aceptar también el typo histórico `subcription` en datos viejos)
+- `orders.payment_provider.mode` es `subscription` (comparación case-insensitive tras normalizar)
+
+La query SQL puede exponer `is_monthly_purchase_row = 1` cuando cualquiera de las condiciones soportadas en BD se cumple; el script JS recalcula la misma lógica a partir de las columnas de la fila (incl. JSON / Excel).
+
+Si ninguna señal aplica, la orden se trata como **compra estándar** para el cálculo de la base de comisión.
+
+### Porcentajes (sobre la base definida arriba)
 - L1 = 25%
 - L2 = 10%
 - L3 = 5%
@@ -119,7 +146,10 @@ La comisión se calcula sobre el total neto de la orden:
 - Diferencias fuera de tolerancia => error real
 
 ### Patrón conocido
-Puede existir un bug histórico donde el monto fue generado 10% por debajo del esperado.
+Puede existir un bug histórico donde el monto fue generado 10% por debajo del esperado **respecto a la base estándar** (sin descuento recurrente).
+
+- **No** se usa el patrón −10% para **inferir** que una orden es recurrente.
+- Si `is_monthly_purchase` es verdadero, **no** se emite `KNOWN_PATTERN_MINUS_10_PERCENT` (las comisiones esperadas ya usan base × 0,90). Siguen aplicando `AMOUNT_MISMATCH_*` y `TOTAL_COMMISSION_MISMATCH` solo si la diferencia supera la tolerancia ±0,10 MXN frente a esa base recurrente.
 
 ---
 
@@ -215,6 +245,7 @@ La orden no aplica para ciertas validaciones.
 Una validación no aplica, por ejemplo:
 - L2 no esperado
 - L3 no esperado
+- nivel colapsado por auto-referencia (mismo `user_id` que el nivel anterior)
 
 ---
 
@@ -228,7 +259,7 @@ Una validación no aplica, por ejemplo:
 
 ### Niveles
 - MISSING_LEVEL_1
-- MISSING_LEVEL_2_WITH_LEVEL_3_PRESENT
+- MISSING_LEVEL_2_WITH_LEVEL_3_PRESENT (no aplica si L2 fue colapsado por auto-referencia con L1)
 - UNEXPECTED_LEVEL_2
 - UNEXPECTED_LEVEL_3
 - MISSING_EXPECTED_LEVEL_2
@@ -280,9 +311,11 @@ Una validación no aplica, por ejemplo:
 Estas condiciones NO deben producir error:
 - ausencia de L2 cuando L2 no era esperado
 - ausencia de L3 cuando L3 no era esperado
-- ausencia de recipient L2 cuando L2 no era esperado
-- ausencia de recipient L3 cuando L3 no era esperado
+- ausencia de L2 o L3 cuando el nivel fue marcado NOT_APPLICABLE por auto-referencia
+- ausencia de recipient L2 cuando L2 no era esperado o no aplica
+- ausencia de recipient L3 cuando L3 no era esperado o no aplica
 - `consumption_total_sum != order_total` por sí solo
+- montos coherentes con la base **recurrente** (`net * 0.90`) cuando la orden es monthly purchase
 
 ---
 
@@ -300,8 +333,14 @@ Hojas:
 ### Archivos adicionales
 - `resultado.json`
 - `errores.json`
-- `errores.csv`
 - `mensaje.txt`
+
+El archivo `errores.csv` **no** forma parte de la salida (los errores siguen en `errores.json` y en la hoja Excel `Errores`).
+
+### Nombre del Excel
+Por defecto el archivo Excel usa marca de tiempo para no sobrescribir corridas anteriores:
+
+`auditoria_comisiones_YYYYMMDD_HHmmss.xlsx` (hora local del equipo que ejecuta el script).
 
 ---
 

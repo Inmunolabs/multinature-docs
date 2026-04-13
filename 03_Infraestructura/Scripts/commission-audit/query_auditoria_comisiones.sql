@@ -1,4 +1,6 @@
 -- Order-level commission audit feed (aligned with commission-audit-spec.md).
+-- Recurring orders: any of monthly_purchase_id, openpay_subscription_id, type=subscription,
+-- payment_provider.mode=subscription (see spec §4). Optional: orders.purchase_type = 'monthly_purchase' if column exists.
 -- Params: start_ts, end_ts
 -- Expected period uses calendar rule: day >= 28 => label month = next month (YYYYMM end month).
 -- Note: MySQL DAY() uses session timezone; align DB session with app or use CONVERT_TZ if needed.
@@ -12,6 +14,17 @@ WITH orders_in_period AS (
     o.purchase_date,
     o.type AS order_type,
     o.payment_provider,
+    JSON_UNQUOTE(JSON_EXTRACT(o.payment_provider, '$.mode')) AS payment_provider_mode,
+    o.monthly_purchase_id,
+    o.openpay_subscription_id,
+    CASE
+      WHEN (o.monthly_purchase_id IS NOT NULL AND TRIM(o.monthly_purchase_id) <> '')
+        OR (o.openpay_subscription_id IS NOT NULL AND TRIM(o.openpay_subscription_id) <> '')
+        OR o.type = 'subscription'
+        OR LOWER(TRIM(COALESCE(JSON_UNQUOTE(JSON_EXTRACT(o.payment_provider, '$.mode')), ''))) = 'subscription'
+        THEN 1
+      ELSE 0
+    END AS is_monthly_purchase_row,
     ROUND(o.subtotal, 2) AS order_subtotal,
     ROUND(o.total, 2) AS order_total,
     ROUND(o.iva, 2) AS order_iva,
@@ -244,6 +257,7 @@ SELECT
   oip.purchase_date,
   oip.order_type,
   oip.payment_provider,
+  oip.payment_provider_mode,
   oip.order_subtotal,
   oip.order_total,
   oip.order_iva,

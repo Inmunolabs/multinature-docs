@@ -27,6 +27,7 @@ Documentación completa de Multinature, incluyendo APIs, base de datos, infraest
 2. **[Estructura del Proyecto](./00_Overview/PROJECT_STRUCTURE.md)** - Entiende la organización del código
 3. **[SQL y Base de Datos](./04_SQL/README.md)** - Tablas (DDL), queries, carpeta de reportes y migraciones
 4. **[Scripts](./03_Infraestructura/Scripts/README.md)** - Aprende a usar las herramientas de infraestructura
+5. **[Auditoría de comisiones](./03_Infraestructura/Scripts/commission-audit/README.md)** - Validar consumos y comisiones contra la spec de negocio
 
 ### Por Rol
 
@@ -62,6 +63,7 @@ Todos los scripts están documentados en: **[Scripts/README.md](./03_Infraestruc
 - `validate-docs-links.js` - Validar enlaces en documentación
 - `healthcheck-runner.js` - Ejecutar healthchecks de todas las APIs
 - `export-form-templates.js` - Exportar templates de formularios a SQL
+- [Auditoría de comisiones](./03_Infraestructura/Scripts/commission-audit/README.md) - `commission-audit` / `auditoria_comisiones_diaria.js`
 
 ---
 
@@ -69,10 +71,10 @@ Todos los scripts están documentados en: **[Scripts/README.md](./03_Infraestruc
 
 - **Total de APIs documentadas:** 18+
 - **Total de tablas en BD:** 82+
-- **Scripts de infraestructura:** 14
+- **Scripts de infraestructura:** 15+
 
 ---
 
-- **Última actualización:** 2026-03-28
+- **Última actualización:** 2026-04-13
 - **Total de archivos:** ~440 (incluye subdirectorios)
 - **Mantenedor:** Miguel Valdés

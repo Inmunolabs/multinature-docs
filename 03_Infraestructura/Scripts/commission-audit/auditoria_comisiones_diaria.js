@@ -120,7 +120,7 @@ function calculateExpectedPeriod(date, config) {
     return `${endY}${String(endM).padStart(2, '0')}`;
 }
 
-/** Spec §3 chain */
+/** Spec §3 — raw chain from query (before self-reference collapse). */
 function calculateExpectedNetwork(row) {
     return {
         l1: normalizeScalar(row.expected_level_1_user_id),
@@ -129,31 +129,134 @@ function calculateExpectedNetwork(row) {
     };
 }
 
-/** Expected level flags — spec §3 */
-function calculateExpectedLevels(row) {
-    const n = calculateExpectedNetwork(row);
+/**
+ * Spec: self-reference — level N not applicable if same user_id as previous level in raw chain.
+ * L3 is compared to raw L2 (DB chain), not the collapsed L2.
+ */
+function collapseSelfReferenceLevels(raw) {
+    const collapsedFlags = [];
+    let effL2 = raw.l2;
+    let effL3 = raw.l3;
+
+    if (raw.l1 && raw.l2 && raw.l2 === raw.l1) {
+        collapsedFlags.push('L2_SELF_REF');
+        effL2 = null;
+    }
+    if (raw.l2 && raw.l3 && raw.l3 === raw.l2) {
+        collapsedFlags.push('L3_SELF_REF');
+        effL3 = null;
+    }
+
     return {
-        expected_l1_exists: n.l1 != null,
-        expected_l2_exists: n.l2 != null,
-        expected_l3_exists: n.l3 != null,
-        recipients: n
+        raw,
+        effective: { l1: raw.l1, l2: effL2, l3: effL3 },
+        collapsedFlags
     };
+}
+
+/** @param {1|2|3} level */
+function isLevelApplicable(level, expectedLevels) {
+    if (level === 1) return expectedLevels.expected_l1_exists;
+    if (level === 2) return expectedLevels.expected_l2_exists;
+    return expectedLevels.expected_l3_exists;
+}
+
+/**
+ * Parse orders.payment_provider (object or JSON string) — spec §4.
+ * @param {object} row
+ * @returns {Record<string, unknown>}
+ */
+function parsePaymentProvider(row) {
+    if (!hasDbColumn(row, 'payment_provider')) return {};
+    const raw = row.payment_provider;
+    if (raw == null || raw === '') return {};
+    if (typeof raw === 'object' && !Buffer.isBuffer(raw)) return raw;
+    const s = String(raw).trim();
+    if (!s) return {};
+    try {
+        return JSON.parse(s);
+    } catch {
+        return {};
+    }
+}
+
+/**
+ * Explicit recurring signals only (no −10% heuristic). Spec §4.
+ * @returns {string[]}
+ */
+function getRecurringDetectionSignals(row) {
+    const signals = [];
+    if (hasDbColumn(row, 'is_monthly_purchase_row') && toNum(row.is_monthly_purchase_row) === 1) {
+        signals.push('is_monthly_purchase_row');
+    }
+    if (hasDbColumn(row, 'monthly_purchase_id') && normalizeScalar(row.monthly_purchase_id) != null) {
+        signals.push('monthly_purchase_id');
+    }
+    if (
+        hasDbColumn(row, 'openpay_subscription_id') &&
+        normalizeScalar(row.openpay_subscription_id) != null
+    ) {
+        signals.push('openpay_subscription_id');
+    }
+    if (hasDbColumn(row, 'purchase_type')) {
+        const pt = normalizeScalar(row.purchase_type)?.toLowerCase();
+        if (pt === 'monthly_purchase') signals.push('purchase_type');
+    }
+    const ot = normalizeScalar(row.order_type)?.toLowerCase();
+    if (ot === 'subscription' || ot === 'subcription') {
+        signals.push('order_type_subscription');
+    }
+    const mode = normalizeScalar(parsePaymentProvider(row).mode)?.toLowerCase();
+    if (mode === 'subscription') {
+        signals.push('payment_provider_mode_subscription');
+    }
+    return signals;
+}
+
+/**
+ * Recurring (monthly / subscription-linked) order — spec §4.
+ */
+function isMonthlyPurchase(row) {
+    return getRecurringDetectionSignals(row).length > 0;
+}
+
+/** For audit labelling / Excel */
+function detectOrderType(row) {
+    return isMonthlyPurchase(row) ? 'monthly_purchase' : 'standard';
+}
+
+/**
+ * Spec §4 — net from consumption, then optional 0.90 for recurring.
+ */
+function calculateCommissionBase(row) {
+    const gross = round(toNum(row.consumption_total_sum));
+    if (!gross) {
+        return { base: 0, netBeforeRecurring: 0, isRecurring: false };
+    }
+    const netBeforeRecurring = round(gross / 1.16);
+    const isRecurring = isMonthlyPurchase(row);
+    const base = isRecurring ? round(netBeforeRecurring * 0.9) : netBeforeRecurring;
+    return { base, netBeforeRecurring, isRecurring };
 }
 
 function calculateExpectedAmounts(row, expectedLevels) {
     const gross = round(toNum(row.consumption_total_sum));
-    const net = gross ? round(gross / 1.16) : 0;
-    const exp1 = round(net * 0.25);
-    const exp2 = round(net * 0.1);
-    const exp3 = round(net * 0.05);
+    const { base, netBeforeRecurring, isRecurring } = calculateCommissionBase(row);
+    const exp1 = round(base * 0.25);
+    const exp2 = round(base * 0.1);
+    const exp3 = round(base * 0.05);
     const expectedTotal = round(
         exp1 +
             (expectedLevels.expected_l2_exists ? exp2 : 0) +
             (expectedLevels.expected_l3_exists ? exp3 : 0)
     );
+    const recurringSignals = getRecurringDetectionSignals(row);
     return {
         gross,
-        net,
+        net: base,
+        netBeforeRecurring,
+        is_monthly_purchase: isRecurring,
+        recurring_detection_signals: recurringSignals.join(' | ') || 'NONE',
         exp1,
         exp2,
         exp3,
@@ -161,8 +264,10 @@ function calculateExpectedAmounts(row, expectedLevels) {
     };
 }
 
+/** Effective recipients after self-reference collapse (spec §3). */
 function calculateExpectedRecipients(row) {
-    return calculateExpectedNetwork(row);
+    const raw = calculateExpectedNetwork(row);
+    return collapseSelfReferenceLevels(raw).effective;
 }
 
 /** @returns {{ start: number, end: number }} ms UTC */
@@ -242,19 +347,32 @@ function validateLevelExistence(row, expected, ctx) {
     const exp3 = expectedLevels.expected_l3_exists;
 
     if (actual.l3 && !actual.l2) {
-        actionable.push('MISSING_LEVEL_2_WITH_LEVEL_3_PRESENT');
+        // If raw L2 was self-ref to L1, there is no separate L2 commission slot — do not flag (spec change 1).
+        if (!expectedLevels.collapsedFlags?.includes('L2_SELF_REF')) {
+            actionable.push('MISSING_LEVEL_2_WITH_LEVEL_3_PRESENT');
+        } else {
+            ignoredFalsePositives.push('L3_WITHOUT_SEPARATE_L2_OK_SELF_REF');
+        }
     }
 
     if (!exp2 && actual.l2) {
         actionable.push('UNEXPECTED_LEVEL_2');
     } else if (!exp2 && !actual.l2) {
-        ignoredFalsePositives.push('L2_ABSENT_NOT_EXPECTED_OK');
+        if (expectedLevels.collapsedFlags?.includes('L2_SELF_REF')) {
+            ignoredFalsePositives.push('L2_SKIPPED_SELF_REFERENCE');
+        } else {
+            ignoredFalsePositives.push('L2_ABSENT_NOT_EXPECTED_OK');
+        }
     }
 
     if (!exp3 && actual.l3) {
         actionable.push('UNEXPECTED_LEVEL_3');
     } else if (!exp3 && !actual.l3) {
-        ignoredFalsePositives.push('L3_ABSENT_NOT_EXPECTED_OK');
+        if (expectedLevels.collapsedFlags?.includes('L3_SELF_REF')) {
+            ignoredFalsePositives.push('L3_SKIPPED_SELF_REFERENCE');
+        } else {
+            ignoredFalsePositives.push('L3_ABSENT_NOT_EXPECTED_OK');
+        }
     }
 
     if (exp2 && ctx.commissionMathScope && !actual.l2) {
@@ -349,23 +467,23 @@ function validateAmounts(row, expected, ctx) {
     const a2 = round(toNum(row.level_2_commission_amount));
     const a3 = round(toNum(row.level_3_commission_amount));
 
-    function checkLevel(level, exp, act, levelExpected) {
-        if (!levelExpected) return;
+    function checkLevel(level, exp, act) {
+        if (!isLevelApplicable(level, ctx.expectedLevels)) return;
         const diff = round(act - exp);
         const ad = Math.abs(diff);
         if (ad <= AMOUNT_TOLERANCE_MXN) {
             if (ad > 0) rounding.push(`ROUNDING_TOLERANCE_L${level}`);
             return;
         }
-        if (isMinusTenPercentPattern(exp, act)) {
+        if (!expected.is_monthly_purchase && isMinusTenPercentPattern(exp, act)) {
             actionable.push('KNOWN_PATTERN_MINUS_10_PERCENT');
         }
         actionable.push(`AMOUNT_MISMATCH_L${level}`);
     }
 
-    checkLevel(1, exp1, a1, ctx.expectedLevels.expected_l1_exists);
-    checkLevel(2, exp2, a2, ctx.expectedLevels.expected_l2_exists);
-    checkLevel(3, exp3, a3, ctx.expectedLevels.expected_l3_exists);
+    checkLevel(1, exp1, a1);
+    checkLevel(2, exp2, a2);
+    checkLevel(3, exp3, a3);
 
     const actualTotal = round(
         a1 +
@@ -527,8 +645,17 @@ function classifyOrder(row, config = {}) {
     const hasConsumptions = toNum(row.consumption_total_sum) > 0;
     const baseDate = resolvePeriodBaseDate(row, config);
     const expectedPeriod = calculateExpectedPeriod(baseDate, config);
-    const expectedLevels = calculateExpectedLevels(row);
-    const expectedRecipients = calculateExpectedRecipients(row);
+    const rawNet = calculateExpectedNetwork(row);
+    const { effective, collapsedFlags } = collapseSelfReferenceLevels(rawNet);
+    const expectedLevels = {
+        expected_l1_exists: effective.l1 != null,
+        expected_l2_exists: effective.l2 != null,
+        expected_l3_exists: effective.l3 != null,
+        recipients: effective,
+        collapsedFlags,
+        rawNetwork: rawNet
+    };
+    const expectedRecipients = { ...effective };
     const amounts = calculateExpectedAmounts(row, expectedLevels);
 
     const actual = {
@@ -631,8 +758,16 @@ function buildOutputRow(row, payload) {
 
     const nonApplicableLevels = [];
     if (expectedLevels) {
-        if (!expectedLevels.expected_l2_exists) nonApplicableLevels.push('L2');
-        if (!expectedLevels.expected_l3_exists) nonApplicableLevels.push('L3');
+        if (!expectedLevels.expected_l2_exists) {
+            nonApplicableLevels.push(
+                expectedLevels.collapsedFlags?.includes('L2_SELF_REF') ? 'L2(self-ref)' : 'L2(no-upline)'
+            );
+        }
+        if (!expectedLevels.expected_l3_exists) {
+            nonApplicableLevels.push(
+                expectedLevels.collapsedFlags?.includes('L3_SELF_REF') ? 'L3(self-ref)' : 'L3(no-upline)'
+            );
+        }
     }
 
     const error_type =
@@ -648,28 +783,43 @@ function buildOutputRow(row, payload) {
     const a2 = amounts ? round(toNum(row.level_2_commission_amount)) : 0;
     const a3 = amounts ? round(toNum(row.level_3_commission_amount)) : 0;
 
+    const exp1Out = amounts ? amounts.exp1 : 0;
+    const exp2Out =
+        amounts && expectedLevels?.expected_l2_exists ? amounts.exp2 : 0;
+    const exp3Out =
+        amounts && expectedLevels?.expected_l3_exists ? amounts.exp3 : 0;
+
     const expectedTotal = amounts ? amounts.expectedTotal : 0;
     const actualTotal = amounts
         ? round(
               a1 +
-                  (expectedLevels.expected_l2_exists ? a2 : 0) +
-                  (expectedLevels.expected_l3_exists ? a3 : 0)
+                  (expectedLevels?.expected_l2_exists ? a2 : 0) +
+                  (expectedLevels?.expected_l3_exists ? a3 : 0)
           )
         : 0;
 
     return {
         ...row,
         is_paid_order: isPaidOrder(row.delivery_status),
+        audit_order_type: detectOrderType(row),
+        is_monthly_purchase: amounts ? amounts.is_monthly_purchase : false,
+        recurring_detection_signals: amounts ? amounts.recurring_detection_signals : 'NOT_APPLICABLE',
+        payment_provider_mode: normalizeScalar(parsePaymentProvider(row).mode) || '',
+        commission_base_for_percent: amounts ? amounts.net : 0,
+        net_before_recurring_adjustment: amounts ? amounts.netBeforeRecurring : 0,
+        self_reference_collapsed: (expectedLevels?.collapsedFlags || []).join(' | ') || 'NONE',
         net_total: amounts ? amounts.net : 0,
-        expected_l1: amounts ? amounts.exp1 : 0,
-        expected_l2: amounts ? amounts.exp2 : 0,
-        expected_l3: amounts ? amounts.exp3 : 0,
+        expected_l1: exp1Out,
+        expected_l2: exp2Out,
+        expected_l3: exp3Out,
         actual_l1: a1,
         actual_l2: a2,
         actual_l3: a3,
-        diff_l1: amounts ? round(a1 - amounts.exp1) : 0,
-        diff_l2: amounts ? round(a2 - amounts.exp2) : 0,
-        diff_l3: amounts ? round(a3 - amounts.exp3) : 0,
+        diff_l1: amounts ? round(a1 - exp1Out) : 0,
+        diff_l2:
+            amounts && expectedLevels?.expected_l2_exists ? round(a2 - exp2Out) : 0,
+        diff_l3:
+            amounts && expectedLevels?.expected_l3_exists ? round(a3 - exp3Out) : 0,
         checked_expected_total: expectedTotal,
         checked_actual_total: actualTotal,
         checked_total_diff: round(actualTotal - expectedTotal),
@@ -716,25 +866,16 @@ function buildOutputRow(row, payload) {
     };
 }
 
-function writeCsv(rows, filePath) {
-    if (!rows.length) {
-        fs.writeFileSync(filePath, 'sin_errores\n', 'utf8');
-        return;
-    }
-    const keys = [...new Set(rows.flatMap(r => Object.keys(r)))];
-    const lines = [keys.join(',')];
-    for (const row of rows) {
-        lines.push(
-            keys
-                .map(k => {
-                    const v = row[k] == null ? '' : String(row[k]);
-                    if (/[",\n]/.test(v)) return `"${v.replace(/"/g, '""')}"`;
-                    return v;
-                })
-                .join(',')
-        );
-    }
-    fs.writeFileSync(filePath, lines.join('\n'), 'utf8');
+/** Default Excel name: never overwrites previous runs (spec §12). */
+function buildTimestampedOutputPath(outDir) {
+    const now = new Date();
+    const y = now.getFullYear();
+    const mo = String(now.getMonth() + 1).padStart(2, '0');
+    const d = String(now.getDate()).padStart(2, '0');
+    const hh = String(now.getHours()).padStart(2, '0');
+    const mm = String(now.getMinutes()).padStart(2, '0');
+    const ss = String(now.getSeconds()).padStart(2, '0');
+    return path.join(outDir, `auditoria_comisiones_${y}${mo}${d}_${hh}${mm}${ss}.xlsx`);
 }
 
 function buildMessage(summary, errors) {
@@ -883,6 +1024,13 @@ const AUDIT_SHEET_COLUMNS = [
     'order_created_at',
     'delivery_status',
     'is_paid_order',
+    'audit_order_type',
+    'is_monthly_purchase',
+    'recurring_detection_signals',
+    'payment_provider_mode',
+    'commission_base_for_percent',
+    'net_before_recurring_adjustment',
+    'self_reference_collapsed',
     'order_type',
     'buyer_display',
     'consumption_total_sum',
@@ -942,6 +1090,8 @@ async function writeExcelWorkbook(outPath, summary, result, errors, roundingOnly
         { metric: 'excluded', value: summary.excluded },
         { metric: 'amount_tolerance_mxn', value: AMOUNT_TOLERANCE_MXN },
         { metric: 'paid_rule', value: 'delivery_status in (Preparando, En camino, Entregado)' },
+        { metric: 'recurring_commission_base', value: '(consumption/1.16)*0.90' },
+        { metric: 'self_reference', value: 'collapse level if same user_id as previous raw level' },
         { metric: 'generated_at', value: new Date().toISOString() }
     ];
     sheetFromObjects(wb, 'Resumen', resumenRows);
@@ -1001,7 +1151,8 @@ async function main() {
             'Uso:\n' +
                 `  node ${path.basename(__filename)} --input-json=./resultado.json [--out-dir=.]\n` +
                 `  node ${path.basename(__filename)} --input=./export.xlsx [--out-dir=.]\n` +
-                `  node ${path.basename(__filename)} --from-db --start-ts="..." --end-ts="..." [--query-file=...] [--period-cutoff-day=28] [--period-base-field=order_created_at] [--skip-movements]\n`
+                `  node ${path.basename(__filename)} --from-db --start-ts="..." --end-ts="..." [--output-xlsx=custom.xlsx] [--query-file=...] [--period-cutoff-day=28] [--period-base-field=order_created_at] [--skip-movements]\n` +
+                '  Default Excel: auditoria_comisiones_YYYYMMDD_HHmmss.xlsx (no sobreescribe)\n'
         );
         process.exit(1);
     }
@@ -1024,16 +1175,15 @@ async function main() {
 
     const resultadoPath = path.join(outDir, 'resultado.json');
     const erroresJsonPath = path.join(outDir, 'errores.json');
-    const erroresCsvPath = path.join(outDir, 'errores.csv');
     const mensajePath = path.join(outDir, 'mensaje.txt');
 
     fs.writeFileSync(resultadoPath, JSON.stringify(result, null, 2), 'utf8');
     fs.writeFileSync(erroresJsonPath, JSON.stringify(errors, null, 2), 'utf8');
-    writeCsv(errors, erroresCsvPath);
     fs.writeFileSync(mensajePath, buildMessage(summary, errors), 'utf8');
 
-    const xlsxName = args['output-xlsx'] || 'auditoria_comisiones.xlsx';
-    const xlsxPath = path.join(outDir, xlsxName);
+    const xlsxPath = args['output-xlsx']
+        ? path.resolve(args['output-xlsx'])
+        : buildTimestampedOutputPath(outDir);
     await writeExcelWorkbook(xlsxPath, summary, result, errors, roundingOnly, excluded, movements);
 
     console.log(JSON.stringify({ ...summary, outDir, xlsx: xlsxPath }, null, 2));
@@ -1044,12 +1194,17 @@ async function main() {
 module.exports = {
     classifyOrder,
     isPaidOrder,
+    detectOrderType,
+    isMonthlyPurchase,
     resolvePeriodBaseDate,
     calculateExpectedPeriod,
     calculateExpectedNetwork,
-    calculateExpectedLevels,
+    collapseSelfReferenceLevels,
+    isLevelApplicable,
+    calculateCommissionBase,
     calculateExpectedAmounts,
     calculateExpectedRecipients,
+    buildTimestampedOutputPath,
     validateOrderStateVsMovements,
     validateLevelExistence,
     validateRecipientExistence,

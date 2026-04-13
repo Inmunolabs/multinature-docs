@@ -24,6 +24,7 @@ Colección de scripts para gestión, mantenimiento y automatización de tareas e
 
 - [validate-docs-links.js](#validate-docs-linksjs) - Validar enlaces relativos en archivos .md
 - [validate-entities-vs-ddl.js](#validate-entities-vs-ddljs) - Validar entities vs DDL (ver [validation-tools.md](./validation-tools.md))
+- [Auditoría de comisiones (`commission-audit`)](./commission-audit/README.md) - Órdenes, consumos y comisiones vs red y periodos (Node.js, MySQL/Excel/JSON)
 
 ### 🏥 Scripts de Healthcheck
 

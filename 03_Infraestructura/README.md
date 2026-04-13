@@ -7,6 +7,7 @@ Documentación de infraestructura, scripts, herramientas y automatización del b
 ## 📑 Secciones
 
 - **[Scripts](./Scripts/README.md)** - Colección completa de scripts de infraestructura
+- **[Auditoría de comisiones](./Scripts/commission-audit/README.md)** - Script y spec para auditar órdenes, consumos y comisiones (MySQL / Excel / JSON)
 
 ---
 
@@ -46,6 +47,10 @@ Documentación de infraestructura, scripts, herramientas y automatización del b
 - `export-form-templates.js` - Exportar form templates (Plantillas de Formularios de Pacientes) de SQL
 - `export-form-templates-queries.sql` - Queries SQL para exportar form templates directamente en MySQL Workbench
 
+### Auditoría de negocio (comisiones)
+
+- **[commission-audit](./Scripts/commission-audit/README.md)** - `auditoria_comisiones_diaria.js`: auditoría de consumos y comisiones vs red de recomendadores, periodos y reglas de montos (recurrentes: IDs de suscripción, `order_type` / `payment_provider.mode` = subscription, etc.). Detalle en el [README de `commission-audit`](./Scripts/commission-audit/README.md).
+
 ---
 
 ## 📖 Documentación Completa
@@ -56,6 +61,6 @@ Para información detallada sobre cada script, incluyendo uso, opciones, ejemplo
 
 ---
 
-- **Última actualización:** 2026-03-28
-- **Total de archivos:** 19 (incluye subdirectorios)
-- **Total de scripts:** 14
+- **Última actualización:** 2026-04-13
+- **Total de archivos:** 20+ (incluye subdirectorios)
+- **Total de scripts:** 15+ (incluye `commission-audit`)

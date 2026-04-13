@@ -131,4 +131,15 @@ UPDATE `multi-prod`.`commission_transactions` SET `date` = '2026-03-21 02:22:04'
 UPDATE `multi-prod`.`commission_transactions` SET `date` = '2026-03-21 02:22:04' WHERE (`id` = '718e5a53-32e2-11f1-a54d-0225a15deb6d');
 UPDATE `multi-prod`.`commission_transactions` SET `date` = '2026-03-21 02:22:04' WHERE (`id` = '71901a28-32e2-11f1-a54d-0225a15deb6d');
 
+UPDATE `multi-prod`.`commission_transactions` SET `amount` = '213.17' WHERE (`id` = '71901a28-32e2-11f1-a54d-0225a15deb6d');
+UPDATE `multi-prod`.`commission_transactions` SET `amount` = '85.27' WHERE (`id` = '718e5a53-32e2-11f1-a54d-0225a15deb6d');
+UPDATE `multi-prod`.`commission_transactions` SET `amount` = '42.63' WHERE (`id` = '718c20a2-32e2-11f1-a54d-0225a15deb6d');
+
+UPDATE commissions c
+JOIN commission_transactions ct ON ct.commission_id = c.id
+JOIN orders o ON o.id = ct.order_id
+SET c.created_at = o.created_at,
+    c.updated_at = NOW()
+WHERE o.folio IN ('202603210014', '202603270021');
+
 COMMIT;

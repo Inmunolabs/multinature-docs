@@ -28,7 +28,7 @@ La base de datos de Multinature contiene **82+ tablas** organizadas por dominio:
 - **Rutinas y Ejercicios** - `routines`, `exercises`, `workout_plans`
 - **Formularios** - `form_templates`, `filled_forms`, `concepts`
 - **Notificaciones** - `notifications`
-- **Comisiones** - `commissions`, `commission_transactions` (flujo end-to-end: [flows/orders_commissions_and_consumption.md](./flows/orders_commissions_and_consumption.md))
+- **Comisiones** - `commissions`, `commission_transactions` (flujo end-to-end: [flows/orders_commissions_and_consumption.md](./flows/orders_commissions_and_consumption.md); auditoría batch: [query_auditoria_comisiones.sql](./queries/query_auditoria_comisiones.sql) y script en [commission-audit README](../03_Infraestructura/Scripts/commission-audit/README.md))
 - **Y más...**
 
 ### Documentación de Tablas
