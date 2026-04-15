@@ -203,4 +203,73 @@ __tests__/__integration__/test.db.js               ← conexión directa para cl
 
 ---
 
-No se reemplazan entre sí. Los unit tests confirman que las piezas individuales funcionan. Los integration tests confirman que las piezas conectadas funcionan juntas.
+## Convención de nombrado en tests
+
+### Fundamento
+
+El nombre de un test debe describir un **comportamiento observable del sistema**, no su implementación interna. Cuando un test falla en CI, el nombre debe ser suficiente para entender qué se rompió sin abrir el archivo.
+
+Se usa **presente simple** (sin `should`). Las fuentes modernas abandonaron el `should` porque agrega ruido sin valor: si el test dice *"should return 200"* y falla, ya sabíamos que *debería* — lo que necesitamos saber es *qué hace*.
+
+### Reglas generales
+
+- Siempre usar `test`, nunca `it`.
+- Siempre en **inglés**.
+- **Presente simple**, sin `should`.
+- **Un comportamiento por `test`**. Si el nombre lleva "and", probablemente son dos tests.
+- No mencionar detalles de implementación en el nombre (nombres de métodos internos, `Array.filter`, etc.).
+
+### `describe` — Agrupa escenarios relacionados
+
+**Tests de integración:** usar el método HTTP + ruta tal como aparece en el router.
+
+```javascript
+describe('GET /forms/template/:id', () => { ... })
+describe('POST /forms/template', () => { ... })
+describe('GET /', () => { ... })
+```
+
+**Tests unitarios:** usar el nombre de la función que se está probando.
+
+```javascript
+describe('findMissingAiContractConcepts', () => { ... })
+describe('buildAiContractConceptIdSet', () => { ... })
+describe('classifyQuestionIntent', () => { ... })
+```
+
+Cuando un módulo tiene muchas funciones, anidar un `describe` padre con el nombre del módulo:
+
+```javascript
+describe('formsConceptPolicies', () => {
+  describe('isForkRelinkPairValid', () => { ... })
+  describe('findFirstDuplicateConceptId', () => { ... })
+  describe('dedupeQuestionsByConceptId', () => { ... })
+})
+```
+
+### `test` — Un comportamiento por test
+
+**Tests de integración:** prefijar con el código HTTP esperado + guión largo, seguido del resultado observable en presente.
+
+```javascript
+test('200 — returns the template with all questions', ...)
+test('403 — rejects request without token', ...)
+test('404 — returns not found for nonexistent template', ...)
+test('401 — rejects expired token', ...)
+```
+
+**Tests unitarios:** presente simple, describe lo que la función hace bajo una condición específica.
+
+```javascript
+test('detects missing concepts by id', ...)
+test('matches by customName when conceptId is absent', ...)
+test('returns null when no duplicates exist', ...)
+test('keeps last occurrence per conceptId', ...)
+```
+
+Cuando la condición es más importante que el resultado, iniciar con `when` o `with`:
+
+```javascript
+test('when both flags are 1, returns true', ...)
+test('with empty input, returns empty array', ...)
+```
