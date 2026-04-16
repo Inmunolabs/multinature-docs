@@ -166,16 +166,15 @@
 
 ### Estados de Órdenes
 
-- **Preparando**: Orden confirmada y en proceso de preparación
-- **Enviando**: Orden en tránsito
-- **Entregada**: Orden completada exitosamente
-- **Cancelada**: Orden cancelada por usuario o sistema
+**Documentación canónica (nombres exactos, transiciones PATCH, perfiles):** ver **[Pedidos: PATCH /orders/:id — actualización de estatus](./orders/patch-order-status.md)**.
 
-### Validaciones de Envío
+Resumen: los estatus de entrega en sistema incluyen *Confirmando el Pago*, *Preparando el Pedido*, *Está en camino*, *Entregado*, *Cancelado*. El flujo ideal es lineal (confirmación → preparación → envío → entregado); el **Administrador de Logística** solo avanza *Preparando → En camino* y *En camino → Entregado* según el estatus actual en BD. El **Administrador General** puede corregir estatus con más flexibilidad, sujeto a reglas de payload y contraseña de operación donde aplique.
 
-- **Compañías de envío**: Solo DHL, FEDEX y Estafeta están permitidas
-- **URL de seguimiento**: Debe ser una URL válida si se proporciona
-- **Fecha de entrega**: Formato YYYY-MM-DD obligatorio
+### Validaciones de Envío (PATCH y creación)
+
+- **Compañías de envío**: Solo DHL, FEDEX y Estafeta están permitidas cuando el destino exige datos de envío
+- **URL de seguimiento**: Debe ser una URL HTTP(S) válida cuando se marca *En camino*
+- **Fecha de entrega**: Obligatoria al marcar *Entregado*; formato de fecha válido (ver spec en documento canónico)
 
 ---
 

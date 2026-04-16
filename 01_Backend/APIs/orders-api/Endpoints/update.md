@@ -2,15 +2,23 @@
 
 ## Descripción funcional
 
-Actualiza una orden existente del usuario autenticado. Permite modificar información de envío, estado de entrega y fecha de entrega. Cuando se actualiza el estado a "En camino", el sistema envía automáticamente una notificación por email al usuario con los detalles del envío.
+Actualiza el **estatus de entrega** de una orden y, según el caso, datos de **envío** (`shipment`) o **fecha de entrega** (`deliveryDate`). Puede disparar notificaciones por email y push cuando cambia el estatus.
+
+**Reglas de negocio completas (transiciones, perfiles, contraseña, pipeline):**  
+[docs/00_Overview/Business_Rules/orders/patch-order-status.md](../../../../00_Overview/Business_Rules/orders/patch-order-status.md)
+
+---
 
 ## Autorización
 
-Requiere token Bearer válido. Solo usuarios autorizados pueden actualizar sus propias órdenes.
+- **Bearer** obligatorio.
+- Operación pensada para **Administrador General** o **Administrador de Logística** (ruta y `userOwnResources` con `:id` = id de la **orden**).
+
+---
 
 ## Parámetros de ruta
 
-- `id` (UUID, requerido): ID único de la orden
+- `id` (UUID, requerido): id de la orden
 
 ### Ejemplo
 
@@ -20,8 +28,8 @@ PATCH /orders/789e0123-e89b-12d3-a456-426614174000
 
 ## Query parameters
 
-- `page` (number, opcional): Número de página para la respuesta (por defecto: 1)
-- `limit` (number, opcional): Número de elementos por página (por defecto: 10)
+- `page` (number, opcional): paginación de la respuesta (lista de órdenes del usuario dueño)
+- `limit` (number, opcional)
 
 ## Body del request
 
@@ -29,124 +37,54 @@ PATCH /orders/789e0123-e89b-12d3-a456-426614174000
 {
   "shipment": {
     "id": "string",
-    "company": "string",
-    "trackingUrl": "string"
+    "company": "DHL | FEDEX | Estafeta",
+    "trackingUrl": "https://..."
   },
   "deliveryStatus": "string",
-  "deliveryDate": "string"
+  "deliveryDate": "YYYY-MM-DD o ISO8601"
 }
 ```
 
-### Ejemplo de body
+- Si no envías `deliveryStatus` pero envías **envío completo** (id, company, trackingUrl), el backend puede inferir **Está en camino** (compatibilidad).
 
-```json
-{
-  "shipment": {
-    "id": "ship_123",
-    "company": "FedEx",
-    "trackingUrl": "https://fedex.com/track/123456789"
-  },
-  "deliveryStatus": "En camino",
-  "deliveryDate": "2024-01-20"
-}
-```
+### Header opcional
 
-## Ejemplo de respuesta exitosa (200 OK)
+- `password`: contraseña de operación en claro; **obligatoria** solo cuando el estatus destino es **Preparando el Pedido** y el actor es **Administrador General** (validación contra `ORDERS_ADMIN_PASS`).
 
-```json
-{
-  "awsRequestId": "456e7890-e89b-12d3-a456-426614174000",
-  "message": "Orden actualizada exitosamente",
-  "data": [
-    {
-      "id": "789e0123-e89b-12d3-a456-426614174000",
-      "userId": "abc123-e89b-12d3-a456-426614174000",
-      "userName": "Carlos García",
-      "userEmail": "carlos.garcia@example.com",
-      "address": {
-        "street": "Av. Principal 123",
-        "extNumber": "A",
-        "intNumber": "5",
-        "neighborhood": "Centro",
-        "city": "Ciudad de México",
-        "federalEntity": "CDMX",
-        "zipCode": "01000",
-        "country": "México",
-        "refer": "Frente al parque"
-      },
-      "folio": "ORD-2024-001",
-      "paymentMethod": "Tarjeta Visa terminada en 1234",
-      "shipment": {
-        "id": "ship_123",
-        "company": "FedEx",
-        "trackingUrl": "https://fedex.com/track/123456789"
-      },
-      "products": [
-        {
-          "id": "prod_001",
-          "product": "Suplemento vitamínico",
-          "urlImage": "https://example.com/vitaminas.jpg",
-          "price": 299.99,
-          "quantity": 2,
-          "total": 599.98
-        }
-      ],
-      "subtotal": 599.98,
-      "iva": 95.99,
-      "shippingCost": 150.0,
-      "total": 845.97,
-      "deliveryStatus": "En camino",
-      "purchaseDate": "2024-01-15",
-      "deliveryEstimateDate": "2024-01-20",
-      "deliveryDate": "2024-01-20",
-      "receiptUrl": "https://example.com/receipts/123.pdf",
-      "type": "openpay",
-      "paymentProvider": {
-        "id": "ch_123456789",
-        "status": "succeeded"
-      },
-      "balanceAmount": 0
-    }
-  ],
-  "meta": {
-    "total": 1,
-    "page": 1,
-    "limit": 10,
-    "totalPages": 1
-  }
-}
-```
+---
+
+## Respuesta exitosa (200)
+
+Devuelve la lista paginada de órdenes del **usuario dueño** de la orden actualizada (mismo criterio que otros listados de pedidos).
+
+---
 
 ## Códigos de estado y errores
 
-| Código | Significado           | Descripción                             |
-| ------ | --------------------- | --------------------------------------- |
-| 200    | OK                    | Orden actualizada exitosamente          |
-| 400    | Bad Request           | Datos de actualización inválidos        |
-| 401    | Unauthorized          | Token faltante o inválido               |
-| 403    | Forbidden             | Sin permisos para actualizar esta orden |
-| 404    | Not Found             | Orden no encontrada                     |
-| 500    | Internal Server Error | Error del servidor                      |
+| Código | Uso típico |
+| ------ | ---------- |
+| 200 | OK (mensaje de negocio puede usar el patrón existente de la API) |
+| 400 | Body inválido (express-validator o reglas de negocio) |
+| 401 | Contraseña de operación faltante o incorrecta (Preparando + admin) |
+| 403 | Perfil no autorizado o transición no permitida (p. ej. logística) |
+| 404 | Orden no encontrada |
+| 500 | Error de servidor |
 
-## Notas útiles para el frontend
+---
 
-- **Propiedad:** Solo se pueden actualizar órdenes propias del usuario autenticado
-- **Notificaciones:** Al cambiar estado a "En camino", se envía email automáticamente
-- **Envío:** Incluir información completa de la empresa de envío y tracking
-- **Estados:** Los estados de entrega se pueden actualizar según el flujo del negocio
-- **Fechas:** La fecha de entrega se puede establecer manualmente
-- **Respuesta:** Retorna la lista completa de órdenes del usuario actualizada
-- **Paginación:** La respuesta incluye metadata de paginación
-- **Tracking:** Incluir URL de seguimiento para facilitar el tracking
+## Consideraciones técnicas (resumen)
 
-## Consideraciones técnicas
+- **Middlewares (orden):** `authorize` → `idPathParam` → `preserveCallerProfile` → `userOwnResources` → `loadOrderForPatch` → `patchOrderUpdate` → `applyOrderPatchBusinessRules` → handler `update`.
+- **BD:** `OrdersQueries.update`; la orden se carga una vez en `loadOrderForPatch` (`req.patchOrder`).
+- **Negocio:** `orderPatchBusinessRules.js` (transiciones logística vs admin, payload por destino).
 
-- **Middleware:** Aplica `authorize`, `idPathParam`, `userOwnResources` y `ordersValidations.update`
-- **Validaciones:** Verifica que el usuario solo pueda actualizar sus propias órdenes
-- **Base de datos:** Actualiza la orden usando `OrdersQueries.update`
-- **Notificaciones:** Envía email automático cuando el estado cambia a "En camino"
-- **DTO:** Usa `getOrdersByUserId` para retornar la lista actualizada
-- **Envío:** Actualiza información de envío, estado y fecha de entrega
-- **Email:** Usa `EmailsNotifications.EmailNotificationStrategy` para notificaciones
-- **Paginación:** Incluye metadata de paginación en la respuesta
-- **Performance:** Optimizado para actualizaciones con notificaciones automáticas
+---
+
+## Referencias
+
+- [Reglas de negocio PATCH (canónico)](../../../../00_Overview/Business_Rules/orders/patch-order-status.md)
+- [Índice Endpoints orders-api](./README.md)
+
+---
+
+- **Última actualización:** 2026-04-15

@@ -45,6 +45,7 @@ Documentación completa de Multinature, incluyendo APIs, base de datos, infraest
 **Product Owner/Business:**
 
 - [Reglas de Negocio](./00_Overview/Business_Rules/README.md) - Lógica de negocio
+- [Pedidos / PATCH estatus](./00_Overview/Business_Rules/orders/patch-order-status.md) - Transiciones, logística vs admin, cancelación vs flujo ideal
 - [Citas y pagos (bookings-api)](./00_Overview/Business_Rules/citas/README.md) - Agendamiento, pagos por cita y variable **PAYMENTS_ENABLED**
 - [Decisiones de Negocio](./05_Negocio/decision-records.md) - Registro de decisiones
 

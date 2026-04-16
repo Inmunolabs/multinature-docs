@@ -1,10 +1,10 @@
 Auditoría de comisiones (commission-audit-spec.md)
 
-Órdenes analizadas: 33
-OK: 31
+Órdenes analizadas: 35
+OK: 35
 Solo redondeo: 0
 Errores accionables: 0
-Excluidas: 2
+Excluidas: 0
 Tolerancia montos: ±0.1 MXN
 
 No se detectaron errores accionables.

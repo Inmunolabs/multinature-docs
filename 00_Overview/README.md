@@ -28,6 +28,7 @@ Visión general del proyecto Multinature, incluyendo reglas de negocio, estructu
 
 ### Reglas de Negocio por Dominio
 
+- [Pedidos / órdenes (tienda)](./Business_Rules/orders/README.md) — PATCH estatus, logística vs admin, transiciones
 - [Usuarios](./Business_Rules/users/README.md)
 - [Nutriólogos](./Business_Rules/nutriologos/README.md)
 - [Especialistas](./Business_Rules/specialists/README.md)
@@ -36,5 +37,5 @@ Visión general del proyecto Multinature, incluyendo reglas de negocio, estructu
 
 ---
 
-- **Última actualización:** 2026-03-28
-- **Total de archivos:** 20 (incluye subdirectorios)
+- **Última actualización:** 2026-04-15
+- **Total de archivos:** 22+ (incluye subdirectorios)

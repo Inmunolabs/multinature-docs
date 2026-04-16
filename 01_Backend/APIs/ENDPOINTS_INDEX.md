@@ -189,6 +189,8 @@
 
 **Documentación completa:** [orders-api/README.md](./orders-api/README.md)
 
+**Reglas de negocio (pedidos / estatus):** [Business Rules — orders](../../00_Overview/Business_Rules/orders/README.md)
+
 ### Endpoints
 
 - [PATCH /orders/cancel/:id](./orders-api/Endpoints/cancel.md)

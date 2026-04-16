@@ -2,6 +2,8 @@
 
 Documentación de endpoints.
 
+**Reglas de negocio centralizadas (estatus, logística):** [Business Rules — PATCH pedidos](../../../../00_Overview/Business_Rules/orders/patch-order-status.md)
+
 ---
 
 ## Archivos
@@ -22,5 +24,5 @@ Documentación de endpoints.
 
 ---
 
-- **Última actualización:** 2026-03-28
+- **Última actualización:** 2026-04-15
 - **Total de archivos:** 14

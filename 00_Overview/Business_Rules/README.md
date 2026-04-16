@@ -6,6 +6,7 @@ Documentación de business rules.
 
 ## Secciones
 
+- [Pedidos (tienda): reglas de negocio](./orders/README.md) — Hub: PATCH estatus, transiciones, perfiles (documentación canónica)
 - [Pedidos, comisiones y consumo](../../04_SQL/flows/orders_commissions_and_consumption.md) — Flujo cuando una orden queda pagada (`orders-api` + tablas SQL; casos de prueba y backlog en la misma carpeta `04_SQL/flows/`)
 - [citas](./citas/README.md) — Agendamiento, pagos por cita y variable PAYMENTS_ENABLED (bookings-api)
 - [medicos_generales](./medicos_generales/recetasMedicas.md)
@@ -18,12 +19,12 @@ Documentación de business rules.
 
 - [Diagrama de Funcionalidades](./funcionalidades-multinature.png)
 - [Diagrama de Funcionalidades (Excalidraw)](./funcionalidades-multinature.excalidraw)
-- [Reglas de Negocio - Proyecto Multinature](./reglas-de-negocio.md)
+- [Reglas de Negocio - Proyecto Multinature](./reglas-de-negocio.md) — Índice histórico; el detalle de **PATCH pedidos** está en [orders/patch-order-status.md](./orders/patch-order-status.md)
 - [Requerimientos de Software](https://docs.google.com/document/d/1RmOMpKeZ9XW2bLhkbv60YhoURoQoVh6NG7p35GC2HfY/edit?tab=t.0#heading=h.ch0ua7wmgt2e)
 - [Médicos Generales](./medicosGenerales.md)
 - [Flujos de Rutinas (Instrucciones para Pandalatec)](./routines.md)
 
 ---
 
-- **Última actualización:** 2026-03-28
-- **Total de archivos:** 17 (incluye subdirectorios)
+- **Última actualización:** 2026-04-15
+- **Total de archivos:** 20+ (incluye subdirectorios; ver [orders/](./orders/))

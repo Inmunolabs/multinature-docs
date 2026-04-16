@@ -9,7 +9,7 @@ Documentación de negocio, decisiones, pendientes y recursos relacionados con el
 - **[Decision Records](./decision-records.md)** - Registro de decisiones de negocio y producto
 - **[Pendientes de Baja Prioridad](./TODOS.md)** - Lista de tareas pendientes, investigaciones futuras y mejoras
 - **[Vacante Ejecutivo de Ventas](./vacante-ejecutivo-ventas.md)** - Descripción de vacante para ejecutivo de ventas
-- **Reglas de negocio (índice y detalle):** [00_Overview/Business_Rules](../00_Overview/Business_Rules/README.md) — incluye [Registro e identidad (email/teléfono)](../00_Overview/Business_Rules/users/registro-identidad-email-telefono.md)
+- **Reglas de negocio (índice y detalle):** [00_Overview/Business_Rules](../00_Overview/Business_Rules/README.md) — incluye [Registro e identidad (email/teléfono)](../00_Overview/Business_Rules/users/registro-identidad-email-telefono.md) y [Pedidos: PATCH estatus](../00_Overview/Business_Rules/orders/patch-order-status.md)
 
 ---
 
@@ -27,4 +27,4 @@ Documentación de negocio, decisiones, pendientes y recursos relacionados con el
 
 ---
 
-- **Última actualización:** 2026-03-28
+- **Última actualización:** 2026-04-15

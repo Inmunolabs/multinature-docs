@@ -27,8 +27,7 @@ Variables de entorno para modo `--from-db`: `DB_HOST`, `DB_PORT`, `DB_USER`, `DB
 
 ```bash
 # Desde la raíz del workspace backend/
-node docs/03_Infraestructura/Scripts/commission-audit/auditoria_comisiones_diaria.js --from-db ^
-  --start-ts="2026-03-01 00:00:00" --end-ts="2026-04-01 00:00:00" --out-dir=./salida_auditoria
+node docs/03_Infraestructura/Scripts/commission-audit/auditoria_comisiones_diaria.js --from-db --start-ts="2026-03-01 00:00:00" --end-ts="2026-04-01 00:00:00" --out-dir=./docs/03_Infraestructura/Scripts/commission-audit/salida_auditoria
 ```
 
 - Por defecto el Excel se guarda como `auditoria_comisiones_YYYYMMDD_HHmmss.xlsx` (no sobrescribe corridas anteriores).
